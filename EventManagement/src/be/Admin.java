@@ -1,8 +1,8 @@
 package be;
 
-import be.Interface.IHuman;
+import be.Interface.IUser;
 
-public class Admin implements IHuman {
+public class Admin implements IUser {
 
     private static final String USERNAME_ADMIN = "A";
     private static final String PASSWORD_ADMIN = "1";

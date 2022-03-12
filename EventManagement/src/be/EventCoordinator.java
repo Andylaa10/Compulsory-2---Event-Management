@@ -1,8 +1,8 @@
 package be;
 
-import be.Interface.IHuman;
+import be.Interface.IUser;
 
-public class EventCoordinator implements IHuman {
+public class EventCoordinator implements IUser {
     private static final String USERNAME_EVENT = "A";
     private static final String PASSWORD_EVENT = "1";
 

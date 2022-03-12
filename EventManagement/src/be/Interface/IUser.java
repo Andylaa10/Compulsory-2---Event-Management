@@ -1,6 +1,6 @@
 package be.Interface;
 
-public interface IHuman {
+public interface IUser {
     String getUsername();
     String getPassword();
 
