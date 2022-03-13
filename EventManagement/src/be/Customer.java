@@ -3,7 +3,7 @@ package be;
 import be.Interface.IUser;
 
 public class Customer implements IUser {
-    private static final String USERNAME_CUSTOMER = "A";
+    private static final String USERNAME_CUSTOMER = "B";
     private static final String PASSWORD_CUSTOMER = "1";
 
     @Override
