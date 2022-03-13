@@ -3,10 +3,7 @@ package gui.controller;
 import be.Admin;
 import be.Customer;
 import be.EventCoordinator;
-import javafx.animation.Interpolator;
-import javafx.animation.KeyFrame;
-import javafx.animation.KeyValue;
-import javafx.animation.Timeline;
+import javafx.animation.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -49,6 +46,16 @@ public class LoginController implements Initializable {
 
     @FXML
     private ImageView logo;
+    @FXML
+    private ImageView img1;
+    @FXML
+    private ImageView img2;
+    @FXML
+    private ImageView img3;
+    @FXML
+    private ImageView img4;
+    @FXML
+    private ImageView img5;
 
     private Admin admin = new Admin();
     private Customer customer = new Customer();
@@ -61,6 +68,11 @@ public class LoginController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         setBorder(loginPane);
+        setFade(img1);
+        setFade(img2);
+        setFade(img3);
+        setFade(img4);
+        setFade(img5);
     }
 
     public void help(ActionEvent actionEvent) {
@@ -119,5 +131,17 @@ public class LoginController implements Initializable {
         Timeline timeline = new Timeline(keyFrames);
         timeline.setCycleCount(Timeline.INDEFINITE);
         timeline.play();
+    }
+
+    private void setFade(ImageView img){
+        //fade
+        FadeTransition fade = new FadeTransition();
+        fade.setNode(img);
+        fade.setDuration(Duration.millis(2500));
+        fade.setCycleCount(TranslateTransition.INDEFINITE);
+        fade.setInterpolator(Interpolator.LINEAR);
+        fade.setFromValue(0.4);
+        fade.setToValue(0);
+        fade.play();
     }
 }
