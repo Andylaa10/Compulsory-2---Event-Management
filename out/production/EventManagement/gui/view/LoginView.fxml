@@ -21,7 +21,7 @@
         <PasswordField fx:id="passwordField" layoutX="107.0" layoutY="277.0" prefHeight="26.0" prefWidth="150.0" promptText="Enter password here" AnchorPane.leftAnchor="107.0" AnchorPane.rightAnchor="82.60000000000002" />
         <Label layoutX="44.0" layoutY="231.0" text="Username:" />
         <Label layoutX="46.0" layoutY="281.0" text="Password:" />
-        <Button fx:id="btnLogin" layoutX="174.0" layoutY="323.0" mnemonicParsing="false" onAction="#LogIn" prefHeight="26.0" prefWidth="83.0" text="Login" AnchorPane.rightAnchor="82.80000000000001" />
+        <Button fx:id="btnLogin" layoutX="215.0" layoutY="323.0" mnemonicParsing="false" onAction="#LogIn" prefHeight="26.0" prefWidth="83.0" text="Login" AnchorPane.rightAnchor="41.80000000000001" />
         <Label layoutX="22.0" layoutY="377.0" text="Forgot login" AnchorPane.bottomAnchor="14.399999999999999" AnchorPane.leftAnchor="22.0" />
         <CheckBox layoutX="210.0" layoutY="377.0" mnemonicParsing="false" onAction="#saveLogin" text="Remember login?" AnchorPane.bottomAnchor="14.399999999999999" AnchorPane.rightAnchor="14.0" />
         <Button fx:id="btnHelp" layoutX="13.0" layoutY="372.0" mnemonicParsing="false" onAction="#help" opacity="0.0" prefHeight="26.0" prefWidth="83.0" />
@@ -30,7 +30,7 @@
             <Image url="@img/Events4Every1_free-file.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="img1" fitHeight="8.0" fitWidth="10.0" layoutX="39.0" layoutY="72.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="img1" fitHeight="8.0" fitWidth="10.0" layoutX="41.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@img/light.png" />
          </image>
@@ -40,20 +40,26 @@
             <Image url="@img/light.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="img3" fitHeight="8.0" fitWidth="10.0" layoutX="252.0" layoutY="201.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="img3" fitHeight="8.0" fitWidth="10.0" layoutX="279.0" layoutY="177.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@img/light.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="img4" fitHeight="8.0" fitWidth="10.0" layoutX="44.0" layoutY="332.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="img4" fitHeight="8.0" fitWidth="10.0" layoutX="177.0" layoutY="332.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@img/light.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="img5" fitHeight="8.0" fitWidth="10.0" layoutX="275.0" layoutY="345.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="img5" fitHeight="8.0" fitWidth="10.0" layoutX="287.0" layoutY="299.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@img/light.png" />
          </image>
       </ImageView>
+      <ImageView fx:id="img6" fitHeight="8.0" fitWidth="10.0" layoutX="35.0" layoutY="213.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/light.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="btnQuit" layoutX="46.0" layoutY="323.0" mnemonicParsing="false" onAction="#Quit" prefHeight="26.0" prefWidth="83.0" text="Quit" />
     </children>
 </AnchorPane>
