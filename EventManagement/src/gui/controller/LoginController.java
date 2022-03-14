@@ -25,13 +25,9 @@ import javafx.util.Duration;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
-import java.util.prefs.Preferences;
 import java.util.stream.Stream;
 
-import static java.lang.Thread.sleep;
 
 public class LoginController implements Initializable {
 
@@ -47,8 +43,6 @@ public class LoginController implements Initializable {
     @FXML
     private AnchorPane loginPane;
 
-    @FXML
-    private ImageView logo;
     @FXML
     private ImageView img1;
     @FXML
@@ -79,10 +73,10 @@ public class LoginController implements Initializable {
     }
 
     /**
-     * This helps you, if you cant remember or have problems with login
-     * @param actionEvent
+     * This helps you, if you cannot remember or have problems with login
+     *
      */
-    public void help(ActionEvent actionEvent) {
+    public void help() {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Please contact the administration");
         alert.setHeaderText("Please contract the administration");
@@ -93,6 +87,7 @@ public class LoginController implements Initializable {
     /**
      * This method send you to another view, if you have an account
      * @throws IOException
+     * If there are any exceptions
      */
     public void LogIn() throws IOException {
         if (passwordField.getText().equals(admin.getPassword()) && usernameField.getText().equals(admin.getUsername())) {
@@ -129,7 +124,6 @@ public class LoginController implements Initializable {
                 .map(Color::web)
                 .toArray(Color[]::new);
 
-        List<Border> list = new ArrayList<>();
 
         int mills[] = {-200};
         KeyFrame keyFrames[]  = Stream.iterate(0, i -> i+1)
@@ -169,6 +163,7 @@ public class LoginController implements Initializable {
     /**
      * Makes the images fade, this creates a star effect
      * @param img
+     * Takes an images and make it fade
      */
     private void setFade(ImageView img){
         //fade

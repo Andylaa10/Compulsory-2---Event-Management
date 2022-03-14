@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 public class DatabaseConnector {
 
-    private SQLServerDataSource dataSource;
+    private final SQLServerDataSource dataSource;
 
     /**
      * Constructor for the database, plugging in the details of our SQL server / login
@@ -24,8 +24,9 @@ public class DatabaseConnector {
     /**
      * connects to the database using .getConnection();
      *
-     * @return
+     * @return Connection
      * @throws SQLServerException
+     * If there are any SQLServer exception
      */
     public Connection getConnection() throws SQLServerException {
         return dataSource.getConnection();
