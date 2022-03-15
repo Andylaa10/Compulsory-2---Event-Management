@@ -144,16 +144,22 @@ public class LoginController implements Initializable {
     private void delayLight(){
         try{
             setFade(img1);
+            setTranslate(img1);
             Thread.sleep(500);
             setFade(img2);
+            setTranslate(img2);
             Thread.sleep(500);
             setFade(img3);
+            setTranslate(img3);
             Thread.sleep(500);
             setFade(img4);
+            setTranslate(img4);
             Thread.sleep(500);
             setFade(img5);
+            setTranslate(img5);
             Thread.sleep(200);
             setFade(img6);
+            setTranslate(img6);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -175,6 +181,21 @@ public class LoginController implements Initializable {
         fade.setFromValue(0.4);
         fade.setToValue(0);
         fade.play();
+    }
+
+    /**
+     * Makes an animation effect on our images, this creates a shooting stars effect
+     * @param img
+     */
+    private void setTranslate (ImageView img){
+        TranslateTransition translate = new TranslateTransition();
+        translate.setNode(img);
+        translate.setDuration(Duration.millis(3000));
+        translate.setCycleCount(TranslateTransition.INDEFINITE);
+        translate.setByX(50);
+        translate.setByY(-50);
+        translate.setAutoReverse(true);
+        translate.play();
     }
 
     public void Quit(ActionEvent actionEvent) {
