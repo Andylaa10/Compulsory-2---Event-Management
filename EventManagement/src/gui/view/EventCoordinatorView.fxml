@@ -5,12 +5,14 @@
 <?import javafx.scene.text.Text?>
 
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.EventCoordinatorViewController">
+<?import javafx.scene.control.Button?>
+<AnchorPane stylesheets="@CSS/Login.css" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.EventCoordinatorViewController">
    <children>
       <Text layoutX="18.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EventCoordinator">
          <font>
             <Font size="73.0" />
          </font>
       </Text>
+      <Button fx:id="btnLogOutFromEventCoordinator" layoutX="215.0" layoutY="323.0" mnemonicParsing="false" onAction="#LogOutFromEventCoordinator" prefHeight="26.0" prefWidth="83.0" text="Log out" AnchorPane.rightAnchor="41.80000000000001" />
    </children>
 </AnchorPane>

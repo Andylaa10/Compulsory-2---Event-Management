@@ -5,12 +5,14 @@
 <?import javafx.scene.text.Text?>
 
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.CustomerViewController">
+<?import javafx.scene.control.Button?>
+<AnchorPane stylesheets="@CSS/Login.css" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.CustomerViewController">
    <children>
       <Text layoutX="176.0" layoutY="195.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer">
          <font>
             <Font size="58.0" />
          </font>
       </Text>
+      <Button fx:id="btnLogOutFromCustomer" layoutX="215.0" layoutY="323.0" mnemonicParsing="false" onAction="#LogOutFromCustomer" prefHeight="26.0" prefWidth="83.0" text="Login" AnchorPane.rightAnchor="41.80000000000001" />
    </children>
 </AnchorPane>
