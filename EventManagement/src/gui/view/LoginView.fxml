@@ -12,6 +12,36 @@
 
 <AnchorPane fx:id="loginPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="409.0" prefWidth="340.0" stylesheets="@CSS/Login.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.LoginController">
     <children>
+      <ImageView fx:id="img1" fitHeight="8.0" fitWidth="10.0" layoutX="41.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/light.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="img2" fitHeight="8.0" fitWidth="10.0" layoutX="238.0" layoutY="76.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/light.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="img3" fitHeight="8.0" fitWidth="10.0" layoutX="234.0" layoutY="219.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/light.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="img4" fitHeight="8.0" fitWidth="10.0" layoutX="136.0" layoutY="336.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/light.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="img5" fitHeight="8.0" fitWidth="10.0" layoutX="261.0" layoutY="299.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/light.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="img6" fitHeight="8.0" fitWidth="10.0" layoutX="36.0" layoutY="223.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/light.png" />
+         </image>
+      </ImageView>
         <Label fx:id="Name" layoutX="45.0" layoutY="-12.0" prefHeight="74.0" prefWidth="273.0" text="EventTrips" AnchorPane.leftAnchor="45.0" AnchorPane.topAnchor="-12.0">
             <font>
                 <Font size="42.0" />
@@ -28,36 +58,6 @@
       <ImageView fx:id="logo" fitHeight="150.0" fitWidth="200.0" layoutX="70.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@img/Events4Every1_free-file.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="img1" fitHeight="8.0" fitWidth="10.0" layoutX="41.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@img/light.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="img2" fitHeight="8.0" fitWidth="10.0" layoutX="238.0" layoutY="76.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@img/light.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="img3" fitHeight="8.0" fitWidth="10.0" layoutX="279.0" layoutY="177.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@img/light.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="img4" fitHeight="8.0" fitWidth="10.0" layoutX="177.0" layoutY="332.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@img/light.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="img5" fitHeight="8.0" fitWidth="10.0" layoutX="287.0" layoutY="299.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@img/light.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="img6" fitHeight="8.0" fitWidth="10.0" layoutX="35.0" layoutY="213.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@img/light.png" />
          </image>
       </ImageView>
       <Button fx:id="btnQuit" layoutX="46.0" layoutY="323.0" mnemonicParsing="false" onAction="#Quit" prefHeight="26.0" prefWidth="83.0" text="Quit" />
