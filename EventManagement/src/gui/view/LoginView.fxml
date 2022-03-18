@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="loginPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="409.0" prefWidth="340.0" stylesheets="@CSS/Login.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.LoginController">
+<AnchorPane fx:id="loginPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="409.0" prefWidth="340.0" stylesheets="@CSS/Login.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.LoginController">
     <children>
       <ImageView fx:id="img1" fitHeight="8.0" fitWidth="10.0" layoutX="41.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -47,11 +47,11 @@
                 <Font size="42.0" />
             </font>
         </Label>
-        <TextField fx:id="usernameField" layoutX="107.0" layoutY="227.0" promptText="Enter username here" AnchorPane.leftAnchor="107.0" AnchorPane.rightAnchor="83.39999999999998" />
-        <PasswordField fx:id="passwordField" layoutX="107.0" layoutY="277.0" prefHeight="26.0" prefWidth="150.0" promptText="Enter password here" AnchorPane.leftAnchor="107.0" AnchorPane.rightAnchor="82.60000000000002" />
+        <TextField fx:id="usernameField" layoutX="109.0" layoutY="226.0" prefHeight="26.0" prefWidth="196.0" promptText="Enter username here" AnchorPane.leftAnchor="109.0" AnchorPane.rightAnchor="35.0" />
+        <PasswordField fx:id="passwordField" layoutX="109.0" layoutY="276.0" prefHeight="26.0" prefWidth="196.0" promptText="Enter password here" AnchorPane.leftAnchor="109.0" AnchorPane.rightAnchor="35.0" />
         <Label layoutX="44.0" layoutY="231.0" text="Username:" />
         <Label layoutX="46.0" layoutY="281.0" text="Password:" />
-        <Button fx:id="btnLogin" layoutX="215.0" layoutY="323.0" mnemonicParsing="false" onAction="#LogIn" prefHeight="26.0" prefWidth="83.0" text="Login" AnchorPane.rightAnchor="41.80000000000001" />
+        <Button fx:id="btnLogin" layoutX="44.999999999999986" layoutY="322.0" mnemonicParsing="false" onAction="#LogIn" prefHeight="26.0" prefWidth="99.0" text="Login" AnchorPane.rightAnchor="196.0" />
         <Label layoutX="22.0" layoutY="377.0" text="Forgot login" AnchorPane.bottomAnchor="14.399999999999999" AnchorPane.leftAnchor="22.0" />
         <CheckBox layoutX="210.0" layoutY="377.0" mnemonicParsing="false" onAction="#saveLogin" text="Remember login?" AnchorPane.bottomAnchor="14.399999999999999" AnchorPane.rightAnchor="14.0" />
         <Button fx:id="btnHelp" layoutX="13.0" layoutY="372.0" mnemonicParsing="false" onAction="#help" opacity="0.0" prefHeight="26.0" prefWidth="83.0" />
@@ -60,6 +60,6 @@
             <Image url="@img/Events4Every1_free-file.png" />
          </image>
       </ImageView>
-      <Button fx:id="btnQuit" layoutX="46.0" layoutY="323.0" mnemonicParsing="false" onAction="#Quit" prefHeight="26.0" prefWidth="83.0" text="Quit" />
+      <Button fx:id="btnQuit" layoutX="207.0" layoutY="322.0" mnemonicParsing="false" onAction="#Quit" prefHeight="26.0" prefWidth="99.0" text="Quit" />
     </children>
 </AnchorPane>
