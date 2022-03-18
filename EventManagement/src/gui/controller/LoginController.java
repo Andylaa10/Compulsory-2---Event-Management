@@ -4,7 +4,6 @@ import be.Admin;
 import be.Customer;
 import be.EventCoordinator;
 import javafx.animation.*;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -23,6 +22,10 @@ import javafx.scene.paint.Stop;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+import javax.imageio.ImageIO;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -60,9 +63,22 @@ public class LoginController implements Initializable {
     private Customer customer = new Customer();
     private EventCoordinator eventCoordinator = new EventCoordinator();
 
-    //https://www.youtube.com/watch?v=mgw1sAvhjy8&ab_channel=JavaGuides
-    public void saveLogin() {
+    public void saveLogin() throws IOException {
+        Robot robot = null;
+        try {
+            robot = new Robot();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
+        BufferedImage i = robot.createScreenCapture(new Rectangle(1920,1080));
+        File output = new File("./save.png");
+        try {
+            ImageIO.write(i, "png", output);
+
+        } catch (IOException exception) {
+            exception.printStackTrace();
+        }
     }
 
     @Override
@@ -95,12 +111,6 @@ public class LoginController implements Initializable {
             Parent root = FXMLLoader.load(getClass().getResource("/gui/view/AdminView.fxml"));
             switcher.setTitle("AdminManagement");
             Scene scene = new Scene(root);
-            switcher.setScene(scene);
-        } else if (passwordField.getText().equals(customer.getPassword()) && usernameField.getText().equals(customer.getUsername())) {
-            Stage switcher = (Stage) btnLogin.getScene().getWindow();
-            Parent root = FXMLLoader.load(getClass().getResource("/gui/view/CustomerView.fxml"));
-            Scene scene = new Scene(root);
-            switcher.setTitle("CustomerManagement");
             switcher.setScene(scene);
         } else if (passwordField.getText().equals(eventCoordinator.getPassword()) && usernameField.getText().equals(eventCoordinator.getUsername())) {
             Stage switcher = (Stage) btnLogin.getScene().getWindow();
@@ -198,7 +208,7 @@ public class LoginController implements Initializable {
         translate.play();
     }
 
-    public void Quit(ActionEvent actionEvent) {
+    public void Quit() {
         System.exit(0);
     }
 }

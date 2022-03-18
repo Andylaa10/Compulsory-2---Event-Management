@@ -1,6 +1,5 @@
 package gui.controller;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -15,7 +14,7 @@ public class CustomerViewController {
     @FXML
     private Button btnLogOutFromCustomer;
 
-    public void LogOutFromCustomer(ActionEvent actionEvent) throws IOException {
+    public void LogOutFromCustomer() throws IOException {
         Stage switcher = (Stage) btnLogOutFromCustomer.getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("/gui/view/LoginView.fxml"));
         switcher.setTitle("Event Management");

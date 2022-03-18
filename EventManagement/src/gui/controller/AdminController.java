@@ -1,6 +1,5 @@
 package gui.controller;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -15,7 +14,7 @@ public class AdminController {
     @FXML
     private Button btnLogOutFromAdmin;
 
-    public void LogOutFromAdmin(ActionEvent actionEvent) throws IOException {
+    public void LogOutFromAdmin() throws IOException {
 
         Stage switcher = (Stage) btnLogOutFromAdmin.getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("/gui/view/LoginView.fxml"));

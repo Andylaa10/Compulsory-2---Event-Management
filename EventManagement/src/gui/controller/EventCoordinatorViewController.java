@@ -1,6 +1,5 @@
 package gui.controller;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -15,7 +14,7 @@ public class EventCoordinatorViewController {
     @FXML
     private Button btnLogOutFromEventCoordinator;
 
-    public void LogOutFromEventCoordinator(ActionEvent actionEvent) throws IOException {
+    public void LogOutFromEventCoordinator() throws IOException {
         Stage switcher = (Stage) btnLogOutFromEventCoordinator.getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("/gui/view/LoginView.fxml"));
         switcher.setTitle("Event Management");
