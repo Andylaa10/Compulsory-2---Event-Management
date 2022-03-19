@@ -12,7 +12,7 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@CSS/Login.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.EventCoordinatorViewController">
    <children>
-      <Text fill="WHITE" layoutX="46.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Available Event - Events 4 every 1" wrappingWidth="507.27001953125">
+      <Text fill="WHITE" layoutX="46.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Available Event - Events 4 every 1" wrappingWidth="507.27001953125">
          <font>
             <Font size="36.0" />
          </font>
