@@ -1,7 +1,7 @@
 package dal;
 
-import be.Admin;
 import be.EventCoordinator;
+import be.Ticket;
 import com.microsoft.sqlserver.jdbc.SQLServerException;
 import dal.db.DatabaseConnector;
 
@@ -13,37 +13,38 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AdminDAO {
+public class TicketDAO {
     private final DatabaseConnector connector;
 
-    public AdminDAO() throws IOException {
+    public TicketDAO() throws IOException {
         connector = new DatabaseConnector();
     }
 
     /**
-     * Making an admin list, connecting to the database and adding the results to our ArrayList.
-     * @return a list of admins or an empty list of admins
+     * Making a ticket list, connecting to the database and adding the results to our ArrayList.
+     * @return a list of tickets or an empty list of tickets
      */
-    public List<Admin> getAdmins() {
+    public List<Ticket> getCoordinators() {
 
-        ArrayList<Admin> allAdmins = new ArrayList<>();
+        ArrayList<Ticket> allTickets = new ArrayList<>();
 
         try (Connection connection = connector.getConnection()) {
 
-            String sql = "SELECT * FROM Login;";
+            String sql = "SELECT * FROM Ticket;";
 
             Statement statement = connection.createStatement();
 
             if (statement.execute(sql)) {
                 ResultSet resultset = statement.getResultSet();
                 while (resultset.next()) {
-                    int loginID = resultset.getInt("LoginID");
-                    String username = resultset.getString("username");
-                    String password = resultset.getString("password");
-                    boolean isAdmin = resultset.getBoolean("isAdmin");
+                    int ticketID = resultset.getInt("TicketID");
+                    String ticketType = resultset.getString("TicketType");
+                    String ticketPicture = resultset.getString("TicketPicture");
+                    int eventID = resultset.getInt("EventId");
+                    int customerID = resultset.getInt("CustomerId");
 
-                    Admin admin = new Admin(loginID, username, password, isAdmin);
-                    allAdmins.add(admin);
+                    Ticket ticket = new Ticket(ticketID, ticketType, ticketPicture, eventID, customerID);
+                    allTickets.add(ticket);
                 }
             }
         } catch (SQLServerException throwables) {
@@ -51,6 +52,6 @@ public class AdminDAO {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-        return allAdmins;
+        return allTickets;
     }
 }

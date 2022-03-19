@@ -7,6 +7,7 @@ public class Admin implements ILogin {
     private int id;
     private String usernameAdmin = "A";
     private String passwordAdmin = "1";
+    private boolean isAdmin;
 
     /**
      * Constructor
@@ -18,12 +19,14 @@ public class Admin implements ILogin {
      * @param id
      * @param usernameAdmin
      * @param passwordAdmin
+     * @param isAdmin
      * Constructor with id, usernameAdmin and passwordAdmin
      */
-    public Admin(int id, String usernameAdmin, String passwordAdmin) {
+    public Admin(int id, String usernameAdmin, String passwordAdmin, boolean isAdmin) {
         this.id = id;
         this.usernameAdmin = usernameAdmin;
         this.passwordAdmin = passwordAdmin;
+        this.isAdmin = isAdmin;
     }
 
     /**

@@ -9,6 +9,7 @@ public class EventCoordinator implements ILogin {
     private int id;
     private String usernameEvent = "B";
     private String passwordEvent = "1";
+    private boolean isAdmin;
     private List<Customer> customers = new ArrayList<>();
 
     /**
@@ -21,12 +22,14 @@ public class EventCoordinator implements ILogin {
      * @param id
      * @param usernameEvent
      * @param passwordEvent
-     * Constructor with id, usernameEvent and passwordEvent
+     * @param isAdmin
+     * Constructor with id, usernameEvent, passwordEvent and isAdmin
      */
-    public EventCoordinator(int id, String usernameEvent, String passwordEvent) {
+    public EventCoordinator(int id, String usernameEvent, String passwordEvent, boolean isAdmin) {
         this.id = id;
         this.usernameEvent = usernameEvent;
         this.passwordEvent = passwordEvent;
+        this.isAdmin = isAdmin;
     }
 
     /**
