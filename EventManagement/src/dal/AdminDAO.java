@@ -1,15 +1,9 @@
 package dal;
 
 import be.Admin;
-import be.EventCoordinator;
-import com.microsoft.sqlserver.jdbc.SQLServerException;
 import dal.db.DatabaseConnector;
-
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,11 +40,29 @@ public class AdminDAO {
                     allAdmins.add(admin);
                 }
             }
-        } catch (SQLServerException throwables) {
-            throwables.printStackTrace();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
         return allAdmins;
+    }
+
+    /**
+     * @param admin
+     * Edits an admin
+     */
+    public void editAdmin(Admin admin) {
+        try (Connection connection = connector.getConnection()) {
+            String sql = "UPDATE Login SET username=?, password=?, isAdmin=? WHERE LoginID=?;";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, admin.getUsername());
+            preparedStatement.setString(2, admin.getPassword());
+            preparedStatement.setBoolean(3, admin.isAdmin());
+            preparedStatement.setInt(4, admin.getId());
+            if (preparedStatement.executeUpdate() != 1) {
+                throw new Exception("Could not edit admin");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

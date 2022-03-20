@@ -1,15 +1,10 @@
 package dal;
 
-import be.EventCoordinator;
 import be.Ticket;
 import com.microsoft.sqlserver.jdbc.SQLServerException;
 import dal.db.DatabaseConnector;
-
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -53,5 +48,82 @@ public class TicketDAO {
             throwables.printStackTrace();
         }
         return allTickets;
+    }
+
+    /**
+     * Creates a ticket, by inserting a giving ticketType, ticketPicture, eventId and customerId
+     * @param ticketType
+     * @param ticketPicture
+     * @param eventId
+     * @param customerId
+     * @return
+     * @throws SQLException
+     */
+    public Ticket createTicket (String ticketType, String ticketPicture, int eventId, int customerId) throws SQLException {
+        try (Connection connection = connector.getConnection()) {
+            String sql = "INSERT INTO Ticket (TicketType, TicketPicture, EventId, CustomerId) values (?,?,?,?)";
+
+            try (PreparedStatement preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+                preparedStatement.setString(1, ticketType);
+                preparedStatement.setString(2, ticketPicture);
+                preparedStatement.setInt(3, eventId);
+                preparedStatement.setInt(4, customerId);
+                preparedStatement.execute();
+
+                ResultSet resultSet = preparedStatement.getGeneratedKeys();
+                int id = 0;
+                if (resultSet.next()) {
+                    id = resultSet.getInt(1);
+                }
+
+                Ticket ticket = new Ticket(id, ticketType, ticketPicture, eventId, customerId);
+                return ticket;
+
+            }
+
+        } catch (SQLServerException throwables) {
+            throwables.printStackTrace();
+            return null;
+        }
+    }
+
+    /**
+     * @param id
+     * Deletes a ticket by taken the id
+     */
+    public void deleteTicket(int id) {
+        try (Connection connection = connector.getConnection()) {
+            String sql = "DELETE FROM Ticket WHERE TicketID =?;";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, id);
+            if (preparedStatement.executeUpdate() != 1) {
+                throw new Exception("Could not delete ticket");
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * @param ticket
+     * Edits a ticket
+     */
+    public void editTicket(Ticket ticket) {
+        try (Connection connection = connector.getConnection()) {
+            String sql = "UPDATE Ticket SET TicketType=?, TicketPicture=?, EventId=?, CustomerId=? WHERE TicketID=?;";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, ticket.getTicketType());
+            preparedStatement.setString(2, ticket.getTicketPicture());
+            preparedStatement.setInt(3, ticket.getEventId());
+            preparedStatement.setInt(4, ticket.getCustomerId());
+            preparedStatement.setInt(5, ticket.getId());
+            if (preparedStatement.executeUpdate() != 1) {
+                throw new Exception("Could not edit ticket");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
