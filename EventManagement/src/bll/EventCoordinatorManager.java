@@ -14,7 +14,7 @@ public class EventCoordinatorManager {
         eventCoordinatorDAO = new EventCoordinatorDAO();
     }
 
-    public List<EventCoordinator> getCoordinator() throws SQLException {
+    public List<EventCoordinator> getCoordinator() {
         List<EventCoordinator> allEventCoordinators = eventCoordinatorDAO.getCoordinator();
         return allEventCoordinators;
     }

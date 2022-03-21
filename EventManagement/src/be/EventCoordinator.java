@@ -11,6 +11,7 @@ public class EventCoordinator implements ILogin {
     private String passwordEvent = "1";
     private boolean isAdmin;
     private List<Customer> customers = new ArrayList<>();
+    private List<Ticket> tickets = new ArrayList<>();
 
     /**
      * Constructor
@@ -109,5 +110,21 @@ public class EventCoordinator implements ILogin {
      */
     public void setCustomers(List<Customer> customers) {
         this.customers = customers;
+    }
+
+    /**
+     * Gets a list of the events
+     * @return
+     */
+    public List<Ticket> getTickets() {
+        return tickets;
+    }
+
+    /**
+     * @param tickets
+     * Sets the list of tickets
+     */
+    public void setTickets(List<Ticket> tickets) {
+        this.tickets = tickets;
     }
 }
