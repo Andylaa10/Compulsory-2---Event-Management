@@ -19,7 +19,7 @@ public class TicketDAO {
      * Making a ticket list, connecting to the database and adding the results to our ArrayList.
      * @return a list of tickets or an empty list of tickets
      */
-    public List<Ticket> getCoordinators() {
+    public List<Ticket> getTickets() {
 
         ArrayList<Ticket> allTickets = new ArrayList<>();
 
