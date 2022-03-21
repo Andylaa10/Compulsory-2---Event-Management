@@ -1,18 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<?import javafx.scene.control.Button?>
-<AnchorPane stylesheets="@CSS/Login.css" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.AdminController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" stylesheets="@CSS/Login.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.AdminController">
    <children>
-      <Text layoutX="240.0" layoutY="187.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin" wrappingWidth="204.53668212890625">
+      <Text fill="WHITE" layoutX="180.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Event Management - Admin" wrappingWidth="439.53668212890625">
          <font>
-            <Font size="61.0" />
+            <Font size="35.0" />
          </font>
       </Text>
-      <Button fx:id="btnLogOutFromAdmin" layoutX="215.0" layoutY="323.0" mnemonicParsing="false" onAction="#LogOutFromAdmin" prefHeight="26.0" prefWidth="83.0" text="Log out" AnchorPane.rightAnchor="41.80000000000001" />
+      <Button fx:id="btnLogOutFromAdmin" layoutX="677.0" layoutY="552.0" mnemonicParsing="false" onAction="#LogOutFromAdmin" prefHeight="26.0" prefWidth="83.0" text="Log out" AnchorPane.rightAnchor="40.0" />
+      <TableView layoutX="24.0" layoutY="102.0" prefHeight="277.0" prefWidth="297.0">
+        <columns>
+          <TableColumn prefWidth="69.0" text="User" />
+            <TableColumn prefWidth="143.0" text="Email" />
+            <TableColumn prefWidth="84.0" text="Phone" />
+            <TableColumn prefWidth="143.0" text="Email" />
+        </columns>
+      </TableView>
+      <TableView layoutX="338.0" layoutY="102.0" prefHeight="431.0" prefWidth="297.0" AnchorPane.leftAnchor="338.0">
+         <columns>
+            <TableColumn prefWidth="296.0" text="Events" />
+         </columns>
+      </TableView>
+      <ImageView fitHeight="129.0" fitWidth="136.0" layoutX="654.0" layoutY="408.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/profil%20picture.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="650.0" layoutY="366.0" prefHeight="35.0" prefWidth="136.0" text="Event Admin">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <TextField layoutX="112.0" layoutY="392.0" prefHeight="25.0" prefWidth="209.0" promptText="                  Username123" />
+      <Label layoutX="26.0" layoutY="392.0" text="Username:" AnchorPane.leftAnchor="26.0">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="26.0" layoutY="430.0" prefHeight="26.0" prefWidth="80.0" text="Password:" AnchorPane.leftAnchor="26.0">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <TextField layoutX="112.0" layoutY="430.0" prefHeight="25.0" prefWidth="209.0" promptText="                   Password" />
+      <Label layoutX="27.0" layoutY="469.0" prefHeight="26.0" prefWidth="47.0" text="Email:" AnchorPane.leftAnchor="27.0">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="26.0" layoutY="507.0" prefHeight="26.0" prefWidth="119.0" text="Phone number:" AnchorPane.leftAnchor="26.0">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <TextField layoutX="81.0" layoutY="469.0" prefHeight="25.0" prefWidth="240.0" promptText="                  example@email.com" />
+      <TextField layoutX="145.0" layoutY="508.0" prefHeight="25.0" prefWidth="177.0" promptText="            +45 12345678" />
+      <Button fx:id="btnLogOutFromAdmin11" layoutX="23.0" layoutY="552.0" mnemonicParsing="false" onAction="#LogOutFromAdmin" prefHeight="26.0" prefWidth="297.0" text="Create New User" />
+      <Text fill="WHITE" layoutX="25.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Current Users" wrappingWidth="111.53668212890625">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Button fx:id="btnLogOutFromAdmin111" layoutX="338.0" layoutY="552.0" mnemonicParsing="false" onAction="#LogOutFromAdmin" prefHeight="26.0" prefWidth="297.0" text="Delete Event" />
+      <Text fill="WHITE" layoutX="338.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Current Events" wrappingWidth="136.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="120.0" fitWidth="150.0" layoutX="642.0" layoutY="243.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/Events4Every1_free-file.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
