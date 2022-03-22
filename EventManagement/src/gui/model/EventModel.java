@@ -3,6 +3,7 @@ package gui.model;
 import be.Event;
 import bll.EventManager;
 import java.io.IOException;
+import java.sql.Date;
 import java.sql.SQLException;
 import java.util.List;
 

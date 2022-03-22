@@ -189,4 +189,13 @@ public class EventCoordinatorDAO {
         return allCustomerOnEvent;
     }
 
+
+    /**
+     * Method used for testing
+     * @param args
+     * @throws IOException
+     */
+    public static void main(String[] args) throws IOException {
+
+    }
 }

@@ -33,13 +33,13 @@ public class EventDAO {
                 while (resultset.next()) {
                     int eventID = resultset.getInt("EventID");
                     String eventName = resultset.getString("EventName");
-                    String eventData = resultset.getString("EventDate");
+                    String eventDate = resultset.getString("EventDate");
                     String eventTime = resultset.getString("EventTime");
                     String eventLocation = resultset.getString("EventLocation");
                     String eventInfo = resultset.getString("EventInfo");
 
 
-                    Event event = new Event(eventID, eventName, eventData, eventTime, eventLocation, eventInfo);
+                    Event event = new Event(eventID, eventName, eventDate, eventTime, eventLocation, eventInfo);
                     allEvents.add(event);
                 }
             }
@@ -129,4 +129,11 @@ public class EventDAO {
         }
     }
 
+
+    public static void main(String[] args) throws IOException, SQLException {
+        EventDAO eventDAO = new EventDAO();
+        eventDAO.createEvent("Test event", "25-03-2022", "13:30", "EASV Esbjerg", "Dette er en test af eventDAO");
+        List<Event> events = eventDAO.getEvents();
+        System.out.println(events);
+    }
 }
