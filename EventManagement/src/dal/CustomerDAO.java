@@ -127,6 +127,9 @@ public class CustomerDAO {
         }
     }
 
+    /**
+     * Method for testing the DAO class
+     */
     public static void main(String[] args) throws IOException, SQLException {
         CustomerDAO customerDAO = new CustomerDAO();
         customerDAO.createCustomer("Test", "Person", "+45 12345678", "KrisianTester@gmail.com");

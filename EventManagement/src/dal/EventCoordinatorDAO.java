@@ -191,11 +191,12 @@ public class EventCoordinatorDAO {
 
 
     /**
-     * Method used for testing
-     * @param args
-     * @throws IOException
+     * Method used for testing the DAO class
      */
-    public static void main(String[] args) throws IOException {
-
+    public static void main(String[] args) throws IOException, SQLException {
+        EventCoordinatorDAO eventCoordinatorDAO = new EventCoordinatorDAO();
+        //eventCoordinatorDAO.addCustomerToEvent(1, 4);
+        List<Customer> customerList = eventCoordinatorDAO.getCustomersOnEvent(4);
+        System.out.println(customerList);
     }
 }

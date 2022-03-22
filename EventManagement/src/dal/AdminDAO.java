@@ -68,8 +68,6 @@ public class AdminDAO {
 
     /**
      * Method used for testing the DAO class
-     * @param args
-     * @throws IOException
      */
     public static void main(String[] args) throws IOException {
         AdminDAO adminDAO = new AdminDAO();
