@@ -18,12 +18,12 @@
          <font>
             <Font size="14.0" />
          </font></Button>
-      <Button layoutX="642.0" layoutY="509.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="118.0" text="Add Event">
+      <Button fx:id="btnAddEvent" layoutX="642.0" layoutY="509.0" mnemonicParsing="false" onAction="#onActionAddEvent" prefHeight="26.0" prefWidth="118.0" text="Add Event">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <Button layoutX="642.0" layoutY="547.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="118.0" text="Edit Event" AnchorPane.bottomAnchor="23.399999999999977">
+      <Button fx:id="btnEditEvent" layoutX="642.0" layoutY="547.0" mnemonicParsing="false" onAction="#onActionEditEvent" prefHeight="26.0" prefWidth="118.0" text="Edit Event" AnchorPane.bottomAnchor="23.399999999999977">
          <font>
             <Font size="14.0" />
          </font>
@@ -74,45 +74,45 @@
          </font>
       </Text>
       <Text fill="WHITE" layoutX="184.0" layoutY="123.0" lineSpacing="1.5" strokeType="OUTSIDE" strokeWidth="0.0" text="INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO " wrappingWidth="416.13671875" AnchorPane.leftAnchor="185.0" />
-      <Button fx:id="btnLogOutFromEventCoordinator1" layoutX="185.0" layoutY="169.0" mnemonicParsing="false" onAction="#LogOutFromEventCoordinator" prefHeight="24.0" prefWidth="74.0" text="Mere info..." AnchorPane.leftAnchor="185.0">
+      <Button fx:id="btnMoreInfo" layoutX="185.0" layoutY="169.0" mnemonicParsing="false" onAction="#OnActionMoreInfo" prefHeight="24.0" prefWidth="74.0" text="Mere info..." AnchorPane.leftAnchor="185.0">
          <font>
             <Font size="11.0" />
          </font>
       </Button>
-      <Button fx:id="btnLogOutFromEventCoordinator11" layoutX="270.0" layoutY="169.0" mnemonicParsing="false" onAction="#LogOutFromEventCoordinator" prefHeight="24.0" prefWidth="83.0" text="Deltagerliste">
+      <Button fx:id="btnCustomerList" layoutX="270.0" layoutY="169.0" mnemonicParsing="false" onAction="#onActionCustomerList" prefHeight="24.0" prefWidth="83.0" text="Deltagerliste">
          <font>
             <Font size="11.0" />
          </font>
       </Button>
       <Text fill="WHITE" layoutX="183.0" layoutY="251.0" lineSpacing="1.5" strokeType="OUTSIDE" strokeWidth="0.0" text="INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO " wrappingWidth="416.13671875" AnchorPane.leftAnchor="185.0" />
-      <Button fx:id="btnLogOutFromEventCoordinator12" layoutX="185.0" layoutY="295.0" mnemonicParsing="false" onAction="#LogOutFromEventCoordinator" prefHeight="24.0" prefWidth="74.0" text="Mere info..." AnchorPane.leftAnchor="185.0">
+      <Button fx:id="btnMoreInfo1" layoutX="185.0" layoutY="295.0" mnemonicParsing="false" onAction="#OnActionMoreInfo1" prefHeight="24.0" prefWidth="74.0" text="Mere info..." AnchorPane.leftAnchor="185.0">
          <font>
             <Font size="11.0" />
          </font>
       </Button>
-      <Button fx:id="btnLogOutFromEventCoordinator111" layoutX="270.0" layoutY="295.0" mnemonicParsing="false" onAction="#LogOutFromEventCoordinator" prefHeight="24.0" prefWidth="83.0" text="Deltagerliste">
+      <Button fx:id="btnCustomerList1" layoutX="270.0" layoutY="295.0" mnemonicParsing="false" onAction="#onActionCustomerList1" prefHeight="24.0" prefWidth="83.0" text="Deltagerliste">
          <font>
             <Font size="11.0" />
          </font>
       </Button>
       <Text fill="WHITE" layoutX="183.0" layoutY="381.0" lineSpacing="1.5" strokeType="OUTSIDE" strokeWidth="0.0" text="INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO " wrappingWidth="416.13671875" AnchorPane.leftAnchor="185.0" />
-      <Button fx:id="btnLogOutFromEventCoordinator13" layoutX="185.0" layoutY="430.0" mnemonicParsing="false" onAction="#LogOutFromEventCoordinator" prefHeight="24.0" prefWidth="74.0" text="Mere info..." AnchorPane.leftAnchor="185.0">
+      <Button fx:id="btnMoreInfo2" layoutX="185.0" layoutY="430.0" mnemonicParsing="false" onAction="#OnActionMoreInfo2" prefHeight="24.0" prefWidth="74.0" text="Mere info..." AnchorPane.leftAnchor="185.0">
          <font>
             <Font size="11.0" />
          </font>
       </Button>
-      <Button fx:id="btnLogOutFromEventCoordinator112" layoutX="270.0" layoutY="430.0" mnemonicParsing="false" onAction="#LogOutFromEventCoordinator" prefHeight="24.0" prefWidth="83.0" text="Deltagerliste">
+      <Button fx:id="btnCustomerList2" layoutX="270.0" layoutY="430.0" mnemonicParsing="false" onAction="#onActionCustomerList2" prefHeight="24.0" prefWidth="83.0" text="Deltagerliste">
          <font>
             <Font size="11.0" />
          </font>
       </Button>
       <Text fill="WHITE" layoutX="184.0" layoutY="501.0" lineSpacing="1.5" strokeType="OUTSIDE" strokeWidth="0.0" text="INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO INFO " wrappingWidth="416.13671875" AnchorPane.leftAnchor="185.0" />
-      <Button fx:id="btnLogOutFromEventCoordinator14" layoutX="186.0" layoutY="553.0" mnemonicParsing="false" onAction="#LogOutFromEventCoordinator" prefHeight="24.0" prefWidth="74.0" text="Mere info..." AnchorPane.bottomAnchor="22.0" AnchorPane.leftAnchor="185.0">
+      <Button fx:id="btnMoreInfo3" layoutX="186.0" layoutY="553.0" mnemonicParsing="false" onAction="#OnActionMoreInfo3" prefHeight="24.0" prefWidth="74.0" text="Mere info..." AnchorPane.bottomAnchor="22.0" AnchorPane.leftAnchor="185.0">
          <font>
             <Font size="11.0" />
          </font>
       </Button>
-      <Button fx:id="btnLogOutFromEventCoordinator113" layoutX="271.0" layoutY="553.0" mnemonicParsing="false" onAction="#LogOutFromEventCoordinator" prefHeight="24.0" prefWidth="83.0" text="Deltagerliste" AnchorPane.bottomAnchor="22.0">
+      <Button fx:id="btnCustomerList3" layoutX="271.0" layoutY="553.0" mnemonicParsing="false" onAction="#onActionCustomerList3" prefHeight="24.0" prefWidth="83.0" text="Deltagerliste" AnchorPane.bottomAnchor="22.0">
          <font>
             <Font size="11.0" />
          </font>
@@ -127,7 +127,7 @@
             <Image url="@img/Events4Every1_free-file.png" />
          </image>
       </ImageView>
-      <Button layoutX="643.0" layoutY="471.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="118.0" text="Create User">
+      <Button fx:id="btnCreateUser" layoutX="643.0" layoutY="471.0" mnemonicParsing="false" onAction="#onActionCreateUser" prefHeight="26.0" prefWidth="118.0" text="Create User">
          <font>
             <Font size="14.0" />
          </font>

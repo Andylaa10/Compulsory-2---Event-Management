@@ -1,5 +1,8 @@
 package gui.controller;
 
+import gui.model.EventCoordinatorModel;
+import gui.model.EventModel;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -12,7 +15,37 @@ import java.io.IOException;
 public class EventCoordinatorViewController {
 
     @FXML
+    private Button btnEditEvent;
+    @FXML
+    private Button btnMoreInfo;
+    @FXML
+    private Button btnCustomerList;
+    @FXML
+    private Button btnMoreInfo1;
+    @FXML
+    private Button btnMoreInfo2;
+    @FXML
+    private Button btnMoreInfo3;
+    @FXML
+    private Button btnCreateUser;
+    @FXML
+    private Button btnCustomerList3;
+    @FXML
+    private Button btnCustomerList2;
+    @FXML
+    private Button btnCustomerList1;
+    @FXML
+    private Button btnAddEvent;
+    @FXML
     private Button btnLogOutFromEventCoordinator;
+
+    private EventCoordinatorModel eventCoordinatorModel;
+    private EventModel eventModel;
+
+    public EventCoordinatorViewController() throws IOException {
+        this.eventCoordinatorModel = new EventCoordinatorModel();
+        this.eventModel = new EventModel();
+    }
 
     public void LogOutFromEventCoordinator() throws IOException {
         Stage switcher = (Stage) btnLogOutFromEventCoordinator.getScene().getWindow();
@@ -20,5 +53,40 @@ public class EventCoordinatorViewController {
         switcher.setTitle("Event Management");
         Scene scene = new Scene(root);
         switcher.setScene(scene);
+    }
+
+
+    public void onActionAddEvent(ActionEvent actionEvent) {
+
+    }
+
+    public void onActionEditEvent(ActionEvent actionEvent) {
+    }
+
+    public void onActionCreateUser(ActionEvent actionEvent) {
+    }
+
+    public void OnActionMoreInfo(ActionEvent actionEvent) {
+    }
+
+    public void OnActionMoreInfo1(ActionEvent actionEvent) {
+    }
+
+    public void OnActionMoreInfo2(ActionEvent actionEvent) {
+    }
+
+    public void OnActionMoreInfo3(ActionEvent actionEvent) {
+    }
+
+    public void onActionCustomerList(ActionEvent actionEvent) {
+    }
+
+    public void onActionCustomerList1(ActionEvent actionEvent) {
+    }
+
+    public void onActionCustomerList2(ActionEvent actionEvent) {
+    }
+
+    public void onActionCustomerList3(ActionEvent actionEvent) {
     }
 }
