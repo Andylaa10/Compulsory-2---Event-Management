@@ -1,8 +1,10 @@
 package bll;
 
 import be.Admin;
+import be.EventCoordinator;
 import dal.AdminDAO;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 
 public class AdminManager {
@@ -32,6 +34,44 @@ public class AdminManager {
      */
     public void editAdmin(Admin admin) {
         adminDAO.editAdmin(admin);
+    }
+
+
+    /**
+     * Gets the list of coordinator using the getCoordinator method in eventCoordinatorDAO.
+     * @return a list of coordinator
+     */
+    public List<EventCoordinator> getCoordinator() throws SQLException {
+        List<EventCoordinator> allEventCoordinators = adminDAO.getCoordinator();
+        return allEventCoordinators;
+    }
+
+    /**
+     * Creates a coordinator using the createCoordinator method in eventCoordinatorDAO
+     * @param username
+     * @param password
+     * @param isAdmin
+     * @throws SQLException
+     */
+    public void createCoordinator(String username, String password, boolean isAdmin) throws SQLException {
+        adminDAO.createCoordinator(username, password, isAdmin);
+    }
+
+    /**
+     * Deletes a coordinator using the deleteCoordinator methods in eventCoordinatorDAO
+     * @param id
+     * @param isAdmin
+     */
+    public void deleteCoordinator(int id, boolean isAdmin) {
+        adminDAO.deleteCoordinator(id, isAdmin);
+    }
+
+    /**
+     * Edits a coordinator using the editCoordinator from eventCoordinatorDAO
+     * @param eventCoordinator
+     */
+    public void editCoordinator(EventCoordinator eventCoordinator) {
+        adminDAO.editCoordinator(eventCoordinator);
     }
 
 
