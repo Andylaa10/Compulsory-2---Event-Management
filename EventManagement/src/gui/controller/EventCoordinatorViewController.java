@@ -17,9 +17,13 @@ public class EventCoordinatorViewController {
     @FXML
     private Button btnEditEvent;
     @FXML
-    private Button btnMoreInfo;
+    private Button btnAddEvent;
     @FXML
-    private Button btnCustomerList;
+    private Button btnCreateUser;
+    @FXML
+    private Button btnLogOutFromEventCoordinator;
+    @FXML
+    private Button btnMoreInfo;
     @FXML
     private Button btnMoreInfo1;
     @FXML
@@ -27,17 +31,13 @@ public class EventCoordinatorViewController {
     @FXML
     private Button btnMoreInfo3;
     @FXML
-    private Button btnCreateUser;
-    @FXML
-    private Button btnCustomerList3;
-    @FXML
-    private Button btnCustomerList2;
+    private Button btnCustomerList;
     @FXML
     private Button btnCustomerList1;
     @FXML
-    private Button btnAddEvent;
+    private Button btnCustomerList2;
     @FXML
-    private Button btnLogOutFromEventCoordinator;
+    private Button btnCustomerList3;
 
     private EventCoordinatorModel eventCoordinatorModel;
     private EventModel eventModel;
@@ -56,14 +56,28 @@ public class EventCoordinatorViewController {
     }
 
 
-    public void onActionAddEvent(ActionEvent actionEvent) {
-
+    public void onActionAddEvent() throws IOException {
+        Stage switcher = (Stage) btnAddEvent.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("/gui/view/CreateEventView.fxml"));
+        switcher.setTitle("Create Event");
+        Scene scene = new Scene(root);
+        switcher.setScene(scene);
     }
 
-    public void onActionEditEvent(ActionEvent actionEvent) {
+    public void onActionEditEvent() throws IOException {
+        Stage switcher = (Stage) btnEditEvent.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("/gui/view/EditEventView.fxml"));
+        switcher.setTitle("Edit Event");
+        Scene scene = new Scene(root);
+        switcher.setScene(scene);
     }
 
-    public void onActionCreateUser(ActionEvent actionEvent) {
+    public void onActionCreateUser() throws IOException {
+        Stage switcher = (Stage) btnCreateUser.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("/gui/view/CreateUserView.fxml"));
+        switcher.setTitle("Create User");
+        Scene scene = new Scene(root);
+        switcher.setScene(scene);
     }
 
     public void OnActionMoreInfo(ActionEvent actionEvent) {
