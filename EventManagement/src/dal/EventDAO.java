@@ -1,6 +1,7 @@
 package dal;
 
 import be.Event;
+import be.errorHandling;
 import com.microsoft.sqlserver.jdbc.SQLServerException;
 import dal.db.DatabaseConnector;
 import java.io.IOException;
@@ -97,11 +98,9 @@ public class EventDAO {
             String sql = "DELETE FROM Event WHERE EventID =?;";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1, id);
-            if (preparedStatement.executeUpdate() != 1) {
-                throw new Exception("Could not delete event");
-            }
+            preparedStatement.execute();
         } catch (SQLException throwables) {
-            throwables.printStackTrace();
+            errorHandling.deleteEventDAOError();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -132,8 +131,11 @@ public class EventDAO {
 
     public static void main(String[] args) throws IOException, SQLException {
         EventDAO eventDAO = new EventDAO();
-        eventDAO.createEvent("Test event", "25-03-2022", "13:30", "EASV Esbjerg", "Dette er en test af eventDAO");
+        eventDAO.createEvent("Test event", "22-03-2022", "13:30", "EASV Sønderborg", "Dette er en test af eventDAO");
+        eventDAO.createEvent("event", "10-03-2022", "12:30", "EASV Danmark", "Dette er en test af eventDAO");
+        eventDAO.createEvent("Test", "02-12-2022", "13:30", "EASV Esbjerg", "Dette er en test af eventDAO");
         List<Event> events = eventDAO.getEvents();
+
         System.out.println(events);
     }
 }

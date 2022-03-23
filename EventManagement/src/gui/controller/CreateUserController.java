@@ -21,7 +21,7 @@ public class CreateUserController {
     @FXML
     private TextField txtFieldCustomerEmail;
     @FXML
-    private Button btnSaveCreateCustomer;
+    private Button btnSave;
     @FXML
     private Button btnCancelCreateCustomer;
 
@@ -32,14 +32,14 @@ public class CreateUserController {
         this.customerModel = new CustomerModel();
     }
 
-    public void onActionCreateCustomer() throws SQLException {
+    public void handleBtnSave() throws SQLException {
         String customerFirstName = txtFieldCustomerFirstName.getText();
         String customerLastName = txtFieldCustomerLastName.getText();
         String customerPhoneNumber = txtFieldCustomerPhoneNumber.getText();
         String customerEmail = txtFieldCustomerEmail.getText();
 
         customerModel.createCustomer(customerFirstName, customerLastName, customerPhoneNumber, customerEmail);
-        Stage stage = (Stage) btnSaveCreateCustomer.getScene().getWindow();
+        Stage stage = (Stage) btnSave.getScene().getWindow();
         stage.close();
     }
 

@@ -5,14 +5,13 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.CreateUserController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@CSS/Login.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.CreateUserController">
    <children>
       <TextField fx:id="txtFieldCustomerFirstName" layoutX="67.0" layoutY="75.0" />
       <TextField fx:id="txtFieldCustomerLastName" layoutX="67.0" layoutY="118.0" />
       <TextField fx:id="txtFieldCustomerPhoneNumber" layoutX="67.0" layoutY="162.0" />
       <TextField fx:id="txtFieldCustomerEmail" layoutX="67.0" layoutY="209.0" />
-      <Button fx:id="btnSaveCreateCustomer" layoutX="545.0" layoutY="361.0" mnemonicParsing="false" onAction="#onActionCreateCustomer" text="Save" />
+      <Button fx:id="btnSave" layoutX="545.0" layoutY="361.0" mnemonicParsing="false" onAction="#handleBtnSave" text="Save" />
       <Button fx:id="btnCancelCreateCustomer" layoutX="486.0" layoutY="361.0" mnemonicParsing="false" onAction="#onActionCancelCreateCustomer" text="Cancel" />
       <Label layoutX="67.0" layoutY="60.0" text="First Name" />
       <Label layoutX="67.0" layoutY="102.0" text="Last Name" />

@@ -6,7 +6,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.CreateEventController">
+<AnchorPane prefHeight="400.0" stylesheets="@CSS/Login.css" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.CreateEventController">
    <children>
       <Button fx:id="btnCancelCreateEvent" layoutX="467.0" layoutY="352.0" mnemonicParsing="false" onAction="#onActionCancelCreateEvent" text="Cancel" />
       <Button fx:id="btnSaveCreateEvent" layoutX="529.0" layoutY="352.0" mnemonicParsing="false" onAction="#onActionSaveEvent" text="Save" />
