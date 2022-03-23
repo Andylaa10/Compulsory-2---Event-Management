@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Text?>
 
 
-<AnchorPane prefHeight="500.0" prefWidth="450.0" stylesheets="@CSS/Login.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.EventUsersController">
+<AnchorPane prefHeight="500.0" prefWidth="450.0" stylesheets="@CSS/Login.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.UsersOnEventController">
    <children>
       <TableView layoutX="6.0" layoutY="37.0" prefHeight="426.0" prefWidth="437.0">
         <columns>
