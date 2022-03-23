@@ -18,42 +18,7 @@ public class EventCoordinatorModel {
         eventCoordinatorManager = new EventCoordinatorManager();
     }
 
-    /**
-     * Gets the list of coordinator using the getCoordinator method in eventCoordinatorManagerDAO.
-     * @return a list of coordinator
-     */
-    public List<EventCoordinator> getCoordinator() throws SQLException {
-        List<EventCoordinator> allEventCoordinators = eventCoordinatorManager.getCoordinator();
-        return allEventCoordinators;
-    }
 
-    /**
-     * Creates a coordinator using the createCoordinator method in eventCoordinatorManagerDAO
-     * @param username
-     * @param password
-     * @param isAdmin
-     * @throws SQLException
-     */
-    public void createCoordinator(String username, String password, boolean isAdmin) throws SQLException {
-        eventCoordinatorManager.createCoordinator(username, password, isAdmin);
-    }
-
-    /**
-     * Deletes a coordinator using the deleteCoordinator methods in eventCoordinatorManagerDAO
-     * @param id
-     * @param isAdmin
-     */
-    public void deleteCoordinator(int id, boolean isAdmin) {
-        eventCoordinatorManager.deleteCoordinator(id, isAdmin);
-    }
-
-    /**
-     * Edits a coordinator using the editCoordinator from eventCoordinatorManagerDAO
-     * @param eventCoordinator
-     */
-    public void editCoordinator(EventCoordinator eventCoordinator) {
-        eventCoordinatorManager.editCoordinator(eventCoordinator);
-    }
 
     /**
      * Gets the customer on event using getCustomersOnEvent from eventCoordinatorManagerDAO
