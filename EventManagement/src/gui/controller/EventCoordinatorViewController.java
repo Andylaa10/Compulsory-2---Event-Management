@@ -39,8 +39,8 @@ public class EventCoordinatorViewController {
     @FXML
     private Button btnCustomerList3;
 
-    private EventCoordinatorModel eventCoordinatorModel;
-    private EventModel eventModel;
+    EventCoordinatorModel eventCoordinatorModel;
+    EventModel eventModel;
 
     public EventCoordinatorViewController() throws IOException {
         this.eventCoordinatorModel = new EventCoordinatorModel();
