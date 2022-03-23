@@ -57,27 +57,27 @@ public class EventCoordinatorViewController {
 
 
     public void onActionAddEvent() throws IOException {
-        Stage switcher = (Stage) btnAddEvent.getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("/gui/view/CreateEventView.fxml"));
-        switcher.setTitle("Create Event");
-        Scene scene = new Scene(root);
-        switcher.setScene(scene);
+        Stage stage = new Stage();
+        stage.setTitle("Create Event");
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 
     public void onActionEditEvent() throws IOException {
-        Stage switcher = (Stage) btnEditEvent.getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("/gui/view/EditEventView.fxml"));
-        switcher.setTitle("Edit Event");
-        Scene scene = new Scene(root);
-        switcher.setScene(scene);
+        Stage stage = new Stage();
+        stage.setTitle("Edit Event");
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 
     public void onActionCreateUser() throws IOException {
-        Stage switcher = (Stage) btnCreateUser.getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("/gui/view/CreateUserView.fxml"));
-        switcher.setTitle("Create User");
-        Scene scene = new Scene(root);
-        switcher.setScene(scene);
+        Stage stage = new Stage();
+        stage.setTitle("Create User");
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 
     public void OnActionMoreInfo(ActionEvent actionEvent) {

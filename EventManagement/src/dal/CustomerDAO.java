@@ -132,7 +132,7 @@ public class CustomerDAO {
      */
     public static void main(String[] args) throws IOException, SQLException {
         CustomerDAO customerDAO = new CustomerDAO();
-        customerDAO.createCustomer("Test", "Person", "+45 12345678", "KrisianTester@gmail.com");
+        //customerDAO.createCustomer("Test", "Person", "+45 12345678", "KrisianTester@gmail.com");
         List<Customer> customers = customerDAO.getCustomers();
         System.out.println(customers);
     }

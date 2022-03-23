@@ -1,14 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="gui.controller.CreateUserController"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.CreateUserController">
+   <children>
+      <TextField fx:id="txtFieldCustomerFirstName" layoutX="67.0" layoutY="75.0" />
+      <TextField fx:id="txtFieldCustomerLastName" layoutX="67.0" layoutY="118.0" />
+      <TextField fx:id="txtFieldCustomerPhoneNumber" layoutX="67.0" layoutY="162.0" />
+      <TextField fx:id="txtFieldCustomerEmail" layoutX="67.0" layoutY="209.0" />
+      <Button fx:id="btnSaveCreateCustomer" layoutX="545.0" layoutY="361.0" mnemonicParsing="false" onAction="#onActionCreateCustomer" text="Save" />
+      <Button fx:id="btnCancelCreateCustomer" layoutX="486.0" layoutY="361.0" mnemonicParsing="false" onAction="#onActionCancelCreateCustomer" text="Cancel" />
+      <Label layoutX="67.0" layoutY="60.0" text="First Name" />
+      <Label layoutX="67.0" layoutY="102.0" text="Last Name" />
+      <Label layoutX="67.0" layoutY="145.0" text="Phone Number" />
+      <Label layoutX="67.0" layoutY="193.0" text="E-mail adress" />
+   </children>
 </AnchorPane>

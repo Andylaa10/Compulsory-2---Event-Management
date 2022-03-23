@@ -1,14 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="gui.controller.EditEventController"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.EditEventController">
+   <children>
+      <TextField fx:id="txtFieldEventName" layoutX="55.0" layoutY="27.0" />
+      <Label layoutX="55.0" layoutY="13.0" text="Event Name" />
+      <TextField fx:id="txtFieldEventDate" layoutX="55.0" layoutY="66.0" />
+      <Label layoutX="56.0" layoutY="50.0" text="Event Date" />
+      <TextField fx:id="txtFieldEventTime" layoutX="55.0" layoutY="105.0" />
+      <Label layoutX="56.0" layoutY="90.0" text="Event Time" />
+      <Label layoutX="55.0" layoutY="131.0" text="Event Location" />
+      <TextField fx:id="txtFieldEventLocation" layoutX="55.0" layoutY="146.0" />
+      <TextArea fx:id="txtAreaEventInfo" layoutX="55.0" layoutY="194.0" prefHeight="200.0" prefWidth="200.0" />
+      <Label layoutX="55.0" layoutY="179.0" text="Event Info" />
+      <Button fx:id="btnCancelCreateEvent" layoutX="477.0" layoutY="362.0" mnemonicParsing="false" onAction="#onActionCancelCreateEvent" text="Cancel" />
+      <Button fx:id="btnSaveCreateEvent" layoutX="539.0" layoutY="362.0" mnemonicParsing="false" onAction="#onActionSaveEvent" text="Save" />
+   </children>
 </AnchorPane>

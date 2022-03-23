@@ -1,15 +1,50 @@
 package gui.controller;
 
-import gui.model.AdminModel;
+import gui.model.CustomerModel;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+
 import java.io.IOException;
+import java.sql.SQLException;
 
 public class CreateUserController {
 
-    AdminModel adminModel;
+
+    @FXML
+    private TextField txtFieldCustomerFirstName;
+    @FXML
+    private TextField txtFieldCustomerLastName;
+    @FXML
+    private TextField txtFieldCustomerPhoneNumber;
+    @FXML
+    private TextField txtFieldCustomerEmail;
+    @FXML
+    private Button btnSaveCreateCustomer;
+    @FXML
+    private Button btnCancelCreateCustomer;
+
+
+    CustomerModel customerModel;
 
     public CreateUserController() throws IOException {
-        this.adminModel = new AdminModel();
+        this.customerModel = new CustomerModel();
     }
 
+    public void onActionCreateCustomer() throws SQLException {
+        String customerFirstName = txtFieldCustomerFirstName.getText();
+        String customerLastName = txtFieldCustomerLastName.getText();
+        String customerPhoneNumber = txtFieldCustomerPhoneNumber.getText();
+        String customerEmail = txtFieldCustomerEmail.getText();
 
+        customerModel.createCustomer(customerFirstName, customerLastName, customerPhoneNumber, customerEmail);
+        Stage stage = (Stage) btnSaveCreateCustomer.getScene().getWindow();
+        stage.close();
+    }
+
+    public void onActionCancelCreateCustomer() {
+        Stage stage = (Stage) btnCancelCreateCustomer.getScene().getWindow();
+        stage.close();
+    }
 }

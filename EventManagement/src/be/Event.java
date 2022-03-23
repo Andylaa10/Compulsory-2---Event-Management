@@ -17,6 +17,23 @@ public class Event {
     }
 
     /**
+     *
+     * @param eventName
+     * @param eventDate
+     * @param eventTime
+     * @param eventLocation
+     * @param eventInfo
+     */
+    public Event(String eventName, String eventDate, String eventTime, String eventLocation, String eventInfo) {
+        this.eventName = eventName;
+        this.eventDate = eventDate;
+        this.eventTime = eventTime;
+        this.eventLocation = eventLocation;
+        this.eventInfo = eventInfo;
+    }
+
+
+    /**
      * @param id
      * @param eventName
      * @param eventDate
