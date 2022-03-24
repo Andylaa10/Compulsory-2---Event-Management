@@ -117,11 +117,6 @@
             <Font size="11.0" />
          </font>
       </Button>
-      <ImageView fitHeight="123.0" fitWidth="145.0" layoutX="640.0" layoutY="279.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@img/profil%20picture.png" />
-         </image>
-      </ImageView>
       <ImageView fitHeight="139.0" fitWidth="168.0" layoutX="617.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@img/Events4Every1_free-file.png" />
