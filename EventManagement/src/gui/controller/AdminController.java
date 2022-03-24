@@ -68,7 +68,7 @@ public class AdminController{
     /**
      * returns the allCustomers list
      *
-     * @return
+     */
 
     public void handleBtnCreateCustomer() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/gui/view/CreateUserView.fxml"));
@@ -76,7 +76,6 @@ public class AdminController{
         stage.setTitle("Add Customer");
         stage.setScene(new Scene(root));
         stage.show();
-
     }
 
     /**
