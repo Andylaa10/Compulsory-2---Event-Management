@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -38,6 +39,8 @@ public class EventCoordinatorViewController {
     private Button btnCustomerList2;
     @FXML
     private Button btnCustomerList3;
+    @FXML
+    public Text EventCoordinatorTitle;
 
     EventCoordinatorModel eventCoordinatorModel;
     EventModel eventModel;

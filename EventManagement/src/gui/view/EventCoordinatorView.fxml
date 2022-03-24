@@ -53,7 +53,7 @@
             <Image url="@img/Events4Every1_free-file.png" />
          </image>
       </ImageView>
-      <Text fill="WHITE" layoutX="180.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="INSERT TITLE HERE_____________________" underline="true" wrappingWidth="423.13671875" AnchorPane.leftAnchor="185.0">
+      <Text fx:id="EventCoordinatorTitle" fill="WHITE" layoutX="180.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="INSERT TITLE HERE_____________________" underline="true" wrappingWidth="423.13671875" AnchorPane.leftAnchor="185.0">
          <font>
             <Font size="20.0" />
          </font>
