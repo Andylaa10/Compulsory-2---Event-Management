@@ -7,13 +7,8 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="200.0" prefWidth="600.0" stylesheets="@CSS/Login.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.TicketController">
+<AnchorPane prefHeight="200.0" prefWidth="682.0" stylesheets="@CSS/Login.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.TicketController">
    <children>
-      <ImageView fitHeight="86.0" fitWidth="105.0" layoutX="489.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@img/Events4Every1_free-file.png" />
-         </image>
-      </ImageView>
       <Text fill="WHITE" layoutX="14.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EVENT TITLE AND DATE HERE___" underline="true">
          <font>
             <Font size="32.0" />
@@ -29,7 +24,7 @@
             <Font size="25.0" />
          </font>
       </Text>
-      <ImageView fitHeight="95.0" fitWidth="105.0" layoutX="494.0" layoutY="98.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="187.0" fitWidth="180.0" layoutX="488.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@img/qr%20code%20rick%20roll.png" />
          </image>
