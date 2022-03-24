@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane nodeOrientation="LEFT_TO_RIGHT" prefHeight="600.0" prefWidth="800.0" stylesheets="@CSS/Login.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.EventCoordinatorViewController">
+<AnchorPane nodeOrientation="LEFT_TO_RIGHT" prefHeight="600.0" prefWidth="800.0" stylesheets="@CSS/Login.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.EventCoordinatorViewController">
    <children>
       <Text fill="WHITE" layoutX="44.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Available Events - Events4Every1" wrappingWidth="698.27001953125">
          <font>
@@ -53,22 +53,22 @@
             <Image url="@img/Events4Every1_free-file.png" />
          </image>
       </ImageView>
-      <Text fill="WHITE" layoutX="180.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="INSERT TITLE HERE____________________________" underline="true" wrappingWidth="423.13671875" AnchorPane.leftAnchor="185.0">
+      <Text fill="WHITE" layoutX="180.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="INSERT TITLE HERE_____________________" underline="true" wrappingWidth="423.13671875" AnchorPane.leftAnchor="185.0">
          <font>
             <Font size="20.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="185.0" layoutY="230.0" strokeType="OUTSIDE" strokeWidth="0.0" text="INSERT TITLE HERE____________________________" underline="true" wrappingWidth="416.13671875" AnchorPane.leftAnchor="185.0">
+      <Text fill="WHITE" layoutX="185.0" layoutY="230.0" strokeType="OUTSIDE" strokeWidth="0.0" text="INSERT TITLE HERE_______________________" underline="true" wrappingWidth="416.13671875" AnchorPane.leftAnchor="185.0">
          <font>
             <Font size="20.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="185.0" layoutY="360.0" strokeType="OUTSIDE" strokeWidth="0.0" text="INSERT TITLE HERE____________________________" underline="true" wrappingWidth="416.13671875" AnchorPane.leftAnchor="185.0">
+      <Text fill="WHITE" layoutX="185.0" layoutY="360.0" strokeType="OUTSIDE" strokeWidth="0.0" text="INSERT TITLE HERE_______________________" underline="true" wrappingWidth="416.13671875" AnchorPane.leftAnchor="185.0">
          <font>
             <Font size="20.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="185.0" layoutY="481.0" strokeType="OUTSIDE" strokeWidth="0.0" text="INSERT TITLE HERE__________________________" underline="true" wrappingWidth="416.13671875" AnchorPane.leftAnchor="185.0">
+      <Text fill="WHITE" layoutX="185.0" layoutY="481.0" strokeType="OUTSIDE" strokeWidth="0.0" text="INSERT TITLE HERE_____________________" underline="true" wrappingWidth="416.13671875" AnchorPane.leftAnchor="185.0">
          <font>
             <Font size="20.0" />
          </font>
