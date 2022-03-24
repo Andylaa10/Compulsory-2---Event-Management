@@ -1,63 +1,91 @@
 package gui.controller;
 
+import be.Event;
 import gui.model.EventCoordinatorModel;
 import gui.model.EventModel;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class EventCoordinatorViewController {
+public class EventCoordinatorViewController implements Initializable {
 
     @FXML
-    private Button btnEditEvent;
+    public Button btnAddEvent;
     @FXML
-    private Button btnAddEvent;
+    public Button btnDeleteEvent;
     @FXML
-    private Button btnCreateUser;
+    public Button btnViewEvent;
     @FXML
-    private Button btnLogOutFromEventCoordinator;
+    public Button btnQuit;
     @FXML
-    private Button btnMoreInfo;
+    public TextField txtFieldSearch;
     @FXML
-    private Button btnMoreInfo1;
+    public Button btnHelp;
     @FXML
-    private Button btnMoreInfo2;
+    public Button btnLogOut;
     @FXML
-    private Button btnMoreInfo3;
+    public TableView tvEvents;
     @FXML
-    private Button btnCustomerList;
+    public TableColumn tcId;
     @FXML
-    private Button btnCustomerList1;
+    public TableColumn tcEventName;
     @FXML
-    private Button btnCustomerList2;
+    public TableColumn tcEventDate;
     @FXML
-    private Button btnCustomerList3;
+    public TableColumn tcEventLocation;
     @FXML
-    public Text EventCoordinatorTitle;
+    public TableColumn tcEventTime;
+    @FXML
+    public Button btnEditEvent;
+    @FXML
+    public TableColumn tcEventInfo;
 
-    EventCoordinatorModel eventCoordinatorModel;
-    EventModel eventModel;
+    private ObservableList<Event> allEvents = FXCollections.observableArrayList();
+
+    private EventCoordinatorModel eventCoordinatorModel;
+    private EventModel eventModel;
 
     public EventCoordinatorViewController() throws IOException {
         this.eventCoordinatorModel = new EventCoordinatorModel();
         this.eventModel = new EventModel();
     }
 
+
+
     public void LogOutFromEventCoordinator() throws IOException {
-        Stage switcher = (Stage) btnLogOutFromEventCoordinator.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("/gui/view/LoginView.fxml"));
+        Stage switcher = (Stage) btnLogOut.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("/gui/view/FrontPage.fxml"));
         switcher.setTitle("Event Management");
         Scene scene = new Scene(root);
         switcher.setScene(scene);
     }
 
+
+    /**
+     * Loading table view events
+     *
+     * @param allEvents
+     */
+    private void tableViewLoadEvents(ObservableList<Event> allEvents) {
+        tvEvents.setItems(getEventData());
+    }
+
+    private ObservableList<Event> getEventData() {
+        return allEvents;
+    }
 
     public void onActionAddEvent() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/gui/view/CreateEventView.fxml"));
@@ -74,36 +102,41 @@ public class EventCoordinatorViewController {
         stage.setScene(new Scene(root));
         stage.show();
     }
+    // public void onActionCreateUser() throws IOException {
+    //  Parent root = FXMLLoader.load(getClass().getResource("/gui/view/CreateUserView.fxml"));
+    //  Stage stage = new Stage();
+    //  stage.setTitle("Create User");
+    //  stage.setScene(new Scene(root));
+    //  stage.show();
 
-    public void onActionCreateUser() throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/gui/view/CreateUserView.fxml"));
-        Stage stage = new Stage();
-        stage.setTitle("Create User");
-        stage.setScene(new Scene(root));
-        stage.show();
+    //}
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
+        tcId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        tcEventName.setCellValueFactory(new PropertyValueFactory<>("EventName"));
+        tcEventDate.setCellValueFactory(new PropertyValueFactory<>("EventDate"));
+        tcEventLocation.setCellValueFactory(new PropertyValueFactory<>("EventLocation"));
+        tcEventTime.setCellValueFactory(new PropertyValueFactory<>("EventTime"));
+        tcEventInfo.setCellValueFactory(new PropertyValueFactory<>("EventInfo"));
+
+        try {
+            allEvents = FXCollections.observableArrayList(eventModel.getEvents());
+            tableViewLoadEvents(allEvents);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
-    public void OnActionMoreInfo(ActionEvent actionEvent) {
+    public void help() {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Please contact the administration");
+        alert.setHeaderText("Please contact the administration");
+        alert.setContentText("Contact the administration for help");
+        alert.showAndWait();
     }
 
-    public void OnActionMoreInfo1(ActionEvent actionEvent) {
-    }
-
-    public void OnActionMoreInfo2(ActionEvent actionEvent) {
-    }
-
-    public void OnActionMoreInfo3(ActionEvent actionEvent) {
-    }
-
-    public void onActionCustomerList(ActionEvent actionEvent) {
-    }
-
-    public void onActionCustomerList1(ActionEvent actionEvent) {
-    }
-
-    public void onActionCustomerList2(ActionEvent actionEvent) {
-    }
-
-    public void onActionCustomerList3(ActionEvent actionEvent) {
+    public void Quit() {
+        System.exit(0);
     }
 }

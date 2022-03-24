@@ -7,7 +7,7 @@ import javafx.stage.Stage;
 public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/gui/view/LoginView.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/gui/view/FrontPage.fxml"));
         primaryStage.setTitle("Event Management");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();

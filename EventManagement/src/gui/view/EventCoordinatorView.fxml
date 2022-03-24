@@ -12,23 +12,21 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@CSS/Main.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@CSS/Main.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.EventCoordinatorViewController">
    <children>
       <ImageView fitHeight="600.0" fitWidth="800.0" opacity="0.41" pickOnBounds="true">
          <image>
             <Image url="@img/2489664.jpg" />
          </image>
       </ImageView>
-      <TableView cache="true" layoutX="32.0" layoutY="121.0" prefHeight="417.0" prefWidth="731.0" style="-fx-background-color: transparent;">
+      <TableView fx:id="tvEvents" layoutX="32.0" layoutY="121.0" prefHeight="417.0" prefWidth="731.0" style="-fx-background-color: Transparent;">
         <columns>
-          <TableColumn prefWidth="75.0" text="ID" />
-          <TableColumn prefWidth="134.0" text="Event" />
-            <TableColumn prefWidth="89.0" text="Date" />
-            <TableColumn prefWidth="190.0" text="Participants" />
-            <TableColumn prefWidth="91.0" text="Price" />
-            <TableColumn prefWidth="75.0" text="Start" />
-            <TableColumn text="End" />
+          <TableColumn fx:id="tcId" prefWidth="75.0" style="-fx-background-color: transparent;" text="ID" />
+          <TableColumn fx:id="tcEventName" prefWidth="134.0" style="-fx-background-color: transparent;" text="Event" />
+            <TableColumn fx:id="tcEventDate" prefWidth="125.0" style="-fx-background-color: transparent;" text="Date" />
+            <TableColumn fx:id="tcEventLocation" prefWidth="129.0" style="-fx-background-color: transparent;" text="Location" />
+            <TableColumn fx:id="tcEventTime" prefWidth="96.0" style="-fx-background-color: transparent;" text="Start" />
+            <TableColumn fx:id="tcEventInfo" prefWidth="171.0" style="-fx-background-color: transparent;" text="Info" />
         </columns>
          <effect>
             <DropShadow />
@@ -42,17 +40,17 @@
             <Glow />
          </effect>
       </Label>
-      <Button layoutX="466.0" layoutY="549.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="137.0" text="Add Event">
+      <Button fx:id="btnAddEvent" layoutX="32.0" layoutY="549.0" mnemonicParsing="false" onAction="#onActionAddEvent" prefHeight="25.0" prefWidth="137.0" text="Add Event">
          <effect>
             <DropShadow />
          </effect>
       </Button>
-      <Button layoutX="619.0" layoutY="549.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="137.0" text="Delete Event">
+      <Button fx:id="btnDeleteEvent" layoutX="483.0" layoutY="549.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="137.0" text="Delete Event">
          <effect>
             <DropShadow />
          </effect>
       </Button>
-      <Button layoutX="312.0" layoutY="549.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="137.0" text="View Event">
+      <Button fx:id="btnViewEvent" layoutX="332.0" layoutY="549.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="137.0" text="View Event">
          <effect>
             <DropShadow />
          </effect>
@@ -62,15 +60,36 @@
             <Font size="19.0" />
          </font>
       </Label>
-      <Button layoutX="762.0" layoutY="16.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="24.0" text="X">
+      <Button fx:id="btnQuit" layoutX="762.0" layoutY="16.0" mnemonicParsing="false" onAction="#Quit" prefHeight="25.0" prefWidth="24.0" text="X">
          <effect>
             <DropShadow />
          </effect>
       </Button>
-      <TextField layoutX="568.0" layoutY="85.0" prefHeight="27.0" prefWidth="188.0" promptText=" Event ID, Name, Date, Price..." style="-fx-background-color: transparent; -fx-border-color: white;">
+      <TextField fx:id="txtFieldSearch" layoutX="568.0" layoutY="85.0" prefHeight="27.0" prefWidth="188.0" promptText=" Event ID, Name, Date, Price..." style="-fx-background-color: transparent; -fx-border-color: white;">
          <effect>
             <DropShadow height="62.03" radius="17.9375" width="11.72" />
          </effect>
       </TextField>
+      <Button fx:id="btnHelp" layoutX="716.0" layoutY="555.0" mnemonicParsing="false" onAction="#help" prefHeight="38.0" prefWidth="84.0" style="-fx-background-color: transparent;" text="HELP" underline="true">
+         <effect>
+            <DropShadow />
+         </effect>
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnLogOut" layoutX="632.0" layoutY="555.0" mnemonicParsing="false" onAction="#LogOutFromEventCoordinator" prefHeight="38.0" prefWidth="84.0" style="-fx-background-color: transparent;" text="Log Out" underline="true">
+         <effect>
+            <DropShadow />
+         </effect>
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnEditEvent" layoutX="181.0" layoutY="549.0" mnemonicParsing="false" onAction="#onActionEditEvent" prefHeight="25.0" prefWidth="137.0" text="Edit Event">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Button>
    </children>
 </AnchorPane>
