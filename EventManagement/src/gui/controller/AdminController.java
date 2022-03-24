@@ -13,45 +13,30 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-
 import java.io.IOException;
-import java.net.URL;
-import java.sql.SQLException;
-import java.util.Optional;
-import java.util.ResourceBundle;
 
-public class AdminController implements Initializable {
+public class AdminController{
 
 
     @FXML
-    public Button btnViewEmployee;
+    private Button btnViewEmployee;
     @FXML
-    public Button btnCreateCustomer;
+    private Button btnCreateCustomer;
     @FXML
-    public Button btnCreateEvent;
+    private Button btnCreateEvent;
     @FXML
-    public Button btnHelp;
+    private Button btnHelp;
     @FXML
-    public Button btnLogout;
+    private Button btnLogOut;
 
-    private ObservableList<Customer> allCustomers = FXCollections.observableArrayList();
-    private ObservableList<Event> allEvents = FXCollections.observableArrayList();
-
-    private CustomerModel customerModel;
-    private EventModel eventModel;
-    private Event selectedEvent;
 
 
     public AdminController() throws IOException {
-        customerModel = new CustomerModel();
-        eventModel = new EventModel();
-        selectedEvent = new Event();
     }
 
     public void LogOutFromAdmin() throws IOException {
-        Stage switcher = (Stage) btnLogout.getScene().getWindow();
+        Stage switcher = (Stage) btnLogOut.getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("/gui/view/FrontPage.fxml"));
         switcher.setTitle("Event Management");
         Scene scene = new Scene(root);
@@ -69,21 +54,6 @@ public class AdminController implements Initializable {
         alert.showAndWait();
     }
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        // tcFirstName.setCellValueFactory(new PropertyValueFactory<>("firstName"));
-        //  tcPhoneNumber.setCellValueFactory(new PropertyValueFactory<>("PhoneNumber"));
-        // tcEmail.setCellValueFactory(new PropertyValueFactory<>("Email"));
-
-        //   try {
-        //      allCustomers = FXCollections.observableArrayList(customerModel.getCustomers());
-        //        tableViewLoadCustomers(allCustomers);
-        //   } catch (SQLException sqlException) {
-        //       sqlException.printStackTrace();
-        // }
-
-    }
-
 
     /**
      * Loading table view customers
@@ -99,27 +69,36 @@ public class AdminController implements Initializable {
      * returns the allCustomers list
      *
      * @return
-     */
-    public ObservableList<Customer> getCustomersData() {
-        return allCustomers;
-    }
 
-    public void handleBtnCreateUser() throws IOException {
+    public void handleBtnCreateCustomer() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/gui/view/CreateUserView.fxml"));
         Stage stage = new Stage();
         stage.setTitle("Add Customer");
         stage.setScene(new Scene(root));
         stage.show();
-        stage.setOnHiding(event ->
-        {
-            try {
-                allCustomers = FXCollections.observableList(customerModel.getCustomers());
-                //tableViewLoadCustomers(allCustomers);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        });
+
     }
+
+    /**
+     * Mangler Edit Coordinator view
+     * @throws IOException
+     */
+    public void handleBtnViewCoordinator() throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/"));
+        Stage stage = new Stage();
+        stage.setTitle("Add Customer");
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
+
+    public void handleBtnCreateEvent() throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/gui/view/CreateEventView.fxml"));
+        Stage stage = new Stage();
+        stage.setTitle("Add Customer");
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
+
 
     /**
      * Deletes an event from the table
@@ -146,4 +125,12 @@ public class AdminController implements Initializable {
     //      e.printStackTrace();
     //  }
     //}
+
+    public void handleBtnCreateCoordinator( ) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/gui/view/CreateCoordinatorView.fxml"));
+        Stage stage = new Stage();
+        stage.setTitle("Add Customer");
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
 }
