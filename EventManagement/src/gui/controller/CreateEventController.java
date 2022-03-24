@@ -13,20 +13,17 @@ import java.sql.SQLException;
 public class CreateEventController {
 
     @FXML
-    private TextArea txtAreaEventInfo;
+    public Button btnCreateEvent;
     @FXML
-    private Button btnCancelCreateEvent;
+    public TextField txtFieldEventName;
     @FXML
-    private Button btnSaveCreateEvent;
+    public TextField txtFieldEventDate;
     @FXML
-    private TextField txtFieldEventName;
+    public TextField txtFieldEventTime;
     @FXML
-    private TextField txtFieldEventDate;
+    public TextField txtFieldEventLocation;
     @FXML
-    private TextField txtFieldEventTime;
-    @FXML
-    private TextField txtFieldEventLocation;
-
+    public TextArea txtFieldEventInfo;
     EventModel eventModel;
 
     public CreateEventController() throws IOException {
@@ -38,15 +35,11 @@ public class CreateEventController {
         String eventDate = txtFieldEventDate.getText();
         String eventTime = txtFieldEventTime.getText();
         String eventLocation = txtFieldEventLocation.getText();
-        String eventInfo = txtAreaEventInfo.getText();
+        String eventInfo = txtFieldEventInfo.getText();
 
         eventModel.createEvent(eventName, eventDate, eventTime, eventLocation, eventInfo);
-        Stage stage = (Stage) btnSaveCreateEvent.getScene().getWindow();
+        Stage stage = (Stage) btnCreateEvent.getScene().getWindow();
         stage.close();
     }
 
-    public void onActionCancelCreateEvent() {
-        Stage stage = (Stage) btnCancelCreateEvent.getScene().getWindow();
-        stage.close();
-    }
 }

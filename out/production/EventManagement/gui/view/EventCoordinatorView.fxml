@@ -21,11 +21,11 @@
       </ImageView>
       <TableView fx:id="tvEvents" layoutX="32.0" layoutY="121.0" prefHeight="417.0" prefWidth="731.0" style="-fx-background-color: Transparent;">
         <columns>
-          <TableColumn fx:id="tcId" prefWidth="75.0" style="-fx-background-color: transparent;" text="ID" />
+          <TableColumn fx:id="tcId" prefWidth="75.0" text="ID" />
           <TableColumn fx:id="tcEventName" prefWidth="134.0" style="-fx-background-color: transparent;" text="Event" />
             <TableColumn fx:id="tcEventDate" prefWidth="125.0" style="-fx-background-color: transparent;" text="Date" />
-            <TableColumn fx:id="tcEventLocation" prefWidth="129.0" style="-fx-background-color: transparent;" text="Location" />
             <TableColumn fx:id="tcEventTime" prefWidth="96.0" style="-fx-background-color: transparent;" text="Start" />
+            <TableColumn fx:id="tcEventLocation" prefWidth="129.0" style="-fx-background-color: transparent;" text="Location" />
             <TableColumn fx:id="tcEventInfo" prefWidth="171.0" style="-fx-background-color: transparent;" text="Info" />
         </columns>
          <effect>
@@ -45,7 +45,7 @@
             <DropShadow />
          </effect>
       </Button>
-      <Button fx:id="btnDeleteEvent" layoutX="483.0" layoutY="549.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="137.0" text="Delete Event">
+      <Button fx:id="btnDeleteEvent" layoutX="483.0" layoutY="549.0" mnemonicParsing="false" onAction="#handleBtnDeleteEvent" prefHeight="25.0" prefWidth="137.0" text="Delete Event">
          <effect>
             <DropShadow />
          </effect>

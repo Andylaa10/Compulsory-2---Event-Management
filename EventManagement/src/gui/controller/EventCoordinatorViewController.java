@@ -18,6 +18,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class EventCoordinatorViewController implements Initializable {
@@ -57,13 +58,13 @@ public class EventCoordinatorViewController implements Initializable {
 
     private EventCoordinatorModel eventCoordinatorModel;
     private EventModel eventModel;
+    private Event selectedEvent;
 
     public EventCoordinatorViewController() throws IOException {
         this.eventCoordinatorModel = new EventCoordinatorModel();
         this.eventModel = new EventModel();
+        this.selectedEvent = new Event();
     }
-
-
 
     public void LogOutFromEventCoordinator() throws IOException {
         Stage switcher = (Stage) btnLogOut.getScene().getWindow();
@@ -72,7 +73,6 @@ public class EventCoordinatorViewController implements Initializable {
         Scene scene = new Scene(root);
         switcher.setScene(scene);
     }
-
 
     /**
      * Loading table view events
@@ -102,6 +102,7 @@ public class EventCoordinatorViewController implements Initializable {
         stage.setScene(new Scene(root));
         stage.show();
     }
+
     // public void onActionCreateUser() throws IOException {
     //  Parent root = FXMLLoader.load(getClass().getResource("/gui/view/CreateUserView.fxml"));
     //  Stage stage = new Stage();
@@ -112,6 +113,7 @@ public class EventCoordinatorViewController implements Initializable {
     //}
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        selectedEvent();
 
         tcId.setCellValueFactory(new PropertyValueFactory<>("id"));
         tcEventName.setCellValueFactory(new PropertyValueFactory<>("EventName"));
@@ -127,6 +129,43 @@ public class EventCoordinatorViewController implements Initializable {
             e.printStackTrace();
         }
     }
+
+    /**
+     * Deletes an event from the table
+     */
+     public void handleBtnDeleteEvent(ActionEvent actionEvent) {
+       Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+      alert.setTitle("WARNING MESSAGE");
+      alert.setHeaderText("Warning before you delete event");
+      alert.setContentText(" Remove all customer and tickets from selected event to delete!! \n Are you sure you want " +
+              "to delete this movie?");
+      if (selectedEvent != null) {
+          Optional<ButtonType> result = alert.showAndWait();
+          if (result.get() == ButtonType.OK) {
+             selectedEvent();
+              eventModel.deleteEvent(selectedEvent.getId());
+          }
+      } else {
+          return;
+      }
+      try {
+          allEvents = FXCollections.observableList(eventModel.getEvents());
+          tableViewLoadEvents(allEvents);
+      } catch (Exception e) {
+          e.printStackTrace();
+      }
+    }
+
+    /**
+     * Makes you able to select an event from the table
+     */
+     private void selectedEvent() {
+      this.tvEvents.getSelectionModel().selectedItemProperty().addListener(((observableValue, oldValue, newValue) -> {
+          if ((Event) newValue != null) {
+              this.selectedEvent = (Event) newValue;
+          }
+      }));
+     }
 
     public void help() {
         Alert alert = new Alert(Alert.AlertType.ERROR);

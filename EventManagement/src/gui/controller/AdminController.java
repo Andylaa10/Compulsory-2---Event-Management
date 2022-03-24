@@ -41,13 +41,13 @@ public class AdminController implements Initializable {
 
     private CustomerModel customerModel;
     private EventModel eventModel;
-
-    private Event selectedEvent = new Event();
+    private Event selectedEvent;
 
 
     public AdminController() throws IOException {
         customerModel = new CustomerModel();
         eventModel = new EventModel();
+        selectedEvent = new Event();
     }
 
     public void LogOutFromAdmin() throws IOException {
@@ -76,36 +76,14 @@ public class AdminController implements Initializable {
         // tcEmail.setCellValueFactory(new PropertyValueFactory<>("Email"));
 
         //   try {
-            //      allCustomers = FXCollections.observableArrayList(customerModel.getCustomers());
-            //        tableViewLoadCustomers(allCustomers);
-            //   } catch (SQLException sqlException) {
-            //       sqlException.printStackTrace();
-            // }
-
-        //  tcEventName.setCellValueFactory(new PropertyValueFactory<>("eventName"));
-
-        //   try {
-            //      allEvents = FXCollections.observableArrayList(eventModel.getEvents());
-            //      tableViewLoadEvents(allEvents);
-            //  } catch (Exception e) {
-            //      e.printStackTrace();
-            // }
+        //      allCustomers = FXCollections.observableArrayList(customerModel.getCustomers());
+        //        tableViewLoadCustomers(allCustomers);
+        //   } catch (SQLException sqlException) {
+        //       sqlException.printStackTrace();
+        // }
 
     }
 
-    /**
-     * Loading table view events
-     *
-     * @param allEvents
-     */
-
-      //private void tableViewLoadEvents(ObservableList<Event> allEvents) {
-        //   tvEvents.setItems(getEventData());
-         //}
-
-     //private ObservableList<Event> getEventData() {
-       //       return allEvents;
-        // }
 
     /**
      * Loading table view customers
@@ -114,8 +92,8 @@ public class AdminController implements Initializable {
      */
 
     //public void tableViewLoadCustomers(ObservableList<Customer> allCustomers) {
-      //  tvCustomers.setItems(getCustomersData());
-   // }
+    //  tvCustomers.setItems(getCustomersData());
+    // }
 
     /**
      * returns the allCustomers list
@@ -146,7 +124,7 @@ public class AdminController implements Initializable {
     /**
      * Deletes an event from the table
      */
-   // public void handleBtnDeleteEvent(ActionEvent actionEvent) {
+    // public void handleBtnDeleteEvent(ActionEvent actionEvent) {
     //   Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
     //  alert.setTitle("WARNING MESSAGE");
     //  alert.setHeaderText("Warning before you delete event");
@@ -167,18 +145,5 @@ public class AdminController implements Initializable {
     //  } catch (Exception e) {
     //      e.printStackTrace();
     //  }
-    //}
-
-
-    /**
-     * Makes you able to select an event from the table
-     */
-    // private void selectedEvent() {
-    //  this.tvEvents.getSelectionModel().selectedItemProperty().addListener(((observableValue, oldValue, newValue) -> {
-    //      if ((Event) newValue != null) {
-    //          this.selectedEvent = (Event) newValue;
-    //      }
-    //  }));
-
     //}
 }

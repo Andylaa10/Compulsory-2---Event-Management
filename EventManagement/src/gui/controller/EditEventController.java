@@ -12,6 +12,10 @@ import java.io.IOException;
 public class EditEventController {
 
     @FXML
+    public Button btnEditEvent;
+    @FXML
+    public TextArea txtFieldEventInfo;
+    @FXML
     private TextField txtFieldEventName;
     @FXML
     private TextField txtFieldEventDate;
@@ -19,12 +23,7 @@ public class EditEventController {
     private TextField txtFieldEventTime;
     @FXML
     private TextField txtFieldEventLocation;
-    @FXML
-    private TextArea txtAreaEventInfo;
-    @FXML
-    private Button btnCancelCreateEvent;
-    @FXML
-    private Button btnSaveCreateEvent;
+    
 
     EventModel eventModel;
 
@@ -37,12 +36,12 @@ public class EditEventController {
         String eventDate = txtFieldEventDate.getText();
         String eventTime = txtFieldEventTime.getText();
         String eventLocation = txtFieldEventLocation.getText();
-        String eventInfo = txtAreaEventInfo.getText();
+        String eventInfo = txtFieldEventInfo.getText();
 
         Event event = new Event(eventName, eventDate, eventTime, eventLocation, eventInfo);
         eventModel.editEvent(event);
 
-        Stage stage = (Stage) btnSaveCreateEvent.getScene().getWindow();
+        Stage stage = (Stage) btnEditEvent.getScene().getWindow();
         stage.close();
     }
 
@@ -52,11 +51,7 @@ public class EditEventController {
         txtFieldEventDate.setText(event.getEventDate());
         txtFieldEventTime.setText(event.getEventTime());
         txtFieldEventLocation.setText(event.getEventLocation());
-        txtAreaEventInfo.setText(event.getEventInfo());
+        txtFieldEventInfo.setText(event.getEventInfo());
     }
 
-    public void onActionCancelCreateEvent() {
-        Stage stage = (Stage) btnCancelCreateEvent.getScene().getWindow();
-        stage.close();
-    }
 }

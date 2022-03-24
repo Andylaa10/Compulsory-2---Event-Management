@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@CSS/Main.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@CSS/Main.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.CreateEventController">
    <children>
       <ImageView fitHeight="600.0" fitWidth="800.0" opacity="0.41" pickOnBounds="true">
          <image>
@@ -26,17 +26,12 @@
             <Glow />
          </effect>
       </Label>
-      <Button layoutX="532.0" layoutY="531.0" mnemonicParsing="false" opacity="0.65" prefHeight="28.0" prefWidth="204.0" text="Create Event">
+      <Button fx:id="btnCreateEvent" layoutX="532.0" layoutY="531.0" mnemonicParsing="false" onAction="#onActionSaveEvent" opacity="0.65" prefHeight="28.0" prefWidth="204.0" text="Create Event">
          <effect>
             <DropShadow />
          </effect>
       </Button>
-      <Button layoutX="762.0" layoutY="16.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="24.0" text="X">
-         <effect>
-            <DropShadow />
-         </effect>
-      </Button>
-      <TextField layoutX="528.0" layoutY="103.0" prefHeight="37.0" prefWidth="204.0" promptText="Event Title" style="-fx-background-color: transparent; -fx-border-color: white;">
+      <TextField fx:id="txtFieldEventName" layoutX="528.0" layoutY="103.0" prefHeight="37.0" prefWidth="204.0" promptText="Event Title" style="-fx-background-color: transparent; -fx-border-color: white;">
          <effect>
             <DropShadow height="62.03" radius="17.9375" width="11.72" />
          </effect>
@@ -44,7 +39,7 @@
             <Font size="16.0" />
          </font>
       </TextField>
-      <TextField layoutX="528.0" layoutY="152.0" prefHeight="37.0" prefWidth="204.0" promptText="DD.MM-YYYY" style="-fx-background-color: transparent; -fx-border-color: white;">
+      <TextField fx:id="txtFieldEventDate" layoutX="528.0" layoutY="152.0" prefHeight="37.0" prefWidth="204.0" promptText="DD.MM-YYYY" style="-fx-background-color: transparent; -fx-border-color: white;">
          <effect>
             <DropShadow height="62.03" radius="17.9375" width="11.72" />
          </effect>
@@ -52,7 +47,7 @@
             <Font size="16.0" />
          </font>
       </TextField>
-      <TextField layoutX="528.0" layoutY="203.0" prefHeight="37.0" prefWidth="204.0" promptText="18.30" style="-fx-background-color: transparent; -fx-border-color: white;">
+      <TextField fx:id="txtFieldEventTime" layoutX="528.0" layoutY="203.0" prefHeight="37.0" prefWidth="204.0" promptText="18.30" style="-fx-background-color: transparent; -fx-border-color: white;">
          <effect>
             <DropShadow height="62.03" radius="17.9375" width="11.72" />
          </effect>
@@ -60,7 +55,7 @@
             <Font size="16.0" />
          </font>
       </TextField>
-      <TextField layoutX="528.0" layoutY="255.0" prefHeight="37.0" prefWidth="204.0" promptText="Event name" style="-fx-background-color: transparent; -fx-border-color: white;" text="Musikhuset Esbjerg...">
+      <TextField fx:id="txtFieldEventLocation" layoutX="528.0" layoutY="255.0" prefHeight="37.0" prefWidth="204.0" promptText="Musikhuset Esbjerg..." style="-fx-background-color: transparent; -fx-border-color: white;">
          <effect>
             <DropShadow height="62.03" radius="17.9375" width="11.72" />
          </effect>
@@ -68,7 +63,7 @@
             <Font size="16.0" />
          </font>
       </TextField>
-      <TextArea blendMode="ADD" layoutX="228.0" layoutY="330.0" prefHeight="162.0" prefWidth="508.0" promptText="Parking, " style="-fx-border-color: White; -fx-background-color: transparent;" stylesheets="@CSS/Main.css">
+      <TextArea fx:id="txtFieldEventInfo" blendMode="ADD" layoutX="228.0" layoutY="330.0" prefHeight="162.0" prefWidth="508.0" style="-fx-border-color: White; -fx-background-color: transparent;" stylesheets="@CSS/Main.css">
          <effect>
             <DropShadow />
          </effect>
