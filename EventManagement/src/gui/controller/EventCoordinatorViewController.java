@@ -15,7 +15,6 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.Optional;
@@ -93,6 +92,15 @@ public class EventCoordinatorViewController implements Initializable {
         stage.setTitle("Create Event");
         stage.setScene(new Scene(root));
         stage.show();
+        stage.setOnHiding(event ->
+        {
+            try {
+                allEvents = FXCollections.observableList(eventModel.getEvents());
+                tableViewLoadEvents(allEvents);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
     }
 
     public void onActionEditEvent() throws IOException {
@@ -101,6 +109,15 @@ public class EventCoordinatorViewController implements Initializable {
         stage.setTitle("Edit Event");
         stage.setScene(new Scene(root));
         stage.show();
+        stage.setOnHiding(event ->
+        {
+            try {
+                allEvents = FXCollections.observableList(eventModel.getEvents());
+                tableViewLoadEvents(allEvents);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
     }
 
     // public void onActionCreateUser() throws IOException {
