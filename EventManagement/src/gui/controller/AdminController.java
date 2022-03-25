@@ -9,9 +9,9 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class AdminController{
+
     @FXML
     private Button btnCreateCoordinator;
-
     @FXML
     private Button btnViewEmployee;
     @FXML
@@ -23,9 +23,7 @@ public class AdminController{
     @FXML
     private Button btnLogOut;
 
-
-
-    public AdminController() throws IOException {
+    public AdminController() {
     }
 
     public void LogOutFromAdmin() throws IOException {
@@ -47,21 +45,11 @@ public class AdminController{
         alert.showAndWait();
     }
 
-
-    /**
-     * Loading table view customers
-     *
-     * @param allCustomers
-     */
-
+    //TODO
     //public void tableViewLoadCustomers(ObservableList<Customer> allCustomers) {
     //  tvCustomers.setItems(getCustomersData());
     // }
 
-    /**
-     * returns the allCustomers list
-     *
-     */
 
     public void handleBtnCreateCustomer() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/gui/view/CreateCustomerView.fxml"));
@@ -71,10 +59,8 @@ public class AdminController{
         stage.show();
     }
 
-    /**
-     * Mangler Edit Coordinator view
-     * @throws IOException
-     */
+
+    //TODO Mangler Edit Coordinator view
     public void handleBtnViewCoordinator() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/"));
         Stage stage = new Stage();
@@ -118,6 +104,10 @@ public class AdminController{
     //  }
     //}
 
+    /**
+     *
+     * @throws IOException
+     */
     public void handleBtnCreateCoordinator( ) throws IOException {
         Stage switcher = (Stage) btnCreateCoordinator.getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("/gui/view/CreateCoordinatorView.fxml"));

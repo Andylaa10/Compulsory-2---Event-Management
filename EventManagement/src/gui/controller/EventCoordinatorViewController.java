@@ -107,7 +107,7 @@ public class EventCoordinatorViewController implements Initializable {
     }
 
     public void onActionEditEvent() throws IOException {
-        //TODO ADD ERROR HANDLING WITH NO EVENT SELECTED
+        //TODO ADD ERROR HANDLING IF NO EVENT SELECTED
         if (selectedEvent != null) {
             Event selectedEvent = (Event) tvEvents.getSelectionModel().getSelectedItem();
 
