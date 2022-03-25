@@ -5,7 +5,10 @@ import gui.model.CustomerModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -45,11 +48,12 @@ public class CreateCustomerController implements Initializable {
     @FXML
     public Button btnDeleteCustomer;
     @FXML
-    public TextField txtfieldPhoneNumber;
+    public TextField txtFieldPhoneNumber;
     @FXML
     public TextField txtFieldEmail;
     @FXML
     public Button btnBack;
+
 
     private ObservableList<Customer> allCustomers = FXCollections.observableArrayList();
 
@@ -101,11 +105,19 @@ public class CreateCustomerController implements Initializable {
     public void handleBtnAddCustomer() throws SQLException {
         String customerFirstName = txtFieldFirstName.getText();
         String customerLastName = txtFieldLastName.getText();
-        String customerPhoneNumber = txtfieldPhoneNumber.getText();
+        String customerPhoneNumber = txtFieldPhoneNumber.getText();
         String customerEmail = txtFieldEmail.getText();
 
         customerModel.createCustomer(customerFirstName, customerLastName, customerPhoneNumber, customerEmail);
         reloadCustomerTable();
+    }
+
+    public void handleBtnEditCustomer(){
+        //TODO Implement metode her til at edit
+    }
+
+    public void handleBtnDeleteCustomer(){
+        //TODO Implement metode her til at delete
     }
 
     public void reloadCustomerTable() {
@@ -118,6 +130,10 @@ public class CreateCustomerController implements Initializable {
         }
     }
 
+    private void selectedCustomer(){
+        //TODO implementer metode her til at selecte en customer
+    }
+
     /**
      * public void onActionCancelCreateCustomer() {
      * Stage stage = (Stage) btnCancelCreateCustomer.getScene().getWindow();
@@ -125,9 +141,11 @@ public class CreateCustomerController implements Initializable {
      * }
      */
 
-    public void handleBtnBack() {
-        Stage stage = (Stage) btnBack.getScene().getWindow();
-        stage.close();
+    public void handleBtnBack() throws IOException {
+        Stage switcher = (Stage) btnBack.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("/gui/view/AdminView.fxml"));
+        switcher.setTitle("Admin Management");
+        Scene scene = new Scene(root);
+        switcher.setScene(scene);
     }
-}
 }

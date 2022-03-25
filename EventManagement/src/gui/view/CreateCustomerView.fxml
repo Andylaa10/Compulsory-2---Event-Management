@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" stylesheets="@CSS/Main.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.CreateCustomerController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@CSS/Main.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.CreateCustomerController">
    <children>
       <ImageView fitHeight="606.0" fitWidth="800.0" layoutY="-4.0" opacity="0.41" pickOnBounds="true">
          <image>
@@ -41,11 +41,6 @@
             <Glow />
          </effect>
       </Label>
-      <Button fx:id="btnAddCustomer" layoutX="631.0" layoutY="514.0" mnemonicParsing="false" onAction="#handleBtnAddCustomer" opacity="0.65" prefHeight="28.0" prefWidth="131.0" text="Add Customer">
-         <effect>
-            <DropShadow />
-         </effect>
-      </Button>
       <Label layoutX="506.0" layoutY="85.0" text="Search">
          <font>
             <Font size="19.0" />
@@ -66,23 +61,12 @@
             <DropShadow height="62.03" radius="17.9375" width="11.72" />
          </effect>
       </TextField>
-      <Button fx:id="btnEditCustomer" layoutX="251.0" layoutY="558.0" mnemonicParsing="false" opacity="0.65" prefHeight="28.0" prefWidth="158.0" text="Edit Customer">
+      <Button fx:id="btnBack" layoutX="605.0" layoutY="558.0" mnemonicParsing="false" onAction="#handleBtnBack" prefHeight="27.0" prefWidth="158.0" text="Back">
          <effect>
             <DropShadow />
          </effect>
       </Button>
-      <Button fx:id="btnDeleteCustomer" layoutX="427.0" layoutY="558.0" mnemonicParsing="false" opacity="0.65" prefHeight="28.0" prefWidth="158.0" text="Delete Customer">
-      <Button fx:id="btnCreateUser" layoutX="208.0" layoutY="310.0" mnemonicParsing="false" onAction="#handleBtnSave" prefHeight="27.0" prefWidth="120.0" text="Create Customer">
-         <effect>
-            <DropShadow />
-         </effect>
-      </Button>
-      <Button fx:id="btnBack" layoutX="83.0" layoutY="310.0" mnemonicParsing="false" onAction="#handleBtnBack" prefHeight="27.0" prefWidth="120.0" text="Back">
-         <effect>
-            <DropShadow />
-         </effect>
-      </Button>
-      <TextField fx:id="txtfieldPhoneNumber" layoutX="324.0" layoutY="514.0" prefHeight="27.0" prefWidth="118.0" promptText="Phone Number" style="-fx-background-color: transparent; -fx-border-color: white;">
+      <TextField fx:id="txtFieldPhoneNumber" layoutX="324.0" layoutY="514.0" prefHeight="27.0" prefWidth="118.0" promptText="Phone Number" style="-fx-background-color: transparent; -fx-border-color: white;">
          <effect>
             <DropShadow height="62.03" radius="17.9375" width="11.72" />
          </effect>
@@ -92,5 +76,20 @@
             <DropShadow height="62.03" radius="17.9375" width="11.72" />
          </effect>
       </TextField>
+      <Button fx:id="btnAddCustomer" layoutX="627.0" layoutY="514.0" mnemonicParsing="false" onAction="#handleBtnAddCustomer" prefHeight="27.0" prefWidth="138.0" text="Add Customer">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Button>
+      <Button fx:id="btnDeleteCustomer" layoutX="453.0" layoutY="558.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="138.0" text="Delete Customer">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Button>
+      <Button fx:id="btnEditCustomer" layoutX="303.0" layoutY="558.0" mnemonicParsing="false" onAction="#handleBtnBack" prefHeight="27.0" prefWidth="138.0" text="Edit Customer">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Button>
    </children>
 </AnchorPane>

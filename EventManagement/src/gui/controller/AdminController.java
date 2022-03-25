@@ -47,7 +47,7 @@ public class AdminController{
 
     public void handleBtnCreateCustomer() throws IOException {
         Stage switcher = (Stage) btnCreateCustomer.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("/gui/view/CreateUserView.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/gui/view/CreateCustomerView.fxml"));
         Scene scene = new Scene(root);
         switcher.setTitle("Customer Management");
         switcher.setScene(scene);
