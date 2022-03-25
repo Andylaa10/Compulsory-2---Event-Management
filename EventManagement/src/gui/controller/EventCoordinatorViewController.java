@@ -107,28 +107,6 @@ public class EventCoordinatorViewController implements Initializable {
     }
 
     public void onActionEditEvent() throws IOException {
-<<<<<<< Updated upstream
-        Parent root = FXMLLoader.load(getClass().getResource("/gui/view/EditEventView.fxml"));
-        Stage stage = new Stage();
-        stage.setTitle("Edit Event");
-        stage.setScene(new Scene(root));
-        stage.show();
-        stage.setOnHiding(event ->
-        {
-            try {
-                allEvents = FXCollections.observableList(eventModel.getEvents());
-                tableViewLoadEvents(allEvents);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        });
-    }
-=======
-       // Parent root = FXMLLoader.load(getClass().getResource("/gui/view/EditEventView.fxml"));
-       // Stage stage = new Stage();
-       // stage.setTitle("Edit Event");
-       // stage.setScene(new Scene(root));
-        //stage.show();
         if (selectedEvent != null) {
             Event selectedEvent = (Event) tvEvents.getSelectionModel().getSelectedItem();
 
@@ -154,7 +132,6 @@ public class EventCoordinatorViewController implements Initializable {
                     e.printStackTrace();
                 }
             });
->>>>>>> Stashed changes
 
     }
     // public void onActionCreateUser() throws IOException {
