@@ -12,6 +12,8 @@ import java.io.IOException;
 public class EditEventController {
 
     @FXML
+    private Button btnBack;
+    @FXML
     private Button btnEditEvent;
     @FXML
     private TextArea txtFieldEventInfo;
@@ -25,7 +27,6 @@ public class EditEventController {
     private TextField txtFieldEventTime;
     @FXML
     private TextField txtFieldEventLocation;
-    
 
     EventModel eventModel;
 
@@ -58,6 +59,8 @@ public class EditEventController {
         txtFieldEventInfo.setText(event.getEventInfo());
     }
 
-
-
+    public void handleBtnBack() {
+        Stage stage = (Stage) btnBack.getScene().getWindow();
+        stage.close();
+    }
 }

@@ -23,35 +23,35 @@ import java.util.ResourceBundle;
 public class EventCoordinatorViewController implements Initializable {
 
     @FXML
-    public Button btnAddEvent;
+    private Button btnAddEvent;
     @FXML
-    public Button btnDeleteEvent;
+    private Button btnDeleteEvent;
     @FXML
-    public Button btnViewEvent;
+    private Button btnViewEvent;
     @FXML
-    public Button btnQuit;
+    private Button btnQuit;
     @FXML
-    public TextField txtFieldSearch;
+    private TextField txtFieldSearch;
     @FXML
-    public Button btnHelp;
+    private Button btnHelp;
     @FXML
-    public Button btnLogOut;
+    private Button btnLogOut;
     @FXML
-    public TableView tvEvents;
+    private TableView tvEvents;
     @FXML
-    public TableColumn tcId;
+    private TableColumn tcId;
     @FXML
-    public TableColumn tcEventName;
+    private TableColumn tcEventName;
     @FXML
-    public TableColumn tcEventDate;
+    private TableColumn tcEventDate;
     @FXML
-    public TableColumn tcEventLocation;
+    private TableColumn tcEventLocation;
     @FXML
-    public TableColumn tcEventTime;
+    private TableColumn tcEventTime;
     @FXML
-    public Button btnEditEvent;
+    private Button btnEditEvent;
     @FXML
-    public TableColumn tcEventInfo;
+    private TableColumn tcEventInfo;
 
     private ObservableList<Event> allEvents = FXCollections.observableArrayList();
 
@@ -107,6 +107,7 @@ public class EventCoordinatorViewController implements Initializable {
     }
 
     public void onActionEditEvent() throws IOException {
+        //TODO ADD ERROR HANDLING IF NO EVENT SELECTED
         if (selectedEvent != null) {
             Event selectedEvent = (Event) tvEvents.getSelectionModel().getSelectedItem();
 
@@ -132,15 +133,10 @@ public class EventCoordinatorViewController implements Initializable {
                     e.printStackTrace();
                 }
             });
+        }
+    }
 
-    }
-    // public void onActionCreateUser() throws IOException {
-    //  Parent root = FXMLLoader.load(getClass().getResource("/gui/view/CreateUserView.fxml"));
-    //  Stage stage = new Stage();
-    //  stage.setTitle("Create User");
-    //  stage.setScene(new Scene(root));
-    //  stage.show();
-    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         selectedEvent();
@@ -164,11 +160,11 @@ public class EventCoordinatorViewController implements Initializable {
      * Deletes an event from the table
      */
      public void handleBtnDeleteEvent(ActionEvent actionEvent) {
-       Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
       alert.setTitle("WARNING MESSAGE");
       alert.setHeaderText("Warning before you delete event");
-      alert.setContentText(" Remove all customer and tickets from selected event to delete!! \n Are you sure you want " +
-              "to delete this movie?");
+      alert.setContentText("Remove all customer and tickets from selected event to delete! \n Are you sure you want " +
+              "to delete this event?");
       if (selectedEvent != null) {
           Optional<ButtonType> result = alert.showAndWait();
           if (result.get() == ButtonType.OK) {

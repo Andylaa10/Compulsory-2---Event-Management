@@ -26,11 +26,6 @@
             <Glow />
          </effect>
       </Label>
-      <Button fx:id="btnQuit" layoutX="762.0" layoutY="16.0" mnemonicParsing="false" onAction="#Quit" prefHeight="25.0" prefWidth="24.0" text="X">
-         <effect>
-            <DropShadow />
-         </effect>
-      </Button>
       <Label layoutX="238.0" layoutY="103.0" text="By Ferniss and Co." textFill="WHITE">
          <font>
             <Font name="Copperplate Gothic Bold" size="31.0" />

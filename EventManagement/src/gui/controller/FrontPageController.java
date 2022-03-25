@@ -3,6 +3,7 @@ package gui.controller;
 import be.Admin;
 import be.Customer;
 import be.EventCoordinator;
+import bll.AdminManager;
 import javafx.animation.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -34,22 +35,33 @@ import java.util.stream.Stream;
 public class FrontPageController implements Initializable {
 
     @FXML
-    public Button btnQuit;
+    private Button btnQuit;
     @FXML
-    public Button btnAdminLogin;
+    private Button btnAdminLogin;
     @FXML
-    public Button btnEventCoLogin;
+    private Button btnEventCoLogin;
     @FXML
-    public TextField txtFieldUsername;
+    private TextField txtFieldUsername;
     @FXML
-    public PasswordField txtPasswordField;
+    private PasswordField txtPasswordField;
     @FXML
-    public Button btnHelp;
+    private Button btnHelp;
 
+    private Admin admin;
+    private EventCoordinator eventCoordinator;
 
-    private Admin admin = new Admin();
-    private Customer customer = new Customer();
-    private EventCoordinator eventCoordinator = new EventCoordinator();
+    /**
+     * Constructor
+     * @throws IOException
+     */
+    public FrontPageController() throws IOException {
+        this.admin = new Admin();
+        this.eventCoordinator = new EventCoordinator();
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+    }
 
     public void saveLogin() throws IOException {
         Robot robot = null;
@@ -67,10 +79,6 @@ public class FrontPageController implements Initializable {
         } catch (IOException exception) {
             exception.printStackTrace();
         }
-    }
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
     }
 
     /**
@@ -119,10 +127,6 @@ public class FrontPageController implements Initializable {
             alert.setContentText("You can also try again");
             alert.showAndWait();
         }
-    }
-
-    public void Quit() {
-        System.exit(0);
     }
 }
 

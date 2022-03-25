@@ -1,16 +1,11 @@
 package gui.controller;
 
 import be.Customer;
-import be.EventCoordinator;
 import gui.model.CustomerModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -23,8 +18,7 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
-public class CreateUserController implements Initializable {
-
+public class CreateCustomerController implements Initializable {
 
     @FXML
     public TableView tvCustomers;
@@ -61,8 +55,9 @@ public class CreateUserController implements Initializable {
 
     private CustomerModel customerModel;
 
-    public CreateUserController() throws IOException {
-        customerModel = new CustomerModel();
+
+    public CreateCustomerController() throws IOException {
+        this.customerModel = new CustomerModel();
     }
 
     @Override
@@ -70,7 +65,7 @@ public class CreateUserController implements Initializable {
         initializeTable();
     }
 
-    public void initializeTable(){
+    public void initializeTable() {
         tcCustomerID.setCellValueFactory(new PropertyValueFactory<>("id"));
         tcFirstName.setCellValueFactory(new PropertyValueFactory<>("firstName"));
         tcLastName.setCellValueFactory(new PropertyValueFactory<>("lastName"));
@@ -86,6 +81,7 @@ public class CreateUserController implements Initializable {
 
     /**
      * Loading table view categories
+     *
      * @param allCustomers
      */
     private void tableViewLoadCustomer(ObservableList<Customer> allCustomers) {
@@ -94,6 +90,7 @@ public class CreateUserController implements Initializable {
 
     /**
      * returns the allCategories list
+     *
      * @return
      */
     private ObservableList<Customer> getCustomerData() {
@@ -121,16 +118,16 @@ public class CreateUserController implements Initializable {
         }
     }
 
-  /**  public void onActionCancelCreateCustomer() {
-        Stage stage = (Stage) btnCancelCreateCustomer.getScene().getWindow();
-        stage.close();
-    }*/
+    /**
+     * public void onActionCancelCreateCustomer() {
+     * Stage stage = (Stage) btnCancelCreateCustomer.getScene().getWindow();
+     * stage.close();
+     * }
+     */
 
-    public void handleBtnBack(ActionEvent actionEvent) throws IOException {
-        Stage switcher = (Stage) btnBack.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("/gui/view/AdminView.fxml"));
-        switcher.setTitle("Admin Management");
-        Scene scene = new Scene(root);
-        switcher.setScene(scene);
+    public void handleBtnBack() {
+        Stage stage = (Stage) btnBack.getScene().getWindow();
+        stage.close();
     }
+}
 }

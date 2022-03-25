@@ -60,11 +60,6 @@
             <Font size="19.0" />
          </font>
       </Label>
-      <Button fx:id="btnQuit" layoutX="762.0" layoutY="16.0" mnemonicParsing="false" onAction="#Quit" prefHeight="25.0" prefWidth="24.0" text="X">
-         <effect>
-            <DropShadow />
-         </effect>
-      </Button>
       <TextField fx:id="txtFieldSearch" layoutX="568.0" layoutY="85.0" prefHeight="27.0" prefWidth="188.0" promptText=" Event ID, Name, Date, Price..." style="-fx-background-color: transparent; -fx-border-color: white;">
          <effect>
             <DropShadow height="62.03" radius="17.9375" width="11.72" />

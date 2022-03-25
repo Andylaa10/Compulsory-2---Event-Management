@@ -1,7 +1,5 @@
 package be;
 
-import java.sql.Date;
-
 public class Event {
     private int id;
     private String eventName;
