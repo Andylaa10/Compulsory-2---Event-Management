@@ -133,6 +133,8 @@ public class CustomerDAO {
     public static void main(String[] args) throws IOException, SQLException {
         CustomerDAO customerDAO = new CustomerDAO();
         //customerDAO.createCustomer("Test", "Person", "+45 12345678", "KrisianTester@gmail.com");
+        customerDAO.deleteCustomer(14);
+        customerDAO.deleteCustomer(13);
         List<Customer> customers = customerDAO.getCustomers();
         System.out.println(customers);
     }

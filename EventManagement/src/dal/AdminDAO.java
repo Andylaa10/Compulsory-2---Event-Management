@@ -112,8 +112,7 @@ public class AdminDAO {
      */
     public EventCoordinator createCoordinator (String username, String password, boolean isAdmin) throws SQLException {
         try (Connection connection = connector.getConnection()) {
-            String sql = "INSERT INTO Login (username, password, isAdmin) values (?,?,?)";
-
+            String sql = "INSERT INTO Login (username, password, isAdmin) VALUES (?,?,?);";
             try (PreparedStatement preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
                 preparedStatement.setString(1, username);
                 preparedStatement.setString(2, password);

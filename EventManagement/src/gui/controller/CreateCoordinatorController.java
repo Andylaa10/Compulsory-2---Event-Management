@@ -1,10 +1,10 @@
 package gui.controller;
 
+import be.ErrorHandling;
 import be.EventCoordinator;
 import gui.model.AdminModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -53,8 +53,11 @@ public class CreateCoordinatorController implements Initializable {
 
     private AdminModel adminModel;
 
+    private ErrorHandling errorHandling;
+
     public CreateCoordinatorController() throws IOException {
         adminModel = new AdminModel();
+        errorHandling = new ErrorHandling();
     }
 
     @Override
@@ -85,23 +88,19 @@ public class CreateCoordinatorController implements Initializable {
     }
 
     /**
-     * returns the allCategories list
+     * returns the allCoordinator list
      * @return
      */
     private ObservableList<EventCoordinator> getCoordinatorData() {
         return allCoordinators;
     }
 
-
-    public void handleBtnEditCoordinator(ActionEvent actionEvent) {
-    }
-
     public void handleBtnDeleteCoordinator() {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("WARNING MESSAGE");
-        alert.setHeaderText("Warning before you delete category");
-        alert.setContentText(" Remove all movies from selected category to delete!! \n Are you sure you want " +
-                "to delete this movie?");
+        alert.setHeaderText("Warning before you delete a coordinator");
+        alert.setContentText(" To delete a coordinator, remove it from all events first!! \n Are you sure you want " +
+                "to delete this coordinator?");
         if (selectedCoordinator != null) {
             Optional<ButtonType> result = alert.showAndWait();
             if (result.get() == ButtonType.OK) {
@@ -128,14 +127,18 @@ public class CreateCoordinatorController implements Initializable {
     }
 
     public void handleBtnAddCoordinator() throws SQLException {
-        String username = textFieldUsername.getText();
-        String password = textFieldPassword.getText();
-        boolean isAdmin = false;
+        if (!textFieldUsername.getText().isEmpty() && !textFieldPassword.getText().isEmpty()){
+            String username = textFieldUsername.getText();
+            String password = textFieldPassword.getText();
+            boolean isAdmin = false;
 
-        adminModel.createCoordinator(username, password, isAdmin);
-        reloadCoordinatorTable();
-        textFieldUsername.clear();
-        textFieldPassword.clear();
+            adminModel.createCoordinator(username, password, isAdmin);
+            reloadCoordinatorTable();
+            textFieldUsername.clear();
+            textFieldPassword.clear();
+        }else {
+            errorHandling.addCoordinatorError();
+        }
     }
 
     /**
@@ -152,7 +155,7 @@ public class CreateCoordinatorController implements Initializable {
     }
 
     /**
-     * Makes you able to select a category from the table
+     * Makes you able to select a coordinator from the table
      */
     private void selectedCoordinator() {
         this.tvCoordinator.getSelectionModel().selectedItemProperty().addListener(((observableValue, oldValue, newValue) -> {

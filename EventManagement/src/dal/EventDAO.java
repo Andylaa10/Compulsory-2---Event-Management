@@ -1,7 +1,7 @@
 package dal;
 
 import be.Event;
-import be.errorHandling;
+import be.ErrorHandling;
 import com.microsoft.sqlserver.jdbc.SQLServerException;
 import dal.db.DatabaseConnector;
 import java.io.IOException;
@@ -12,8 +12,11 @@ import java.util.List;
 public class EventDAO {
     private final DatabaseConnector connector;
 
+    private ErrorHandling errorHandling;
+
     public EventDAO() throws IOException {
         connector = new DatabaseConnector();
+        errorHandling = new ErrorHandling();
     }
     /**
      * Making an event list, connecting to the database and adding the results to our ArrayList.

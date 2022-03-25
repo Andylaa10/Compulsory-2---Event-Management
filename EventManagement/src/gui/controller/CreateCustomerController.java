@@ -1,7 +1,12 @@
 package gui.controller;
 
 import be.Customer;
+import be.ErrorHandling;
+import be.EventCoordinator;
+import bll.EventCoordinatorManager;
+import com.microsoft.sqlserver.jdbc.SQLServerException;
 import gui.model.CustomerModel;
+import gui.model.EventCoordinatorModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -9,22 +14,19 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class CreateCustomerController implements Initializable {
 
     @FXML
-    public TableView tvCustomers;
+    public TableView<Customer> tvCustomers;
     @FXML
     public TableColumn<Customer, Integer> tcCustomerID;
     @FXML
@@ -58,15 +60,19 @@ public class CreateCustomerController implements Initializable {
     private ObservableList<Customer> allCustomers = FXCollections.observableArrayList();
 
     private CustomerModel customerModel;
+    private ErrorHandling errorHandling;
+    private Customer selectedCustomer;
 
 
     public CreateCustomerController() throws IOException {
-        this.customerModel = new CustomerModel();
+        customerModel = new CustomerModel();
+        errorHandling = new ErrorHandling();
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         initializeTable();
+        selectedCustomer();
     }
 
     public void initializeTable() {
@@ -83,8 +89,16 @@ public class CreateCustomerController implements Initializable {
         }
     }
 
+    private void selectedCustomer(){
+        this.tvCustomers.getSelectionModel().selectedItemProperty().addListener(((observableValue, oldValue, newValue) -> {
+            if ((Customer) newValue != null) {
+                this.selectedCustomer = (Customer) newValue;
+            }
+        }));
+    }
+
     /**
-     * Loading table view categories
+     * Loading table view customer
      *
      * @param allCustomers
      */
@@ -93,7 +107,7 @@ public class CreateCustomerController implements Initializable {
     }
 
     /**
-     * returns the allCategories list
+     * returns the allCustomer list
      *
      * @return
      */
@@ -101,15 +115,19 @@ public class CreateCustomerController implements Initializable {
         return allCustomers;
     }
 
-
     public void handleBtnAddCustomer() throws SQLException {
-        String customerFirstName = txtFieldFirstName.getText();
-        String customerLastName = txtFieldLastName.getText();
-        String customerPhoneNumber = txtFieldPhoneNumber.getText();
-        String customerEmail = txtFieldEmail.getText();
+        if (!txtFieldFirstName.getText().isEmpty() && !txtFieldLastName.getText().isEmpty() && !txtFieldPhoneNumber.getText().isEmpty() && !txtFieldEmail.getText().isEmpty()){
+            String customerFirstName = txtFieldFirstName.getText();
+            String customerLastName = txtFieldLastName.getText();
+            String customerPhoneNumber = txtFieldPhoneNumber.getText();
+            String customerEmail = txtFieldEmail.getText();
 
-        customerModel.createCustomer(customerFirstName, customerLastName, customerPhoneNumber, customerEmail);
-        reloadCustomerTable();
+            customerModel.createCustomer(customerFirstName, customerLastName, customerPhoneNumber, customerEmail);
+            reloadCustomerTable();
+        }else {
+            errorHandling.addCustomerError();
+        }
+
     }
 
     public void handleBtnEditCustomer(){
@@ -117,7 +135,26 @@ public class CreateCustomerController implements Initializable {
     }
 
     public void handleBtnDeleteCustomer(){
-        //TODO Implement metode her til at delete
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("WARNING MESSAGE");
+        alert.setHeaderText("Warning before you delete a customer");
+        alert.setContentText(" To delete a customer, remove it from all events and tickets first!! \n Are you sure you want " +
+                "to delete this customer?");
+        if (selectedCustomer != null) {
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == ButtonType.OK) {
+                selectedCustomer();
+                customerModel.deleteCustomer(selectedCustomer.getId());
+            } else {
+                return;
+            }
+            try {
+                allCustomers = FXCollections.observableList(customerModel.getCustomers());
+                tableViewLoadCustomer(allCustomers);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     public void reloadCustomerTable() {
@@ -130,9 +167,6 @@ public class CreateCustomerController implements Initializable {
         }
     }
 
-    private void selectedCustomer(){
-        //TODO implementer metode her til at selecte en customer
-    }
 
     /**
      * public void onActionCancelCreateCustomer() {

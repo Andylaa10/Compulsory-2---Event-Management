@@ -1,7 +1,6 @@
 package dal;
 
 import be.Customer;
-import be.EventCoordinator;
 import com.microsoft.sqlserver.jdbc.SQLServerException;
 import dal.db.DatabaseConnector;
 import java.io.IOException;
@@ -80,7 +79,6 @@ public class EventCoordinatorDAO {
         }
         return allCustomerOnEvent;
     }
-
 
     /**
      * Method used for testing the DAO class

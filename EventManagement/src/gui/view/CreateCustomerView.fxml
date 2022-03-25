@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@CSS/Main.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.CreateCustomerController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@CSS/Main.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.CreateCustomerController">
    <children>
       <ImageView fitHeight="606.0" fitWidth="800.0" layoutY="-4.0" opacity="0.41" pickOnBounds="true">
          <image>
@@ -81,7 +81,7 @@
             <DropShadow />
          </effect>
       </Button>
-      <Button fx:id="btnDeleteCustomer" layoutX="453.0" layoutY="558.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="138.0" text="Delete Customer">
+      <Button fx:id="btnDeleteCustomer" layoutX="453.0" layoutY="558.0" mnemonicParsing="false" onAction="#handleBtnDeleteCustomer" prefHeight="27.0" prefWidth="138.0" text="Delete Customer">
          <effect>
             <DropShadow />
          </effect>

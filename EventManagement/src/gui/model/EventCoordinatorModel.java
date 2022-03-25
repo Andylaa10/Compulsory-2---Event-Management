@@ -2,6 +2,8 @@ package gui.model;
 
 import be.EventCoordinator;
 import bll.EventCoordinatorManager;
+import com.microsoft.sqlserver.jdbc.SQLServerException;
+
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
@@ -47,5 +49,4 @@ public class EventCoordinatorModel {
     public void deleteFromEvent(int customerId, int eventId){
         eventCoordinatorManager.deleteFromEvent(customerId, eventId);
     }
-
 }

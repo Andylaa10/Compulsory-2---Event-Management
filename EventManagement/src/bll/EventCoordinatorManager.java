@@ -1,6 +1,7 @@
 package bll;
 
 import be.EventCoordinator;
+import com.microsoft.sqlserver.jdbc.SQLServerException;
 import dal.EventCoordinatorDAO;
 import java.io.IOException;
 import java.sql.SQLException;
@@ -47,4 +48,5 @@ public class EventCoordinatorManager {
     public void deleteFromEvent(int customerId, int eventId){
         eventCoordinatorDAO.deleteFromEvent(customerId, eventId);
     }
+
 }
