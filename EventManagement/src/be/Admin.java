@@ -91,4 +91,6 @@ public class Admin implements ILogin {
     public Boolean isAdmin() {
         return true;
     }
+
+
 }

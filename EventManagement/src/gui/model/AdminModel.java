@@ -61,10 +61,9 @@ public class AdminModel {
     /**
      * Deletes a coordinator using the deleteCoordinator methods in eventCoordinatorManagerDAO
      * @param id
-     * @param isAdmin
      */
-    public void deleteCoordinator(int id, boolean isAdmin) {
-        adminManager.deleteCoordinator(id, isAdmin);
+    public void deleteCoordinator(int id) {
+        adminManager.deleteCoordinator(id);
     }
 
     /**
