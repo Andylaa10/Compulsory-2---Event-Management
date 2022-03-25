@@ -7,7 +7,6 @@ Redefine of the background color, to a dark blue color.
     -fx-base: rgb(26, 119, 99);
     -fx-background: rgb(25, 50, 65);
 
-
     /* make controls like buttons a little bit lighter for a relaxed design effect */
     -fx-color: derive(-fx-base, 15%);
 
@@ -22,7 +21,7 @@ Redefine of the background color, to a dark blue color.
 
     /* A bright blue for highlighting/accenting objects.  For example: selected
      * text; selected items in menus, lists, trees, and tables; progress bars */
-    -fx-accent: rgb(24, 49, 76);
+    -fx-accent: rgb(255, 255, 255);
 
     /* color of non-focused yet selected elements */
     -fx-selection-bar-non-focused: rgb(255, 255, 255);

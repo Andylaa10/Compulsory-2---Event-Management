@@ -19,7 +19,7 @@
             <Image url="@img/2489664.jpg" />
          </image>
       </ImageView>
-      <TableView fx:id="tvEvents" layoutX="32.0" layoutY="121.0" prefHeight="417.0" prefWidth="731.0" style="-fx-background-color: Transparent;">
+      <TableView fx:id="tvEvents" layoutX="32.0" layoutY="121.0" prefHeight="417.0" prefWidth="731.0" style="-fx-background-color: Transparent;" stylesheets="@CSS/Main.css">
         <columns>
           <TableColumn fx:id="tcId" prefWidth="75.0" text="ID" />
           <TableColumn fx:id="tcEventName" prefWidth="134.0" style="-fx-background-color: transparent;" text="Event" />

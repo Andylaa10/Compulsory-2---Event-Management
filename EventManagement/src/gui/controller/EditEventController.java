@@ -48,9 +48,8 @@ public class EditEventController {
         Stage stage = (Stage) btnEditEvent.getScene().getWindow();
         stage.close();
     }
-    
-    public void setSelectedEvent(Event event) {
 
+    public void setSelectedEvent(Event event) {
         txtFieldEventID.setText(String.valueOf(event.getId()));
         txtFieldEventName.setText(event.getEventName());
         txtFieldEventDate.setText(event.getEventDate());
