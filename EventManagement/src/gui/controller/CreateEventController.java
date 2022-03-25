@@ -48,10 +48,7 @@ public class CreateEventController {
     }
 
     public void handleBtnBack(ActionEvent actionEvent) throws IOException {
-        Stage switcher = (Stage) btnBack.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("/gui/view/AdminView.fxml"));
-        switcher.setTitle("Admin Management");
-        Scene scene = new Scene(root);
-        switcher.setScene(scene);
+        Stage stage = (Stage) btnBack.getScene().getWindow();
+        stage.close();
     }
 }
