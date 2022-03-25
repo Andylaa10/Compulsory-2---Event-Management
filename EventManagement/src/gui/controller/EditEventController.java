@@ -54,4 +54,6 @@ public class EditEventController {
         txtFieldEventInfo.setText(event.getEventInfo());
     }
 
+
+
 }

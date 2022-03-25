@@ -58,11 +58,13 @@ public class EventCoordinatorViewController implements Initializable {
     private EventCoordinatorModel eventCoordinatorModel;
     private EventModel eventModel;
     private Event selectedEvent;
+    private EditEventController editEventController;
 
     public EventCoordinatorViewController() throws IOException {
         this.eventCoordinatorModel = new EventCoordinatorModel();
         this.eventModel = new EventModel();
         this.selectedEvent = new Event();
+        this.editEventController = new EditEventController();
     }
 
     public void LogOutFromEventCoordinator() throws IOException {
@@ -86,6 +88,7 @@ public class EventCoordinatorViewController implements Initializable {
         return allEvents;
     }
 
+
     public void onActionAddEvent() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/gui/view/CreateEventView.fxml"));
         Stage stage = new Stage();
@@ -104,6 +107,7 @@ public class EventCoordinatorViewController implements Initializable {
     }
 
     public void onActionEditEvent() throws IOException {
+<<<<<<< Updated upstream
         Parent root = FXMLLoader.load(getClass().getResource("/gui/view/EditEventView.fxml"));
         Stage stage = new Stage();
         stage.setTitle("Edit Event");
@@ -119,15 +123,47 @@ public class EventCoordinatorViewController implements Initializable {
             }
         });
     }
+=======
+       // Parent root = FXMLLoader.load(getClass().getResource("/gui/view/EditEventView.fxml"));
+       // Stage stage = new Stage();
+       // stage.setTitle("Edit Event");
+       // stage.setScene(new Scene(root));
+        //stage.show();
+        if (selectedEvent != null) {
+            Event selectedEvent = (Event) tvEvents.getSelectionModel().getSelectedItem();
 
+            FXMLLoader parent = new FXMLLoader(getClass().getResource("/gui/view/EditEventView.fxml"));
+            Scene mainWindowScene = null;
+            try {
+                mainWindowScene = new Scene(parent.load());
+            } catch (IOException exception) {
+                exception.printStackTrace();
+            }
+            Stage editEventStage;
+            editEventStage = new Stage();
+            editEventStage.setScene(mainWindowScene);
+            EditEventController editEventController = parent.getController();
+            editEventController.setSelectedEvent(selectedEvent);
+            editEventStage.show();
+            editEventStage.setOnHiding(event ->
+            {
+                try {
+                    allEvents = FXCollections.observableList(eventModel.getEvents());
+                    tableViewLoadEvents(allEvents);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            });
+>>>>>>> Stashed changes
+
+    }
     // public void onActionCreateUser() throws IOException {
     //  Parent root = FXMLLoader.load(getClass().getResource("/gui/view/CreateUserView.fxml"));
     //  Stage stage = new Stage();
     //  stage.setTitle("Create User");
     //  stage.setScene(new Scene(root));
     //  stage.show();
-
-    //}
+    }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         selectedEvent();
