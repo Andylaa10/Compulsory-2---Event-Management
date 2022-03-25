@@ -2,6 +2,8 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.effect.Glow?>
@@ -10,50 +12,82 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" stylesheets="@CSS/Main.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.CreateUserController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@CSS/Main.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.CreateUserController">
    <children>
-      <ImageView fitHeight="400.0" fitWidth="450.0" opacity="0.12" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="606.0" fitWidth="800.0" layoutY="-4.0" opacity="0.41" pickOnBounds="true">
          <image>
-            <Image url="@img/istockphoto-1300845620-612x612.jpg" />
+            <Image url="@img/Happy-Office.jpg" />
          </image>
       </ImageView>
-      <TextField fx:id="txtFieldFName" alignment="CENTER" layoutX="79.0" layoutY="110.0" prefHeight="27.0" prefWidth="245.0" promptText="First Name" style="-fx-background-color: transparent; -fx-border-color: white;">
+      <TableView fx:id="tvCustomers" cache="true" layoutX="32.0" layoutY="117.0" prefHeight="377.0" prefWidth="731.0" style="-fx-background-color: transparent;">
+         <columns>
+            <TableColumn fx:id="tcCustomerID" prefWidth="38.400054931640625" text="ID" />
+            <TableColumn fx:id="tcFirstName" prefWidth="156.0" text="First Name" />
+            <TableColumn fx:id="tcLastName" prefWidth="154.39996337890625" text="Last Name" />
+            <TableColumn fx:id="tcPhoneNumber" minWidth="5.5999755859375" prefWidth="144.800048828125" text="Phone Number" />
+            <TableColumn fx:id="tcEmail" prefWidth="237.59991455078125" text="Email" />
+         </columns>
          <effect>
-            <DropShadow height="62.03" radius="17.9375" width="11.72" />
+            <DropShadow />
          </effect>
-      </TextField>
-      <Label layoutX="90.0" layoutY="14.0" text="Create User" textFill="WHITE">
+      </TableView>
+      <Label layoutX="206.0" layoutY="14.0" text="View Customer" textFill="WHITE">
          <font>
-            <Font name="Copperplate Gothic Bold" size="31.0" />
+            <Font name="Copperplate Gothic Bold" size="48.0" />
          </font>
          <effect>
             <Glow />
          </effect>
       </Label>
-      <TextField fx:id="txtFieldLName" alignment="CENTER" layoutX="80.0" layoutY="157.0" prefHeight="27.0" prefWidth="245.0" promptText="Last Name" style="-fx-background-color: transparent; -fx-border-color: white;">
-         <effect>
-            <DropShadow height="62.03" radius="17.9375" width="11.72" />
-         </effect>
-      </TextField>
-      <TextField fx:id="txtFieldPhoneNumber" alignment="CENTER" layoutX="83.0" layoutY="200.0" prefHeight="27.0" prefWidth="245.0" promptText="Phone Number" style="-fx-background-color: transparent; -fx-border-color: white;">
-         <effect>
-            <DropShadow height="62.03" radius="17.9375" width="11.72" />
-         </effect>
-      </TextField>
-      <TextField fx:id="txtFieldEmail" alignment="CENTER" layoutX="83.0" layoutY="246.0" prefHeight="27.0" prefWidth="245.0" promptText="Email" style="-fx-background-color: transparent; -fx-border-color: white;">
-         <effect>
-            <DropShadow height="62.03" radius="17.9375" width="11.72" />
-         </effect>
-      </TextField>
-      <Button fx:id="btnCreateUser" layoutX="200.0" layoutY="310.0" mnemonicParsing="false" opacity="0.92" prefHeight="27.0" prefWidth="162.0" text="Create User">
+      <Button fx:id="btnAddCustomer" layoutX="631.0" layoutY="514.0" mnemonicParsing="false" onAction="#handleBtnAddCustomer" opacity="0.65" prefHeight="28.0" prefWidth="131.0" text="Add Customer">
          <effect>
             <DropShadow />
          </effect>
       </Button>
-      <Button fx:id="btnBack" layoutX="38.0" layoutY="310.0" mnemonicParsing="false" onAction="#handleBtnBack" opacity="0.92" prefHeight="27.0" prefWidth="162.0" text="Back">
+      <Label layoutX="506.0" layoutY="85.0" text="Search">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtFieldSearch" layoutX="568.0" layoutY="85.0" prefHeight="27.0" prefWidth="188.0" promptText="ID, First Name, Last Name, Phone, Emai..." style="-fx-background-color: transparent; -fx-border-color: white;">
+         <effect>
+            <DropShadow height="62.03" radius="17.9375" width="11.72" />
+         </effect>
+      </TextField>
+      <TextField fx:id="txtFieldLastName" layoutX="181.0" layoutY="514.0" prefHeight="27.0" prefWidth="131.0" promptText="Last Name" style="-fx-background-color: transparent; -fx-border-color: white;">
+         <effect>
+            <DropShadow height="62.03" radius="17.9375" width="11.72" />
+         </effect>
+      </TextField>
+      <TextField fx:id="txtFieldFirstName" layoutX="35.0" layoutY="514.0" prefHeight="27.0" prefWidth="131.0" promptText="First Name" style="-fx-background-color: transparent; -fx-border-color: white;">
+         <effect>
+            <DropShadow height="62.03" radius="17.9375" width="11.72" />
+         </effect>
+      </TextField>
+      <Button fx:id="btnEditCustomer" layoutX="251.0" layoutY="558.0" mnemonicParsing="false" opacity="0.65" prefHeight="28.0" prefWidth="158.0" text="Edit Customer">
          <effect>
             <DropShadow />
          </effect>
       </Button>
+      <Button fx:id="btnDeleteCustomer" layoutX="427.0" layoutY="558.0" mnemonicParsing="false" opacity="0.65" prefHeight="28.0" prefWidth="158.0" text="Delete Customer">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Button>
+      <Button fx:id="btnBack" layoutX="596.0" layoutY="558.0" mnemonicParsing="false" onAction="#handleBtnBack" opacity="0.65" prefHeight="28.0" prefWidth="166.0" text="Back">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Button>
+      <TextField fx:id="txtfieldPhoneNumber" layoutX="324.0" layoutY="514.0" prefHeight="27.0" prefWidth="118.0" promptText="Phone Number" style="-fx-background-color: transparent; -fx-border-color: white;">
+         <effect>
+            <DropShadow height="62.03" radius="17.9375" width="11.72" />
+         </effect>
+      </TextField>
+      <TextField fx:id="txtFieldEmail" layoutX="455.0" layoutY="514.0" prefHeight="27.0" prefWidth="166.0" promptText="Email" style="-fx-background-color: transparent; -fx-border-color: white;">
+         <effect>
+            <DropShadow height="62.03" radius="17.9375" width="11.72" />
+         </effect>
+      </TextField>
    </children>
 </AnchorPane>

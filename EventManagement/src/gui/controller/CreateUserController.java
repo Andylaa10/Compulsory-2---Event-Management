@@ -1,58 +1,130 @@
 package gui.controller;
 
+import be.Customer;
+import be.EventCoordinator;
 import gui.model.CustomerModel;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.SQLException;
+import java.util.ResourceBundle;
 
-public class CreateUserController {
-
-
-    @FXML
-    private TextField txtFieldCustomerFirstName;
-    @FXML
-    private TextField txtFieldCustomerLastName;
-    @FXML
-    private TextField txtFieldCustomerPhoneNumber;
-    @FXML
-    private TextField txtFieldCustomerEmail;
-    @FXML
-    private Button btnSave;
-    @FXML
-    private Button btnCancelCreateCustomer;
-    @FXML
-    private Button btnBack;
+public class CreateUserController implements Initializable {
 
 
-    CustomerModel customerModel;
+    @FXML
+    public TableView tvCustomers;
+    @FXML
+    public TableColumn<Customer, Integer> tcCustomerID;
+    @FXML
+    public TableColumn<Customer, String> tcFirstName;
+    @FXML
+    public TableColumn<Customer, String> tcLastName;
+    @FXML
+    public TableColumn<Customer, String> tcPhoneNumber;
+    @FXML
+    public TableColumn<Customer, String> tcEmail;
+    @FXML
+    public Button btnAddCustomer;
+    @FXML
+    public TextField txtFieldSearch;
+    @FXML
+    public TextField txtFieldLastName;
+    @FXML
+    public TextField txtFieldFirstName;
+    @FXML
+    public Button btnEditCustomer;
+    @FXML
+    public Button btnDeleteCustomer;
+    @FXML
+    public TextField txtfieldPhoneNumber;
+    @FXML
+    public TextField txtFieldEmail;
+    @FXML
+    public Button btnBack;
+
+    private ObservableList<Customer> allCustomers = FXCollections.observableArrayList();
+
+    private CustomerModel customerModel;
 
     public CreateUserController() throws IOException {
-        this.customerModel = new CustomerModel();
+        customerModel = new CustomerModel();
     }
 
-    public void handleBtnSave() throws SQLException {
-        String customerFirstName = txtFieldCustomerFirstName.getText();
-        String customerLastName = txtFieldCustomerLastName.getText();
-        String customerPhoneNumber = txtFieldCustomerPhoneNumber.getText();
-        String customerEmail = txtFieldCustomerEmail.getText();
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        initializeTable();
+    }
+
+    public void initializeTable(){
+        tcCustomerID.setCellValueFactory(new PropertyValueFactory<>("id"));
+        tcFirstName.setCellValueFactory(new PropertyValueFactory<>("firstName"));
+        tcLastName.setCellValueFactory(new PropertyValueFactory<>("lastName"));
+        tcPhoneNumber.setCellValueFactory(new PropertyValueFactory<>("phoneNumber"));
+        tcEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
+        try {
+            allCustomers = FXCollections.observableList(customerModel.getCustomers());
+            tableViewLoadCustomer(allCustomers);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Loading table view categories
+     * @param allCustomers
+     */
+    private void tableViewLoadCustomer(ObservableList<Customer> allCustomers) {
+        tvCustomers.setItems(getCustomerData());
+    }
+
+    /**
+     * returns the allCategories list
+     * @return
+     */
+    private ObservableList<Customer> getCustomerData() {
+        return allCustomers;
+    }
+
+
+    public void handleBtnAddCustomer() throws SQLException {
+        String customerFirstName = txtFieldFirstName.getText();
+        String customerLastName = txtFieldLastName.getText();
+        String customerPhoneNumber = txtfieldPhoneNumber.getText();
+        String customerEmail = txtFieldEmail.getText();
 
         customerModel.createCustomer(customerFirstName, customerLastName, customerPhoneNumber, customerEmail);
-        Stage stage = (Stage) btnSave.getScene().getWindow();
-        stage.close();
+        reloadCustomerTable();
     }
 
-    public void onActionCancelCreateCustomer() {
+    public void reloadCustomerTable() {
+        try {
+            int index = tvCustomers.getSelectionModel().getFocusedIndex();
+            this.tvCustomers.setItems(FXCollections.observableList(customerModel.getCustomers()));
+            tvCustomers.getSelectionModel().select(index);
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
+    }
+
+  /**  public void onActionCancelCreateCustomer() {
         Stage stage = (Stage) btnCancelCreateCustomer.getScene().getWindow();
         stage.close();
-    }
+    }*/
 
     public void handleBtnBack(ActionEvent actionEvent) throws IOException {
         Stage switcher = (Stage) btnBack.getScene().getWindow();

@@ -21,7 +21,7 @@ Redefine of the background color, to a dark blue color.
 
     /* A bright blue for highlighting/accenting objects.  For example: selected
      * text; selected items in menus, lists, trees, and tables; progress bars */
-    -fx-accent: rgb(255, 255, 255);
+    -fx-accent: rgb(0, 171, 208);
 
     /* color of non-focused yet selected elements */
     -fx-selection-bar-non-focused: rgb(255, 255, 255);
