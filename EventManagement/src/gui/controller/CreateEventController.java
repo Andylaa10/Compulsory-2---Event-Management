@@ -1,6 +1,7 @@
 package gui.controller;
 
 import gui.model.EventModel;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
@@ -13,6 +14,8 @@ public class CreateEventController {
 
     @FXML
     public Button btnCreateEvent;
+    @FXML
+    public Button btnQuit;
     @FXML
     public TextField txtFieldEventName;
     @FXML
@@ -41,4 +44,8 @@ public class CreateEventController {
         stage.close();
     }
 
+    public void Quit() {
+        Stage stage = (Stage) btnQuit.getScene().getWindow();
+        stage.close();
+    }
 }
