@@ -3,6 +3,9 @@ package gui.controller;
 import gui.model.EventModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -15,7 +18,7 @@ public class CreateEventController {
     @FXML
     public Button btnCreateEvent;
     @FXML
-    public Button btnQuit;
+    public Button btnBack;
     @FXML
     public TextField txtFieldEventName;
     @FXML
@@ -44,8 +47,11 @@ public class CreateEventController {
         stage.close();
     }
 
-    public void Quit() {
-        Stage stage = (Stage) btnQuit.getScene().getWindow();
-        stage.close();
+    public void handleBtnBack(ActionEvent actionEvent) throws IOException {
+        Stage switcher = (Stage) btnBack.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("/gui/view/AdminView.fxml"));
+        switcher.setTitle("Admin Management");
+        Scene scene = new Scene(root);
+        switcher.setScene(scene);
     }
 }

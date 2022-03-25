@@ -60,10 +60,9 @@ public class AdminManager {
     /**
      * Deletes a coordinator using the deleteCoordinator methods in eventCoordinatorDAO
      * @param id
-     * @param isAdmin
      */
-    public void deleteCoordinator(int id, boolean isAdmin) {
-        adminDAO.deleteCoordinator(id, isAdmin);
+    public void deleteCoordinator(int id) {
+        adminDAO.deleteCoordinator(id);
     }
 
     /**

@@ -1,7 +1,11 @@
 package gui.controller;
 
 import gui.model.CustomerModel;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -24,6 +28,8 @@ public class CreateUserController {
     private Button btnSave;
     @FXML
     private Button btnCancelCreateCustomer;
+    @FXML
+    private Button btnBack;
 
 
     CustomerModel customerModel;
@@ -46,5 +52,13 @@ public class CreateUserController {
     public void onActionCancelCreateCustomer() {
         Stage stage = (Stage) btnCancelCreateCustomer.getScene().getWindow();
         stage.close();
+    }
+
+    public void handleBtnBack(ActionEvent actionEvent) throws IOException {
+        Stage switcher = (Stage) btnBack.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("/gui/view/AdminView.fxml"));
+        switcher.setTitle("Admin Management");
+        Scene scene = new Scene(root);
+        switcher.setScene(scene);
     }
 }

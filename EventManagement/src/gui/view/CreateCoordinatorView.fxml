@@ -22,9 +22,8 @@
       <TableView fx:id="tvCoordinator" cache="true" layoutX="32.0" layoutY="121.0" prefHeight="356.0" prefWidth="731.0" style="-fx-background-color: transparent;">
          <columns>
             <TableColumn fx:id="tcID" prefWidth="156.800048828125" text="ID" />
-            <TableColumn fx:id="tcUsername" prefWidth="152.79998779296875" text="Username" />
-            <TableColumn fx:id="tcPassword" prefWidth="196.7999267578125" text="Password" />
-            <TableColumn fx:id="tcIsAdmin" prefWidth="224.00006103515625" text="IsAdmin" />
+            <TableColumn fx:id="tcUsername" prefWidth="261.5999755859375" text="Username" />
+            <TableColumn fx:id="tcPassword" prefWidth="311.199951171875" text="Password" />
          </columns>
          <effect>
             <DropShadow />
@@ -48,27 +47,17 @@
             <Font size="19.0" />
          </font>
       </Label>
-      <TextField fx:id="textFieldSearch" layoutX="568.0" layoutY="85.0" prefHeight="27.0" prefWidth="188.0" promptText="Emp ID, Name, IsAdmin" style="-fx-background-color: transparent; -fx-border-color: white;">
+      <TextField fx:id="textFieldSearch" layoutX="568.0" layoutY="85.0" prefHeight="27.0" prefWidth="188.0" promptText="ID, Username, Password" style="-fx-background-color: transparent; -fx-border-color: white;">
          <effect>
             <DropShadow height="62.03" radius="17.9375" width="11.72" />
          </effect>
       </TextField>
-      <Button fx:id="btnRefresh" layoutX="32.0" layoutY="86.0" mnemonicParsing="false" onAction="#handleBtnRefresh" opacity="0.65" prefHeight="25.0" prefWidth="137.0" text="Refresh List">
-         <effect>
-            <DropShadow />
-         </effect>
-      </Button>
-      <TextField fx:id="textFieldPassword" layoutX="209.0" layoutY="513.0" prefHeight="27.0" prefWidth="158.0" promptText="Password" style="-fx-background-color: transparent; -fx-border-color: white;">
+      <TextField fx:id="textFieldPassword" layoutX="344.0" layoutY="513.0" prefHeight="27.0" prefWidth="204.0" promptText="Password" style="-fx-background-color: transparent; -fx-border-color: white;">
          <effect>
             <DropShadow height="62.03" radius="17.9375" width="11.72" />
          </effect>
       </TextField>
-      <TextField fx:id="textFieldUsername" layoutX="32.0" layoutY="513.0" prefHeight="27.0" prefWidth="158.0" promptText="Username" style="-fx-background-color: transparent; -fx-border-color: white;">
-         <effect>
-            <DropShadow height="62.03" radius="17.9375" width="11.72" />
-         </effect>
-      </TextField>
-      <TextField fx:id="textFieldIsAdmin" layoutX="386.0" layoutY="513.0" prefHeight="27.0" prefWidth="158.0" promptText="Email" style="-fx-background-color: transparent; -fx-border-color: white;" text="IsAdmin">
+      <TextField fx:id="textFieldUsername" layoutX="116.0" layoutY="513.0" prefHeight="27.0" prefWidth="204.0" promptText="Username" style="-fx-background-color: transparent; -fx-border-color: white;">
          <effect>
             <DropShadow height="62.03" radius="17.9375" width="11.72" />
          </effect>

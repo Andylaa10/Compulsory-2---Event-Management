@@ -26,7 +26,7 @@ public class AdminDAO {
 
         try (Connection connection = connector.getConnection()) {
 
-            String sql = "SELECT * FROM Login;";
+            String sql = "SELECT * FROM Login WHERE IsAdmin = 1;";
 
             Statement statement = connection.createStatement();
 
@@ -79,7 +79,7 @@ public class AdminDAO {
 
         try (Connection connection = connector.getConnection()) {
 
-            String sql = "SELECT * FROM Login;";
+            String sql = "SELECT * FROM Login WHERE IsAdmin =0;";
 
             Statement statement = connection.createStatement();
 
@@ -139,18 +139,14 @@ public class AdminDAO {
 
     /**
      * @param id
-     * @param isAdmin
      * Deletes a coordinator by taken the id and if isAdmin is false
      */
-    public void deleteCoordinator(int id, boolean isAdmin) {
+    public void deleteCoordinator(int id) {
         try (Connection connection = connector.getConnection()) {
-            String sql = "DELETE FROM Login WHERE LoginID =? AND WHERE isAdmin =?;";
+            String sql = "DELETE FROM Login WHERE LoginID =?;";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1, id);
-            preparedStatement.setBoolean(2,isAdmin);
-            if (preparedStatement.executeUpdate() != 1) {
-                throw new Exception("Could not delete coordinator");
-            }
+            preparedStatement.executeUpdate();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } catch (Exception e) {
