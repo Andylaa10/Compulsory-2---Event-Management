@@ -31,7 +31,7 @@ Redefine of the background color, to a dark blue color.
     -fx-background-color: #ce8640;
 }
 .table-row-cell:selected .text {
-    -fx-fill: #ffffff;
+    -fx-text-fill: #ffffff;
 }
 
 .table-row-cell {
