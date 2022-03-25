@@ -13,7 +13,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -24,50 +23,35 @@ public class CreateCoordinatorController implements Initializable {
 
     @FXML
     private TableView<EventCoordinator> tvCoordinator;
-
     @FXML
     private TableColumn<EventCoordinator, Integer> tcID;
-
     @FXML
     private TableColumn<EventCoordinator, String> tcUsername;
-
     @FXML
     private TableColumn<EventCoordinator, String> tcPassword;
-
     @FXML
     private Button btnRefresh;
-
     @FXML
     private Button btnBack;
-
     @FXML
     private Button btnEditCoordinator;
-
     @FXML
     private Button btnDeleteCoordinator;
-
     @FXML
     private Button btnAddCoordinator;
-
     @FXML
     private TextField textFieldSearch;
-
     @FXML
     private TextField textFieldUsername;
-
     @FXML
     private TextField textFieldPassword;
-
     @FXML
     private TextField textFieldIsAdmin;
 
     private ObservableList<EventCoordinator> allCoordinators = FXCollections.observableArrayList();
-
-
     private EventCoordinator selectedCoordinator;
 
     private AdminModel adminModel;
-
 
     public CreateCoordinatorController() throws IOException {
         adminModel = new AdminModel();
@@ -77,7 +61,6 @@ public class CreateCoordinatorController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         initializeTable();
         selectedCoordinator();
-
     }
 
     public void initializeTable(){

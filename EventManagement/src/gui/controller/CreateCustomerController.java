@@ -1,20 +1,14 @@
 package gui.controller;
 
 import gui.model.CustomerModel;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.sql.SQLException;
 
-public class CreateUserController {
-
+public class CreateCustomerController {
 
     @FXML
     private TextField txtFieldCustomerFirstName;
@@ -31,10 +25,9 @@ public class CreateUserController {
     @FXML
     private Button btnBack;
 
-
     CustomerModel customerModel;
 
-    public CreateUserController() throws IOException {
+    public CreateCustomerController() throws IOException {
         this.customerModel = new CustomerModel();
     }
 
@@ -49,16 +42,8 @@ public class CreateUserController {
         stage.close();
     }
 
-    public void onActionCancelCreateCustomer() {
-        Stage stage = (Stage) btnCancelCreateCustomer.getScene().getWindow();
+    public void handleBtnBack() {
+        Stage stage = (Stage) btnBack.getScene().getWindow();
         stage.close();
-    }
-
-    public void handleBtnBack(ActionEvent actionEvent) throws IOException {
-        Stage switcher = (Stage) btnBack.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("/gui/view/AdminView.fxml"));
-        switcher.setTitle("Admin Management");
-        Scene scene = new Scene(root);
-        switcher.setScene(scene);
     }
 }

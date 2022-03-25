@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@CSS/Main.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.CreateCoordinatorController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@CSS/Main.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.CreateCoordinatorController">
    <children>
       <ImageView fitHeight="600.0" fitWidth="800.0" opacity="0.41" pickOnBounds="true">
          <image>
@@ -37,7 +37,7 @@
             <Glow />
          </effect>
       </Label>
-      <Button fx:id="btnAddCoordinator" layoutX="568.0" layoutY="513.0" mnemonicParsing="false" onAction="#handleBtnAddCoordinator" opacity="0.65" prefHeight="28.0" prefWidth="204.0" text="Add Coordinator">
+      <Button fx:id="btnAddCoordinator" layoutX="568.0" layoutY="513.0" mnemonicParsing="false" onAction="#handleBtnAddCoordinator" prefHeight="28.0" prefWidth="204.0" text="Add Coordinator">
          <effect>
             <DropShadow />
          </effect>
@@ -62,17 +62,17 @@
             <DropShadow height="62.03" radius="17.9375" width="11.72" />
          </effect>
       </TextField>
-      <Button fx:id="btnEditCoordinator" layoutX="228.0" layoutY="558.0" mnemonicParsing="false" onAction="#handleBtnEditCoordinator" opacity="0.65" prefHeight="28.0" prefWidth="158.0" text="Edit Coordinator">
+      <Button fx:id="btnEditCoordinator" layoutX="228.0" layoutY="558.0" mnemonicParsing="false" onAction="#handleBtnEditCoordinator" prefHeight="28.0" prefWidth="158.0" text="Edit Coordinator">
          <effect>
             <DropShadow />
          </effect>
       </Button>
-      <Button fx:id="btnDeleteCoordinator" layoutX="410.0" layoutY="558.0" mnemonicParsing="false" onAction="#handleBtnDeleteCoordinator" opacity="0.65" prefHeight="28.0" prefWidth="158.0" text="Delete Coordinator">
+      <Button fx:id="btnDeleteCoordinator" layoutX="410.0" layoutY="558.0" mnemonicParsing="false" onAction="#handleBtnDeleteCoordinator" prefHeight="28.0" prefWidth="158.0" text="Delete Coordinator">
          <effect>
             <DropShadow />
          </effect>
       </Button>
-      <Button fx:id="btnBack" layoutX="583.0" layoutY="558.0" mnemonicParsing="false" onAction="#handleBtnBack" opacity="0.65" prefHeight="28.0" prefWidth="158.0" text="Back">
+      <Button fx:id="btnBack" layoutX="583.0" layoutY="558.0" mnemonicParsing="false" onAction="#handleBtnBack" prefHeight="28.0" prefWidth="158.0" text="Back">
          <effect>
             <DropShadow />
          </effect>
