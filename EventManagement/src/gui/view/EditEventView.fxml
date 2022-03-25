@@ -93,5 +93,13 @@
             <Font size="20.0" />
          </font>
       </Label>
+      <TextField fx:id="txtFieldEventID" layoutX="400.0" layoutY="99.0" prefHeight="38.0" prefWidth="42.0" style="-fx-background-color: transparent; -fx-border-color: white;" visible="false">
+         <effect>
+            <DropShadow height="62.03" radius="17.9375" width="11.72" />
+         </effect>
+         <font>
+            <Font size="16.0" />
+         </font>
+      </TextField>
    </children>
 </AnchorPane>

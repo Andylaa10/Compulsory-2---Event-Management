@@ -46,7 +46,7 @@
             <DropShadow height="62.03" radius="17.9375" width="11.72" />
          </effect>
       </TextField>
-      <Button fx:id="btnCreateUser" layoutX="122.0" layoutY="305.0" mnemonicParsing="false" onAction="#AdminLogIn" opacity="0.92" prefHeight="27.0" prefWidth="162.0" text="Create User">
+      <Button fx:id="btnCreateUser" layoutX="122.0" layoutY="305.0" mnemonicParsing="false" opacity="0.92" prefHeight="27.0" prefWidth="162.0" text="Create User">
          <effect>
             <DropShadow />
          </effect>

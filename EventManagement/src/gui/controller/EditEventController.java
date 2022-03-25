@@ -12,9 +12,11 @@ import java.io.IOException;
 public class EditEventController {
 
     @FXML
-    public Button btnEditEvent;
+    private Button btnEditEvent;
     @FXML
-    public TextArea txtFieldEventInfo;
+    private TextArea txtFieldEventInfo;
+    @FXML
+    private TextField txtFieldEventID;
     @FXML
     private TextField txtFieldEventName;
     @FXML
@@ -32,26 +34,31 @@ public class EditEventController {
     }
     
     public void onActionSaveEvent() {
+        int eventID = Integer.parseInt(txtFieldEventID.getText());
         String eventName = txtFieldEventName.getText();
         String eventDate = txtFieldEventDate.getText();
         String eventTime = txtFieldEventTime.getText();
         String eventLocation = txtFieldEventLocation.getText();
         String eventInfo = txtFieldEventInfo.getText();
 
-        Event event = new Event(eventName, eventDate, eventTime, eventLocation, eventInfo);
+
+        Event event = new Event(eventID, eventName, eventDate, eventTime, eventLocation, eventInfo);
         eventModel.editEvent(event);
 
         Stage stage = (Stage) btnEditEvent.getScene().getWindow();
         stage.close();
     }
-
-    //TODO SKAL BRUGES I EVENTCOORDINATORVIEWCONTROLLER
+    
     public void setSelectedEvent(Event event) {
+
+        txtFieldEventID.setText(String.valueOf(event.getId()));
         txtFieldEventName.setText(event.getEventName());
         txtFieldEventDate.setText(event.getEventDate());
         txtFieldEventTime.setText(event.getEventTime());
         txtFieldEventLocation.setText(event.getEventLocation());
         txtFieldEventInfo.setText(event.getEventInfo());
     }
+
+
 
 }
