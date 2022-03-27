@@ -5,8 +5,8 @@ import be.Interface.ILogin;
 public class Admin implements ILogin {
 
     private int id;
-    private String usernameAdmin = "A";
-    private String passwordAdmin = "1";
+    private String usernameAdmin;
+    private String passwordAdmin;
     private boolean isAdmin;
 
     /**
@@ -27,6 +27,11 @@ public class Admin implements ILogin {
         this.usernameAdmin = usernameAdmin;
         this.passwordAdmin = passwordAdmin;
         this.isAdmin = isAdmin;
+    }
+
+    public Admin(String username, String password) {
+        this.usernameAdmin = username;
+        this.passwordAdmin = password;
     }
 
     /**

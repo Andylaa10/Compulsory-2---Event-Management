@@ -173,6 +173,21 @@ public class AdminDAO {
         }
     }
 
+    public Admin Login(String username, String password) throws SQLServerException {
+        String sql = "SELECT * FROM Login WHERE username =? AND password =?;";
+        try(Connection connection = connector.getConnection()){
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setString(1, username);
+            st.setString(2, password);
+            if (st.execute()) {
+                return new Admin(username, password);
+            }
+        } catch (SQLException sqlException) {
+            sqlException.printStackTrace();
+        }
+        return null;
+    }
+
 
     /**
      * Method used for testing the DAO class

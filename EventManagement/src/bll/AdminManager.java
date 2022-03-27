@@ -2,6 +2,7 @@ package bll;
 
 import be.Admin;
 import be.EventCoordinator;
+import com.microsoft.sqlserver.jdbc.SQLServerException;
 import dal.AdminDAO;
 import java.io.IOException;
 import java.sql.SQLException;
@@ -73,5 +74,7 @@ public class AdminManager {
         adminDAO.editCoordinator(eventCoordinator);
     }
 
-
+    public Admin login(String username, String password) throws SQLServerException {
+        return adminDAO.Login(username, password);
+    }
 }

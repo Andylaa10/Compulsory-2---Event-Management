@@ -1,5 +1,6 @@
 package gui.model;
 
+import be.Admin;
 import be.EventCoordinator;
 import bll.EventCoordinatorManager;
 import com.microsoft.sqlserver.jdbc.SQLServerException;
@@ -48,5 +49,13 @@ public class EventCoordinatorModel {
      */
     public void deleteFromEvent(int customerId, int eventId){
         eventCoordinatorManager.deleteFromEvent(customerId, eventId);
+    }
+
+    public boolean login(String username, String password) throws SQLServerException {
+        EventCoordinator coordinator = eventCoordinatorManager.login(username, password);
+        if (coordinator == null ){
+            return false;
+        }
+        return true;
     }
 }

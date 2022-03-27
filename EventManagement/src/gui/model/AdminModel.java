@@ -3,6 +3,8 @@ package gui.model;
 import be.Admin;
 import be.EventCoordinator;
 import bll.AdminManager;
+import com.microsoft.sqlserver.jdbc.SQLServerException;
+
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
@@ -74,7 +76,13 @@ public class AdminModel {
         adminManager.editCoordinator(eventCoordinator);
     }
 
-
+    public boolean login(String username, String password) throws SQLServerException {
+        Admin admin = adminManager.login(username, password);
+        if (admin == null ){
+            return false;
+        }
+        return true;
+    }
 }
 
 

@@ -4,6 +4,9 @@ import be.Admin;
 import be.Customer;
 import be.EventCoordinator;
 import bll.AdminManager;
+import com.microsoft.sqlserver.jdbc.SQLServerException;
+import gui.model.AdminModel;
+import gui.model.EventCoordinatorModel;
 import javafx.animation.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -49,6 +52,8 @@ public class FrontPageController implements Initializable {
 
     private Admin admin;
     private EventCoordinator eventCoordinator;
+    private AdminModel adminModel;
+    private EventCoordinatorModel eventCoordinatorModel;
 
     /**
      * Constructor
@@ -57,6 +62,8 @@ public class FrontPageController implements Initializable {
     public FrontPageController() throws IOException {
         this.admin = new Admin();
         this.eventCoordinator = new EventCoordinator();
+        adminModel = new AdminModel();
+        eventCoordinatorModel = new EventCoordinatorModel();
     }
 
     @Override
@@ -97,7 +104,22 @@ public class FrontPageController implements Initializable {
      *
      * @throws IOException If there are any exceptions
      */
-    public void AdminLogIn() throws IOException {
+    public void AdminLogIn() throws IOException, SQLServerException {
+        if(adminModel.login(txtFieldUsername.getText(),txtPasswordField.getText())){
+            Stage switcher = (Stage) btnAdminLogin.getScene().getWindow();
+            Parent root = FXMLLoader.load(getClass().getResource("/gui/view/AdminView.fxml"));
+            switcher.setTitle("AdminManagement");
+            Scene scene = new Scene(root);
+            switcher.setScene(scene);
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Wrong Username or Password");
+            alert.setHeaderText("Please contact the administration");
+            alert.setContentText("You can also try again");
+            alert.showAndWait();
+        }
+
+        /**
         if (txtPasswordField.getText().equals(admin.getPassword()) && txtFieldUsername.getText().equals(admin.getUsername())) {
             Stage switcher = (Stage) btnAdminLogin.getScene().getWindow();
             Parent root = FXMLLoader.load(getClass().getResource("/gui/view/AdminView.fxml"));
@@ -111,9 +133,25 @@ public class FrontPageController implements Initializable {
             alert.setContentText("You can also try again");
             alert.showAndWait();
         }
+         */
     }
 
-    public void EventCoLogIn() throws IOException {
+    public void EventCoLogIn() throws IOException, SQLServerException {
+        if (eventCoordinatorModel.login(txtFieldUsername.getText(), txtPasswordField.getText())){
+            Stage switcher = (Stage) btnEventCoLogin.getScene().getWindow();
+            Parent root = FXMLLoader.load(getClass().getResource("/gui/view/EventCoordinatorView.fxml"));
+            Scene scene = new Scene(root);
+            switcher.setTitle("EventCoordinatorManagement");
+            switcher.setScene(scene);
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Wrong Username or Password");
+            alert.setHeaderText("Please contact the administration");
+            alert.setContentText("You can also try again");
+            alert.showAndWait();
+        }
+
+        /**
         if (txtPasswordField.getText().equals(eventCoordinator.getPassword()) && txtFieldUsername.getText().equals(eventCoordinator.getUsername())) {
             Stage switcher = (Stage) btnEventCoLogin.getScene().getWindow();
             Parent root = FXMLLoader.load(getClass().getResource("/gui/view/EventCoordinatorView.fxml"));
@@ -127,6 +165,7 @@ public class FrontPageController implements Initializable {
             alert.setContentText("You can also try again");
             alert.showAndWait();
         }
+         */
     }
 }
 

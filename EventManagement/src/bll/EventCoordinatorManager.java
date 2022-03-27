@@ -1,5 +1,6 @@
 package bll;
 
+import be.Admin;
 import be.EventCoordinator;
 import com.microsoft.sqlserver.jdbc.SQLServerException;
 import dal.EventCoordinatorDAO;
@@ -49,4 +50,7 @@ public class EventCoordinatorManager {
         eventCoordinatorDAO.deleteFromEvent(customerId, eventId);
     }
 
+    public EventCoordinator login(String username, String password) throws SQLServerException {
+        return eventCoordinatorDAO.Login(username, password);
+    }
 }

@@ -7,8 +7,8 @@ import java.util.List;
 
 public class EventCoordinator implements ILogin {
     private int id;
-    private String usernameEvent = "B";
-    private String passwordEvent = "1";
+    private String usernameEvent;
+    private String passwordEvent;
     private boolean isAdmin;
     private List<Customer> customers = new ArrayList<>();
     private List<Ticket> tickets = new ArrayList<>();
@@ -31,6 +31,11 @@ public class EventCoordinator implements ILogin {
         this.usernameEvent = usernameEvent;
         this.passwordEvent = passwordEvent;
         this.isAdmin = isAdmin;
+    }
+
+    public EventCoordinator(String username, String password) {
+        this.usernameEvent = username;
+        this.passwordEvent = password;
     }
 
     /**
