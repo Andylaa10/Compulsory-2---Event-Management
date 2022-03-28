@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="503.0" prefWidth="1115.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.ViewEventController">
+   <children>
+      <ImageView fitHeight="398.0" fitWidth="946.0" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="lblCustomerOnEvent" layoutX="236.0" layoutY="6.0" text="Customers on event" />
+      <Label fx:id="lblCustomerList" layoutX="813.0" layoutY="6.0" text="Customer List" />
+      <TableView fx:id="tvCustomersOnEvent" cache="true" layoutX="14.0" layoutY="27.0" prefHeight="377.0" prefWidth="550.0" style="-fx-background-color: transparent;">
+         <columns>
+            <TableColumn fx:id="tcCustomerIDOnEvent" prefWidth="38.400054931640625" text="ID" />
+            <TableColumn fx:id="tcFirstNameOnEvent" prefWidth="121.0" text="First Name" />
+            <TableColumn fx:id="tcLastNameOnEvent" prefWidth="121.0" text="Last Name" />
+            <TableColumn fx:id="tcPhoneNumberOnEvent" minWidth="5.5999755859375" prefWidth="130.0" text="Phone Number" />
+            <TableColumn fx:id="tcEmailOnEvent" prefWidth="138.0" text="Email" />
+         </columns>
+         <effect>
+            <DropShadow />
+         </effect>
+      </TableView>
+      <TableView fx:id="tvCustomers" cache="true" layoutX="565.0" layoutY="27.0" prefHeight="377.0" prefWidth="550.0" style="-fx-background-color: transparent;">
+         <columns>
+            <TableColumn fx:id="tcCustomerID" prefWidth="38.400054931640625" text="ID" />
+            <TableColumn fx:id="tcFirstName" prefWidth="139.0" text="First Name" />
+            <TableColumn fx:id="tcLastName" prefWidth="113.0" text="Last Name" />
+            <TableColumn fx:id="tcPhoneNumber" minWidth="5.5999755859375" prefWidth="140.0" text="Phone Number" />
+            <TableColumn fx:id="tcEmail" prefWidth="118.0" text="Email" />
+         </columns>
+         <effect>
+            <DropShadow />
+         </effect>
+      </TableView>
+      <Button fx:id="btnClose" layoutX="943.0" layoutY="448.0" mnemonicParsing="false" onAction="#onActionCloseWindow" prefHeight="27.0" prefWidth="158.0" text="Close">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Button>
+      <Button fx:id="btnAddSelectedToEvent" layoutX="703.0" layoutY="448.0" mnemonicParsing="false" onAction="#onActionAddSelectedToEvent" prefHeight="27.0" prefWidth="233.0" text="Add selected customer(s) to event">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Button>
+   </children>
+</AnchorPane>

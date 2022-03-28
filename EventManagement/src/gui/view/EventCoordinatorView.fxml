@@ -50,7 +50,7 @@
             <DropShadow />
          </effect>
       </Button>
-      <Button fx:id="btnViewEvent" layoutX="332.0" layoutY="549.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="137.0" text="View Event">
+      <Button fx:id="btnViewEvent" layoutX="332.0" layoutY="549.0" mnemonicParsing="false" onAction="#onActionViewEvent" prefHeight="25.0" prefWidth="137.0" text="View Event">
          <effect>
             <DropShadow />
          </effect>

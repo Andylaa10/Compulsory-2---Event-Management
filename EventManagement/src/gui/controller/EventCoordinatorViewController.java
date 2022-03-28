@@ -13,7 +13,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
@@ -63,8 +62,26 @@ public class EventCoordinatorViewController implements Initializable {
     public EventCoordinatorViewController() throws IOException {
         this.eventCoordinatorModel = new EventCoordinatorModel();
         this.eventModel = new EventModel();
-        this.selectedEvent = new Event();
         this.editEventController = new EditEventController();
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        selectedEvent();
+
+        tcId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        tcEventName.setCellValueFactory(new PropertyValueFactory<>("EventName"));
+        tcEventDate.setCellValueFactory(new PropertyValueFactory<>("EventDate"));
+        tcEventLocation.setCellValueFactory(new PropertyValueFactory<>("EventLocation"));
+        tcEventTime.setCellValueFactory(new PropertyValueFactory<>("EventTime"));
+        tcEventInfo.setCellValueFactory(new PropertyValueFactory<>("EventInfo"));
+
+        try {
+            allEvents = FXCollections.observableArrayList(eventModel.getEvents());
+            tableViewLoadEvents(allEvents);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void LogOutFromEventCoordinator() throws IOException {
@@ -133,28 +150,11 @@ public class EventCoordinatorViewController implements Initializable {
                     e.printStackTrace();
                 }
             });
+        } else {
+            System.out.println("No event selected");
         }
     }
 
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        selectedEvent();
-
-        tcId.setCellValueFactory(new PropertyValueFactory<>("id"));
-        tcEventName.setCellValueFactory(new PropertyValueFactory<>("EventName"));
-        tcEventDate.setCellValueFactory(new PropertyValueFactory<>("EventDate"));
-        tcEventLocation.setCellValueFactory(new PropertyValueFactory<>("EventLocation"));
-        tcEventTime.setCellValueFactory(new PropertyValueFactory<>("EventTime"));
-        tcEventInfo.setCellValueFactory(new PropertyValueFactory<>("EventInfo"));
-
-        try {
-            allEvents = FXCollections.observableArrayList(eventModel.getEvents());
-            tableViewLoadEvents(allEvents);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 
     /**
      * Deletes an event from the table
@@ -180,6 +180,33 @@ public class EventCoordinatorViewController implements Initializable {
       } catch (Exception e) {
           e.printStackTrace();
       }
+    }
+
+    public void onActionViewEvent() {
+        if (selectedEvent != null) {
+            FXMLLoader parent = new FXMLLoader(getClass().getResource("/gui/view/ViewEvent.fxml"));
+            Scene mainWindowScene = null;
+            try {
+                mainWindowScene = new Scene(parent.load());
+            } catch (IOException exception) {
+                exception.printStackTrace();
+            }
+            Stage viewEvent;
+            viewEvent = new Stage();
+            viewEvent.setScene(mainWindowScene);
+            viewEvent.show();
+            viewEvent.setOnHiding(event ->
+            {
+                try {
+                    allEvents = FXCollections.observableList(eventModel.getEvents());
+                    tableViewLoadEvents(allEvents);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            });
+        } else {
+            System.out.println("No event selected");
+        }
     }
 
     /**

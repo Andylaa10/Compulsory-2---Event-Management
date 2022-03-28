@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@CSS/Main.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.CreateCustomerController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@CSS/Main.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.CreateCustomerController">
    <children>
       <ImageView fitHeight="606.0" fitWidth="800.0" layoutY="-4.0" opacity="0.41" pickOnBounds="true">
          <image>
@@ -31,8 +31,6 @@
             <DropShadow />
          </effect>
       </TableView>
-      <Label layoutX="206.0" layoutY="14.0" text="View Customer" textFill="WHITE">
-      </Label>
       <Label layoutX="47.0" layoutY="14.0" text="Create Customer" textFill="WHITE">
          <font>
             <Font name="Copperplate Gothic Bold" size="48.0" />
