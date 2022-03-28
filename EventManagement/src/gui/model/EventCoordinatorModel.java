@@ -21,8 +21,6 @@ public class EventCoordinatorModel {
         eventCoordinatorManager = new EventCoordinatorManager();
     }
 
-
-
     /**
      * Gets the customer on event using getCustomersOnEvent from eventCoordinatorManagerDAO
      * @param eventId

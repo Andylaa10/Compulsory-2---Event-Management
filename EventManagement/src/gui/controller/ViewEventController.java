@@ -3,17 +3,20 @@ package gui.controller;
 import be.Customer;
 import be.ErrorHandling;
 import be.Event;
+import dal.EventCoordinatorDAO;
+import dal.EventDAO;
 import gui.model.CustomerModel;
 import gui.model.EventCoordinatorModel;
+import gui.model.EventModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
@@ -23,6 +26,12 @@ import java.util.ResourceBundle;
 
 public class ViewEventController implements Initializable {
 
+    @FXML
+    private TextField txtFieldEventID;
+    @FXML
+    private Button btnCreateCustomer;
+    @FXML
+    private Button btnDeleteSelectedFromEvent;
     @FXML
     private Button btnAddSelectedToEvent;
     @FXML
@@ -57,14 +66,15 @@ public class ViewEventController implements Initializable {
     private TableColumn tcEmail;
 
     private ObservableList<Customer> allCustomers = FXCollections.observableArrayList();
+    private ObservableList<Customer> allCustomersOnEvent = FXCollections.observableArrayList();
 
     private EventCoordinatorModel eventCoordinatorModel;
     private CustomerModel customerModel;
     private Customer selectedCustomer;
 
     public ViewEventController() throws IOException {
-        eventCoordinatorModel = new EventCoordinatorModel();
-        customerModel = new CustomerModel();
+        this.eventCoordinatorModel = new EventCoordinatorModel();
+        this.customerModel = new CustomerModel();
     }
 
 
@@ -72,11 +82,22 @@ public class ViewEventController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         initializeTable();
         selectedCustomer();
+
     }
 
+
     private void initializeTable() {
-
-
+        tcCustomerIDOnEvent.setCellValueFactory(new PropertyValueFactory<>("id"));
+        tcFirstNameOnEvent.setCellValueFactory(new PropertyValueFactory<>("firstName"));
+        tcLastNameOnEvent.setCellValueFactory(new PropertyValueFactory<>("lastName"));
+        tcPhoneNumberOnEvent.setCellValueFactory(new PropertyValueFactory<>("phoneNumber"));
+        tcEmailOnEvent.setCellValueFactory(new PropertyValueFactory<>("email"));
+        try {
+            //allCustomersOnEvent = FXCollections.observableList(eventCoordinatorModel.getCustomersOnEvent(Integer.parseInt(txtFieldEventID.getText())));
+            tableViewCustomersOnEvent(allCustomersOnEvent);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
 
         tcCustomerID.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -92,25 +113,21 @@ public class ViewEventController implements Initializable {
         }
     }
 
+    private ObservableList<Customer> getCustomerData() {
+        return allCustomers;
+    }
+
     private void tableViewLoadCustomer(ObservableList<Customer> allCustomers) {
         tvCustomers.setItems(getCustomerData());
+    }
+
+    private ObservableList<Customer> getCustomerOnEventData() {
+        return allCustomersOnEvent;
     }
 
     private void tableViewCustomersOnEvent(ObservableList<Customer> allCustomersOnEvent) {
         tvCustomersOnEvent.setItems(getCustomerOnEventData());
     }
-
-    private ObservableList<Customer> getCustomerOnEventData() {
-        return allCustomers;
-    }
-
-    private ObservableList<Customer> getCustomerData() {
-        return allCustomers;
-    }
-
-
-
-
 
     private void selectedCustomer(){
         this.tvCustomers.getSelectionModel().selectedItemProperty().addListener(((observableValue, oldValue, newValue) -> {
@@ -120,19 +137,36 @@ public class ViewEventController implements Initializable {
         }));
     }
 
+    public void setSelectedEvent(Event event) {
+        txtFieldEventID.setText(String.valueOf(event.getId()));
+    }
 
-    public void onActionAddSelectedToEvent(ActionEvent actionEvent) {
+    public void onActionAddSelectedToEvent() {
         if (selectedCustomer != null) {
             try {
-                //eventCoordinatorModel.addCustomerToEvent(selectedCustomer.getId(), selectedEvent.getId());
+                eventCoordinatorModel.addCustomerToEvent(selectedCustomer.getId(), Integer.parseInt(txtFieldEventID.getText()));
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
     }
 
-    public void setSelectedEvent(Event event) {
+    public void onActionDeleteSelectedFromEvent() {
+        if (selectedCustomer != null) {
+            try {
+                eventCoordinatorModel.deleteFromEvent(selectedCustomer.getId(), Integer.parseInt(txtFieldEventID.getText()));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
 
+    public void onActionCreateCustomer() throws IOException {
+        Stage switcher = (Stage) btnCreateCustomer.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("/gui/view/CreateCustomerView.fxml"));
+        Scene scene = new Scene(root);
+        switcher.setTitle("Customer Management");
+        switcher.setScene(scene);
     }
 
     public void onActionCloseWindow() {

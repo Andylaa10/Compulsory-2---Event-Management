@@ -186,7 +186,10 @@ public class EventCoordinatorViewController implements Initializable {
     }
 
     public void onActionViewEvent() {
+        //TODO ADD ERROR HANDLING IF NO EVENT SELECTED
         if (selectedEvent != null) {
+            Event selectedEvent = (Event) tvEvents.getSelectionModel().getSelectedItem();
+
             FXMLLoader parent = new FXMLLoader(getClass().getResource("/gui/view/ViewEvent.fxml"));
             Scene mainWindowScene = null;
             try {
@@ -194,11 +197,13 @@ public class EventCoordinatorViewController implements Initializable {
             } catch (IOException exception) {
                 exception.printStackTrace();
             }
-            Stage viewEvent;
-            viewEvent = new Stage();
-            viewEvent.setScene(mainWindowScene);
-            viewEvent.show();
-            viewEvent.setOnHiding(event ->
+            Stage viewEventStage;
+            viewEventStage = new Stage();
+            viewEventStage.setScene(mainWindowScene);
+            ViewEventController viewEventController = parent.getController();
+            viewEventController.setSelectedEvent(selectedEvent);
+            viewEventStage.show();
+            viewEventStage.setOnHiding(event ->
             {
                 try {
                     allEvents = FXCollections.observableList(eventModel.getEvents());
