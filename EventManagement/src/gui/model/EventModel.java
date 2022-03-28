@@ -35,10 +35,11 @@ public class EventModel {
      * @param eventTime
      * @param eventLocation
      * @param eventInfo
+     * @param eventPrice
      * @throws SQLException
      */
-    public void createEvent (String eventName, String eventDate, String eventTime, String eventLocation, String eventInfo) throws SQLException {
-        eventManager.createEvent(eventName, eventDate, eventTime, eventLocation, eventInfo);
+    public void createEvent (String eventName, String eventDate, String eventTime, String eventLocation, String eventInfo, String eventPrice) throws SQLException {
+        eventManager.createEvent(eventName, eventDate, eventTime, eventLocation, eventInfo, eventPrice);
     }
 
     /**

@@ -22,6 +22,7 @@
       <TableView fx:id="tvEvents" layoutX="32.0" layoutY="121.0" prefHeight="417.0" prefWidth="731.0" style="-fx-background-color: Transparent;" stylesheets="@CSS/Main.css">
         <columns>
           <TableColumn fx:id="tcId" prefWidth="75.0" text="ID" />
+           <TableColumn fx:id="tcEventPrice" prefWidth="75.0" style="-fx-background-color: transparent;" text="Price" />
           <TableColumn fx:id="tcEventName" prefWidth="134.0" style="-fx-background-color: transparent;" text="Event" />
             <TableColumn fx:id="tcEventDate" prefWidth="125.0" style="-fx-background-color: transparent;" text="Date" />
             <TableColumn fx:id="tcEventTime" prefWidth="96.0" style="-fx-background-color: transparent;" text="Start" />

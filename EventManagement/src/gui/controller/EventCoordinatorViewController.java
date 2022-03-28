@@ -51,6 +51,8 @@ public class EventCoordinatorViewController implements Initializable {
     private Button btnEditEvent;
     @FXML
     private TableColumn tcEventInfo;
+    @FXML
+    private TableColumn tcEventPrice;
 
     private ObservableList<Event> allEvents = FXCollections.observableArrayList();
 
@@ -75,6 +77,7 @@ public class EventCoordinatorViewController implements Initializable {
         tcEventLocation.setCellValueFactory(new PropertyValueFactory<>("EventLocation"));
         tcEventTime.setCellValueFactory(new PropertyValueFactory<>("EventTime"));
         tcEventInfo.setCellValueFactory(new PropertyValueFactory<>("EventInfo"));
+        tcEventPrice.setCellValueFactory(new PropertyValueFactory<>("EventPrice"));
 
         try {
             allEvents = FXCollections.observableArrayList(eventModel.getEvents());
