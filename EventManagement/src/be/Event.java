@@ -7,6 +7,7 @@ public class Event {
     private String eventTime;
     private String eventLocation;
     private String eventInfo;
+    private String eventPrice;
 
     /**
      * Constructor
@@ -21,13 +22,15 @@ public class Event {
      * @param eventTime
      * @param eventLocation
      * @param eventInfo
+     * @param eventPrice
      */
-    public Event(String eventName, String eventDate, String eventTime, String eventLocation, String eventInfo) {
+    public Event(String eventName, String eventDate, String eventTime, String eventLocation, String eventInfo, String eventPrice) {
         this.eventName = eventName;
         this.eventDate = eventDate;
         this.eventTime = eventTime;
         this.eventLocation = eventLocation;
         this.eventInfo = eventInfo;
+        this.eventPrice = eventPrice;
     }
 
 
@@ -38,15 +41,17 @@ public class Event {
      * @param eventTime
      * @param eventLocation
      * @param eventInfo
-     * Constructor with id, eventName, eventDate, eventTime, eventLocation and eventInfo
+     * @param eventPrice
+     * Constructor with id, eventName, eventDate, eventTime, eventLocation, eventInfo and eventPrice
      */
-    public Event(int id, String eventName, String eventDate, String eventTime, String eventLocation, String eventInfo) {
+    public Event(int id, String eventName, String eventDate, String eventTime, String eventLocation, String eventInfo, String eventPrice) {
         this.id = id;
         this.eventName = eventName;
         this.eventDate = eventDate;
         this.eventTime = eventTime;
         this.eventLocation = eventLocation;
         this.eventInfo = eventInfo;
+        this.eventPrice = eventPrice;
     }
 
     /**
@@ -144,4 +149,16 @@ public class Event {
     public void setEventInfo(String eventInfo) {
         this.eventInfo = eventInfo;
     }
+
+    /**
+     * Gets the eventPrice
+     * @return eventPrice
+     */
+    public String getEventPrice(){return eventPrice;}
+
+    /**
+     * @param eventPrice
+     * Sets the eventPrice
+     */
+    public void setEventPrice(String eventPrice){this.eventPrice = eventPrice;}
 }

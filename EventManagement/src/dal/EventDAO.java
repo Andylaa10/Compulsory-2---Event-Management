@@ -41,9 +41,10 @@ public class EventDAO {
                     String eventTime = resultset.getString("EventTime");
                     String eventLocation = resultset.getString("EventLocation");
                     String eventInfo = resultset.getString("EventInfo");
+                    String eventPrice = resultset.getString("EventPrice");
 
 
-                    Event event = new Event(eventID, eventName, eventDate, eventTime, eventLocation, eventInfo);
+                    Event event = new Event(eventID, eventName, eventDate, eventTime, eventLocation, eventInfo, eventPrice);
                     allEvents.add(event);
                 }
             }
@@ -54,18 +55,19 @@ public class EventDAO {
     }
 
     /**
-     * Create a ticket, by inserting a giving eventName, eventDate, eventTime, eventLocation and eventInfo
+     * Create a ticket, by inserting a giving eventName, eventDate, eventTime, eventLocation, eventInfo and eventPrice
      * @param eventName
      * @param eventDate
      * @param eventTime
      * @param eventLocation
      * @param eventInfo
+     * @param eventPrice
      * @return Event
      * @throws SQLException
      */
-    public Event createEvent (String eventName, String eventDate, String eventTime, String eventLocation, String eventInfo) throws SQLException {
+    public Event createEvent (String eventName, String eventDate, String eventTime, String eventLocation, String eventInfo, String eventPrice) throws SQLException {
         try (Connection connection = connector.getConnection()) {
-            String sql = "INSERT INTO Event (EventName, EventDate, eventTime, eventLocation, eventInfo) values (?,?,?,?,?)";
+            String sql = "INSERT INTO Event (EventName, EventDate, eventTime, eventLocation, eventInfo, eventPrice) values (?,?,?,?,?,?)";
 
             try (PreparedStatement preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
                 preparedStatement.setString(1, eventName);
@@ -73,6 +75,7 @@ public class EventDAO {
                 preparedStatement.setString(3, eventTime);
                 preparedStatement.setString(4, eventLocation);
                 preparedStatement.setString(5, eventInfo);
+                preparedStatement.setString(6, eventPrice);
                 preparedStatement.execute();
 
                 ResultSet resultSet = preparedStatement.getGeneratedKeys();
@@ -81,7 +84,7 @@ public class EventDAO {
                     id = resultSet.getInt(1);
                 }
 
-                Event event = new Event(id, eventName, eventDate, eventTime, eventLocation, eventInfo);
+                Event event = new Event(id, eventName, eventDate, eventTime, eventLocation, eventInfo, eventPrice);
                 return event;
 
             }
@@ -115,14 +118,16 @@ public class EventDAO {
      */
     public void editEvent(Event event) {
         try (Connection connection = connector.getConnection()) {
-            String sql = "UPDATE Event SET EventName=?, EventDate=?, EventTime=?, EventLocation=?, EventInfo=? WHERE EventID=?;";
+            String sql = "UPDATE Event SET EventName=?, EventDate=?, EventTime=?, EventLocation=?, EventInfo=?, EventPrice=?, WHERE EventID=?;";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, event.getEventName());
             preparedStatement.setString(2, event.getEventDate());
             preparedStatement.setString(3, event.getEventTime());
             preparedStatement.setString(4, event.getEventLocation());
             preparedStatement.setString(5, event.getEventInfo());
-            preparedStatement.setInt(6, event.getId());
+            preparedStatement.setString(6, event.getEventPrice());
+            preparedStatement.setInt(7, event.getId());
+
             if (preparedStatement.executeUpdate() != 1) {
                 throw new Exception("Could not edit event");
             }
@@ -134,9 +139,9 @@ public class EventDAO {
 
     public static void main(String[] args) throws IOException, SQLException {
         EventDAO eventDAO = new EventDAO();
-        eventDAO.createEvent("Test event", "22-03-2022", "13:30", "EASV Sønderborg", "Dette er en test af eventDAO");
-        eventDAO.createEvent("event", "10-03-2022", "12:30", "EASV Danmark", "Dette er en test af eventDAO");
-        eventDAO.createEvent("Test", "02-12-2022", "13:30", "EASV Esbjerg", "Dette er en test af eventDAO");
+        eventDAO.createEvent("Test event", "22-03-2022", "13:30", "EASV Sønderborg", "Dette er en test af eventDAO", "");
+        eventDAO.createEvent("event", "10-03-2022", "12:30", "EASV Danmark", "Dette er en test af eventDAO", "");
+        eventDAO.createEvent("Test", "02-12-2022", "13:30", "EASV Esbjerg", "Dette er en test af eventDAO", "");
         List<Event> events = eventDAO.getEvents();
 
         System.out.println(events);
