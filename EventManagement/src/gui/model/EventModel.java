@@ -2,6 +2,9 @@ package gui.model;
 
 import be.Event;
 import bll.EventManager;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 import java.io.IOException;
 import java.sql.Date;
 import java.sql.SQLException;
@@ -9,6 +12,7 @@ import java.util.List;
 
 public class EventModel {
 
+    private ObservableList<Event> eventsToBeViewed;
     private EventManager eventManager;
 
     /**
@@ -17,6 +21,8 @@ public class EventModel {
      */
     public EventModel() throws IOException {
         eventManager = new EventManager();
+        eventsToBeViewed = FXCollections.observableArrayList();
+        eventsToBeViewed.addAll(eventManager.getEvents());
     }
 
     /**
@@ -58,4 +64,19 @@ public class EventModel {
         eventManager.editEvent(event);
     }
 
+    /**
+     * Search method for the model, searches for events by text.
+     * @param query
+     * @return searchResults
+     * @throws Exception
+     */
+    public List<Event> searchEvent(String query){
+        List<Event> searchResults = null;
+
+        searchResults = eventManager.searchEvent(query);
+        eventsToBeViewed.clear();
+        eventsToBeViewed.addAll(searchResults);
+
+        return searchResults;
+    }
 }

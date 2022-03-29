@@ -1,6 +1,7 @@
 package bll;
 
 import be.Event;
+import bll.helpers.EventSearcher;
 import dal.EventDAO;
 import java.io.IOException;
 import java.sql.Date;
@@ -10,6 +11,7 @@ import java.util.List;
 public class EventManager {
 
     private EventDAO eventDAO;
+    private EventSearcher eventSearcher;
 
     /**
      * Constructor
@@ -17,6 +19,7 @@ public class EventManager {
      */
     public EventManager() throws IOException {
         eventDAO = new EventDAO();
+        eventSearcher = new EventSearcher();
     }
 
     /**
@@ -58,5 +61,15 @@ public class EventManager {
         eventDAO.editEvent(event);
     }
 
+    /**
+     * Searching through a list of eventCoordinators.
+     * @param query
+     * @return
+     */
+    public List<Event> searchEvent(String query){
+        List<Event> allEvents = getEvents();
+        List<Event> searchResult = eventSearcher.search(allEvents, query);
+        return searchResult;
+    }
 
 }

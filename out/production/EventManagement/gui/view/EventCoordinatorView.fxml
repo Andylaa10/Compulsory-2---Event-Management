@@ -61,7 +61,7 @@
             <Font size="19.0" />
          </font>
       </Label>
-      <TextField fx:id="txtFieldSearch" layoutX="568.0" layoutY="85.0" prefHeight="27.0" prefWidth="188.0" promptText=" Event ID, Name, Date, Price..." style="-fx-background-color: transparent; -fx-border-color: white;">
+      <TextField fx:id="tfFieldSearch" layoutX="568.0" layoutY="85.0" prefHeight="27.0" prefWidth="188.0" promptText=" Event name, date..." style="-fx-background-color: transparent; -fx-border-color: white;">
          <effect>
             <DropShadow height="62.03" radius="17.9375" width="11.72" />
          </effect>
@@ -83,6 +83,11 @@
          </font>
       </Button>
       <Button fx:id="btnEditEvent" layoutX="181.0" layoutY="549.0" mnemonicParsing="false" onAction="#onActionEditEvent" prefHeight="25.0" prefWidth="137.0" text="Edit Event">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Button>
+      <Button fx:id="btnSearchEvents" layoutX="763.0" layoutY="87.0" mnemonicParsing="false" onAction="#onActionSearchEvents" prefHeight="25.0" prefWidth="28.0" text="🔍">
          <effect>
             <DropShadow />
          </effect>

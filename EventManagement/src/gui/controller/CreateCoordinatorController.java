@@ -1,10 +1,12 @@
 package gui.controller;
 
 import be.ErrorHandling;
+import be.Event;
 import be.EventCoordinator;
 import gui.model.AdminModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -21,6 +23,8 @@ import java.util.ResourceBundle;
 
 public class CreateCoordinatorController implements Initializable {
 
+    @FXML
+    private Button btnSearchCoordinators;
     @FXML
     private TableView<EventCoordinator> tvCoordinator;
     @FXML
@@ -49,13 +53,13 @@ public class CreateCoordinatorController implements Initializable {
     private TextField textFieldIsAdmin;
 
     private ObservableList<EventCoordinator> allCoordinators = FXCollections.observableArrayList();
+
+
     private EventCoordinator selectedCoordinator;
-
     private AdminModel adminModel;
-
     private ErrorHandling errorHandling;
 
-    public CreateCoordinatorController() throws IOException {
+    public CreateCoordinatorController() throws IOException, SQLException {
         adminModel = new AdminModel();
         errorHandling = new ErrorHandling();
     }
@@ -164,5 +168,4 @@ public class CreateCoordinatorController implements Initializable {
             }
         }));
     }
-
 }

@@ -32,6 +32,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.stream.Stream;
 
@@ -59,7 +60,7 @@ public class FrontPageController implements Initializable {
      * Constructor
      * @throws IOException
      */
-    public FrontPageController() throws IOException {
+    public FrontPageController() throws IOException, SQLException {
         this.admin = new Admin();
         this.eventCoordinator = new EventCoordinator();
         adminModel = new AdminModel();

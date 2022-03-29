@@ -64,7 +64,7 @@ public class CreateCustomerController implements Initializable {
     private Customer selectedCustomer;
 
 
-    public CreateCustomerController() throws IOException {
+    public CreateCustomerController() throws IOException, SQLException {
         customerModel = new CustomerModel();
         errorHandling = new ErrorHandling();
     }

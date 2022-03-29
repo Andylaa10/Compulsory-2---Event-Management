@@ -1,7 +1,12 @@
 package gui.model;
 
 import be.Customer;
+import be.Event;
+import be.EventCoordinator;
 import bll.CustomerManager;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
@@ -9,12 +14,16 @@ import java.util.List;
 public class CustomerModel {
 
     private CustomerManager customerManager;
+    private ObservableList<Customer> customers;
+
 
     /**
      * Constructor
      */
-    public CustomerModel() throws IOException {
+    public CustomerModel() throws IOException, SQLException {
         customerManager = new CustomerManager();
+        customers = FXCollections.observableArrayList();
+        customers.addAll(customerManager.getCustomers());
     }
 
     /**
@@ -53,4 +62,21 @@ public class CustomerModel {
     public void editCustomer(Customer customer) {
         customerManager.editCustomer(customer);
     }
+
+    /**
+     * Search method for the model, searches for events by text.
+     * @param query
+     * @return searchResults
+     * @throws Exception
+     */
+    public List<Customer> searchCustomers(String query) throws SQLException {
+        List<Customer> searchResults = null;
+
+        searchResults = customerManager.searchCustomer(query);
+        customers.clear();
+        customers.addAll(searchResults);
+
+        return searchResults;
+    }
+
 }

@@ -22,6 +22,8 @@ import java.util.ResourceBundle;
 public class EventCoordinatorViewController implements Initializable {
 
     @FXML
+    private Button btnSearchEvents;
+    @FXML
     private Button btnAddEvent;
     @FXML
     private Button btnDeleteEvent;
@@ -30,7 +32,7 @@ public class EventCoordinatorViewController implements Initializable {
     @FXML
     private Button btnQuit;
     @FXML
-    private TextField txtFieldSearch;
+    private TextField tfFieldSearch;
     @FXML
     private Button btnHelp;
     @FXML
@@ -55,6 +57,9 @@ public class EventCoordinatorViewController implements Initializable {
     private TableColumn tcEventPrice;
 
     private ObservableList<Event> allEvents = FXCollections.observableArrayList();
+    private ObservableList<Event> searchData = FXCollections.observableArrayList();
+
+    private boolean hasSearched = true;
 
     private EventCoordinatorModel eventCoordinatorModel;
     private EventModel eventModel;
@@ -235,6 +240,43 @@ public class EventCoordinatorViewController implements Initializable {
         alert.setContentText("Contact the administration for help");
         alert.showAndWait();
     }
+
+    /**
+     * Method that filters the events, with the text input you write in the textfield.
+     * Updates the icon with each press and clears the search on every second click
+     */
+    public void onActionSearchEvents() {
+        if (hasSearched == true && !tfFieldSearch.getText().equals("")) {
+            btnSearchEvents.setText("X");
+            hasSearched = false;
+        } else {
+            btnSearchEvents.setText("🔍");
+            hasSearched = true;
+            tfFieldSearch.clear();
+        }
+        try {
+            searchData = FXCollections.observableList(eventModel.searchEvent(tfFieldSearch.getText()));
+            searchTableViewLoad(searchData);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Loads the tableview for the event, when search is pressed.
+     * @param searchData
+     */
+    private void searchTableViewLoad(ObservableList<Event> searchData) {
+        tvEvents.setItems(getSearchData());
+    }
+
+    /**
+     * @return searchData;
+     */
+    public ObservableList<Event> getSearchData() {
+        return searchData;
+    }
+
 
     public void Quit() {
         System.exit(0);

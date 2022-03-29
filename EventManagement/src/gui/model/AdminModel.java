@@ -1,9 +1,13 @@
 package gui.model;
 
 import be.Admin;
+import be.Customer;
+import be.Event;
 import be.EventCoordinator;
 import bll.AdminManager;
 import com.microsoft.sqlserver.jdbc.SQLServerException;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -11,13 +15,15 @@ import java.util.List;
 
 
 public class AdminModel {
+
     private AdminManager adminManager;
+
 
     /**
      * Constructor
      * @throws IOException
      */
-    public AdminModel() throws IOException {
+    public AdminModel() throws IOException, SQLException {
         adminManager = new AdminManager();
     }
 

@@ -22,6 +22,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class ViewEventController implements Initializable {
@@ -73,7 +74,7 @@ public class ViewEventController implements Initializable {
     private CustomerModel customerModel;
     private Customer selectedCustomer;
 
-    public ViewEventController() throws IOException {
+    public ViewEventController() throws IOException, SQLException {
         this.eventCoordinatorModel = new EventCoordinatorModel();
         this.customerModel = new CustomerModel();
     }

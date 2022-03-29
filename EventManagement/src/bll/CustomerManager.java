@@ -1,6 +1,8 @@
 package bll;
 
 import be.Customer;
+import be.EventCoordinator;
+import bll.helpers.UserSearcher;
 import dal.CustomerDAO;
 import java.io.IOException;
 import java.sql.SQLException;
@@ -9,12 +11,15 @@ import java.util.List;
 public class CustomerManager {
 
     private CustomerDAO customerDAO;
+    private UserSearcher userSearcher;
+
 
     /**
      * Constructor
      */
     public CustomerManager() throws IOException {
         customerDAO = new CustomerDAO();
+        userSearcher = new UserSearcher();
     }
 
     /**
@@ -57,4 +62,16 @@ public class CustomerManager {
     public void editCustomer(Customer customer) {
         customerDAO.editCustomer(customer);
     }
+
+    /**
+     * Searching through a list of events.
+     * @param query
+     * @return
+     */
+    public List<Customer> searchCustomer(String query) throws SQLException {
+        List<Customer> allCustomers = getCustomers();
+        List<Customer> searchResult = userSearcher.search(allCustomers, query);
+        return searchResult;
+    }
+
 }
