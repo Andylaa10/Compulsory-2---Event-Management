@@ -26,6 +26,7 @@ import java.util.ResourceBundle;
 
 public class ViewEventController implements Initializable {
 
+    public Button btnTest;
     @FXML
     private TextField txtFieldEventID;
     @FXML
@@ -82,9 +83,7 @@ public class ViewEventController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         initializeTable();
         selectedCustomer();
-
     }
-
 
     private void initializeTable() {
         tcCustomerIDOnEvent.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -172,5 +171,14 @@ public class ViewEventController implements Initializable {
     public void onActionCloseWindow() {
         Stage stage = (Stage) btnClose.getScene().getWindow();
         stage.close();
+    }
+
+    public void onActionTest() {
+        try {
+            allCustomersOnEvent = FXCollections.observableList(eventCoordinatorModel.getCustomersOnEvent(Integer.parseInt(txtFieldEventID.getText())));
+            tableViewCustomersOnEvent(allCustomersOnEvent);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
