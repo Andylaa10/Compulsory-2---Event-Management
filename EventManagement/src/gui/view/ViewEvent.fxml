@@ -58,6 +58,6 @@
             <DropShadow />
          </effect>
       </Button>
-      <TextField fx:id="txtFieldEventID" layoutX="23.0" layoutY="423.0" visible="false" />
+      <TextField fx:id="txtFieldEventID" layoutX="23.0" layoutY="423.0" />
    </children>
 </AnchorPane>

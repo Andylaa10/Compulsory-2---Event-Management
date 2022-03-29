@@ -1,6 +1,7 @@
 package gui.model;
 
 import be.Admin;
+import be.Customer;
 import be.EventCoordinator;
 import bll.EventCoordinatorManager;
 import com.microsoft.sqlserver.jdbc.SQLServerException;
@@ -27,8 +28,8 @@ public class EventCoordinatorModel {
      * @return a list of customer on event or an empty list of customer on event
      * @throws SQLException
      */
-    public void getCustomersOnEvent(int eventId) throws SQLException {
-        eventCoordinatorManager.getCustomersOnEvent(eventId);
+    public List<Customer> getCustomersOnEvent(int eventId) throws SQLException {
+        return eventCoordinatorManager.getCustomersOnEvent(eventId);
     }
 
     /**

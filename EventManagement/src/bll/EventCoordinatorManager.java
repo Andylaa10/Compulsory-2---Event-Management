@@ -1,6 +1,7 @@
 package bll;
 
 import be.Admin;
+import be.Customer;
 import be.EventCoordinator;
 import com.microsoft.sqlserver.jdbc.SQLServerException;
 import dal.EventCoordinatorDAO;
@@ -28,8 +29,8 @@ public class EventCoordinatorManager {
      * @return a list of customer on event or an empty list of customer on event
      * @throws SQLException
      */
-    public void getCustomersOnEvent(int eventId) throws SQLException {
-        eventCoordinatorDAO.getCustomersOnEvent(eventId);
+    public List<Customer> getCustomersOnEvent(int eventId) throws SQLException {
+        return eventCoordinatorDAO.getCustomersOnEvent(eventId);
     }
 
     /**
