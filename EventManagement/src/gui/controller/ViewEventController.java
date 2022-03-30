@@ -163,7 +163,7 @@ public class ViewEventController implements Initializable {
 
     public void onActionCreateCustomer() throws IOException {
         Stage switcher = (Stage) btnCreateCustomer.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("/gui/view/CreateCustomerView.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/gui/view/CreateCustomer.fxml"));
         Scene scene = new Scene(root);
         switcher.setTitle("Customer Management");
         switcher.setScene(scene);

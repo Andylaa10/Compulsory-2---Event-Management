@@ -47,7 +47,7 @@ public class AdminController{
 
     public void handleBtnCreateCustomer() throws IOException {
         Stage switcher = (Stage) btnCreateCustomer.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("/gui/view/CreateCustomerView.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/gui/view/CreateCustomer.fxml"));
         Scene scene = new Scene(root);
         switcher.setTitle("Customer Management");
         switcher.setScene(scene);
@@ -64,7 +64,7 @@ public class AdminController{
 
 
     public void handleBtnCreateCustomer() throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/gui/view/CreateCustomerView.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/gui/view/CreateCustomer.fxml"));
         Stage stage = new Stage();
         stage.setTitle("Create customer");
         stage.setScene(new Scene(root));
@@ -82,7 +82,7 @@ public class AdminController{
     }*/
 
     public void handleBtnCreateEvent() throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/gui/view/CreateEventView.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/gui/view/CreateEvent.fxml"));
         Stage stage = new Stage();
         stage.setTitle("Create Event");
         stage.setScene(new Scene(root));
@@ -123,7 +123,7 @@ public class AdminController{
      */
     public void handleBtnCreateCoordinator( ) throws IOException {
         Stage switcher = (Stage) btnCreateCoordinator.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("/gui/view/CreateCoordinatorView.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/gui/view/CreateCoordinator.fxml"));
         Scene scene = new Scene(root);
         switcher.setTitle("Event Coordinator Management");
         switcher.setScene(scene);

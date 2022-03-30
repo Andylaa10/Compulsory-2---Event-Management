@@ -19,7 +19,7 @@ import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-public class EventCoordinatorViewController implements Initializable {
+public class EventCoordinatorController implements Initializable {
 
     @FXML
     private Button btnSearchEvents;
@@ -66,7 +66,7 @@ public class EventCoordinatorViewController implements Initializable {
     private Event selectedEvent;
     private EditEventController editEventController;
 
-    public EventCoordinatorViewController() throws IOException {
+    public EventCoordinatorController() throws IOException {
         this.eventCoordinatorModel = new EventCoordinatorModel();
         this.eventModel = new EventModel();
         this.editEventController = new EditEventController();
@@ -115,7 +115,7 @@ public class EventCoordinatorViewController implements Initializable {
 
 
     public void onActionAddEvent() throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/gui/view/CreateEventView.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/gui/view/CreateEvent.fxml"));
         Stage stage = new Stage();
         stage.setTitle("Create Event");
         stage.setScene(new Scene(root));
@@ -136,7 +136,7 @@ public class EventCoordinatorViewController implements Initializable {
         if (selectedEvent != null) {
             Event selectedEvent = (Event) tvEvents.getSelectionModel().getSelectedItem();
 
-            FXMLLoader parent = new FXMLLoader(getClass().getResource("/gui/view/EditEventView.fxml"));
+            FXMLLoader parent = new FXMLLoader(getClass().getResource("/gui/view/EditEvent.fxml"));
             Scene mainWindowScene = null;
             try {
                 mainWindowScene = new Scene(parent.load());

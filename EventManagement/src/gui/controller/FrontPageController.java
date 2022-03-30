@@ -140,7 +140,7 @@ public class FrontPageController implements Initializable {
     public void EventCoLogIn() throws IOException, SQLServerException {
         if (eventCoordinatorModel.login(txtFieldUsername.getText(), txtPasswordField.getText())){
             Stage switcher = (Stage) btnEventCoLogin.getScene().getWindow();
-            Parent root = FXMLLoader.load(getClass().getResource("/gui/view/EventCoordinatorView.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/gui/view/EventCoordinator.fxml"));
             Scene scene = new Scene(root);
             switcher.setTitle("EventCoordinatorManagement");
             switcher.setScene(scene);
@@ -155,7 +155,7 @@ public class FrontPageController implements Initializable {
         /**
         if (txtPasswordField.getText().equals(eventCoordinator.getPassword()) && txtFieldUsername.getText().equals(eventCoordinator.getUsername())) {
             Stage switcher = (Stage) btnEventCoLogin.getScene().getWindow();
-            Parent root = FXMLLoader.load(getClass().getResource("/gui/view/EventCoordinatorView.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/gui/view/EventCoordinator.fxml"));
             Scene scene = new Scene(root);
             switcher.setTitle("EventCoordinatorManagement");
             switcher.setScene(scene);
