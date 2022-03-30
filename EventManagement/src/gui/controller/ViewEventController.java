@@ -1,7 +1,6 @@
 package gui.controller;
 
 import be.Customer;
-import be.ErrorHandling;
 import be.Event;
 import dal.EventCoordinatorDAO;
 import dal.EventDAO;
