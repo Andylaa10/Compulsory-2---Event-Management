@@ -5,6 +5,7 @@ public class Event {
     private String eventName;
     private String eventDate;
     private String eventTime;
+    private String eventTimeEnd;
     private String eventLocation;
     private String eventInfo;
     private String eventPrice;
@@ -39,20 +40,23 @@ public class Event {
      * @param eventName
      * @param eventDate
      * @param eventTime
+     * @param eventTimeEnd
      * @param eventLocation
      * @param eventInfo
      * @param eventPrice
      * Constructor with id, eventName, eventDate, eventTime, eventLocation, eventInfo and eventPrice
      */
-    public Event(int id, String eventName, String eventDate, String eventTime, String eventLocation, String eventInfo, String eventPrice) {
+    public Event(int id, String eventName, String eventDate, String eventTime, String eventTimeEnd, String eventLocation, String eventInfo, String eventPrice) {
         this.id = id;
         this.eventName = eventName;
         this.eventDate = eventDate;
         this.eventTime = eventTime;
+        this.eventTimeEnd = eventTimeEnd;
         this.eventLocation = eventLocation;
         this.eventInfo = eventInfo;
         this.eventPrice = eventPrice;
     }
+
 
     /**
      * Gets the id
@@ -161,4 +165,12 @@ public class Event {
      * Sets the eventPrice
      */
     public void setEventPrice(String eventPrice){this.eventPrice = eventPrice;}
+
+    public String getEventTimeEnd() {
+        return eventTimeEnd;
+    }
+
+    public void setEventTimeEnd(String eventTimeEnd) {
+        this.eventTimeEnd = eventTimeEnd;
+    }
 }

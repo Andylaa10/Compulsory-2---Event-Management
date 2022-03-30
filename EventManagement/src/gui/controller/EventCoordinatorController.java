@@ -50,6 +50,8 @@ public class EventCoordinatorController implements Initializable {
     @FXML
     private TableColumn tcEventTime;
     @FXML
+    public TableColumn tcEventTimeEnd;
+    @FXML
     private Button btnEditEvent;
     @FXML
     private TableColumn tcEventInfo;
@@ -81,6 +83,7 @@ public class EventCoordinatorController implements Initializable {
         tcEventDate.setCellValueFactory(new PropertyValueFactory<>("EventDate"));
         tcEventLocation.setCellValueFactory(new PropertyValueFactory<>("EventLocation"));
         tcEventTime.setCellValueFactory(new PropertyValueFactory<>("EventTime"));
+        tcEventTimeEnd.setCellValueFactory(new PropertyValueFactory<>("EventTimeEnd"));
         tcEventInfo.setCellValueFactory(new PropertyValueFactory<>("EventInfo"));
         tcEventPrice.setCellValueFactory(new PropertyValueFactory<>("EventPrice"));
 

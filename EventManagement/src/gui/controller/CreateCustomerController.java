@@ -16,6 +16,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
@@ -38,6 +39,10 @@ public class CreateCustomerController implements Initializable {
     @FXML
     public TableColumn<Customer, String> tcEmail;
     @FXML
+    public TableColumn<Customer, String> tcStudy;
+    @FXML
+    public TableColumn<Customer, String> tcNote;
+    @FXML
     public Button btnAddCustomer;
     @FXML
     public TextField txtFieldSearch;
@@ -46,6 +51,8 @@ public class CreateCustomerController implements Initializable {
     @FXML
     public TextField txtFieldFirstName;
     @FXML
+    public TextField txtFieldStudy;
+    @FXML
     public Button btnEditCustomer;
     @FXML
     public Button btnDeleteCustomer;
@@ -53,6 +60,8 @@ public class CreateCustomerController implements Initializable {
     public TextField txtFieldPhoneNumber;
     @FXML
     public TextField txtFieldEmail;
+    @FXML
+    public TextField txtFieldNote;
     @FXML
     public Button btnBack;
 
@@ -81,6 +90,8 @@ public class CreateCustomerController implements Initializable {
         tcLastName.setCellValueFactory(new PropertyValueFactory<>("lastName"));
         tcPhoneNumber.setCellValueFactory(new PropertyValueFactory<>("phoneNumber"));
         tcEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
+        tcStudy.setCellValueFactory(new PropertyValueFactory<>("study"));
+        tcNote.setCellValueFactory(new PropertyValueFactory<>("note"));
         try {
             allCustomers = FXCollections.observableList(customerModel.getCustomers());
             tableViewLoadCustomer(allCustomers);
@@ -121,8 +132,10 @@ public class CreateCustomerController implements Initializable {
             String customerLastName = txtFieldLastName.getText();
             String customerPhoneNumber = txtFieldPhoneNumber.getText();
             String customerEmail = txtFieldEmail.getText();
+            String customerStudy = txtFieldStudy.getText();
+            String customerNote = txtFieldNote.getText();
 
-            customerModel.createCustomer(customerFirstName, customerLastName, customerPhoneNumber, customerEmail);
+            customerModel.createCustomer(customerFirstName, customerLastName, customerPhoneNumber, customerEmail, customerStudy, customerNote);
             reloadCustomerTable();
         }else {
             errorHandling.addCustomerError();

@@ -38,8 +38,10 @@ public class CustomerDAO {
                     String lastName = resultset.getString("Lname");
                     String phoneNumber = resultset.getString("PhoneNumber");
                     String email = resultset.getString("Email");
+                    String study = resultset.getString("Study");
+                    String note = resultset.getString("Note");
 
-                    Customer customer = new Customer(customerID, firstName, lastName, phoneNumber, email);
+                    Customer customer = new Customer(customerID, firstName, lastName, phoneNumber, email, study, note);
                     allCustomers.add(customer);
                 }
             }
@@ -56,18 +58,21 @@ public class CustomerDAO {
      * @param lastName
      * @param phoneNumber
      * @param email
+     * @param study
      * @return Customer
      * @throws SQLException
      */
-    public Customer createCustomer (String firstName, String lastName, String phoneNumber, String email) throws SQLException {
+    public Customer createCustomer (String firstName, String lastName, String phoneNumber, String email, String study, String note) throws SQLException {
             try (Connection connection = connector.getConnection()) {
-                String sql = "INSERT INTO Customer (Fname, Lname, PhoneNumber, Email) values (?,?,?,?)";
+                String sql = "INSERT INTO Customer (Fname, Lname, PhoneNumber, Email, Study, Note) values (?,?,?,?,?,?)";
 
                 try (PreparedStatement preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
                     preparedStatement.setString(1, firstName);
                     preparedStatement.setString(2, lastName);
                     preparedStatement.setString(3, phoneNumber);
                     preparedStatement.setString(4, email);
+                    preparedStatement.setString(5, study);
+                    preparedStatement.setString(6, note);
                     preparedStatement.execute();
 
                     ResultSet resultSet = preparedStatement.getGeneratedKeys();
@@ -76,7 +81,7 @@ public class CustomerDAO {
                         id = resultSet.getInt(1);
                     }
 
-                    Customer customer = new Customer(id, firstName, lastName, phoneNumber, email);
+                    Customer customer = new Customer(id, firstName, lastName, phoneNumber, email, study, note);
                     return customer;
 
                 }
@@ -112,13 +117,15 @@ public class CustomerDAO {
      */
     public void editCustomer(Customer customer) {
         try (Connection connection = connector.getConnection()) {
-            String sql = "UPDATE Customer SET Fname=?, Lname=?, PhoneNumber=?, Email=? WHERE CustomerID=?;";
+            String sql = "UPDATE Customer SET Fname=?, Lname=?, PhoneNumber=?, Email=?, Study=?, Note=?, WHERE CustomerID=?;";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, customer.getFirstName());
             preparedStatement.setString(2, customer.getLastName());
             preparedStatement.setString(3, customer.getPhoneNumber());
             preparedStatement.setString(4, customer.getEmail());
-            preparedStatement.setInt(5, customer.getId());
+            preparedStatement.setString(5, customer.getStudy());
+            preparedStatement.setString(6, customer.getNote());
+            preparedStatement.setInt(7, customer.getId());
             if (preparedStatement.executeUpdate() != 1) {
                 throw new Exception("Could not edit customer");
             }

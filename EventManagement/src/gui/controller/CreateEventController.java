@@ -23,6 +23,8 @@ public class CreateEventController {
     @FXML
     private TextField txtFieldEventTime;
     @FXML
+    private TextField txtFieldEventTimeEnd;
+    @FXML
     private TextField txtFieldEventLocation;
     @FXML
     private TextArea txtFieldEventInfo;
@@ -39,11 +41,12 @@ public class CreateEventController {
         String eventName = txtFieldEventName.getText();
         String eventDate = txtFieldEventDate.getText();
         String eventTime = txtFieldEventTime.getText();
+        String eventTimeEnd = txtFieldEventTimeEnd.getText();
         String eventLocation = txtFieldEventLocation.getText();
         String eventInfo = txtFieldEventInfo.getText();
         String eventPrice = txtFieldEventPrice.getText();
 
-        eventModel.createEvent(eventName, eventDate, eventTime, eventLocation, eventInfo, eventPrice);
+        eventModel.createEvent(eventName, eventDate, eventTime, eventTimeEnd, eventLocation, eventInfo, eventPrice);
         Stage stage = (Stage) btnCreateEvent.getScene().getWindow();
         stage.close();
     }

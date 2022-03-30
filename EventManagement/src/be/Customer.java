@@ -7,6 +7,8 @@ public class Customer {
     private String lastName;
     private String phoneNumber;
     private String email;
+    private String study;
+    private String note;
 
     /**
      * Constructor
@@ -22,12 +24,14 @@ public class Customer {
      * @param email
      * Constructor with id, firstName, lastName, phoneNumber and email
      */
-    public Customer(int id, String firstName, String lastName, String phoneNumber, String email) {
+    public Customer(int id, String firstName, String lastName, String phoneNumber, String email, String study, String note) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
         this.email = email;
+        this.study = study;
+        this.note = note;
     }
 
     /**
@@ -108,5 +112,21 @@ public class Customer {
      */
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getStudy() {
+        return study;
+    }
+
+    public void setStudy(String study) {
+        this.study = study;
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
     }
 }

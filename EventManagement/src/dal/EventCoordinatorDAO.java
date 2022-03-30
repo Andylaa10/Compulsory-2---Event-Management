@@ -74,7 +74,9 @@ public class EventCoordinatorDAO {
                 String lastName = rs.getString("Lname");
                 String phoneNumber = rs.getString("PhoneNumber");
                 String email = rs.getString("Email");
-                allCustomerOnEvent.add(new Customer(id, firstName, lastName, phoneNumber, email));
+                String study = rs.getString("Study");
+                String note = rs.getString("Note");
+                allCustomerOnEvent.add(new Customer(id, firstName, lastName, phoneNumber, email, study, note));
             }
         } catch (SQLException sqlException) {
             sqlException.printStackTrace();

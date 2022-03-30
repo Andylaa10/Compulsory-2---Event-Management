@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@CSS/Main.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.EditEventController" >
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@CSS/Main.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.EditEventController">
    <children>
       <ImageView fitHeight="600.0" fitWidth="800.0" opacity="0.41" pickOnBounds="true">
          <image>
@@ -47,7 +47,7 @@
             <Font size="16.0" />
          </font>
       </TextField>
-      <TextField fx:id="txtFieldEventTime" layoutX="183.0" layoutY="199.0" prefHeight="37.0" prefWidth="204.0" promptText="18.30" style="-fx-background-color: transparent; -fx-border-color: white;">
+      <TextField fx:id="txtFieldEventTime" layoutX="221.0" layoutY="200.0" prefHeight="37.0" prefWidth="64.0" promptText="14.30" style="-fx-background-color: transparent; -fx-border-color: white;">
          <effect>
             <DropShadow height="62.03" radius="17.9375" width="11.72" />
          </effect>
@@ -106,5 +106,23 @@
             <DropShadow />
          </effect>
       </Button>
+      <TextField fx:id="txtFieldEventTimeEnd" layoutX="324.0" layoutY="200.0" prefHeight="37.0" prefWidth="64.0" promptText="16.00" style="-fx-background-color: transparent; -fx-border-color: white;">
+         <effect>
+            <DropShadow height="62.03" radius="17.9375" width="11.72" />
+         </effect>
+         <font>
+            <Font size="16.0" />
+         </font>
+      </TextField>
+      <Label layoutX="181.0" layoutY="208.0" text="Start:">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="290.0" layoutY="208.0" text="End:">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

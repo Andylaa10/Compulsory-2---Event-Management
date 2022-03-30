@@ -26,6 +26,8 @@ public class EditEventController {
     @FXML
     private TextField txtFieldEventTime;
     @FXML
+    public TextField txtFieldEventTimeEnd;
+    @FXML
     private TextField txtFieldEventLocation;
     @FXML
     private TextField txtFieldEventPrice;
@@ -41,13 +43,14 @@ public class EditEventController {
         String eventName = txtFieldEventName.getText();
         String eventDate = txtFieldEventDate.getText();
         String eventTime = txtFieldEventTime.getText();
+        String eventTimeEnd = txtFieldEventTimeEnd.getText();
         String eventLocation = txtFieldEventLocation.getText();
         String eventInfo = txtFieldEventInfo.getText();
         String eventPrice = txtFieldEventPrice.getText();
 
 
 
-        Event event = new Event(eventID, eventName, eventDate, eventTime, eventLocation, eventInfo, eventPrice);
+        Event event = new Event(eventID, eventName, eventDate, eventTime, eventTimeEnd, eventLocation, eventInfo, eventPrice);
         eventModel.editEvent(event);
 
         Stage stage = (Stage) btnEditEvent.getScene().getWindow();
@@ -59,6 +62,7 @@ public class EditEventController {
         txtFieldEventName.setText(event.getEventName());
         txtFieldEventDate.setText(event.getEventDate());
         txtFieldEventTime.setText(event.getEventTime());
+        txtFieldEventTimeEnd.setText(event.getEventTimeEnd());
         txtFieldEventLocation.setText(event.getEventLocation());
         txtFieldEventInfo.setText(event.getEventInfo());
     }
