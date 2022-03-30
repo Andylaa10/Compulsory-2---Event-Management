@@ -89,7 +89,7 @@
             <DropShadow />
          </effect>
       </Button>
-      <Button fx:id="btnEditCustomer" layoutX="195.0" layoutY="558.0" mnemonicParsing="false" onAction="#handleBtnBack" prefHeight="27.0" prefWidth="150.0" text="Edit Customer">
+      <Button fx:id="btnEditCustomer" layoutX="195.0" layoutY="558.0" mnemonicParsing="false" onAction="#handleBtnEditCustomer" prefHeight="27.0" prefWidth="150.0" text="Edit Customer">
          <effect>
             <DropShadow />
          </effect>

@@ -120,15 +120,15 @@ public class EventDAO {
      */
     public void editEvent(Event event) {
         try (Connection connection = connector.getConnection()) {
-            String sql = "UPDATE Event SET EventName=?, EventDate=?, EventTime=?, EventTimeEnd=? EventLocation=?, EventInfo=?, EventPrice=?, WHERE EventID=?;";
+            String sql = "UPDATE Event SET EventName=?, EventDate=?, EventTime=?, EventTimeEnd=?,  EventLocation=?, EventPrice=?, Eventinfo=?  WHERE EventID=?;";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, event.getEventName());
             preparedStatement.setString(2, event.getEventDate());
             preparedStatement.setString(3, event.getEventTime());
             preparedStatement.setString(4, event.getEventTimeEnd());
             preparedStatement.setString(5, event.getEventLocation());
-            preparedStatement.setString(6, event.getEventInfo());
-            preparedStatement.setString(7, event.getEventPrice());
+            preparedStatement.setString(6, event.getEventPrice());
+            preparedStatement.setString(7, event.getEventInfo());
             preparedStatement.setInt(8, event.getId());
 
             if (preparedStatement.executeUpdate() != 1) {

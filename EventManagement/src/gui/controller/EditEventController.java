@@ -49,7 +49,6 @@ public class EditEventController {
         String eventPrice = txtFieldEventPrice.getText();
 
 
-
         Event event = new Event(eventID, eventName, eventDate, eventTime, eventTimeEnd, eventLocation, eventInfo, eventPrice);
         eventModel.editEvent(event);
 
@@ -65,6 +64,7 @@ public class EditEventController {
         txtFieldEventTimeEnd.setText(event.getEventTimeEnd());
         txtFieldEventLocation.setText(event.getEventLocation());
         txtFieldEventInfo.setText(event.getEventInfo());
+        txtFieldEventPrice.setText(event.getEventPrice());
     }
 
     public void handleBtnBack() {

@@ -2,6 +2,7 @@ package gui.controller;
 
 import be.Customer;
 import be.ErrorHandling;
+import be.Event;
 import be.EventCoordinator;
 import bll.EventCoordinatorManager;
 import com.microsoft.sqlserver.jdbc.SQLServerException;
@@ -100,13 +101,6 @@ public class CreateCustomerController implements Initializable {
         }
     }
 
-    private void selectedCustomer(){
-        this.tvCustomers.getSelectionModel().selectedItemProperty().addListener(((observableValue, oldValue, newValue) -> {
-            if ((Customer) newValue != null) {
-                this.selectedCustomer = (Customer) newValue;
-            }
-        }));
-    }
 
     /**
      * Loading table view customer
@@ -144,7 +138,36 @@ public class CreateCustomerController implements Initializable {
     }
 
     public void handleBtnEditCustomer(){
-        //TODO Implement metode her til at edit
+        //TODO ADD ERROR HANDLING IF NO EVENT SELECTED
+        //TODO FIX THIS, DOESNT WORK!!!!!!!
+        if (selectedCustomer != null) {
+            Customer selectedCustomer = tvCustomers.getSelectionModel().getSelectedItem();
+
+            FXMLLoader parent = new FXMLLoader(getClass().getResource("/gui/view/EditCustomer.fxml"));
+            Scene mainWindowScene = null;
+            try {
+                mainWindowScene = new Scene(parent.load());
+            } catch (IOException exception) {
+                exception.printStackTrace();
+            }
+            Stage editCustomerStage;
+            editCustomerStage = new Stage();
+            editCustomerStage.setScene(mainWindowScene);
+            EditCustomerController editCustomerController = parent.getController();
+            editCustomerController.setSelectedCustomer(selectedCustomer);
+            editCustomerStage.show();
+            editCustomerStage.setOnHiding(event ->
+            {
+                try {
+                    allCustomers = FXCollections.observableList(customerModel.getCustomers());
+                    tableViewLoadCustomer(allCustomers);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            });
+        } else {
+            System.out.println("No event selected");
+        }
     }
 
     public void handleBtnDeleteCustomer(){
@@ -180,6 +203,14 @@ public class CreateCustomerController implements Initializable {
         }
     }
 
+    private void selectedCustomer(){
+        this.tvCustomers.getSelectionModel().selectedItemProperty().addListener(((observableValue, oldValue, newValue) -> {
+            if ((Customer) newValue != null) {
+                this.selectedCustomer = (Customer) newValue;
+            }
+        }));
+    }
+
 
     /**
      * public void onActionCancelCreateCustomer() {
@@ -195,4 +226,5 @@ public class CreateCustomerController implements Initializable {
         Scene scene = new Scene(root);
         switcher.setScene(scene);
     }
+
 }
