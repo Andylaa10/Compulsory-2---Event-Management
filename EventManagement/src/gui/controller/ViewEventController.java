@@ -91,12 +91,6 @@ public class ViewEventController implements Initializable {
         tcLastNameOnEvent.setCellValueFactory(new PropertyValueFactory<>("lastName"));
         tcPhoneNumberOnEvent.setCellValueFactory(new PropertyValueFactory<>("phoneNumber"));
         tcEmailOnEvent.setCellValueFactory(new PropertyValueFactory<>("email"));
-        try {
-            allCustomersOnEvent = FXCollections.observableList(eventCoordinatorModel.getCustomersOnEvent(Integer.parseInt(txtFieldEventID.getText())));
-            tableViewCustomersOnEvent(allCustomersOnEvent);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
 
 
         tcCustomerID.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -138,6 +132,12 @@ public class ViewEventController implements Initializable {
 
     public void setSelectedEvent(Event event) {
         txtFieldEventID.setText(String.valueOf(event.getId()));
+        try {
+            allCustomersOnEvent = FXCollections.observableList(eventCoordinatorModel.getCustomersOnEvent(Integer.parseInt(txtFieldEventID.getText())));
+            tableViewCustomersOnEvent(allCustomersOnEvent);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -175,15 +175,5 @@ public class ViewEventController implements Initializable {
     private void onActionCloseWindow() {
         Stage stage = (Stage) btnClose.getScene().getWindow();
         stage.close();
-    }
-
-    @FXML
-    private void onActionTest() {
-        try {
-            allCustomersOnEvent = FXCollections.observableList(eventCoordinatorModel.getCustomersOnEvent(Integer.parseInt(txtFieldEventID.getText())));
-            tableViewCustomersOnEvent(allCustomersOnEvent);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 }
