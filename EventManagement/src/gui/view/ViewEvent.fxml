@@ -25,11 +25,11 @@
       <Label fx:id="lblCustomerList" layoutX="813.0" layoutY="6.0" text="Customer List" AnchorPane.topAnchor="5.0" />
       <TableView fx:id="tvCustomersOnEvent" cache="true" layoutX="14.0" layoutY="27.0" prefHeight="403.0" prefWidth="550.0" style="-fx-background-color: transparent;" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="30.0">
          <columns>
-            <TableColumn fx:id="tcCustomerIDOnEvent" prefWidth="38.400054931640625" text="ID" />
+            <TableColumn fx:id="tcCustomerIDOnEvent" prefWidth="38.400054931640625" text="ID" visible="false" />
             <TableColumn fx:id="tcFirstNameOnEvent" prefWidth="121.0" text="First Name" />
             <TableColumn fx:id="tcLastNameOnEvent" prefWidth="121.0" text="Last Name" />
             <TableColumn fx:id="tcPhoneNumberOnEvent" minWidth="5.5999755859375" prefWidth="130.0" text="Phone Number" />
-            <TableColumn fx:id="tcEmailOnEvent" prefWidth="138.0" text="Email" />
+            <TableColumn fx:id="tcEmailOnEvent" prefWidth="177.0" text="Email" />
          </columns>
          <effect>
             <DropShadow />
@@ -37,11 +37,11 @@
       </TableView>
       <TableView fx:id="tvCustomers" cache="true" layoutX="586.0" layoutY="30.0" prefHeight="403.0" prefWidth="550.0" style="-fx-background-color: transparent;" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="30.0">
          <columns>
-            <TableColumn fx:id="tcCustomerID" prefWidth="38.400054931640625" text="ID" />
+            <TableColumn fx:id="tcCustomerID" prefWidth="38.400054931640625" text="ID" visible="false" />
             <TableColumn fx:id="tcFirstName" prefWidth="139.0" text="First Name" />
             <TableColumn fx:id="tcLastName" prefWidth="113.0" text="Last Name" />
             <TableColumn fx:id="tcPhoneNumber" minWidth="5.5999755859375" prefWidth="140.0" text="Phone Number" />
-            <TableColumn fx:id="tcEmail" prefWidth="118.0" text="Email" />
+            <TableColumn fx:id="tcEmail" prefWidth="157.0" text="Email" />
          </columns>
          <effect>
             <DropShadow />

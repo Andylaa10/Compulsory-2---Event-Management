@@ -129,7 +129,8 @@ public class TicketDAO {
 
     public static void main(String[] args) throws IOException, SQLException {
         TicketDAO ticketDAO = new TicketDAO();
-        ticketDAO.createTicket("VIP", "src/gui/image/placeholder-image.png", 4, 1);
+        //ticketDAO.createTicket("VIP", "src/gui/image/placeholder-image.png", 4, 1);
+        ticketDAO.deleteTicket(3);
         List<Ticket> tickets = ticketDAO.getTickets();
         System.out.println(tickets);
     }

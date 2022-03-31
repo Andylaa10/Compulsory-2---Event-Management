@@ -94,7 +94,6 @@ public class ViewEventController implements Initializable {
         tcPhoneNumberOnEvent.setCellValueFactory(new PropertyValueFactory<>("phoneNumber"));
         tcEmailOnEvent.setCellValueFactory(new PropertyValueFactory<>("email"));
 
-
         tcCustomerID.setCellValueFactory(new PropertyValueFactory<>("id"));
         tcFirstName.setCellValueFactory(new PropertyValueFactory<>("firstName"));
         tcLastName.setCellValueFactory(new PropertyValueFactory<>("lastName"));
@@ -190,11 +189,11 @@ public class ViewEventController implements Initializable {
 
     @FXML
     private void onActionCreateCustomer() throws IOException {
-        Stage switcher = (Stage) btnCreateCustomer.getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("/gui/view/CreateCustomer.fxml"));
-        Scene scene = new Scene(root);
-        switcher.setTitle("Customer Management");
-        switcher.setScene(scene);
+        Stage stage = new Stage();
+        stage.setTitle("Manage Customers");
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 
     @FXML
