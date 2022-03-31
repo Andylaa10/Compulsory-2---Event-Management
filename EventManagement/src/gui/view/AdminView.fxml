@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@CSS/Main.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.AdminController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@CSS/Main.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.AdminController">
    <children>
       <ImageView fitHeight="600.0" fitWidth="800.0" opacity="0.41" pickOnBounds="true">
          <image>
@@ -26,12 +26,12 @@
       </Label>
       <AnchorPane layoutX="202.0" layoutY="131.0" prefHeight="325.0" prefWidth="400.0" stylesheets="@CSS/Main.css">
          <children>
-            <ImageView blendMode="OVERLAY" fitHeight="325.0" fitWidth="400.0" layoutY="7.0" opacity="0.82" pickOnBounds="true">
+            <ImageView blendMode="OVERLAY" fitHeight="325.0" fitWidth="400.0" layoutY="4.0" opacity="0.82" pickOnBounds="true">
                <image>
                   <Image url="@img/2489664.jpg" />
                </image>
             </ImageView>
-            <Button fx:id="btnCreateCustomer" layoutX="61.0" layoutY="217.0" mnemonicParsing="false" onAction="#handleBtnCreateCustomer" prefHeight="40.0" prefWidth="277.0" text="Create and Edit Customers">
+            <Button fx:id="btnCreateCoordinator" layoutX="55.0" layoutY="36.0" mnemonicParsing="false" onAction="#handleBtnCreateCoordinator" prefHeight="42.0" prefWidth="278.0" text="Create and Edit Coordinator">
                <effect>
                   <DropShadow />
                </effect>
@@ -39,7 +39,7 @@
                   <Font size="19.0" />
                </font>
             </Button>
-            <Button fx:id="btnCreateEvent" layoutX="62.0" layoutY="147.0" mnemonicParsing="false" onAction="#handleBtnCreateEvent" prefHeight="40.0" prefWidth="277.0" text="Create Event">
+            <Button fx:id="btnCreateCustomer" layoutX="55.0" layoutY="168.0" mnemonicParsing="false" onAction="#handleBtnCreateCustomer" prefHeight="42.0" prefWidth="278.0" text="Create and Edit Customers">
                <effect>
                   <DropShadow />
                </effect>
@@ -47,7 +47,15 @@
                   <Font size="19.0" />
                </font>
             </Button>
-            <Button fx:id="btnCreateCoordinator" layoutX="62.0" layoutY="78.0" mnemonicParsing="false" onAction="#handleBtnCreateCoordinator" prefHeight="40.0" prefWidth="277.0" text="Create and Edit Coordinator">
+            <Button fx:id="btnAddCoordinatorToEvent" layoutX="55.0" layoutY="100.0" mnemonicParsing="false" onAction="#handleBtnAddCoordinatorToEvent" prefHeight="42.0" prefWidth="278.0" text="Add Coordinator to event">
+               <effect>
+                  <DropShadow />
+               </effect>
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnCreateEvent" layoutX="55.0" layoutY="232.0" mnemonicParsing="false" onAction="#handleBtnCreateEvent" prefHeight="42.0" prefWidth="278.0" text="Create Event">
                <effect>
                   <DropShadow />
                </effect>

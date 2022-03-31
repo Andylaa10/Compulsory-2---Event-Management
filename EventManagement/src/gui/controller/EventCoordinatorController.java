@@ -186,7 +186,7 @@ public class EventCoordinatorController implements Initializable, IController {
      */
     @FXML
      private void handleBtnDeleteEvent(ActionEvent actionEvent) {
-         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+      Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
       alert.setTitle("WARNING MESSAGE");
       alert.setHeaderText("Warning before you delete event");
       alert.setContentText("Remove all customer and tickets from selected event to delete! \n Are you sure you want " +

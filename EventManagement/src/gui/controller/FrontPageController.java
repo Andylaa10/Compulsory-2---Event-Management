@@ -1,13 +1,10 @@
 package gui.controller;
 
 import be.Admin;
-import be.Customer;
 import be.EventCoordinator;
-import bll.AdminManager;
 import com.microsoft.sqlserver.jdbc.SQLServerException;
 import gui.model.AdminModel;
 import gui.model.EventCoordinatorModel;
-import javafx.animation.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -17,24 +14,11 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
-import javafx.scene.paint.CycleMethod;
-import javafx.scene.paint.LinearGradient;
-import javafx.scene.paint.Stop;
 import javafx.stage.Stage;
-import javafx.util.Duration;
-
-import javax.imageio.ImageIO;
-import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
-import java.util.stream.Stream;
 
 public class FrontPageController implements Initializable {
 

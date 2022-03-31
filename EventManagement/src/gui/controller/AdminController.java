@@ -22,6 +22,8 @@ public class AdminController{
     private Button btnHelp;
     @FXML
     private Button btnLogOut;
+    @FXML
+    private Button btnAddCoordinatorToEvent;
 
     public AdminController() {
     }
@@ -75,6 +77,14 @@ public class AdminController{
         Parent root = FXMLLoader.load(getClass().getResource("/gui/view/CreateCoordinator.fxml"));
         Scene scene = new Scene(root);
         switcher.setTitle("Event Coordinator Management");
+        switcher.setScene(scene);
+    }
+
+    public void handleBtnAddCoordinatorToEvent() throws IOException {
+        Stage switcher = (Stage) btnAddCoordinatorToEvent.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("/gui/view/AddCoordinatorToEvent.fxml"));
+        Scene scene = new Scene(root);
+        switcher.setTitle("Add Coordinator To Event");
         switcher.setScene(scene);
     }
 }

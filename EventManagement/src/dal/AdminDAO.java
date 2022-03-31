@@ -173,6 +173,13 @@ public class AdminDAO {
         }
     }
 
+    /**
+     * This method gets a login from the database, only if it is an admin
+     * @param username1
+     * @param password1
+     * @return Admin from database
+     * @throws SQLServerException
+     */
     public Admin Login(String username1, String password1) throws SQLServerException {
         String sql = "SELECT * FROM Login WHERE username =? AND password =?;";
         try(Connection connection = connector.getConnection()){
@@ -199,7 +206,7 @@ public class AdminDAO {
     /**
      * Method used for testing the DAO class
      */
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, SQLException {
         AdminDAO adminDAO = new AdminDAO();
         List<Admin> admins = adminDAO.getAdmins();
         System.out.println(admins);

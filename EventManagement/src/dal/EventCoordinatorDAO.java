@@ -84,6 +84,14 @@ public class EventCoordinatorDAO {
         return allCustomerOnEvent;
     }
 
+
+    /**
+     * This method gets a login from the database, only if it is a coordinator
+     * @param username1
+     * @param password1
+     * @return an eventCoordinator
+     * @throws SQLServerException
+     */
     public EventCoordinator Login(String username1, String password1) throws SQLServerException {
         String sql = "SELECT * FROM Login WHERE username =? AND password =?;";
         try(Connection connection = connector.getConnection()){

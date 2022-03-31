@@ -26,7 +26,7 @@ public class EditEventController {
     @FXML
     private TextField txtFieldEventTime;
     @FXML
-    public TextField txtFieldEventTimeEnd;
+    private TextField txtFieldEventTimeEnd;
     @FXML
     private TextField txtFieldEventLocation;
     @FXML
