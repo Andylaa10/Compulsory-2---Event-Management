@@ -67,6 +67,7 @@ public class EventCoordinatorController implements Initializable {
     private EventModel eventModel;
     private Event selectedEvent;
     private EditEventController editEventController;
+    private ViewEventController viewEventController;
 
     public EventCoordinatorController() throws IOException {
         this.eventCoordinatorModel = new EventCoordinatorModel();
@@ -193,37 +194,28 @@ public class EventCoordinatorController implements Initializable {
       }
     }
 
-    public void onActionViewEvent() {
+    public void onActionViewEvent() throws IOException {
         //TODO ADD ERROR HANDLING IF NO EVENT SELECTED
         if (selectedEvent != null) {
-            Event selectedEvent = (Event) tvEvents.getSelectionModel().getSelectedItem();
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("/gui/view/ViewEvent.fxml"));
 
-            FXMLLoader parent = new FXMLLoader(getClass().getResource("/gui/view/ViewEvent.fxml"));
-            Scene mainWindowScene = null;
-            try {
-                mainWindowScene = new Scene(parent.load());
-            } catch (IOException exception) {
-                exception.printStackTrace();
-            }
-            Stage viewEventStage;
-            viewEventStage = new Stage();
-            viewEventStage.setScene(mainWindowScene);
-            ViewEventController viewEventController = parent.getController();
+            Scene scene = new Scene(fxmlLoader.load());
+
+            Stage stage = new Stage();
+            stage.setScene(scene);
+
+            viewEventController = fxmlLoader.getController();
             viewEventController.setSelectedEvent(selectedEvent);
-            viewEventStage.show();
-            viewEventStage.setOnHiding(event ->
-            {
-                try {
-                    allEvents = FXCollections.observableList(eventModel.getEvents());
-                    tableViewLoadEvents(allEvents);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            });
+
+            stage.show();
+
         } else {
             System.out.println("No event selected");
         }
     }
+
+
 
     /**
      * Makes you able to select an event from the table
