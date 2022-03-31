@@ -47,11 +47,6 @@
             <DropShadow />
          </effect>
       </Button>
-      <Button fx:id="btnCreateCoordinator" layoutX="236.0" layoutY="448.0" mnemonicParsing="false" onAction="#handleBtnCreateCoordinator" prefHeight="27.0" prefWidth="233.0" text="Create new coordinator">
-         <effect>
-            <DropShadow />
-         </effect>
-      </Button>
       <TextField fx:id="txtFieldEventID" layoutX="20.0" layoutY="449.0" prefHeight="25.0" prefWidth="143.0" visible="false" />
       <TableView fx:id="tvEvents" layoutX="236.0" layoutY="21.0" prefHeight="417.0" prefWidth="731.0" style="-fx-background-color: Transparent;" stylesheets="@CSS/Main.css">
          <columns>
@@ -68,10 +63,10 @@
             <DropShadow />
          </effect>
       </TableView>
-      <TableView fx:id="tvCoordinatorOnEvent" cache="true" layoutX="52.0" layoutY="21.0" prefHeight="403.0" prefWidth="143.0" style="-fx-background-color: transparent;">
+      <TableView fx:id="tvCoordinatorOnEvent" cache="true" layoutX="37.0" layoutY="21.0" prefHeight="403.0" prefWidth="168.0" style="-fx-background-color: transparent;">
          <columns>
             <TableColumn fx:id="tcCustomerID1" prefWidth="38.400054931640625" text="ID" visible="false" />
-            <TableColumn fx:id="tcCoordinatorOnEvent" prefWidth="142.3999931335449" text="Coordinators On Event" />
+            <TableColumn fx:id="tcCoordinatorOnEvent" prefWidth="167.19999313354492" text="Coordinators On Event" />
          </columns>
          <effect>
             <DropShadow />

@@ -74,6 +74,41 @@ public class AdminManager {
         adminDAO.editCoordinator(eventCoordinator);
     }
 
+    /**
+     * Gets the coordinator on event using getCoordinatorsOnEvent from adminDAO
+     * @param eventId
+     * @return a list of coordinators on event or an empty list of coordinator on event
+     * @throws SQLException
+     */
+    public List<EventCoordinator> getCoordinatorsOnEvent(int eventId) throws SQLException {
+        return adminDAO.getCoordinatorsOnEvent(eventId);
+    }
+
+    /**
+     * Adds a coordinator to event using addCoordinatorToEvent method in adminDAO
+     * @param loginId
+     * @param eventId
+     */
+    public void addCoordinatorToEvent(int loginId, int eventId){
+        adminDAO.addCoordinatorToEvent(loginId, eventId);
+    }
+
+    /**
+     * Deletes coordinator from event using deleteFromEvent from adminDAO
+     * @param loginId
+     * @param eventId
+     */
+    public void deleteFromEvent(int loginId, int eventId){
+        adminDAO.deleteFromEvent(loginId, eventId);
+    }
+
+    /**
+     * Gets the admin username and the password using login from adminDAO
+     * @param username
+     * @param password
+     * @return
+     * @throws SQLServerException
+     */
     public Admin login(String username, String password) throws SQLServerException {
         return adminDAO.Login(username, password);
     }

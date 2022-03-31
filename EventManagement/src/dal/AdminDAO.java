@@ -174,18 +174,81 @@ public class AdminDAO {
     }
 
     /**
+     * @param loginId
+     * @param eventId
+     * Adds a selected coordinator to an event
+     */
+    public void addCoordinatorToEvent(int loginId, int eventId){
+        String sql = "INSERT INTO CoordinatorOnEvent (LoginId, EventId) VALUES (?,?);";
+        try (Connection con = connector.getConnection();
+             PreparedStatement st = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+            st.setInt(1, loginId);
+            st.setInt(2, eventId);
+            st.executeUpdate();
+        } catch (SQLException exception) {
+            exception.printStackTrace();
+        }
+    }
+
+    /**
+     * @param loginId
+     * @param eventId
+     * Deletes a customer from event
+     */
+    public void deleteFromEvent(int loginId, int eventId){
+        String sql = "DELETE FROM CoordinatorOnEvent WHERE LoginId = ? AND EventId = ?;";
+        try (Connection connection = connector.getConnection()) {
+            PreparedStatement st = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            st.setInt(1, loginId);
+            st.setInt(2, eventId);
+            st.executeUpdate();
+        } catch (SQLException sqlException) {
+            sqlException.printStackTrace();
+        }
+    }
+
+    /**
+     * Gets a list of customer on event
+     * @param eventId
+     * @return List of customers
+     * @throws SQLException
+     */
+    public List<EventCoordinator> getCoordinatorsOnEvent(int eventId) throws SQLException {
+        ArrayList<EventCoordinator> allCoordinatorOnEvent = new ArrayList<>();
+
+        try (Connection connection = connector.getConnection()) {
+            String sql = "SELECT * FROM Login INNER JOIN CoordinatorOnEvent ON CoordinatorOnEvent.LoginId = Login.LoginID WHERE CoordinatorOnEvent.eventId = ?;";
+            PreparedStatement st = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            st.setInt(1, eventId);
+            ResultSet rs = st.executeQuery();
+            if (rs.next()){
+                int id = rs.getInt("LoginID");
+                String username = rs.getString("username");
+                String password = rs.getString("password");
+                boolean isAdmin = rs.getBoolean("IsAdmin");
+                if (!isAdmin){
+                    allCoordinatorOnEvent.add(new EventCoordinator(id, username, password, isAdmin));
+                }
+            }
+        } catch (SQLException sqlException) {
+            sqlException.printStackTrace();
+        }
+        return allCoordinatorOnEvent;
+    }
+
+    /**
      * This method gets a login from the database, only if it is an admin
-     * @param username1
-     * @param password1
+     * @param user
+     * @param pass
      * @return Admin from database
      * @throws SQLServerException
      */
-    public Admin Login(String username1, String password1) throws SQLServerException {
+    public Admin Login(String user, String pass) throws SQLServerException {
         String sql = "SELECT * FROM Login WHERE username =? AND password =?;";
         try(Connection connection = connector.getConnection()){
             PreparedStatement st = connection.prepareStatement(sql);
-            st.setString(1, username1);
-            st.setString(2, password1);
+            st.setString(1, user);
+            st.setString(2, pass);
             ResultSet rs = st.executeQuery();
             if (rs.next()){
                 int id = rs.getInt("LoginID");
@@ -208,7 +271,13 @@ public class AdminDAO {
      */
     public static void main(String[] args) throws IOException, SQLException {
         AdminDAO adminDAO = new AdminDAO();
-        List<Admin> admins = adminDAO.getAdmins();
+        List<EventCoordinator> admins = adminDAO.getCoordinatorsOnEvent(29);
+        List<EventCoordinator> admins1 = adminDAO.getCoordinatorsOnEvent(30);
+        List<EventCoordinator> admins2 = adminDAO.getCoordinatorsOnEvent(36);
+        List<EventCoordinator> admins3 = adminDAO.getCoordinatorsOnEvent(38);
         System.out.println(admins);
+        System.out.println(admins1);
+        System.out.println(admins2);
+        System.out.println(admins3);
     }
 }

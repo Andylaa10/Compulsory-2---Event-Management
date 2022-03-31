@@ -6,18 +6,13 @@ import gui.model.AdminModel;
 import gui.model.EventModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -62,10 +57,15 @@ public class AddCoordinatorToEventController implements Initializable {
 
 
     private ObservableList<EventCoordinator> allCoordinators = FXCollections.observableArrayList();
+    private ObservableList<EventCoordinator> allCoordinatorOnEvent = FXCollections.observableArrayList();
     private ObservableList<Event> allEvents = FXCollections.observableArrayList();
 
     private AdminModel adminModel = new AdminModel();
     private EventModel eventModel = new EventModel();
+
+    private EventCoordinator selectedCoordinator = new EventCoordinator();
+    private EventCoordinator selectedCoordinatorOnEvent = new EventCoordinator();
+    private Event selectedEvent = new Event();
 
     public AddCoordinatorToEventController() throws SQLException, IOException {
     }
@@ -75,18 +75,12 @@ public class AddCoordinatorToEventController implements Initializable {
         stage.close();
     }
 
-    public void handleBtnAddSelectedToEvent() {
-    }
-
-    public void handleBtnDeleteSelectedFromEvent() {
-    }
-
-    public void handleBtnCreateCoordinator() {
-    }
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         initializeTable();
+        selectedCoordinator();
+        selectedCoordinatorOnEvent();
+        selectedEvent();
     }
 
     public void initializeTable(){
@@ -110,6 +104,43 @@ public class AddCoordinatorToEventController implements Initializable {
             tableViewLoadEvents(allEvents);
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    /**
+     * Makes the tableColumn show the coordinator on each event
+     */
+    public void seeCoordinatorsOnEvent() {
+        tcCoordinatorOnEvent.setCellValueFactory(new PropertyValueFactory<>("username"));
+        try {
+            allCoordinatorOnEvent = FXCollections.observableList(adminModel.getCoordinatorsOnEvent(selectedCoordinatorOnEvent.getId()));
+            tableViewLoadCoordinatorOnEvent(allCoordinatorOnEvent);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void handleBtnAddSelectedToEvent() {
+        if (selectedCoordinator != null) {
+            try {
+                adminModel.addCoordinatorToEvent(selectedCoordinator.getId(), selectedEvent.getId());
+                reloadCoordinatorOnEvent();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    @FXML
+    private void handleBtnDeleteSelectedFromEvent() {
+        if (selectedCoordinatorOnEvent != null) {
+            try {
+                adminModel.deleteFromEvent(selectedCoordinatorOnEvent.getId(), selectedEvent.getId());
+                reloadCoordinatorOnEvent();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -143,5 +174,59 @@ public class AddCoordinatorToEventController implements Initializable {
      */
     private ObservableList<Event> getEventData() {
         return allEvents;
+    }
+
+    /**
+     * Loading table view events
+     * @param allCoordinatorOnEvent
+     */
+    private void tableViewLoadCoordinatorOnEvent(ObservableList<EventCoordinator> allCoordinatorOnEvent) {
+        tvCoordinatorOnEvent.setItems(getCoordinatorOnEventData());
+    }
+
+    /**
+     * returns the allEvents list
+     * @return
+     */
+    private ObservableList<EventCoordinator> getCoordinatorOnEventData() {
+        return allCoordinatorOnEvent;
+    }
+
+    private void selectedCoordinator(){
+        this.tvCoordinators.getSelectionModel().selectedItemProperty().addListener(((observableValue, oldValue, newValue) -> {
+            if ((EventCoordinator) newValue != null) {
+                this.selectedCoordinator = (EventCoordinator) newValue;
+            }
+        }));
+    }
+
+    private void selectedCoordinatorOnEvent(){
+        this.tvCoordinatorOnEvent.getSelectionModel().selectedItemProperty().addListener(((observableValue, oldValue, newValue) -> {
+            if (selectedCoordinatorOnEvent != null) {
+                this.selectedCoordinatorOnEvent = (EventCoordinator) newValue;
+            }
+        }));
+    }
+
+    private void selectedEvent(){
+        this.tvEvents.getSelectionModel().selectedItemProperty().addListener(((observableValue, oldValue, newValue) -> {
+            if ((Event) newValue != null) {
+                this.selectedEvent = (Event) newValue;
+                seeCoordinatorsOnEvent();
+            }
+        }));
+    }
+
+    /**
+     * reloads the coordinator on the event in view to reflect changes
+     */
+    public void reloadCoordinatorOnEvent() {
+        try {
+            int index = tvCoordinatorOnEvent.getSelectionModel().getFocusedIndex();
+            this.tvCoordinatorOnEvent.setItems(FXCollections.observableList(adminModel.getCoordinatorsOnEvent(selectedEvent.getId())));
+            tvCoordinatorOnEvent.getSelectionModel().select(index);
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
     }
 }

@@ -149,7 +149,7 @@ public class ViewEventController implements Initializable {
         if (selectedCustomer != null) {
             try {
                 eventCoordinatorModel.addCustomerToEvent(selectedCustomer.getId(), Integer.parseInt(txtFieldEventID.getText()));
-                reloadMoviesOnCategory();
+                reloadCustomersOnEvent();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -161,7 +161,7 @@ public class ViewEventController implements Initializable {
         if (selectedCustomerOnEvent != null) {
             try {
                 eventCoordinatorModel.deleteFromEvent(selectedCustomerOnEvent.getId(), Integer.parseInt(txtFieldEventID.getText()));
-                reloadMoviesOnCategory();
+                reloadCustomersOnEvent();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -169,9 +169,9 @@ public class ViewEventController implements Initializable {
     }
 
     /**
-     * reloads the movies on the category in view to reflect changes
+     * reloads the customers on the event in view to reflect changes
      */
-    public void reloadMoviesOnCategory() {
+    public void reloadCustomersOnEvent() {
         try {
             int index = tvCustomersOnEvent.getSelectionModel().getFocusedIndex();
             this.tvCustomersOnEvent.setItems(FXCollections.observableList(eventCoordinatorModel.getCustomersOnEvent(Integer.parseInt(txtFieldEventID.getText()))));

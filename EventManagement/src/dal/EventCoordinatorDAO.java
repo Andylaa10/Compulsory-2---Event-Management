@@ -1,6 +1,5 @@
 package dal;
 
-import be.Admin;
 import be.Customer;
 import be.EventCoordinator;
 import com.microsoft.sqlserver.jdbc.SQLServerException;
@@ -87,17 +86,17 @@ public class EventCoordinatorDAO {
 
     /**
      * This method gets a login from the database, only if it is a coordinator
-     * @param username1
-     * @param password1
+     * @param user
+     * @param pass
      * @return an eventCoordinator
      * @throws SQLServerException
      */
-    public EventCoordinator Login(String username1, String password1) throws SQLServerException {
+    public EventCoordinator Login(String user, String pass) throws SQLServerException {
         String sql = "SELECT * FROM Login WHERE username =? AND password =?;";
         try(Connection connection = connector.getConnection()){
             PreparedStatement st = connection.prepareStatement(sql);
-            st.setString(1, username1);
-            st.setString(2, password1);
+            st.setString(1, user);
+            st.setString(2, pass);
             ResultSet rs = st.executeQuery();
             if (rs.next()){
                 int id = rs.getInt("LoginID");

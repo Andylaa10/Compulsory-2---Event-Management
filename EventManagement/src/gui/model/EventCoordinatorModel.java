@@ -1,11 +1,10 @@
 package gui.model;
 
-import be.Admin;
+
 import be.Customer;
 import be.EventCoordinator;
 import bll.EventCoordinatorManager;
 import com.microsoft.sqlserver.jdbc.SQLServerException;
-
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
@@ -50,6 +49,13 @@ public class EventCoordinatorModel {
         eventCoordinatorManager.deleteFromEvent(customerId, eventId);
     }
 
+    /**
+     * Gets the coordinator username and the password using login from eventCoordinatorManager
+     * @param username
+     * @param password
+     * @return
+     * @throws SQLServerException
+     */
     public EventCoordinator login(String username, String password) throws SQLServerException {
         return eventCoordinatorManager.login(username, password);
     }

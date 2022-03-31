@@ -1,7 +1,6 @@
 package bll;
 
 import be.Customer;
-import be.EventCoordinator;
 import bll.helpers.UserSearcher;
 import dal.CustomerDAO;
 import java.io.IOException;

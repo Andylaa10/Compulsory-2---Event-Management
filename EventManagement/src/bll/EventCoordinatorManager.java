@@ -1,6 +1,5 @@
 package bll;
 
-import be.Admin;
 import be.Customer;
 import be.EventCoordinator;
 import com.microsoft.sqlserver.jdbc.SQLServerException;
@@ -20,8 +19,6 @@ public class EventCoordinatorManager {
     public EventCoordinatorManager() throws IOException {
         eventCoordinatorDAO = new EventCoordinatorDAO();
     }
-
-
 
     /**
      * Gets the customer on event using getCustomersOnEvent from eventCoordinatorDAO
@@ -51,6 +48,13 @@ public class EventCoordinatorManager {
         eventCoordinatorDAO.deleteFromEvent(customerId, eventId);
     }
 
+    /**
+     * Gets the coordinator username and the password using login from eventCoordinatorDAO
+     * @param username
+     * @param password
+     * @return
+     * @throws SQLServerException
+     */
     public EventCoordinator login(String username, String password) throws SQLServerException {
         return eventCoordinatorDAO.Login(username, password);
     }

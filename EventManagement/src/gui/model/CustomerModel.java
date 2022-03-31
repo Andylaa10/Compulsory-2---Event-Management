@@ -1,12 +1,9 @@
 package gui.model;
 
 import be.Customer;
-import be.Event;
-import be.EventCoordinator;
 import bll.CustomerManager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;

@@ -4,7 +4,6 @@ import be.Event;
 import bll.helpers.EventSearcher;
 import dal.EventDAO;
 import java.io.IOException;
-import java.sql.Date;
 import java.sql.SQLException;
 import java.util.List;
 
