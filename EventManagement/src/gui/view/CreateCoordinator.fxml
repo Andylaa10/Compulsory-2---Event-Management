@@ -21,9 +21,9 @@
       </ImageView>
       <TableView fx:id="tvCoordinator" cache="true" layoutX="32.0" layoutY="121.0" prefHeight="356.0" prefWidth="731.0" style="-fx-background-color: transparent;">
          <columns>
-            <TableColumn fx:id="tcID" prefWidth="156.800048828125" text="ID" />
-            <TableColumn fx:id="tcUsername" prefWidth="261.5999755859375" text="Username" />
-            <TableColumn fx:id="tcPassword" prefWidth="311.199951171875" text="Password" />
+            <TableColumn fx:id="tcID" prefWidth="116.0" text="ID" visible="false" />
+            <TableColumn fx:id="tcUsername" prefWidth="303.0" text="Username" />
+            <TableColumn fx:id="tcPassword" prefWidth="311.199951171875" text="Password" visible="false" />
          </columns>
          <effect>
             <DropShadow />

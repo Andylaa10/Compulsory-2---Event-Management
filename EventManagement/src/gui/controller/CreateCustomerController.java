@@ -10,6 +10,7 @@ import gui.model.CustomerModel;
 import gui.model.EventCoordinatorModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -28,46 +29,51 @@ import java.util.ResourceBundle;
 public class CreateCustomerController implements Initializable {
 
     @FXML
-    public TableView<Customer> tvCustomers;
+    private TableView<Customer> tvCustomers;
     @FXML
-    public TableColumn<Customer, Integer> tcCustomerID;
+    private TableColumn<Customer, Integer> tcCustomerID;
     @FXML
-    public TableColumn<Customer, String> tcFirstName;
+    private TableColumn<Customer, String> tcFirstName;
     @FXML
-    public TableColumn<Customer, String> tcLastName;
+    private TableColumn<Customer, String> tcLastName;
     @FXML
-    public TableColumn<Customer, String> tcPhoneNumber;
+    private TableColumn<Customer, String> tcPhoneNumber;
     @FXML
-    public TableColumn<Customer, String> tcEmail;
+    private TableColumn<Customer, String> tcEmail;
     @FXML
-    public TableColumn<Customer, String> tcStudy;
+    private TableColumn<Customer, String> tcStudy;
     @FXML
-    public TableColumn<Customer, String> tcNote;
+    private TableColumn<Customer, String> tcNote;
     @FXML
-    public Button btnAddCustomer;
+    private Button btnAddCustomer;
     @FXML
-    public TextField txtFieldSearch;
+    private TextField txtFieldSearch;
     @FXML
-    public TextField txtFieldLastName;
+    private TextField txtFieldLastName;
     @FXML
-    public TextField txtFieldFirstName;
+    private TextField txtFieldFirstName;
     @FXML
-    public TextField txtFieldStudy;
+    private TextField txtFieldStudy;
     @FXML
-    public Button btnEditCustomer;
+    private Button btnEditCustomer;
     @FXML
-    public Button btnDeleteCustomer;
+    private Button btnDeleteCustomer;
     @FXML
-    public TextField txtFieldPhoneNumber;
+    private TextField txtFieldPhoneNumber;
     @FXML
-    public TextField txtFieldEmail;
+    private TextField txtFieldEmail;
     @FXML
-    public TextField txtFieldNote;
+    private TextField txtFieldNote;
     @FXML
-    public Button btnBack;
+    private Button btnBack;
+    @FXML
+    private Button btnSearchCustomers;
 
 
     private ObservableList<Customer> allCustomers = FXCollections.observableArrayList();
+    private ObservableList<Customer> searchData = FXCollections.observableArrayList();
+
+    private boolean hasSearched = true;
 
     private CustomerModel customerModel;
     private ErrorHandling errorHandling;
@@ -225,6 +231,38 @@ public class CreateCustomerController implements Initializable {
         switcher.setTitle("Admin Management");
         Scene scene = new Scene(root);
         switcher.setScene(scene);
+    }
+
+    public void onActionSearchCustomers() {
+        if (hasSearched == true && !txtFieldSearch.getText().equals("")) {
+            btnSearchCustomers.setText("X");
+            hasSearched = false;
+        } else {
+            btnSearchCustomers.setText("🔍");
+            hasSearched = true;
+            txtFieldSearch.clear();
+        }
+        try {
+            searchData = FXCollections.observableList(customerModel.searchCustomers(txtFieldSearch.getText()));
+            searchTableViewLoad(searchData);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Loads the tableview for customers, when search is pressed.
+     * @param searchData
+     */
+    private void searchTableViewLoad(ObservableList<Customer> searchData) {
+        tvCustomers.setItems(getSearchData());
+    }
+
+    /**
+     * @return searchData;
+     */
+    public ObservableList<Customer> getSearchData() {
+        return searchData;
     }
 
 }

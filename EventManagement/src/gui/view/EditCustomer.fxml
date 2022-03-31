@@ -26,19 +26,6 @@
             <Glow />
          </effect>
       </Label>
-      <Button fx:id="btnEditCustomer" layoutX="75.0" layoutY="532.0" mnemonicParsing="false" onAction="#onActionSaveCustomer" prefHeight="28.0" prefWidth="204.0" text="Edit Customer">
-         <effect>
-            <DropShadow />
-         </effect>
-      </Button>
-      <TextField fx:id="txtFieldCustomerID" layoutX="410.0" layoutY="109.0" prefHeight="38.0" prefWidth="42.0" style="-fx-background-color: transparent; -fx-border-color: white;">
-         <effect>
-            <DropShadow height="62.03" radius="17.9375" width="11.72" />
-         </effect>
-         <font>
-            <Font size="16.0" />
-         </font>
-      </TextField>
       <TextField fx:id="txtFieldCustomerFirstName" layoutX="193.0" layoutY="109.0" prefHeight="37.0" prefWidth="204.0" promptText="First Name" style="-fx-background-color: transparent; -fx-border-color: white;">
          <effect>
             <DropShadow height="62.03" radius="17.9375" width="11.72" />
@@ -84,6 +71,24 @@
             <DropShadow />
          </effect>
       </TextArea>
+      <Button fx:id="btnEditCustomer" layoutX="75.0" layoutY="532.0" mnemonicParsing="false" onAction="#onActionSaveCustomer" prefHeight="28.0" prefWidth="204.0" text="Edit Customer">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Button>
+      <Button fx:id="btnBack" layoutX="295.0" layoutY="532.0" mnemonicParsing="false" onAction="#handleBtnBack" prefHeight="28.0" prefWidth="158.0" text="Back">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Button>
+      <TextField fx:id="txtFieldCustomerID" layoutX="410.0" layoutY="109.0" prefHeight="38.0" prefWidth="42.0" style="-fx-background-color: transparent; -fx-border-color: white;" visible="false">
+         <effect>
+            <DropShadow height="62.03" radius="17.9375" width="11.72" />
+         </effect>
+         <font>
+            <Font size="16.0" />
+         </font>
+      </TextField>
       <Label layoutX="86.0" layoutY="113.0" text="First Name:">
          <font>
             <Font size="20.0" />
@@ -109,11 +114,6 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <Button fx:id="btnBack" layoutX="295.0" layoutY="532.0" mnemonicParsing="false" onAction="#handleBtnBack" prefHeight="28.0" prefWidth="158.0" text="Back">
-         <effect>
-            <DropShadow />
-         </effect>
-      </Button>
       <Label layoutX="129.0" layoutY="317.0" text="Study:">
          <font>
             <Font size="20.0" />

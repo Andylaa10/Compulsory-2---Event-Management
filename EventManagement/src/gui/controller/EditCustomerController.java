@@ -13,25 +13,24 @@ import java.sql.SQLException;
 
 public class EditCustomerController {
 
-
     @FXML
-    public TextField txtFieldCustomerFirstName;
+    private TextField txtFieldCustomerFirstName;
     @FXML
-    public TextField txtFieldCustomerLastName;
+    private TextField txtFieldCustomerLastName;
     @FXML
-    public TextField txtFieldCustomerPhone;
+    private TextField txtFieldCustomerPhone;
     @FXML
-    public TextField txtFieldCustomerEmail;
+    private TextField txtFieldCustomerEmail;
     @FXML
-    public TextArea txtFieldCustomerNote;
+    private TextArea txtFieldCustomerNote;
     @FXML
-    public TextField txtFieldCustomerID;
+    private TextField txtFieldCustomerID;
     @FXML
-    public TextField txtFieldCustomerStudy;
+    private TextField txtFieldCustomerStudy;
     @FXML
-    public Button btnBack;
+    private Button btnBack;
     @FXML
-    public Button btnEditCustomer;
+    private Button btnEditCustomer;
 
     CustomerModel customerModel;
 

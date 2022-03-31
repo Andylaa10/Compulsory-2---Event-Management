@@ -12,9 +12,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@CSS/Main.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.CreateCustomerController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="812.0" stylesheets="@CSS/Main.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.CreateCustomerController">
    <children>
-      <ImageView fitHeight="606.0" fitWidth="800.0" layoutY="-3.0" opacity="0.41" pickOnBounds="true">
+      <ImageView fitHeight="606.0" fitWidth="812.0" layoutY="-3.0" opacity="0.41" pickOnBounds="true">
          <image>
             <Image url="@img/Happy-Office.jpg" />
          </image>
@@ -104,5 +104,10 @@
             <DropShadow height="62.03" radius="17.9375" width="11.72" />
          </effect>
       </TextField>
+      <Button fx:id="btnSearchCustomers" layoutX="772.0" layoutY="86.0" mnemonicParsing="false" onAction="#onActionSearchCustomers" prefHeight="25.0" prefWidth="28.0" text="🔍">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Button>
    </children>
 </AnchorPane>
