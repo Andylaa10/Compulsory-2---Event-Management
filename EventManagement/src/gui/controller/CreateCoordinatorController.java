@@ -82,7 +82,7 @@ public class CreateCoordinatorController implements Initializable {
     }
 
     /**
-     * Loading table view categories
+     * Loading table view coordinators
      * @param allCoordinators
      */
     private void tableViewLoadCoordinator(ObservableList<EventCoordinator> allCoordinators) {

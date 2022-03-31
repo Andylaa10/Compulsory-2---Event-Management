@@ -81,10 +81,12 @@ public class AdminController{
     }
 
     public void handleBtnAddCoordinatorToEvent() throws IOException {
-        Stage switcher = (Stage) btnAddCoordinatorToEvent.getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("/gui/view/AddCoordinatorToEvent.fxml"));
-        Scene scene = new Scene(root);
-        switcher.setTitle("Add Coordinator To Event");
-        switcher.setScene(scene);
+        Stage stage = new Stage();
+        stage.setTitle("Add Coordinator to Event");
+        stage.setScene(new Scene(root));
+        stage.show();
+
     }
+
 }

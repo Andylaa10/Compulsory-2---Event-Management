@@ -41,8 +41,6 @@ public class EventCoordinatorController implements Initializable, IController {
     @FXML
     private TableView tvEvents;
     @FXML
-    private TableColumn tcId;
-    @FXML
     private TableColumn tcEventName;
     @FXML
     private TableColumn tcEventDate;
@@ -91,7 +89,6 @@ public class EventCoordinatorController implements Initializable, IController {
     }
 
     public void initializeTable(){
-        tcId.setCellValueFactory(new PropertyValueFactory<>("id"));
         tcEventName.setCellValueFactory(new PropertyValueFactory<>("EventName"));
         tcEventDate.setCellValueFactory(new PropertyValueFactory<>("EventDate"));
         tcEventLocation.setCellValueFactory(new PropertyValueFactory<>("EventLocation"));
