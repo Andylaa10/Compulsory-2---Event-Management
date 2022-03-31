@@ -72,6 +72,7 @@ public class ViewEventController implements Initializable {
     private EventCoordinatorModel eventCoordinatorModel;
     private CustomerModel customerModel;
     private Customer selectedCustomer;
+    private Customer selectedCustomerOnEvent;
 
     public ViewEventController() throws IOException, SQLException {
         this.eventCoordinatorModel = new EventCoordinatorModel();
@@ -83,6 +84,7 @@ public class ViewEventController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         initializeTable();
         selectedCustomer();
+        selectedCustomerOnEvent();
     }
 
     private void initializeTable() {
@@ -130,6 +132,14 @@ public class ViewEventController implements Initializable {
         }));
     }
 
+    private void selectedCustomerOnEvent(){
+        this.tvCustomersOnEvent.getSelectionModel().selectedItemProperty().addListener(((observableValue, oldValue, newValue) -> {
+            if ((Customer) newValue != null) {
+                this.selectedCustomerOnEvent = (Customer) newValue;
+            }
+        }));
+    }
+
     public void setSelectedEvent(Event event) {
         txtFieldEventID.setText(String.valueOf(event.getId()));
         try {
@@ -145,6 +155,7 @@ public class ViewEventController implements Initializable {
         if (selectedCustomer != null) {
             try {
                 eventCoordinatorModel.addCustomerToEvent(selectedCustomer.getId(), Integer.parseInt(txtFieldEventID.getText()));
+                reloadMoviesOnCategory();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -153,14 +164,29 @@ public class ViewEventController implements Initializable {
 
     @FXML
     private void onActionDeleteSelectedFromEvent() {
-        if (selectedCustomer != null) {
+        if (selectedCustomerOnEvent != null) {
             try {
-                eventCoordinatorModel.deleteFromEvent(selectedCustomer.getId(), Integer.parseInt(txtFieldEventID.getText()));
+                eventCoordinatorModel.deleteFromEvent(selectedCustomerOnEvent.getId(), Integer.parseInt(txtFieldEventID.getText()));
+                reloadMoviesOnCategory();
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
     }
+
+    /**
+     * reloads the movies on the category in view to reflect changes
+     */
+    public void reloadMoviesOnCategory() {
+        try {
+            int index = tvCustomersOnEvent.getSelectionModel().getFocusedIndex();
+            this.tvCustomersOnEvent.setItems(FXCollections.observableList(eventCoordinatorModel.getCustomersOnEvent(Integer.parseInt(txtFieldEventID.getText()))));
+            tvCustomersOnEvent.getSelectionModel().select(index);
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
+    }
+
 
     @FXML
     private void onActionCreateCustomer() throws IOException {
