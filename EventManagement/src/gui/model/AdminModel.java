@@ -82,12 +82,9 @@ public class AdminModel {
         adminManager.editCoordinator(eventCoordinator);
     }
 
-    public boolean login(String username, String password) throws SQLServerException {
-        Admin admin = adminManager.login(username, password);
-        if (admin == null ){
-            return false;
-        }
-        return true;
+
+    public Admin login(String username, String password) throws SQLServerException {
+        return adminManager.login(username, password);
     }
 }
 

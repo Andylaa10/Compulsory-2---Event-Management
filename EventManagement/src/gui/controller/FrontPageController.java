@@ -106,7 +106,10 @@ public class FrontPageController implements Initializable {
      * @throws IOException If there are any exceptions
      */
     public void AdminLogIn() throws IOException, SQLServerException {
-        if(adminModel.login(txtFieldUsername.getText(),txtPasswordField.getText())){
+        String username = txtFieldUsername.getText();
+        String password = txtPasswordField.getText();
+        Admin admin = adminModel.login(username, password);
+        if(admin != null){
             Stage switcher = (Stage) btnAdminLogin.getScene().getWindow();
             Parent root = FXMLLoader.load(getClass().getResource("/gui/view/AdminView.fxml"));
             switcher.setTitle("AdminManagement");
@@ -119,31 +122,21 @@ public class FrontPageController implements Initializable {
             alert.setContentText("You can also try again");
             alert.showAndWait();
         }
-
-        /**
-        if (txtPasswordField.getText().equals(admin.getPassword()) && txtFieldUsername.getText().equals(admin.getUsername())) {
-            Stage switcher = (Stage) btnAdminLogin.getScene().getWindow();
-            Parent root = FXMLLoader.load(getClass().getResource("/gui/view/AdminView.fxml"));
-            switcher.setTitle("AdminManagement");
-            Scene scene = new Scene(root);
-            switcher.setScene(scene);
-        } else {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Wrong Username or Password");
-            alert.setHeaderText("Please contact the administration");
-            alert.setContentText("You can also try again");
-            alert.showAndWait();
-        }
-         */
     }
 
     public void EventCoLogIn() throws IOException, SQLServerException {
-        if (eventCoordinatorModel.login(txtFieldUsername.getText(), txtPasswordField.getText())){
+        String username = txtFieldUsername.getText();
+        String password = txtPasswordField.getText();
+        EventCoordinator eventCoordinator = eventCoordinatorModel.login(username, password);
+        if (eventCoordinator != null){
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/view/EventCoordinator.fxml"));
+            Scene scene = new Scene(loader.load());
             Stage switcher = (Stage) btnEventCoLogin.getScene().getWindow();
-            Parent root = FXMLLoader.load(getClass().getResource("/gui/view/EventCoordinator.fxml"));
-            Scene scene = new Scene(root);
-            switcher.setTitle("EventCoordinatorManagement");
             switcher.setScene(scene);
+            IController controller = loader.getController();
+            controller.setEventCoordinator(eventCoordinator);
+            switcher.show();
+
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Wrong Username or Password");

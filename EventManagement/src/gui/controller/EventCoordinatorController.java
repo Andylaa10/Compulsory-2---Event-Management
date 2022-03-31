@@ -1,6 +1,7 @@
 package gui.controller;
 
 import be.Event;
+import be.EventCoordinator;
 import gui.model.EventCoordinatorModel;
 import gui.model.EventModel;
 import javafx.collections.FXCollections;
@@ -19,7 +20,7 @@ import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-public class EventCoordinatorController implements Initializable {
+public class EventCoordinatorController implements Initializable, IController {
 
     @FXML
     private Button btnSearchEvents;
@@ -68,6 +69,10 @@ public class EventCoordinatorController implements Initializable {
     private Event selectedEvent;
     private EditEventController editEventController;
     private ViewEventController viewEventController;
+    private EventCoordinator coordinator;
+
+    @FXML
+    private Label wellcomID;
 
     public EventCoordinatorController() throws IOException {
         this.eventCoordinatorModel = new EventCoordinatorModel();
@@ -76,9 +81,20 @@ public class EventCoordinatorController implements Initializable {
     }
 
     @Override
+    public void setEventCoordinator(EventCoordinator eventCoordinator) {
+        coordinator = eventCoordinator;
+        wellcomID.setText("Wellcome " + eventCoordinator.getUsername());
+
+    }
+
+    @Override
     public void initialize(URL location, ResourceBundle resources) {
         selectedEvent();
+        initializeTable();
 
+    }
+
+    public void initializeTable(){
         tcId.setCellValueFactory(new PropertyValueFactory<>("id"));
         tcEventName.setCellValueFactory(new PropertyValueFactory<>("EventName"));
         tcEventDate.setCellValueFactory(new PropertyValueFactory<>("EventDate"));
@@ -87,7 +103,6 @@ public class EventCoordinatorController implements Initializable {
         tcEventTimeEnd.setCellValueFactory(new PropertyValueFactory<>("EventTimeEnd"));
         tcEventInfo.setCellValueFactory(new PropertyValueFactory<>("EventInfo"));
         tcEventPrice.setCellValueFactory(new PropertyValueFactory<>("EventPrice"));
-
         try {
             allEvents = FXCollections.observableArrayList(eventModel.getEvents());
             tableViewLoadEvents(allEvents);

@@ -50,11 +50,7 @@ public class EventCoordinatorModel {
         eventCoordinatorManager.deleteFromEvent(customerId, eventId);
     }
 
-    public boolean login(String username, String password) throws SQLServerException {
-        EventCoordinator coordinator = eventCoordinatorManager.login(username, password);
-        if (coordinator == null ){
-            return false;
-        }
-        return true;
+    public EventCoordinator login(String username, String password) throws SQLServerException {
+        return eventCoordinatorManager.login(username, password);
     }
 }

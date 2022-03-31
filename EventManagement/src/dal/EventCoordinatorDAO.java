@@ -84,14 +84,22 @@ public class EventCoordinatorDAO {
         return allCustomerOnEvent;
     }
 
-    public EventCoordinator Login(String username, String password) throws SQLServerException {
+    public EventCoordinator Login(String username1, String password1) throws SQLServerException {
         String sql = "SELECT * FROM Login WHERE username =? AND password =?;";
         try(Connection connection = connector.getConnection()){
             PreparedStatement st = connection.prepareStatement(sql);
-            st.setString(1, username);
-            st.setString(2, password);
-            if (st.execute()) {
-                return new EventCoordinator(username, password);
+            st.setString(1, username1);
+            st.setString(2, password1);
+            ResultSet rs = st.executeQuery();
+            if (rs.next()){
+                int id = rs.getInt("LoginID");
+                String username = rs.getString("username");
+                String password = rs.getString("password");
+                boolean isAdmin = rs.getBoolean("IsAdmin");
+                if (!isAdmin){
+                    return new EventCoordinator(id, username, password, isAdmin);
+                }
+
             }
         } catch (SQLException sqlException) {
             sqlException.printStackTrace();
