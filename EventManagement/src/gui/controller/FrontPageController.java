@@ -117,9 +117,8 @@ public class FrontPageController implements Initializable {
             switcher.setScene(scene);
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Wrong Username or Password");
-            alert.setHeaderText("Please contact the administration");
-            alert.setContentText("You can also try again");
+            alert.setHeaderText("Wrong Username or Password");
+            alert.setContentText("Contact administration for further help");
             alert.showAndWait();
         }
     }
