@@ -137,11 +137,11 @@ public class CreateCustomerController implements Initializable {
 
     }
 
-    public void handleBtnEditCustomer(){
+    public void handleBtnEditCustomer() throws SQLException, IOException {
         //TODO ADD ERROR HANDLING IF NO EVENT SELECTED
         //TODO FIX THIS, DOESNT WORK!!!!!!!
         if (selectedCustomer != null) {
-            Customer selectedCustomer = tvCustomers.getSelectionModel().getSelectedItem();
+            Customer selectedCustomer = (Customer) tvCustomers.getSelectionModel().getSelectedItem();
 
             FXMLLoader parent = new FXMLLoader(getClass().getResource("/gui/view/EditCustomer.fxml"));
             Scene mainWindowScene = null;
@@ -166,7 +166,7 @@ public class CreateCustomerController implements Initializable {
                 }
             });
         } else {
-            System.out.println("No event selected");
+            System.out.println("No customer selected");
         }
     }
 
@@ -205,8 +205,8 @@ public class CreateCustomerController implements Initializable {
 
     private void selectedCustomer(){
         this.tvCustomers.getSelectionModel().selectedItemProperty().addListener(((observableValue, oldValue, newValue) -> {
-            if ((Customer) newValue != null) {
-                this.selectedCustomer = (Customer) newValue;
+            if (newValue != null) {
+                this.selectedCustomer = newValue;
             }
         }));
     }

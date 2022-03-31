@@ -117,7 +117,7 @@ public class CustomerDAO {
      */
     public void editCustomer(Customer customer) {
         try (Connection connection = connector.getConnection()) {
-            String sql = "UPDATE Customer SET Fname=?, Lname=?, PhoneNumber=?, Email=?, Study=?, Note=?, WHERE CustomerID=?;";
+            String sql = "UPDATE Customer SET Fname=?, Lname=?, PhoneNumber=?, Email=?, Study=?, Note=? WHERE CustomerID=?;";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, customer.getFirstName());
             preparedStatement.setString(2, customer.getLastName());

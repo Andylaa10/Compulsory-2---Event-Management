@@ -1,7 +1,6 @@
 package gui.controller;
 
 import be.Customer;
-import be.Event;
 import gui.model.CustomerModel;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -14,8 +13,7 @@ import java.sql.SQLException;
 
 public class EditCustomerController {
 
-    @FXML
-    public Button btnEditCustomer;
+
     @FXML
     public TextField txtFieldCustomerFirstName;
     @FXML
@@ -27,16 +25,18 @@ public class EditCustomerController {
     @FXML
     public TextArea txtFieldCustomerNote;
     @FXML
-    public Button btnBack;
-    @FXML
     public TextField txtFieldCustomerID;
     @FXML
     public TextField txtFieldCustomerStudy;
+    @FXML
+    public Button btnBack;
+    @FXML
+    public Button btnEditCustomer;
 
     CustomerModel customerModel;
 
-    EditCustomerController() throws SQLException, IOException {
-        this.customerModel = new CustomerModel();
+    public EditCustomerController() throws IOException, SQLException {
+        customerModel = new CustomerModel();
     }
 
 
@@ -48,7 +48,6 @@ public class EditCustomerController {
         String customerEmail = txtFieldCustomerEmail.getText();
         String customerStudy = txtFieldCustomerStudy.getText();
         String customerNotes = txtFieldCustomerNote.getText();
-
 
 
         Customer customer = new Customer(customerID, customerFirstName, customerLastName, customerPhoneNumber, customerEmail, customerStudy, customerNotes);

@@ -31,7 +31,7 @@
             <DropShadow />
          </effect>
       </Button>
-      <TextField fx:id="txtFieldCustomerID" layoutX="410.0" layoutY="109.0" prefHeight="38.0" prefWidth="42.0" style="-fx-background-color: transparent; -fx-border-color: white;" visible="false">
+      <TextField fx:id="txtFieldCustomerID" layoutX="410.0" layoutY="109.0" prefHeight="38.0" prefWidth="42.0" style="-fx-background-color: transparent; -fx-border-color: white;">
          <effect>
             <DropShadow height="62.03" radius="17.9375" width="11.72" />
          </effect>
