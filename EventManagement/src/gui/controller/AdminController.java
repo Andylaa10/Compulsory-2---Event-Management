@@ -26,7 +26,8 @@ public class AdminController{
     public AdminController() {
     }
 
-    public void LogOutFromAdmin() throws IOException {
+    @FXML
+    private void LogOutFromAdmin() throws IOException {
         Stage switcher = (Stage) btnLogOut.getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("/gui/view/FrontPage.fxml"));
         switcher.setTitle("Event Management");
@@ -37,7 +38,8 @@ public class AdminController{
     /**
      * This helps you, if you cannot remember or have problems with login
      */
-    public void help() {
+    @FXML
+    private void help() {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Please contact the administration");
         alert.setHeaderText("Please contact the administration");
@@ -45,7 +47,8 @@ public class AdminController{
         alert.showAndWait();
     }
 
-    public void handleBtnCreateCustomer() throws IOException {
+    @FXML
+    private void handleBtnCreateCustomer() throws IOException {
         Stage switcher = (Stage) btnCreateCustomer.getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("/gui/view/CreateCustomer.fxml"));
         Scene scene = new Scene(root);
@@ -53,35 +56,8 @@ public class AdminController{
         switcher.setScene(scene);
     }
 
-    /**
-     * Mangler Edit Coordinator view
-     * @throws IOException
-     *
-    //TODO
-    //public void tableViewLoadCustomers(ObservableList<Customer> allCustomers) {
-    //  tvCustomers.setItems(getCustomersData());
-    // }
-
-
-    public void handleBtnCreateCustomer() throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/gui/view/CreateCustomer.fxml"));
-        Stage stage = new Stage();
-        stage.setTitle("Create customer");
-        stage.setScene(new Scene(root));
-        stage.show();
-    }
-
-
-    //TODO Mangler Edit Coordinator view
-    public void handleBtnViewCoordinator() throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/"));
-        Stage stage = new Stage();
-        stage.setTitle("View coordinators");
-        stage.setScene(new Scene(root));
-        stage.show();
-    }*/
-
-    public void handleBtnCreateEvent() throws IOException {
+    @FXML
+    private void handleBtnCreateEvent() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/gui/view/CreateEvent.fxml"));
         Stage stage = new Stage();
         stage.setTitle("Create Event");
@@ -89,39 +65,12 @@ public class AdminController{
         stage.show();
     }
 
-
-
-    /**
-     * Deletes an event from the table
-     */
-    // public void handleBtnDeleteEvent(ActionEvent actionEvent) {
-    //   Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-    //  alert.setTitle("WARNING MESSAGE");
-    //  alert.setHeaderText("Warning before you delete event");
-    //  alert.setContentText(" Remove all customer and tickets from selected event to delete!! \n Are you sure you want " +
-    //          "to delete this movie?");
-    //  if (selectedEvent != null) {
-    //      Optional<ButtonType> result = alert.showAndWait();
-    //      if (result.get() == ButtonType.OK) {
-    //          selectedEvent();
-    //          eventModel.deleteEvent(selectedEvent.getId());
-    //      }
-    //  } else {
-    //      return;
-    //  }
-    //  try {
-    //      allEvents = FXCollections.observableList(eventModel.getEvents());
-    //      tableViewLoadEvents(allEvents);
-    //  } catch (Exception e) {
-    //      e.printStackTrace();
-    //  }
-    //}
-
     /**
      *
      * @throws IOException
      */
-    public void handleBtnCreateCoordinator( ) throws IOException {
+    @FXML
+    private void handleBtnCreateCoordinator( ) throws IOException {
         Stage switcher = (Stage) btnCreateCoordinator.getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("/gui/view/CreateCoordinator.fxml"));
         Scene scene = new Scene(root);

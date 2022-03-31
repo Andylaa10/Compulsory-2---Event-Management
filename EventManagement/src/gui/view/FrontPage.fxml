@@ -56,7 +56,7 @@
          </effect>
       </TextField>
       <PasswordField fx:id="txtPasswordField" alignment="CENTER" layoutX="301.0" layoutY="365.0" prefHeight="27.0" prefWidth="199.0" promptText="Password" style="-fx-background-color: Transparent; -fx-border-color: White;" />
-      <Button fx:id="btnHelp" layoutX="686.0" layoutY="558.0" mnemonicParsing="false" onAction="#help" prefHeight="38.0" prefWidth="111.0" style="-fx-background-color: transparent;" text="HELP" underline="true">
+      <Button fx:id="btnHelp" layoutX="686.0" layoutY="558.0" mnemonicParsing="false" onAction="#onActionHelp" prefHeight="38.0" prefWidth="111.0" style="-fx-background-color: transparent;" text="HELP" underline="true">
          <effect>
             <DropShadow />
          </effect>

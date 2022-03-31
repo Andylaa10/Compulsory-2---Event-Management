@@ -48,11 +48,7 @@ public class FrontPageController implements Initializable {
     private TextField txtFieldUsername;
     @FXML
     private PasswordField txtPasswordField;
-    @FXML
-    private Button btnHelp;
 
-    private Admin admin;
-    private EventCoordinator eventCoordinator;
     private AdminModel adminModel;
     private EventCoordinatorModel eventCoordinatorModel;
 
@@ -61,38 +57,19 @@ public class FrontPageController implements Initializable {
      * @throws IOException
      */
     public FrontPageController() throws IOException, SQLException {
-        this.admin = new Admin();
-        this.eventCoordinator = new EventCoordinator();
-        adminModel = new AdminModel();
-        eventCoordinatorModel = new EventCoordinatorModel();
+        this.adminModel = new AdminModel();
+        this.eventCoordinatorModel = new EventCoordinatorModel();
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
     }
 
-    public void saveLogin() throws IOException {
-        Robot robot = null;
-        try {
-            robot = new Robot();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        BufferedImage i = robot.createScreenCapture(new Rectangle(1920, 1080));
-        File output = new File("./save.png");
-        try {
-            ImageIO.write(i, "png", output);
-
-        } catch (IOException exception) {
-            exception.printStackTrace();
-        }
-    }
 
     /**
      * This helps you, if you cannot remember or have problems with login
      */
-    public void help() {
+    public void onActionHelp() {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Please contact the administration");
         alert.setHeaderText("Please contact the administration");
@@ -101,8 +78,7 @@ public class FrontPageController implements Initializable {
     }
 
     /**
-     * This method send you to another view, if you have an account
-     *
+     * Sends you to the Admin login screen, if the login credentials are in the database
      * @throws IOException If there are any exceptions
      */
     public void AdminLogIn() throws IOException, SQLServerException {
@@ -123,6 +99,11 @@ public class FrontPageController implements Initializable {
         }
     }
 
+    /**
+     * Sends you to the EventCoordinator login screen, if the login credentials are in the database
+     * @throws IOException
+     * @throws SQLServerException
+     */
     public void EventCoLogIn() throws IOException, SQLServerException {
         String username = txtFieldUsername.getText();
         String password = txtPasswordField.getText();
@@ -135,7 +116,6 @@ public class FrontPageController implements Initializable {
             IController controller = loader.getController();
             controller.setEventCoordinator(eventCoordinator);
             switcher.show();
-
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Wrong Username or Password");
@@ -143,22 +123,6 @@ public class FrontPageController implements Initializable {
             alert.setContentText("You can also try again");
             alert.showAndWait();
         }
-
-        /**
-        if (txtPasswordField.getText().equals(eventCoordinator.getPassword()) && txtFieldUsername.getText().equals(eventCoordinator.getUsername())) {
-            Stage switcher = (Stage) btnEventCoLogin.getScene().getWindow();
-            Parent root = FXMLLoader.load(getClass().getResource("/gui/view/EventCoordinator.fxml"));
-            Scene scene = new Scene(root);
-            switcher.setTitle("EventCoordinatorManagement");
-            switcher.setScene(scene);
-        } else {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Wrong Username or Password");
-            alert.setHeaderText("Please contact the administration");
-            alert.setContentText("You can also try again");
-            alert.showAndWait();
-        }
-         */
     }
 }
 

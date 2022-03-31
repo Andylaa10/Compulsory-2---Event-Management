@@ -37,8 +37,9 @@ public class EditEventController {
     public EditEventController() throws IOException {
         this.eventModel = new EventModel();
     }
-    
-    public void onActionSaveEvent() {
+
+    @FXML
+    private void onActionSaveEvent() {
         int eventID = Integer.parseInt(txtFieldEventID.getText());
         String eventName = txtFieldEventName.getText();
         String eventDate = txtFieldEventDate.getText();
@@ -67,7 +68,8 @@ public class EditEventController {
         txtFieldEventPrice.setText(event.getEventPrice());
     }
 
-    public void handleBtnBack() {
+    @FXML
+    private void handleBtnBack() {
         Stage stage = (Stage) btnBack.getScene().getWindow();
         stage.close();
     }

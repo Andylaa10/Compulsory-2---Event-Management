@@ -69,10 +69,8 @@ public class EventCoordinatorController implements Initializable, IController {
     private Event selectedEvent;
     private EditEventController editEventController;
     private ViewEventController viewEventController;
-    private EventCoordinator coordinator;
+    private EventCoordinator eventCoordinator;
 
-    @FXML
-    private Label wellcomID;
 
     public EventCoordinatorController() throws IOException {
         this.eventCoordinatorModel = new EventCoordinatorModel();
@@ -82,9 +80,7 @@ public class EventCoordinatorController implements Initializable, IController {
 
     @Override
     public void setEventCoordinator(EventCoordinator eventCoordinator) {
-        coordinator = eventCoordinator;
-        wellcomID.setText("Wellcome " + eventCoordinator.getUsername());
-
+        this.eventCoordinator = eventCoordinator;
     }
 
     @Override
@@ -111,7 +107,8 @@ public class EventCoordinatorController implements Initializable, IController {
         }
     }
 
-    public void LogOutFromEventCoordinator() throws IOException {
+    @FXML
+    private void LogOutFromEventCoordinator() throws IOException {
         Stage switcher = (Stage) btnLogOut.getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("/gui/view/FrontPage.fxml"));
         switcher.setTitle("Event Management");
@@ -132,8 +129,8 @@ public class EventCoordinatorController implements Initializable, IController {
         return allEvents;
     }
 
-
-    public void onActionAddEvent() throws IOException {
+    @FXML
+    private void onActionAddEvent() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/gui/view/CreateEvent.fxml"));
         Stage stage = new Stage();
         stage.setTitle("Create Event");
@@ -150,7 +147,8 @@ public class EventCoordinatorController implements Initializable, IController {
         });
     }
 
-    public void onActionEditEvent() throws IOException {
+    @FXML
+    private void onActionEditEvent() throws IOException {
         //TODO ADD ERROR HANDLING IF NO EVENT SELECTED
         if (selectedEvent != null) {
             Event selectedEvent = (Event) tvEvents.getSelectionModel().getSelectedItem();
@@ -186,7 +184,8 @@ public class EventCoordinatorController implements Initializable, IController {
     /**
      * Deletes an event from the table
      */
-     public void handleBtnDeleteEvent(ActionEvent actionEvent) {
+    @FXML
+     private void handleBtnDeleteEvent(ActionEvent actionEvent) {
          Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
       alert.setTitle("WARNING MESSAGE");
       alert.setHeaderText("Warning before you delete event");
@@ -209,7 +208,8 @@ public class EventCoordinatorController implements Initializable, IController {
       }
     }
 
-    public void onActionViewEvent() throws IOException {
+    @FXML
+    private void onActionViewEvent() throws IOException {
         //TODO ADD ERROR HANDLING IF NO EVENT SELECTED
         if (selectedEvent != null) {
             FXMLLoader fxmlLoader = new FXMLLoader();
@@ -243,7 +243,8 @@ public class EventCoordinatorController implements Initializable, IController {
       }));
      }
 
-    public void help() {
+     @FXML
+     private void onActionHelp() {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Please contact the administration");
         alert.setHeaderText("Please contact the administration");
@@ -255,7 +256,8 @@ public class EventCoordinatorController implements Initializable, IController {
      * Method that filters the events, with the text input you write in the textfield.
      * Updates the icon with each press and clears the search on every second click
      */
-    public void onActionSearchEvents() {
+    @FXML
+    private void onActionSearchEvents() {
         if (hasSearched == true && !tfFieldSearch.getText().equals("")) {
             btnSearchEvents.setText("X");
             hasSearched = false;
@@ -283,12 +285,8 @@ public class EventCoordinatorController implements Initializable, IController {
     /**
      * @return searchData;
      */
-    public ObservableList<Event> getSearchData() {
+    private ObservableList<Event> getSearchData() {
         return searchData;
     }
 
-
-    public void Quit() {
-        System.exit(0);
-    }
 }

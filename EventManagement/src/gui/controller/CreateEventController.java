@@ -1,7 +1,6 @@
 package gui.controller;
 
 import gui.model.EventModel;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
@@ -37,7 +36,8 @@ public class CreateEventController {
         this.eventModel = new EventModel();
     }
 
-    public void onActionSaveEvent() throws SQLException {
+    @FXML
+    private void onActionSaveEvent() throws SQLException {
         String eventName = txtFieldEventName.getText();
         String eventDate = txtFieldEventDate.getText();
         String eventTime = txtFieldEventTime.getText();
@@ -51,7 +51,8 @@ public class CreateEventController {
         stage.close();
     }
 
-    public void handleBtnBack(ActionEvent actionEvent) throws IOException {
+    @FXML
+    private void handleBtnBack() {
         Stage stage = (Stage) btnBack.getScene().getWindow();
         stage.close();
     }

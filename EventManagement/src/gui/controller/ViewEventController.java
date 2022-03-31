@@ -140,7 +140,8 @@ public class ViewEventController implements Initializable {
         txtFieldEventID.setText(String.valueOf(event.getId()));
     }
 
-    public void onActionAddSelectedToEvent() {
+    @FXML
+    private void onActionAddSelectedToEvent() {
         if (selectedCustomer != null) {
             try {
                 eventCoordinatorModel.addCustomerToEvent(selectedCustomer.getId(), Integer.parseInt(txtFieldEventID.getText()));
@@ -150,7 +151,8 @@ public class ViewEventController implements Initializable {
         }
     }
 
-    public void onActionDeleteSelectedFromEvent() {
+    @FXML
+    private void onActionDeleteSelectedFromEvent() {
         if (selectedCustomer != null) {
             try {
                 eventCoordinatorModel.deleteFromEvent(selectedCustomer.getId(), Integer.parseInt(txtFieldEventID.getText()));
@@ -160,7 +162,8 @@ public class ViewEventController implements Initializable {
         }
     }
 
-    public void onActionCreateCustomer() throws IOException {
+    @FXML
+    private void onActionCreateCustomer() throws IOException {
         Stage switcher = (Stage) btnCreateCustomer.getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("/gui/view/CreateCustomer.fxml"));
         Scene scene = new Scene(root);
@@ -168,12 +171,14 @@ public class ViewEventController implements Initializable {
         switcher.setScene(scene);
     }
 
-    public void onActionCloseWindow() {
+    @FXML
+    private void onActionCloseWindow() {
         Stage stage = (Stage) btnClose.getScene().getWindow();
         stage.close();
     }
 
-    public void onActionTest() {
+    @FXML
+    private void onActionTest() {
         try {
             allCustomersOnEvent = FXCollections.observableList(eventCoordinatorModel.getCustomersOnEvent(Integer.parseInt(txtFieldEventID.getText())));
             tableViewCustomersOnEvent(allCustomersOnEvent);

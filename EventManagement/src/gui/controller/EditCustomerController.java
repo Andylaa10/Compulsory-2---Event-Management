@@ -38,8 +38,8 @@ public class EditCustomerController {
         customerModel = new CustomerModel();
     }
 
-
-    public void onActionSaveCustomer() {
+    @FXML
+    private void onActionSaveCustomer() {
         int customerID = Integer.parseInt(txtFieldCustomerID.getText());
         String customerFirstName = txtFieldCustomerFirstName.getText();
         String customerLastName = txtFieldCustomerLastName.getText();
@@ -67,7 +67,8 @@ public class EditCustomerController {
 
     }
 
-    public void handleBtnBack() {
+    @FXML
+    private void handleBtnBack() {
         Stage stage = (Stage) btnBack.getScene().getWindow();
         stage.close();
     }

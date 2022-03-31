@@ -1,12 +1,10 @@
 package gui.controller;
 
 import be.ErrorHandling;
-import be.Event;
 import be.EventCoordinator;
 import gui.model.AdminModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -99,7 +97,8 @@ public class CreateCoordinatorController implements Initializable {
         return allCoordinators;
     }
 
-    public void handleBtnDeleteCoordinator() {
+    @FXML
+    private void handleBtnDeleteCoordinator() {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("WARNING MESSAGE");
         alert.setHeaderText("Warning before you delete a coordinator");
@@ -122,7 +121,8 @@ public class CreateCoordinatorController implements Initializable {
         }
     }
 
-    public void handleBtnBack() throws IOException {
+    @FXML
+    private void handleBtnBack() throws IOException {
         Stage switcher = (Stage) btnBack.getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("/gui/view/AdminView.fxml"));
         switcher.setTitle("Admin Management");
@@ -130,7 +130,8 @@ public class CreateCoordinatorController implements Initializable {
         switcher.setScene(scene);
     }
 
-    public void handleBtnAddCoordinator() throws SQLException {
+    @FXML
+    private void handleBtnAddCoordinator() throws SQLException {
         if (!textFieldUsername.getText().isEmpty() && !textFieldPassword.getText().isEmpty()){
             String username = textFieldUsername.getText();
             String password = textFieldPassword.getText();
@@ -148,7 +149,7 @@ public class CreateCoordinatorController implements Initializable {
     /**
      * Reloads the movie table to reflect changes
      */
-    public void reloadCoordinatorTable() {
+    private void reloadCoordinatorTable() {
         try {
             int index = tvCoordinator.getSelectionModel().getFocusedIndex();
             this.tvCoordinator.setItems(FXCollections.observableList(adminModel.getCoordinator()));

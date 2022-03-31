@@ -91,7 +91,7 @@ public class CreateCustomerController implements Initializable {
         selectedCustomer();
     }
 
-    public void initializeTable() {
+    private void initializeTable() {
         tcCustomerID.setCellValueFactory(new PropertyValueFactory<>("id"));
         tcFirstName.setCellValueFactory(new PropertyValueFactory<>("firstName"));
         tcLastName.setCellValueFactory(new PropertyValueFactory<>("lastName"));
@@ -126,7 +126,8 @@ public class CreateCustomerController implements Initializable {
         return allCustomers;
     }
 
-    public void handleBtnAddCustomer() throws SQLException {
+    @FXML
+    private void handleBtnAddCustomer() throws SQLException {
         if (!txtFieldFirstName.getText().isEmpty() && !txtFieldLastName.getText().isEmpty() && !txtFieldPhoneNumber.getText().isEmpty() && !txtFieldEmail.getText().isEmpty()){
             String customerFirstName = txtFieldFirstName.getText();
             String customerLastName = txtFieldLastName.getText();
@@ -143,9 +144,9 @@ public class CreateCustomerController implements Initializable {
 
     }
 
-    public void handleBtnEditCustomer() throws SQLException, IOException {
+    @FXML
+    private void handleBtnEditCustomer() {
         //TODO ADD ERROR HANDLING IF NO EVENT SELECTED
-        //TODO FIX THIS, DOESNT WORK!!!!!!!
         if (selectedCustomer != null) {
             Customer selectedCustomer = (Customer) tvCustomers.getSelectionModel().getSelectedItem();
 
@@ -176,30 +177,36 @@ public class CreateCustomerController implements Initializable {
         }
     }
 
-    public void handleBtnDeleteCustomer(){
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("WARNING MESSAGE");
-        alert.setHeaderText("Warning before you delete a customer");
-        alert.setContentText(" To delete a customer, remove it from all events and tickets first!! \n Are you sure you want " +
-                "to delete this customer?");
+    @FXML
+    private void handleBtnDeleteCustomer(){
+        //TODO ADD ERROR HANDLING IF NO EVENT SELECTED
         if (selectedCustomer != null) {
-            Optional<ButtonType> result = alert.showAndWait();
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("WARNING MESSAGE");
+            alert.setHeaderText("Warning before you delete a customer");
+            alert.setContentText(" To delete a customer, remove it from all events and tickets first!! \n Are you sure you want " +
+                "to delete this customer?");
+            if (selectedCustomer != null) {
+                Optional<ButtonType> result = alert.showAndWait();
             if (result.get() == ButtonType.OK) {
                 selectedCustomer();
                 customerModel.deleteCustomer(selectedCustomer.getId());
             } else {
                 return;
             }
-            try {
-                allCustomers = FXCollections.observableList(customerModel.getCustomers());
-                tableViewLoadCustomer(allCustomers);
-            } catch (Exception e) {
-                e.printStackTrace();
+                try {
+                    allCustomers = FXCollections.observableList(customerModel.getCustomers());
+                    tableViewLoadCustomer(allCustomers);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
+        } else {
+            System.out.println("No customer selected");
         }
     }
 
-    public void reloadCustomerTable() {
+    private void reloadCustomerTable() {
         try {
             int index = tvCustomers.getSelectionModel().getFocusedIndex();
             this.tvCustomers.setItems(FXCollections.observableList(customerModel.getCustomers()));
@@ -217,15 +224,8 @@ public class CreateCustomerController implements Initializable {
         }));
     }
 
-
-    /**
-     * public void onActionCancelCreateCustomer() {
-     * Stage stage = (Stage) btnCancelCreateCustomer.getScene().getWindow();
-     * stage.close();
-     * }
-     */
-
-    public void handleBtnBack() throws IOException {
+    @FXML
+    private void handleBtnBack() throws IOException {
         Stage switcher = (Stage) btnBack.getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("/gui/view/AdminView.fxml"));
         switcher.setTitle("Admin Management");
@@ -233,7 +233,8 @@ public class CreateCustomerController implements Initializable {
         switcher.setScene(scene);
     }
 
-    public void onActionSearchCustomers() {
+    @FXML
+    private void onActionSearchCustomers() {
         if (hasSearched == true && !txtFieldSearch.getText().equals("")) {
             btnSearchCustomers.setText("X");
             hasSearched = false;
@@ -261,7 +262,7 @@ public class CreateCustomerController implements Initializable {
     /**
      * @return searchData;
      */
-    public ObservableList<Customer> getSearchData() {
+    private ObservableList<Customer> getSearchData() {
         return searchData;
     }
 

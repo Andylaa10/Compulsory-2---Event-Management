@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@CSS/Main.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.EventCoordinatorController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@CSS/Main.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.EventCoordinatorController">
    <children>
       <ImageView fitHeight="600.0" fitWidth="800.0" opacity="0.41" pickOnBounds="true">
          <image>
@@ -67,7 +67,7 @@
             <DropShadow height="62.03" radius="17.9375" width="11.72" />
          </effect>
       </TextField>
-      <Button fx:id="btnHelp" layoutX="716.0" layoutY="555.0" mnemonicParsing="false" onAction="#help" prefHeight="38.0" prefWidth="84.0" style="-fx-background-color: transparent;" text="HELP" underline="true">
+      <Button fx:id="btnHelp" layoutX="716.0" layoutY="555.0" mnemonicParsing="false" onAction="#onActionHelp" prefHeight="38.0" prefWidth="84.0" style="-fx-background-color: transparent;" text="HELP" underline="true">
          <effect>
             <DropShadow />
          </effect>
@@ -93,10 +93,5 @@
             <DropShadow />
          </effect>
       </Button>
-      <Label fx:id="wellcomID" layoutX="332.0" layoutY="59.0" text="Wellcome">
-         <font>
-            <Font size="38.0" />
-         </font>
-      </Label>
    </children>
 </AnchorPane>
