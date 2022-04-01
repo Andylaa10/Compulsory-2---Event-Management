@@ -73,6 +73,8 @@ public class EditEventController {
         txtFieldEventLocation.setText(event.getEventLocation());
         txtFieldEventInfo.setText(event.getEventInfo());
         txtFieldEventPrice.setText(event.getEventPrice());
+        txtFieldEventMinimum.setText(event.getEventMinimum());
+        txtFieldEventMaximum.setText(event.getEventMaximum());
     }
 
     @FXML
