@@ -2,6 +2,7 @@ package gui.controller;
 
 import be.Admin;
 import be.EventCoordinator;
+import bll.helpers.ErrorHandling;
 import com.microsoft.sqlserver.jdbc.SQLServerException;
 import gui.model.AdminModel;
 import gui.model.EventCoordinatorModel;
@@ -35,6 +36,7 @@ public class FrontPageController implements Initializable {
 
     private AdminModel adminModel;
     private EventCoordinatorModel eventCoordinatorModel;
+    private ErrorHandling errorHandling;
 
     /**
      * Constructor
@@ -43,23 +45,13 @@ public class FrontPageController implements Initializable {
     public FrontPageController() throws IOException, SQLException {
         this.adminModel = new AdminModel();
         this.eventCoordinatorModel = new EventCoordinatorModel();
+        this.errorHandling = new ErrorHandling();
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
     }
 
-
-    /**
-     * This helps you, if you cannot remember or have problems with login
-     */
-    public void onActionHelp() {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Please contact the administration");
-        alert.setHeaderText("Please contact the administration");
-        alert.setContentText("Contact the administration for help");
-        alert.showAndWait();
-    }
 
     /**
      * Sends you to the Admin login screen, if the login credentials are in the database
@@ -76,10 +68,7 @@ public class FrontPageController implements Initializable {
             Scene scene = new Scene(root);
             switcher.setScene(scene);
         } else {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setHeaderText("Wrong Username or Password");
-            alert.setContentText("Contact administration for further help");
-            alert.showAndWait();
+            errorHandling.wrongLoginInfoError();
         }
     }
 
@@ -101,11 +90,7 @@ public class FrontPageController implements Initializable {
             controller.setEventCoordinator(eventCoordinator);
             switcher.show();
         } else {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Wrong Username or Password");
-            alert.setHeaderText("Please contact the administration");
-            alert.setContentText("You can also try again");
-            alert.showAndWait();
+            errorHandling.wrongLoginInfoError();
         }
     }
 }

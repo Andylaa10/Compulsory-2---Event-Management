@@ -10,7 +10,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="500.0" prefWidth="1150.0" stylesheets="@CSS/Main.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.ViewEventController">
+<AnchorPane prefHeight="500.0" prefWidth="1150.0" stylesheets="@CSS/Main.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.ViewEventController">
    <children>
       <ImageView fitHeight="500.0" fitWidth="575.0" opacity="0.41" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0">
          <image>
@@ -22,7 +22,7 @@
          </image>
       </ImageView>
       <Label fx:id="lblCustomerOnEvent" layoutX="236.0" layoutY="6.0" text="Customers on event" AnchorPane.topAnchor="5.0" />
-      <Label fx:id="lblCustomerList" layoutX="813.0" layoutY="6.0" text="Customer List" AnchorPane.topAnchor="5.0" />
+      <Label fx:id="lblCustomerList" layoutX="813.0" layoutY="6.0" text="All customers" AnchorPane.topAnchor="5.0" />
       <TableView fx:id="tvCustomersOnEvent" cache="true" layoutX="14.0" layoutY="27.0" prefHeight="403.0" prefWidth="550.0" style="-fx-background-color: transparent;" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="30.0">
          <columns>
             <TableColumn fx:id="tcCustomerIDOnEvent" prefWidth="38.400054931640625" text="ID" visible="false" />
@@ -52,17 +52,17 @@
             <DropShadow />
          </effect>
       </Button>
-      <Button fx:id="btnAddSelectedToEvent" layoutX="722.0" layoutY="448.0" mnemonicParsing="false" onAction="#onActionAddSelectedToEvent" prefHeight="27.0" prefWidth="233.0" text="Add selected customer to event">
+      <Button fx:id="btnAddSelectedToEvent" layoutX="722.0" layoutY="448.0" mnemonicParsing="false" onAction="#onActionAddSelectedToEvent" prefHeight="27.0" prefWidth="233.0" text="Add Customer To Event">
          <effect>
             <DropShadow />
          </effect>
       </Button>
-      <Button fx:id="btnDeleteSelectedFromEvent" layoutX="481.0" layoutY="448.0" mnemonicParsing="false" onAction="#onActionDeleteSelectedFromEvent" prefHeight="27.0" prefWidth="233.0" text="Delete selected customer from event">
+      <Button fx:id="btnDeleteSelectedFromEvent" layoutX="481.0" layoutY="448.0" mnemonicParsing="false" onAction="#onActionDeleteSelectedFromEvent" prefHeight="27.0" prefWidth="233.0" text="Delete Customer From Event">
          <effect>
             <DropShadow />
          </effect>
       </Button>
-      <Button fx:id="btnCreateCustomer" layoutX="236.0" layoutY="448.0" mnemonicParsing="false" onAction="#onActionCreateCustomer" prefHeight="27.0" prefWidth="233.0" text="Create new customer">
+      <Button fx:id="btnCreateCustomer" layoutX="236.0" layoutY="448.0" mnemonicParsing="false" onAction="#onActionCreateCustomer" prefHeight="27.0" prefWidth="233.0" text="Create Customer">
          <effect>
             <DropShadow />
          </effect>

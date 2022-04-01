@@ -19,7 +19,7 @@
             <Image url="@img/Nice.jpg" />
          </image>
       </ImageView>
-      <TableView fx:id="tvCoordinator" cache="true" layoutX="32.0" layoutY="121.0" prefHeight="356.0" prefWidth="731.0" style="-fx-background-color: transparent;">
+      <TableView fx:id="tvCoordinator" cache="true" layoutX="250.0" layoutY="122.0" prefHeight="356.0" prefWidth="300.0" style="-fx-background-color: transparent;">
          <columns>
             <TableColumn fx:id="tcID" prefWidth="116.0" text="ID" visible="false" />
             <TableColumn fx:id="tcUsername" prefWidth="303.0" text="Username" />
@@ -29,7 +29,7 @@
             <DropShadow />
          </effect>
       </TableView>
-      <Label layoutX="140.0" layoutY="14.0" text="View Coordinator" textFill="WHITE">
+      <Label layoutX="209.0" layoutY="14.0" text="Coordinators" textFill="WHITE">
          <font>
             <Font name="Copperplate Gothic Bold" size="48.0" />
          </font>

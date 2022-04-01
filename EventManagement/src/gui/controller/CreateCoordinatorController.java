@@ -99,9 +99,8 @@ public class CreateCoordinatorController implements Initializable {
     @FXML
     private void handleBtnDeleteCoordinator() {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("WARNING MESSAGE");
         alert.setHeaderText("Warning before you delete a coordinator");
-        alert.setContentText(" To delete a coordinator, remove it from all events first!! \n Are you sure you want " +
+        alert.setContentText("To delete a coordinator, remove it from all events first! \n Are you sure you want " +
                 "to delete this coordinator?");
         if (selectedCoordinator != null) {
             Optional<ButtonType> result = alert.showAndWait();

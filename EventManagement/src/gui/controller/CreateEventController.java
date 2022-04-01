@@ -1,5 +1,6 @@
 package gui.controller;
 
+import bll.helpers.ErrorHandling;
 import gui.model.EventModel;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -35,9 +36,11 @@ public class CreateEventController {
     public TextField txtFieldEventMaximum;
 
     private EventModel eventModel;
+    private ErrorHandling errorHandling;
 
     public CreateEventController() throws IOException {
         this.eventModel = new EventModel();
+        this.errorHandling = new ErrorHandling();
     }
 
     @FXML
@@ -58,7 +61,7 @@ public class CreateEventController {
             Stage stage = (Stage) btnCreateEvent.getScene().getWindow();
             stage.close();
         } else {
-            System.out.println("You need to type some input");
+            errorHandling.invalidInputWarning();
         }
     }
 

@@ -2,6 +2,7 @@ package gui.controller;
 
 import be.Event;
 import be.EventCoordinator;
+import bll.helpers.ErrorHandling;
 import gui.model.EventCoordinatorModel;
 import gui.model.EventModel;
 import javafx.collections.FXCollections;
@@ -76,12 +77,14 @@ public class EventCoordinatorController implements Initializable, IController {
     private EditEventController editEventController;
     private ViewEventController viewEventController;
     private EventCoordinator coordinator;
+    private ErrorHandling errorHandling;
 
 
     public EventCoordinatorController() throws IOException {
         this.eventCoordinatorModel = new EventCoordinatorModel();
         this.eventModel = new EventModel();
         this.editEventController = new EditEventController();
+        this.errorHandling = new ErrorHandling();
     }
 
     @Override
@@ -155,8 +158,7 @@ public class EventCoordinatorController implements Initializable, IController {
     }
 
     @FXML
-    private void onActionEditEvent() throws IOException {
-        //TODO ADD ERROR HANDLING IF NO EVENT SELECTED
+    private void onActionEditEvent() {
         if (selectedEvent != null) {
             Event selectedEvent = (Event) tvEvents.getSelectionModel().getSelectedItem();
 
@@ -183,7 +185,7 @@ public class EventCoordinatorController implements Initializable, IController {
                 }
             });
         } else {
-            System.out.println("No event selected");
+            errorHandling.noEventSelectedWarning();
         }
     }
 
@@ -217,7 +219,6 @@ public class EventCoordinatorController implements Initializable, IController {
 
     @FXML
     private void onActionViewEvent() throws IOException {
-        //TODO ADD ERROR HANDLING IF NO EVENT SELECTED
         if (selectedEvent != null) {
             FXMLLoader fxmlLoader = new FXMLLoader();
             fxmlLoader.setLocation(getClass().getResource("/gui/view/ViewEvent.fxml"));
@@ -231,9 +232,8 @@ public class EventCoordinatorController implements Initializable, IController {
             viewEventController.setSelectedEvent(selectedEvent);
 
             stage.show();
-
         } else {
-            System.out.println("No event selected");
+            errorHandling.noEventSelectedWarning();
         }
     }
 
@@ -249,15 +249,6 @@ public class EventCoordinatorController implements Initializable, IController {
           }
       }));
      }
-
-     @FXML
-     private void onActionHelp() {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Please contact the administration");
-        alert.setHeaderText("Please contact the administration");
-        alert.setContentText("Contact the administration for help");
-        alert.showAndWait();
-    }
 
     /**
      * Method that filters the events, with the text input you write in the textfield.

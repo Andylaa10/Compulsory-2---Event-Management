@@ -138,7 +138,6 @@ public class CreateCustomerController implements Initializable {
 
     @FXML
     private void handleBtnEditCustomer() {
-        //TODO ADD ERROR HANDLING IF NO EVENT SELECTED
         if (selectedCustomer != null) {
             Customer selectedCustomer = tvCustomers.getSelectionModel().getSelectedItem();
 
@@ -165,13 +164,12 @@ public class CreateCustomerController implements Initializable {
                 }
             });
         } else {
-            System.out.println("No customer selected");
+            errorHandling.noCustomerSelectedWarning();
         }
     }
 
     @FXML
     private void handleBtnDeleteCustomer(){
-        //TODO ADD ERROR HANDLING IF NO EVENT SELECTED
         if (selectedCustomer != null) {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("WARNING MESSAGE");
@@ -194,7 +192,7 @@ public class CreateCustomerController implements Initializable {
                 }
             }
         } else {
-            System.out.println("No customer selected");
+            errorHandling.noCustomerSelectedWarning();
         }
     }
 

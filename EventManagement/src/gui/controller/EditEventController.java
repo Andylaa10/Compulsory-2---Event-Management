@@ -1,6 +1,7 @@
 package gui.controller;
 
 import be.Event;
+import bll.helpers.ErrorHandling;
 import gui.model.EventModel;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -36,32 +37,40 @@ public class EditEventController {
     @FXML
     private TextField txtFieldEventMaximum;
 
-    EventModel eventModel;
+    private EventModel eventModel;
+    private ErrorHandling errorHandling;
 
     public EditEventController() throws IOException {
         this.eventModel = new EventModel();
+        this.errorHandling = new ErrorHandling();
     }
 
     @FXML
     private void onActionSaveEvent() {
-        int eventID = Integer.parseInt(txtFieldEventID.getText());
-        String eventName = txtFieldEventName.getText();
-        String eventDate = txtFieldEventDate.getText();
-        String eventTime = txtFieldEventTime.getText();
-        String eventTimeEnd = txtFieldEventTimeEnd.getText();
-        String eventLocation = txtFieldEventLocation.getText();
-        String eventInfo = txtFieldEventInfo.getText();
-        String eventPrice = txtFieldEventPrice.getText();
-        int eventMinimum = Integer.parseInt(txtFieldEventMinimum.getText());
-        int eventMaximum = Integer.parseInt(txtFieldEventMaximum.getText());
+        if (!txtFieldEventName.getText().isEmpty() && !txtFieldEventDate.getText().isEmpty() && !txtFieldEventTime.getText().isEmpty()
+                && !txtFieldEventTimeEnd.getText().isEmpty() && !txtFieldEventLocation.getText().isEmpty()) {
+            int eventID = Integer.parseInt(txtFieldEventID.getText());
+            String eventName = txtFieldEventName.getText();
+            String eventDate = txtFieldEventDate.getText();
+            String eventTime = txtFieldEventTime.getText();
+            String eventTimeEnd = txtFieldEventTimeEnd.getText();
+            String eventLocation = txtFieldEventLocation.getText();
+            String eventInfo = txtFieldEventInfo.getText();
+            String eventPrice = txtFieldEventPrice.getText();
+            int eventMinimum = Integer.parseInt(txtFieldEventMinimum.getText());
+            int eventMaximum = Integer.parseInt(txtFieldEventMaximum.getText());
 
 
 
-        Event event = new Event(eventID, eventName, eventDate, eventTime, eventTimeEnd, eventLocation, eventInfo, eventPrice, eventMinimum, eventMaximum);
-        eventModel.editEvent(event);
+            Event event = new Event(eventID, eventName, eventDate, eventTime, eventTimeEnd, eventLocation, eventInfo, eventPrice, eventMinimum, eventMaximum);
+            eventModel.editEvent(event);
 
-        Stage stage = (Stage) btnEditEvent.getScene().getWindow();
-        stage.close();
+            Stage stage = (Stage) btnEditEvent.getScene().getWindow();
+            stage.close();
+        } else {
+            errorHandling.editEventWarning();
+        }
+
     }
 
     public void setSelectedEvent(Event event) {

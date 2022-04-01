@@ -236,18 +236,5 @@ public class AddCoordinatorToEventController implements Initializable {
             exception.printStackTrace();
         }
     }
-
-    /**
-     * Reloads the event table to reflect changes
-     */
-    public void reloadEventTable() {
-        try {
-            int index = tvEvents.getSelectionModel().getFocusedIndex();
-            this.tvEvents.setItems(FXCollections.observableList(eventModel.getEvents()));
-            tvEvents.getSelectionModel().select(index);
-        } catch (Exception exception) {
-            exception.printStackTrace();
-        }
-
-    }
 }
+

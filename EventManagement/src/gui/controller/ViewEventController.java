@@ -2,6 +2,7 @@ package gui.controller;
 
 import be.Customer;
 import be.Event;
+import bll.helpers.ErrorHandling;
 import gui.model.CustomerModel;
 import gui.model.EventCoordinatorModel;
 import javafx.collections.FXCollections;
@@ -69,10 +70,12 @@ public class ViewEventController implements Initializable {
     private CustomerModel customerModel;
     private Customer selectedCustomer;
     private Customer selectedCustomerOnEvent;
+    private ErrorHandling errorHandling;
 
     public ViewEventController() throws IOException, SQLException {
         this.eventCoordinatorModel = new EventCoordinatorModel();
         this.customerModel = new CustomerModel();
+        this.errorHandling = new ErrorHandling();
     }
 
 
@@ -154,6 +157,8 @@ public class ViewEventController implements Initializable {
             } catch (Exception e) {
                 e.printStackTrace();
             }
+        } else {
+            errorHandling.noCustomerSelectedWarning();
         }
     }
 
@@ -166,6 +171,8 @@ public class ViewEventController implements Initializable {
             } catch (Exception e) {
                 e.printStackTrace();
             }
+        } else {
+            errorHandling.noCustomerSelectedWarning();
         }
     }
 

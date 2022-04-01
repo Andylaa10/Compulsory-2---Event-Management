@@ -23,9 +23,9 @@
          <columns>
             <TableColumn fx:id="tcCustomerID" prefWidth="38.400054931640625" text="ID" visible="false" />
             <TableColumn fx:id="tcFirstName" prefWidth="98.0" text="First Name" />
-            <TableColumn fx:id="tcLastName" prefWidth="98.0" text="Last Name" />
-            <TableColumn fx:id="tcPhoneNumber" minWidth="5.5999755859375" prefWidth="117.0" text="Phone Number" />
-            <TableColumn fx:id="tcEmail" prefWidth="159.0" text="Email" />
+            <TableColumn fx:id="tcLastName" prefWidth="109.0" text="Last Name" />
+            <TableColumn fx:id="tcPhoneNumber" minWidth="5.5999755859375" prefWidth="126.0" text="Phone Number" />
+            <TableColumn fx:id="tcEmail" prefWidth="139.0" text="Email" />
             <TableColumn fx:id="tcStudy" prefWidth="87.0" text="Study" />
             <TableColumn fx:id="tcNote" prefWidth="171.0" text="Note" />
          </columns>
@@ -33,7 +33,7 @@
             <DropShadow />
          </effect>
       </TableView>
-      <Label layoutX="47.0" layoutY="14.0" text="Create Customer" textFill="WHITE">
+      <Label layoutX="47.0" layoutY="14.0" text="Customers" textFill="WHITE">
          <font>
             <Font name="Copperplate Gothic Bold" size="48.0" />
          </font>
@@ -46,7 +46,7 @@
             <Font size="19.0" />
          </font>
       </Label>
-      <TextField fx:id="txtFieldSearch" layoutX="558.0" layoutY="85.0" prefHeight="27.0" prefWidth="204.0" promptText="First Name, Last Name, Phone, Email..." style="-fx-background-color: transparent; -fx-border-color: white;">
+      <TextField fx:id="txtFieldSearch" layoutX="558.0" layoutY="85.0" prefHeight="27.0" prefWidth="204.0" style="-fx-background-color: transparent; -fx-border-color: white;">
          <effect>
             <DropShadow height="62.03" radius="17.9375" width="11.72" />
          </effect>
