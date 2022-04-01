@@ -26,7 +26,7 @@
       </Text>
       <ImageView fitHeight="187.0" fitWidth="180.0" layoutX="488.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../stregkode.jpeg" />
+            <Image url="@img/stregkode.jpeg" />
          </image></ImageView>
       <Label layoutX="134.0" layoutY="133.0" />
       <Text fill="WHITE" layoutX="13.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date and time: 10 JULI 2021 21:45" underline="true" wrappingWidth="377.54144287109375">

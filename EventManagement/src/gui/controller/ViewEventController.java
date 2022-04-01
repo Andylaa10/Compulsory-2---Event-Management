@@ -6,6 +6,7 @@ import gui.model.CustomerModel;
 import gui.model.EventCoordinatorModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -195,5 +196,13 @@ public class ViewEventController implements Initializable {
     private void onActionCloseWindow() {
         Stage stage = (Stage) btnClose.getScene().getWindow();
         stage.close();
+    }
+
+    public void onActionSeeTicket(ActionEvent actionEvent) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/gui/view/TicketView.fxml"));
+        Stage stage = new Stage();
+        stage.setTitle("Ticket");
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 }
