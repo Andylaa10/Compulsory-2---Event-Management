@@ -39,10 +39,10 @@ Redefine of the background color, to a dark blue color.
 }
 /* Keep prompt invisible when focused (above color fix overrides it) */
 .text-input:focused {
-    -fx-prompt-text-fill: white;
+    -fx-prompt-text-fill: rgba(255, 255, 255, 0.50);
 }
 .text-field{
-    -fx-prompt-text-fill: white;
+    -fx-prompt-text-fill: rgba(255, 255, 255, 0.50);
 }
 .scroll-bar{
     -fx-opacity: 0.35;
