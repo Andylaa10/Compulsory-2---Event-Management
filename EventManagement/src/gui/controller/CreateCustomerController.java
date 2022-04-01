@@ -8,6 +8,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -215,9 +216,12 @@ public class CreateCustomerController implements Initializable {
     }
 
     @FXML
-    private void handleBtnBack() {
-        Stage stage = (Stage) btnBack.getScene().getWindow();
-        stage.close();
+    private void handleBtnBack() throws IOException {
+        Stage switcher = (Stage) btnBack.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("/gui/view/AdminView.fxml"));
+        switcher.setTitle("Admin Management");
+        Scene scene = new Scene(root);
+        switcher.setScene(scene);
     }
 
     @FXML

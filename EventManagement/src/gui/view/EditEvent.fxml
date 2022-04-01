@@ -13,9 +13,9 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@CSS/Main.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.EditEventController">
    <children>
-      <ImageView fitHeight="600.0" fitWidth="800.0" layoutX="-1.0" layoutY="3.0" opacity="0.41" pickOnBounds="true">
+      <ImageView fitHeight="600.0" fitWidth="800.0" opacity="0.41" pickOnBounds="true">
          <image>
-            <Image url="@img/happy%20guy%20on%20pc%20reverted.jpg" />
+            <Image url="@img/happy%20guy%20on%20pc.jpg" />
          </image>
       </ImageView>
       <Label layoutX="245.0" layoutY="14.0" text="Edit Event" textFill="WHITE">
@@ -26,12 +26,12 @@
             <Glow />
          </effect>
       </Label>
-      <Button fx:id="btnEditEvent" layoutX="65.0" layoutY="557.0" mnemonicParsing="false" onAction="#onActionSaveEvent" prefHeight="28.0" prefWidth="204.0" text="Edit Event">
+      <Button fx:id="btnEditEvent" layoutX="546.0" layoutY="551.0" mnemonicParsing="false" onAction="#onActionSaveEvent" prefHeight="28.0" prefWidth="204.0" text="Edit Event">
          <effect>
             <DropShadow />
          </effect>
       </Button>
-      <TextField fx:id="txtFieldEventName" layoutX="183.0" layoutY="87.0" prefHeight="37.0" prefWidth="204.0" promptText="Event Title" style="-fx-background-color: transparent; -fx-border-color: white;">
+      <TextField fx:id="txtFieldEventName" layoutX="523.0" layoutY="100.0" prefHeight="37.0" prefWidth="204.0" promptText="Event Title" style="-fx-background-color: transparent; -fx-border-color: white;">
          <effect>
             <DropShadow height="62.03" radius="17.9375" width="11.72" />
          </effect>
@@ -39,7 +39,7 @@
             <Font size="16.0" />
          </font>
       </TextField>
-      <TextField fx:id="txtFieldEventDate" layoutX="183.0" layoutY="136.0" prefHeight="37.0" prefWidth="204.0" promptText="DD.MM-YYYY" style="-fx-background-color: transparent; -fx-border-color: white;">
+      <TextField fx:id="txtFieldEventDate" layoutX="523.0" layoutY="152.0" prefHeight="37.0" prefWidth="204.0" promptText="DD.MM-YYYY" style="-fx-background-color: transparent; -fx-border-color: white;">
          <effect>
             <DropShadow height="62.03" radius="17.9375" width="11.72" />
          </effect>
@@ -47,7 +47,7 @@
             <Font size="16.0" />
          </font>
       </TextField>
-      <TextField fx:id="txtFieldEventTime" layoutX="221.0" layoutY="188.0" prefHeight="37.0" prefWidth="64.0" promptText="14.30" style="-fx-background-color: transparent; -fx-border-color: white;">
+      <TextField fx:id="txtFieldEventTime" layoutX="554.0" layoutY="207.0" prefHeight="37.0" prefWidth="64.0" promptText="14.30" style="-fx-background-color: transparent; -fx-border-color: white;">
          <effect>
             <DropShadow height="62.03" radius="17.9375" width="11.72" />
          </effect>
@@ -55,7 +55,7 @@
             <Font size="16.0" />
          </font>
       </TextField>
-      <TextField fx:id="txtFieldEventLocation" layoutX="183.0" layoutY="240.0" prefHeight="37.0" prefWidth="204.0" promptText="Musikhuset Esbjerg..." style="-fx-background-color: transparent; -fx-border-color: white;">
+      <TextField fx:id="txtFieldEventLocation" layoutX="523.0" layoutY="256.0" prefHeight="37.0" prefWidth="204.0" promptText="Musikhuset Esbjerg..." style="-fx-background-color: transparent; -fx-border-color: white;">
          <effect>
             <DropShadow height="62.03" radius="17.9375" width="11.72" />
          </effect>
@@ -63,32 +63,32 @@
             <Font size="16.0" />
          </font>
       </TextField>
-      <TextArea fx:id="txtFieldEventInfo" blendMode="ADD" layoutX="65.0" layoutY="432.0" prefHeight="110.0" prefWidth="508.0" style="-fx-border-color: White; -fx-background-color: transparent;" stylesheets="@CSS/Main.css">
+      <TextArea fx:id="txtFieldEventInfo" blendMode="ADD" layoutX="245.0" layoutY="411.0" prefHeight="131.0" prefWidth="508.0" style="-fx-border-color: White; -fx-background-color: transparent;" stylesheets="@CSS/Main.css">
          <effect>
             <DropShadow />
          </effect>
       </TextArea>
-      <Label layoutX="114.0" layoutY="91.0" text="Name:">
+      <Label layoutX="452.0" layoutY="104.0" text="Name:">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label layoutX="119.0" layoutY="192.0" text="Time:">
+      <Label layoutX="457.0" layoutY="211.0" text="Time:">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label layoutX="120.0" layoutY="140.0" text="Date:">
+      <Label layoutX="458.0" layoutY="156.0" text="Date:">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label layoutX="88.0" layoutY="244.0" text="Location:">
+      <Label layoutX="427.0" layoutY="260.0" text="Location:">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label layoutX="69.0" layoutY="402.0" text="Info:">
+      <Label layoutX="249.0" layoutY="382.0" text="Info:">
          <font>
             <Font size="20.0" />
          </font>
@@ -101,12 +101,12 @@
             <Font size="16.0" />
          </font>
       </TextField>
-      <Button fx:id="btnBack" layoutX="285.0" layoutY="557.0" mnemonicParsing="false" onAction="#handleBtnBack" prefHeight="28.0" prefWidth="158.0" text="Back">
+      <Button fx:id="btnBack" layoutX="378.0" layoutY="551.0" mnemonicParsing="false" onAction="#handleBtnBack" prefHeight="28.0" prefWidth="158.0" text="Back">
          <effect>
             <DropShadow />
          </effect>
       </Button>
-      <TextField fx:id="txtFieldEventTimeEnd" layoutX="324.0" layoutY="188.0" prefHeight="37.0" prefWidth="64.0" promptText="16.00" style="-fx-background-color: transparent; -fx-border-color: white;">
+      <TextField fx:id="txtFieldEventTimeEnd" layoutX="662.0" layoutY="207.0" prefHeight="37.0" prefWidth="64.0" promptText="16.00" style="-fx-background-color: transparent; -fx-border-color: white;">
          <effect>
             <DropShadow height="62.03" radius="17.9375" width="11.72" />
          </effect>
@@ -114,22 +114,22 @@
             <Font size="16.0" />
          </font>
       </TextField>
-      <Label layoutX="181.0" layoutY="196.0" text="Start:">
+      <Label layoutX="515.0" layoutY="215.0" text="Start:">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <Label layoutX="290.0" layoutY="196.0" text="End:">
+      <Label layoutX="625.0" layoutY="215.0" text="End:">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <Label layoutX="119.0" layoutY="293.0" text="Price:">
+      <Label layoutX="457.0" layoutY="304.0" text="Price:">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <TextField fx:id="txtFieldEventPrice" layoutX="183.0" layoutY="289.0" prefHeight="37.0" prefWidth="204.0" promptText="350kr" style="-fx-background-color: transparent; -fx-border-color: white;">
+      <TextField fx:id="txtFieldEventPrice" layoutX="523.0" layoutY="300.0" prefHeight="37.0" prefWidth="204.0" promptText="350kr" style="-fx-background-color: transparent; -fx-border-color: white;">
          <effect>
             <DropShadow height="62.03" radius="17.9375" width="11.72" />
          </effect>
@@ -137,7 +137,7 @@
             <Font size="16.0" />
          </font>
       </TextField>
-      <TextField fx:id="txtFieldEventMinimum" layoutX="218.0" layoutY="334.0" prefHeight="37.0" prefWidth="62.0" promptText="1..." style="-fx-background-color: transparent; -fx-border-color: white;">
+      <TextField fx:id="txtFieldEventMinimum" layoutX="563.0" layoutY="345.0" prefHeight="37.0" prefWidth="62.0" promptText="1..." style="-fx-background-color: transparent; -fx-border-color: white;">
          <effect>
             <DropShadow height="62.03" radius="17.9375" width="11.72" />
          </effect>
@@ -145,12 +145,12 @@
             <Font size="16.0" />
          </font>
       </TextField>
-      <Label layoutX="60.0" layoutY="338.0" text="Participants:">
+      <Label layoutX="404.0" layoutY="349.0" text="Participants:">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <TextField fx:id="txtFieldEventMaximum" layoutX="325.0" layoutY="334.0" prefHeight="37.0" prefWidth="62.0" promptText="500..." style="-fx-background-color: transparent; -fx-border-color: white;">
+      <TextField fx:id="txtFieldEventMaximum" layoutX="663.0" layoutY="345.0" prefHeight="37.0" prefWidth="62.0" promptText="500..." style="-fx-background-color: transparent; -fx-border-color: white;">
          <effect>
             <DropShadow height="62.03" radius="17.9375" width="11.72" />
          </effect>
@@ -158,12 +158,12 @@
             <Font size="16.0" />
          </font>
       </TextField>
-      <Label layoutX="183.0" layoutY="342.0" text="Min:">
+      <Label layoutX="532.0" layoutY="353.0" text="Min:">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <Label layoutX="288.0" layoutY="342.0" text="Max:">
+      <Label layoutX="631.0" layoutY="353.0" text="Max:">
          <font>
             <Font size="15.0" />
          </font>

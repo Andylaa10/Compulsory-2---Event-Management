@@ -20,9 +20,9 @@
             <Image url="@img/group-of-people-enjoying-concerts.jpg" />
          </image>
       </ImageView>
-      <TableView fx:id="tvCoordinators" cache="true" layoutX="45.0" layoutY="22.0" prefHeight="403.0" prefWidth="143.0" style="-fx-background-color: transparent;" AnchorPane.rightAnchor="962.0" AnchorPane.topAnchor="22.0">
+      <TableView fx:id="tvCoordinators" cache="true" layoutX="45.0" layoutY="22.0" prefHeight="420.0" prefWidth="170.0" style="-fx-background-color: transparent;" AnchorPane.rightAnchor="962.0" AnchorPane.topAnchor="22.0">
          <columns>
-            <TableColumn fx:id="tcCoordinators" prefWidth="142.0" text="All coordinators" />
+            <TableColumn fx:id="tcCoordinators" prefWidth="169.0" text="All coordinators" />
          </columns>
          <effect>
             <DropShadow />
@@ -44,7 +44,7 @@
          </effect>
       </Button>
       <TextField fx:id="txtFieldEventID" layoutX="20.0" layoutY="449.0" prefHeight="25.0" prefWidth="143.0" visible="false" />
-      <TableView fx:id="tvEvents" layoutX="210.0" layoutY="23.0" prefHeight="417.0" prefWidth="731.0" style="-fx-background-color: Transparent;" stylesheets="@CSS/Main.css">
+      <TableView fx:id="tvEvents" layoutX="210.0" layoutY="23.0" prefHeight="420.0" prefWidth="731.0" style="-fx-background-color: Transparent;" stylesheets="@CSS/Main.css">
          <columns>
             <TableColumn fx:id="tcEventName" prefWidth="174.0" style="-fx-background-color: transparent;" text="Event" />
             <TableColumn fx:id="tcEventPrice" prefWidth="67.0" style="-fx-background-color: transparent;" text="Price" />
@@ -58,9 +58,9 @@
             <DropShadow />
          </effect>
       </TableView>
-      <TableView fx:id="tvCoordinatorOnEvent" cache="true" layoutX="962.0" layoutY="22.0" prefHeight="418.0" prefWidth="168.0" style="-fx-background-color: transparent;">
+      <TableView fx:id="tvCoordinatorOnEvent" cache="true" layoutX="962.0" layoutY="22.0" prefHeight="420.0" prefWidth="170.0" style="-fx-background-color: transparent;">
          <columns>
-            <TableColumn fx:id="tcCoordinatorOnEvent" prefWidth="167.19999313354492" text="Assigned coordinators" />
+            <TableColumn fx:id="tcCoordinatorOnEvent" prefWidth="169.0" text="Assigned coordinators" />
          </columns>
          <effect>
             <DropShadow />
