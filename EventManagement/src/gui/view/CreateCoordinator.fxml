@@ -37,7 +37,7 @@
             <Glow />
          </effect>
       </Label>
-      <Button fx:id="btnAddCoordinator" layoutX="568.0" layoutY="513.0" mnemonicParsing="false" onAction="#handleBtnAddCoordinator" prefHeight="28.0" prefWidth="204.0" text="Add Coordinator">
+      <Button fx:id="btnAddCoordinator" layoutX="568.0" layoutY="513.0" mnemonicParsing="false" onAction="#handleBtnAddCoordinator" prefHeight="28.0" prefWidth="204.0" text="Create Coordinator">
          <effect>
             <DropShadow />
          </effect>

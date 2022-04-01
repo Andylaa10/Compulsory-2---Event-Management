@@ -79,7 +79,7 @@
             <DropShadow height="62.03" radius="17.9375" width="11.72" />
          </effect>
       </TextField>
-      <Button fx:id="btnAddCustomer" layoutX="32.0" layoutY="558.0" mnemonicParsing="false" onAction="#handleBtnAddCustomer" prefHeight="27.0" prefWidth="150.0" text="Add Customer">
+      <Button fx:id="btnAddCustomer" layoutX="32.0" layoutY="558.0" mnemonicParsing="false" onAction="#handleBtnAddCustomer" prefHeight="27.0" prefWidth="150.0" text="Create Customer">
          <effect>
             <DropShadow />
          </effect>

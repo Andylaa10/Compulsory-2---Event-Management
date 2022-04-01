@@ -52,17 +52,17 @@
             <DropShadow />
          </effect>
       </Button>
-      <Button fx:id="btnAddSelectedToEvent" layoutX="722.0" layoutY="448.0" mnemonicParsing="false" onAction="#onActionAddSelectedToEvent" prefHeight="27.0" prefWidth="233.0" text="Add Customer To Event">
+      <Button fx:id="btnAddSelectedToEvent" layoutX="720.0" layoutY="448.0" mnemonicParsing="false" onAction="#onActionAddSelectedToEvent" prefHeight="27.0" prefWidth="233.0" text="Add Customer To Event">
          <effect>
             <DropShadow />
          </effect>
       </Button>
-      <Button fx:id="btnDeleteSelectedFromEvent" layoutX="481.0" layoutY="448.0" mnemonicParsing="false" onAction="#onActionDeleteSelectedFromEvent" prefHeight="27.0" prefWidth="233.0" text="Delete Customer From Event">
+      <Button fx:id="btnDeleteSelectedFromEvent" layoutX="478.0" layoutY="448.0" mnemonicParsing="false" onAction="#onActionDeleteSelectedFromEvent" prefHeight="27.0" prefWidth="233.0" text="Delete Customer From Event">
          <effect>
             <DropShadow />
          </effect>
       </Button>
-      <Button fx:id="btnCreateCustomer" layoutX="236.0" layoutY="448.0" mnemonicParsing="false" onAction="#onActionCreateCustomer" prefHeight="27.0" prefWidth="233.0" text="Create Customer">
+      <Button fx:id="btnCreateCustomer" layoutX="232.0" layoutY="448.0" mnemonicParsing="false" onAction="#onActionCreateCustomer" prefHeight="27.0" prefWidth="233.0" text="Create Customer">
          <effect>
             <DropShadow />
          </effect>

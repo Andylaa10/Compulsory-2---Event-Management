@@ -49,7 +49,7 @@
             <Glow />
          </effect>
       </Label>
-      <Button fx:id="btnAddEvent" layoutX="16.0" layoutY="549.0" mnemonicParsing="false" onAction="#onActionAddEvent" prefHeight="25.0" prefWidth="137.0" text="Add Event">
+      <Button fx:id="btnAddEvent" layoutX="16.0" layoutY="549.0" mnemonicParsing="false" onAction="#onActionAddEvent" prefHeight="25.0" prefWidth="137.0" text="Create Event">
          <effect>
             <DropShadow />
          </effect>
