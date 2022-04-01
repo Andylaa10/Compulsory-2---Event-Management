@@ -38,17 +38,22 @@ public class CreateEventController {
 
     @FXML
     private void onActionSaveEvent() throws SQLException {
-        String eventName = txtFieldEventName.getText();
-        String eventDate = txtFieldEventDate.getText();
-        String eventTime = txtFieldEventTime.getText();
-        String eventTimeEnd = txtFieldEventTimeEnd.getText();
-        String eventLocation = txtFieldEventLocation.getText();
-        String eventInfo = txtFieldEventInfo.getText();
-        String eventPrice = txtFieldEventPrice.getText();
+        if (!txtFieldEventName.getText().isEmpty() && !txtFieldEventDate.getText().isEmpty() && !txtFieldEventTime.getText().isEmpty()
+                && !txtFieldEventTimeEnd.getText().isEmpty() && !txtFieldEventLocation.getText().isEmpty()) {
+            String eventName = txtFieldEventName.getText();
+            String eventDate = txtFieldEventDate.getText();
+            String eventTime = txtFieldEventTime.getText();
+            String eventTimeEnd = txtFieldEventTimeEnd.getText();
+            String eventLocation = txtFieldEventLocation.getText();
+            String eventInfo = txtFieldEventInfo.getText();
+            String eventPrice = txtFieldEventPrice.getText();
 
-        eventModel.createEvent(eventName, eventDate, eventTime, eventTimeEnd, eventLocation, eventInfo, eventPrice);
-        Stage stage = (Stage) btnCreateEvent.getScene().getWindow();
-        stage.close();
+            eventModel.createEvent(eventName, eventDate, eventTime, eventTimeEnd, eventLocation, eventInfo, eventPrice);
+            Stage stage = (Stage) btnCreateEvent.getScene().getWindow();
+            stage.close();
+        } else {
+            System.out.println("You need to type some input");
+        }
     }
 
     @FXML
@@ -57,3 +62,4 @@ public class CreateEventController {
         stage.close();
     }
 }
+
