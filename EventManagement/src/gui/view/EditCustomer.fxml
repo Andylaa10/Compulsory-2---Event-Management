@@ -26,7 +26,7 @@
             <Glow />
          </effect>
       </Label>
-      <TextField fx:id="txtFieldCustomerFirstName" layoutX="193.0" layoutY="109.0" prefHeight="37.0" prefWidth="204.0" promptText="First Name" style="-fx-background-color: transparent; -fx-border-color: white;">
+      <TextField fx:id="txtFieldCustomerFirstName" layoutX="556.0" layoutY="110.0" prefHeight="37.0" prefWidth="204.0" promptText="First Name" style="-fx-background-color: transparent; -fx-border-color: white;">
          <effect>
             <DropShadow height="62.03" radius="17.9375" width="11.72" />
          </effect>
@@ -34,7 +34,7 @@
             <Font size="16.0" />
          </font>
       </TextField>
-      <TextField fx:id="txtFieldCustomerLastName" layoutX="193.0" layoutY="158.0" prefHeight="37.0" prefWidth="204.0" promptText="Last Name" style="-fx-background-color: transparent; -fx-border-color: white;">
+      <TextField fx:id="txtFieldCustomerLastName" layoutX="556.0" layoutY="159.0" prefHeight="37.0" prefWidth="204.0" promptText="Last Name" style="-fx-background-color: transparent; -fx-border-color: white;">
          <effect>
             <DropShadow height="62.03" radius="17.9375" width="11.72" />
          </effect>
@@ -42,7 +42,7 @@
             <Font size="16.0" />
          </font>
       </TextField>
-      <TextField fx:id="txtFieldCustomerPhone" layoutX="193.0" layoutY="209.0" prefHeight="37.0" prefWidth="204.0" promptText="12345678" style="-fx-background-color: transparent; -fx-border-color: white;">
+      <TextField fx:id="txtFieldCustomerPhone" layoutX="556.0" layoutY="210.0" prefHeight="37.0" prefWidth="204.0" promptText="12345678" style="-fx-background-color: transparent; -fx-border-color: white;">
          <effect>
             <DropShadow height="62.03" radius="17.9375" width="11.72" />
          </effect>
@@ -50,7 +50,7 @@
             <Font size="16.0" />
          </font>
       </TextField>
-      <TextField fx:id="txtFieldCustomerEmail" layoutX="193.0" layoutY="262.0" prefHeight="37.0" prefWidth="204.0" promptText="email@email.com" style="-fx-background-color: transparent; -fx-border-color: white;">
+      <TextField fx:id="txtFieldCustomerEmail" layoutX="556.0" layoutY="263.0" prefHeight="37.0" prefWidth="204.0" promptText="email@email.com" style="-fx-background-color: transparent; -fx-border-color: white;">
          <effect>
             <DropShadow height="62.03" radius="17.9375" width="11.72" />
          </effect>
@@ -58,7 +58,7 @@
             <Font size="16.0" />
          </font>
       </TextField>
-      <TextField fx:id="txtFieldCustomerStudy" layoutX="193.0" layoutY="313.0" prefHeight="37.0" prefWidth="204.0" promptText="Computer Science etc." style="-fx-background-color: transparent; -fx-border-color: white;">
+      <TextField fx:id="txtFieldCustomerStudy" layoutX="556.0" layoutY="314.0" prefHeight="37.0" prefWidth="204.0" promptText="Computer Science etc..." style="-fx-background-color: transparent; -fx-border-color: white;">
          <effect>
             <DropShadow height="62.03" radius="17.9375" width="11.72" />
          </effect>
@@ -66,17 +66,17 @@
             <Font size="16.0" />
          </font>
       </TextField>
-      <TextArea fx:id="txtFieldCustomerNote" blendMode="ADD" layoutX="75.0" layoutY="381.0" prefHeight="129.0" prefWidth="508.0" style="-fx-border-color: White; -fx-background-color: transparent;" stylesheets="@CSS/Main.css">
+      <TextArea fx:id="txtFieldCustomerNote" blendMode="ADD" layoutX="252.0" layoutY="381.0" prefHeight="129.0" prefWidth="508.0" style="-fx-border-color: White; -fx-background-color: transparent;" stylesheets="@CSS/Main.css">
          <effect>
             <DropShadow />
          </effect>
       </TextArea>
-      <Button fx:id="btnEditCustomer" layoutX="75.0" layoutY="532.0" mnemonicParsing="false" onAction="#onActionSaveCustomer" prefHeight="28.0" prefWidth="204.0" text="Edit Customer">
+      <Button fx:id="btnEditCustomer" layoutX="388.0" layoutY="532.0" mnemonicParsing="false" onAction="#onActionSaveCustomer" prefHeight="28.0" prefWidth="204.0" text="Edit Customer">
          <effect>
             <DropShadow />
          </effect>
       </Button>
-      <Button fx:id="btnBack" layoutX="295.0" layoutY="532.0" mnemonicParsing="false" onAction="#handleBtnBack" prefHeight="28.0" prefWidth="158.0" text="Back">
+      <Button fx:id="btnBack" layoutX="602.0" layoutY="532.0" mnemonicParsing="false" onAction="#handleBtnBack" prefHeight="28.0" prefWidth="158.0" text="Back">
          <effect>
             <DropShadow />
          </effect>
@@ -89,32 +89,32 @@
             <Font size="16.0" />
          </font>
       </TextField>
-      <Label layoutX="86.0" layoutY="113.0" text="First Name:">
+      <Label layoutX="444.0" layoutY="114.0" text="First Name:">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label layoutX="48.0" layoutY="213.0" text="Phone number:">
+      <Label layoutX="410.0" layoutY="214.0" text="Phone number:">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label layoutX="87.0" layoutY="162.0" text="Last Name:">
+      <Label layoutX="445.0" layoutY="163.0" text="Last Name:">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label layoutX="132.0" layoutY="266.0" text="Email:">
+      <Label layoutX="494.0" layoutY="267.0" text="Email:">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label layoutX="75.0" layoutY="351.0" text="Notes:">
+      <Label layoutX="252.0" layoutY="351.0" text="Notes:">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label layoutX="129.0" layoutY="317.0" text="Study:">
+      <Label layoutX="493.0" layoutY="318.0" text="Study:">
          <font>
             <Font size="20.0" />
          </font>

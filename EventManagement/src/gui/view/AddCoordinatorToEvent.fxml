@@ -28,17 +28,17 @@
             <DropShadow />
          </effect>
       </TableView>
-      <Button fx:id="btnDeleteSelectedFromEvent" layoutX="583.0" layoutY="448.0" mnemonicParsing="false" onAction="#handleBtnDeleteSelectedFromEvent" prefHeight="27.0" prefWidth="182.0" text="Delete coordinator">
+      <Button fx:id="btnDeleteSelectedFromEvent" layoutX="594.0" layoutY="448.0" mnemonicParsing="false" onAction="#handleBtnDeleteSelectedFromEvent" prefHeight="27.0" prefWidth="182.0" text="Delete coordinator">
          <effect>
             <DropShadow />
          </effect>
       </Button>
-      <Button fx:id="btnAddSelectedToEvent" layoutX="784.0" layoutY="448.0" mnemonicParsing="false" onAction="#handleBtnAddSelectedToEvent" prefHeight="27.0" prefWidth="168.0" text="Add coordinator">
+      <Button fx:id="btnAddSelectedToEvent" layoutX="793.0" layoutY="448.0" mnemonicParsing="false" onAction="#handleBtnAddSelectedToEvent" prefHeight="27.0" prefWidth="168.0" text="Add coordinator">
          <effect>
             <DropShadow />
          </effect>
       </Button>
-      <Button fx:id="btnBack" layoutX="967.0" layoutY="448.0" mnemonicParsing="false" onAction="#handleBtnBack" prefHeight="27.0" prefWidth="158.0" text="Back">
+      <Button fx:id="btnBack" layoutX="978.0" layoutY="448.0" mnemonicParsing="false" onAction="#handleBtnBack" prefHeight="27.0" prefWidth="158.0" text="Back">
          <effect>
             <DropShadow />
          </effect>

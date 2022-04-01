@@ -95,12 +95,12 @@
             <DropShadow />
          </effect>
       </TextArea>
-      <Button fx:id="btnBack" layoutX="363.0" layoutY="565.0" mnemonicParsing="false" onAction="#handleBtnBack" prefHeight="28.0" prefWidth="158.0" text="Back">
+      <Button fx:id="btnBack" layoutX="578.0" layoutY="565.0" mnemonicParsing="false" onAction="#handleBtnBack" prefHeight="28.0" prefWidth="158.0" text="Back">
          <effect>
             <DropShadow />
          </effect>
       </Button>
-      <Button fx:id="btnCreateEvent" layoutX="532.0" layoutY="565.0" mnemonicParsing="false" onAction="#onActionSaveEvent" prefHeight="28.0" prefWidth="204.0" text="Create Event">
+      <Button fx:id="btnCreateEvent" layoutX="365.0" layoutY="565.0" mnemonicParsing="false" onAction="#onActionSaveEvent" prefHeight="28.0" prefWidth="204.0" text="Create Event">
          <effect>
             <DropShadow />
          </effect>
@@ -127,7 +127,7 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <Label layoutX="198.0" layoutY="376.0" text="Info:">
+      <Label layoutX="198.0" layoutY="386.0" text="Info:">
          <font>
             <Font size="20.0" />
          </font>
@@ -152,7 +152,7 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <Label layoutX="522.0" layoutY="347.0" text="Min:">
+      <Label layoutX="528.0" layoutY="347.0" text="Min:">
          <font>
             <Font size="15.0" />
          </font>

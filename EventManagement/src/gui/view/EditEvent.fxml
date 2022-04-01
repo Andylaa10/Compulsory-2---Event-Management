@@ -26,7 +26,7 @@
             <Glow />
          </effect>
       </Label>
-      <Button fx:id="btnEditEvent" layoutX="546.0" layoutY="551.0" mnemonicParsing="false" onAction="#onActionSaveEvent" prefHeight="28.0" prefWidth="204.0" text="Edit Event">
+      <Button fx:id="btnEditEvent" layoutX="379.0" layoutY="551.0" mnemonicParsing="false" onAction="#onActionSaveEvent" prefHeight="28.0" prefWidth="204.0" text="Edit Event">
          <effect>
             <DropShadow />
          </effect>
@@ -101,7 +101,7 @@
             <Font size="16.0" />
          </font>
       </TextField>
-      <Button fx:id="btnBack" layoutX="378.0" layoutY="551.0" mnemonicParsing="false" onAction="#handleBtnBack" prefHeight="28.0" prefWidth="158.0" text="Back">
+      <Button fx:id="btnBack" layoutX="595.0" layoutY="551.0" mnemonicParsing="false" onAction="#handleBtnBack" prefHeight="28.0" prefWidth="158.0" text="Back">
          <effect>
             <DropShadow />
          </effect>

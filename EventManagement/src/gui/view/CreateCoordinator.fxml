@@ -52,12 +52,12 @@
             <DropShadow height="62.03" radius="17.9375" width="11.72" />
          </effect>
       </TextField>
-      <Button fx:id="btnDeleteCoordinator" layoutX="410.0" layoutY="558.0" mnemonicParsing="false" onAction="#handleBtnDeleteCoordinator" prefHeight="28.0" prefWidth="158.0" text="Delete Coordinator">
+      <Button fx:id="btnDeleteCoordinator" layoutX="446.0" layoutY="558.0" mnemonicParsing="false" onAction="#handleBtnDeleteCoordinator" prefHeight="28.0" prefWidth="158.0" text="Delete Coordinator">
          <effect>
             <DropShadow />
          </effect>
       </Button>
-      <Button fx:id="btnBack" layoutX="583.0" layoutY="558.0" mnemonicParsing="false" onAction="#handleBtnBack" prefHeight="28.0" prefWidth="158.0" text="Back">
+      <Button fx:id="btnBack" layoutX="614.0" layoutY="558.0" mnemonicParsing="false" onAction="#handleBtnBack" prefHeight="28.0" prefWidth="158.0" text="Back">
          <effect>
             <DropShadow />
          </effect>
