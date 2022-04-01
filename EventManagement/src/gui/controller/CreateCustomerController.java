@@ -1,7 +1,7 @@
 package gui.controller;
 
 import be.Customer;
-import be.ErrorHandling;
+import bll.helpers.ErrorHandling;
 import gui.model.CustomerModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

@@ -1,13 +1,12 @@
-package be;
+package bll.helpers;
 
 import javafx.scene.control.Alert;
 
 public class ErrorHandling {
     public void deleteEventDAOError() {
         Alert alert = new Alert(Alert.AlertType.WARNING);
-        alert.setTitle("WARNING MESSAGE");
-        alert.setHeaderText("This event is still assigned to ticket!!");
-        alert.setContentText(" To delete a event, delete it from all tickets first!!");
+        alert.setHeaderText("This event still has assigned customers");
+        alert.setContentText("To delete an event, remove all customers from it first");
         alert.showAndWait();
     }
 

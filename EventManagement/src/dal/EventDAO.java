@@ -1,7 +1,7 @@
 package dal;
 
 import be.Event;
-import be.ErrorHandling;
+import bll.helpers.ErrorHandling;
 import com.microsoft.sqlserver.jdbc.SQLServerException;
 import dal.db.DatabaseConnector;
 import java.io.IOException;

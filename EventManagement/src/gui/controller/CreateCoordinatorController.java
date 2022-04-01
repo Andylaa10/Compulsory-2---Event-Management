@@ -1,6 +1,6 @@
 package gui.controller;
 
-import be.ErrorHandling;
+import bll.helpers.ErrorHandling;
 import be.EventCoordinator;
 import gui.model.AdminModel;
 import javafx.collections.FXCollections;
