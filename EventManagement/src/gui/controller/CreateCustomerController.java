@@ -140,7 +140,7 @@ public class CreateCustomerController implements Initializable {
     private void handleBtnEditCustomer() {
         //TODO ADD ERROR HANDLING IF NO EVENT SELECTED
         if (selectedCustomer != null) {
-            Customer selectedCustomer = (Customer) tvCustomers.getSelectionModel().getSelectedItem();
+            Customer selectedCustomer = tvCustomers.getSelectionModel().getSelectedItem();
 
             FXMLLoader parent = new FXMLLoader(getClass().getResource("/gui/view/EditCustomer.fxml"));
             Scene mainWindowScene = null;
