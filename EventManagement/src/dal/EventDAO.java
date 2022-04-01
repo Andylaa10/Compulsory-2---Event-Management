@@ -43,9 +43,11 @@ public class EventDAO {
                     String eventLocation = resultset.getString("EventLocation");
                     String eventInfo = resultset.getString("EventInfo");
                     String eventPrice = resultset.getString("EventPrice");
+                    int eventMinimum = resultset.getInt("EventMinimum");
+                    int eventMaximum = resultset.getInt("EventMaximum");
 
 
-                    Event event = new Event(eventID, eventName, eventDate, eventTime, eventTimeEnd, eventLocation, eventInfo, eventPrice);
+                    Event event = new Event(eventID, eventName, eventDate, eventTime, eventTimeEnd, eventLocation, eventInfo, eventPrice, eventMinimum, eventMaximum);
                     allEvents.add(event);
                 }
             }
@@ -66,9 +68,11 @@ public class EventDAO {
      * @return Event
      * @throws SQLException
      */
-    public Event createEvent (String eventName, String eventDate, String eventTime, String eventTimeEnd, String eventLocation, String eventInfo, String eventPrice) throws SQLException {
+    public Event createEvent (String eventName, String eventDate, String eventTime, String eventTimeEnd,
+                              String eventLocation, String eventInfo, String eventPrice, int eventMinimum,
+                              int eventMaximum) throws SQLException {
         try (Connection connection = connector.getConnection()) {
-            String sql = "INSERT INTO Event (EventName, EventDate, eventTime, eventTimeEnd, eventLocation, eventInfo, eventPrice) values (?,?,?,?,?,?,?)";
+            String sql = "INSERT INTO Event (EventName, EventDate, eventTime, eventTimeEnd, eventLocation, eventInfo, eventPrice, eventMinimum, eventMaximum) values (?,?,?,?,?,?,?,?,?)";
 
             try (PreparedStatement preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
                 preparedStatement.setString(1, eventName);
@@ -78,6 +82,9 @@ public class EventDAO {
                 preparedStatement.setString(5, eventLocation);
                 preparedStatement.setString(6, eventInfo);
                 preparedStatement.setString(7, eventPrice);
+                preparedStatement.setInt(8, eventMinimum);
+                preparedStatement.setInt(9, eventMaximum);
+
                 preparedStatement.execute();
 
                 ResultSet resultSet = preparedStatement.getGeneratedKeys();
@@ -86,7 +93,8 @@ public class EventDAO {
                     id = resultSet.getInt(1);
                 }
 
-                Event event = new Event(id, eventName, eventDate, eventTime, eventTimeEnd, eventLocation, eventInfo, eventPrice);
+                Event event = new Event(id, eventName, eventDate, eventTime, eventTimeEnd, eventLocation, eventInfo,
+                        eventPrice, eventMinimum, eventMaximum);
                 return event;
 
             }
@@ -120,7 +128,7 @@ public class EventDAO {
      */
     public void editEvent(Event event) {
         try (Connection connection = connector.getConnection()) {
-            String sql = "UPDATE Event SET EventName=?, EventDate=?, EventTime=?, EventTimeEnd=?,  EventLocation=?, EventPrice=?, Eventinfo=?  WHERE EventID=?;";
+            String sql = "UPDATE Event SET EventName=?, EventDate=?, EventTime=?, EventTimeEnd=?,  EventLocation=?, EventPrice=?, Eventinfo=?, EventMinimum=?, EventMaximum=?  WHERE EventID=?;";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, event.getEventName());
             preparedStatement.setString(2, event.getEventDate());
@@ -129,7 +137,9 @@ public class EventDAO {
             preparedStatement.setString(5, event.getEventLocation());
             preparedStatement.setString(6, event.getEventPrice());
             preparedStatement.setString(7, event.getEventInfo());
-            preparedStatement.setInt(8, event.getId());
+            preparedStatement.setString(8, event.getEventMinimum());
+            preparedStatement.setString(9, event.getEventMaximum());
+            preparedStatement.setInt(10, event.getId());
 
             if (preparedStatement.executeUpdate() != 1) {
                 throw new Exception("Could not edit event");
@@ -142,9 +152,9 @@ public class EventDAO {
 
     public static void main(String[] args) throws IOException, SQLException {
         EventDAO eventDAO = new EventDAO();
-        eventDAO.createEvent("Test event", "22-03-2022", "13:30", "15.30", "EASV Sønderborg", "Dette er en test af eventDAO", "");
-        eventDAO.createEvent("event", "10-03-2022", "12:30","15.30", "EASV Danmark", "Dette er en test af eventDAO", "");
-        eventDAO.createEvent("Test", "02-12-2022", "13:30", "15.30", "EASV Esbjerg", "Dette er en test af eventDAO", "");
+        eventDAO.createEvent("Test event", "22-03-2022", "13:30", "15.30", "EASV Sønderborg", "Dette er en test af eventDAO", "", 1, 30);
+        eventDAO.createEvent("event", "10-03-2022", "12:30","15.30", "EASV Danmark", "Dette er en test af eventDAO", "", 5, 20);
+        eventDAO.createEvent("Test", "02-12-2022", "13:30", "15.30", "EASV Esbjerg", "Dette er en test af eventDAO", "", 50, 500);
         List<Event> events = eventDAO.getEvents();
 
         System.out.println(events);

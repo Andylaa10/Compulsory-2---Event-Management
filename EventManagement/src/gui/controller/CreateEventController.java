@@ -29,6 +29,10 @@ public class CreateEventController {
     private TextArea txtFieldEventInfo;
     @FXML
     private TextField txtFieldEventPrice;
+    @FXML
+    public TextField txtFieldEventMinimum;
+    @FXML
+    public TextField txtFieldEventMaximum;
 
     private EventModel eventModel;
 
@@ -47,8 +51,10 @@ public class CreateEventController {
             String eventLocation = txtFieldEventLocation.getText();
             String eventInfo = txtFieldEventInfo.getText();
             String eventPrice = txtFieldEventPrice.getText();
+            int eventMinimum = Integer.parseInt(txtFieldEventMinimum.getText());
+            int eventMaximum = Integer.parseInt(txtFieldEventMaximum.getText());
 
-            eventModel.createEvent(eventName, eventDate, eventTime, eventTimeEnd, eventLocation, eventInfo, eventPrice);
+            eventModel.createEvent(eventName, eventDate, eventTime, eventTimeEnd, eventLocation, eventInfo, eventPrice, eventMinimum, eventMaximum);
             Stage stage = (Stage) btnCreateEvent.getScene().getWindow();
             stage.close();
         } else {

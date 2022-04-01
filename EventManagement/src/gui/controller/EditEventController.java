@@ -31,6 +31,10 @@ public class EditEventController {
     private TextField txtFieldEventLocation;
     @FXML
     private TextField txtFieldEventPrice;
+    @FXML
+    public TextField txtFieldEventMinimum;
+    @FXML
+    public TextField txtFieldEventMaximum;
 
     EventModel eventModel;
 
@@ -48,9 +52,12 @@ public class EditEventController {
         String eventLocation = txtFieldEventLocation.getText();
         String eventInfo = txtFieldEventInfo.getText();
         String eventPrice = txtFieldEventPrice.getText();
+        int eventMinimum = Integer.parseInt(txtFieldEventMinimum.getText());
+        int eventMaximum = Integer.parseInt(txtFieldEventMaximum.getText());
 
 
-        Event event = new Event(eventID, eventName, eventDate, eventTime, eventTimeEnd, eventLocation, eventInfo, eventPrice);
+
+        Event event = new Event(eventID, eventName, eventDate, eventTime, eventTimeEnd, eventLocation, eventInfo, eventPrice, eventMinimum, eventMaximum);
         eventModel.editEvent(event);
 
         Stage stage = (Stage) btnEditEvent.getScene().getWindow();

@@ -23,10 +23,10 @@
         <columns>
           <TableColumn fx:id="tcId" prefWidth="56.0" text="ID" visible="false" />
           <TableColumn fx:id="tcEventName" prefWidth="175.0" style="-fx-background-color: transparent;" text="Event" />
-            <TableColumn fx:id="tcEventName1" prefWidth="82.39994812011719" style="-fx-background-color: transparent;" text="Participants">
+            <TableColumn fx:id="tcEventParticipants" prefWidth="82.39994812011719" style="-fx-background-color: transparent;" text="Participants">
                <columns>
                   <TableColumn fx:id="tcEventMinimum" prefWidth="32.79998779296875" style="-fx-background-color: transparent;" text="Min" />
-                  <TableColumn fx:id="tcEventName111" prefWidth="40.79997253417969" style="-fx-background-color: transparent;" text="Max" />
+                  <TableColumn fx:id="tcEventMaximum" prefWidth="40.79997253417969" style="-fx-background-color: transparent;" text="Max" />
                </columns>
             </TableColumn>
            <TableColumn fx:id="tcEventPrice" prefWidth="50.0" style="-fx-background-color: transparent;" text="Price" />

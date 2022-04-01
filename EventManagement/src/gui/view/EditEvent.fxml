@@ -13,7 +13,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@CSS/Main.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.EditEventController">
    <children>
-      <ImageView fitHeight="600.0" fitWidth="800.0" opacity="0.41" pickOnBounds="true">
+      <ImageView fitHeight="600.0" fitWidth="800.0" layoutX="-1.0" layoutY="3.0" opacity="0.41" pickOnBounds="true">
          <image>
             <Image url="@img/happy%20guy%20on%20pc%20reverted.jpg" />
          </image>
@@ -26,7 +26,7 @@
             <Glow />
          </effect>
       </Label>
-      <Button fx:id="btnEditEvent" layoutX="65.0" layoutY="522.0" mnemonicParsing="false" onAction="#onActionSaveEvent" prefHeight="28.0" prefWidth="204.0" text="Edit Event">
+      <Button fx:id="btnEditEvent" layoutX="65.0" layoutY="557.0" mnemonicParsing="false" onAction="#onActionSaveEvent" prefHeight="28.0" prefWidth="204.0" text="Edit Event">
          <effect>
             <DropShadow />
          </effect>
@@ -63,7 +63,7 @@
             <Font size="16.0" />
          </font>
       </TextField>
-      <TextArea fx:id="txtFieldEventInfo" blendMode="ADD" layoutX="65.0" layoutY="365.0" prefHeight="135.0" prefWidth="508.0" style="-fx-border-color: White; -fx-background-color: transparent;" stylesheets="@CSS/Main.css">
+      <TextArea fx:id="txtFieldEventInfo" blendMode="ADD" layoutX="65.0" layoutY="432.0" prefHeight="110.0" prefWidth="508.0" style="-fx-border-color: White; -fx-background-color: transparent;" stylesheets="@CSS/Main.css">
          <effect>
             <DropShadow />
          </effect>
@@ -88,7 +88,7 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <Label layoutX="65.0" layoutY="335.0" text="Additional Info:">
+      <Label layoutX="65.0" layoutY="395.0" text="Additional Info:">
          <font>
             <Font size="20.0" />
          </font>
@@ -101,7 +101,7 @@
             <Font size="16.0" />
          </font>
       </TextField>
-      <Button fx:id="btnBack" layoutX="285.0" layoutY="522.0" mnemonicParsing="false" onAction="#handleBtnBack" prefHeight="28.0" prefWidth="158.0" text="Back">
+      <Button fx:id="btnBack" layoutX="285.0" layoutY="557.0" mnemonicParsing="false" onAction="#handleBtnBack" prefHeight="28.0" prefWidth="158.0" text="Back">
          <effect>
             <DropShadow />
          </effect>
@@ -137,5 +137,36 @@
             <Font size="16.0" />
          </font>
       </TextField>
+      <TextField fx:id="txtFieldEventMinimum" layoutX="218.0" layoutY="334.0" prefHeight="37.0" prefWidth="62.0" promptText="1..." style="-fx-background-color: transparent; -fx-border-color: white;">
+         <effect>
+            <DropShadow height="62.03" radius="17.9375" width="11.72" />
+         </effect>
+         <font>
+            <Font size="16.0" />
+         </font>
+      </TextField>
+      <Label layoutX="6.0" layoutY="338.0" text="Event Participants:">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtFieldEventMaximum" layoutX="325.0" layoutY="334.0" prefHeight="37.0" prefWidth="62.0" promptText="500..." style="-fx-background-color: transparent; -fx-border-color: white;">
+         <effect>
+            <DropShadow height="62.03" radius="17.9375" width="11.72" />
+         </effect>
+         <font>
+            <Font size="16.0" />
+         </font>
+      </TextField>
+      <Label layoutX="183.0" layoutY="342.0" text="Min:">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="288.0" layoutY="342.0" text="Max:">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

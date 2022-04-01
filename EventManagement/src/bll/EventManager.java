@@ -40,8 +40,10 @@ public class EventManager {
      * @param eventPrice
      * @throws SQLException
      */
-    public void createEvent (String eventName, String eventDate, String eventTime, String eventTimeEnd, String eventLocation, String eventInfo, String eventPrice) throws SQLException {
-        eventDAO.createEvent(eventName, eventDate, eventTime, eventTimeEnd, eventLocation, eventInfo, eventPrice);
+    public void createEvent (String eventName, String eventDate, String eventTime, String eventTimeEnd,
+                             String eventLocation, String eventInfo, String eventPrice,
+                             int eventMinimum, int eventMaximum) throws SQLException {
+        eventDAO.createEvent(eventName, eventDate, eventTime, eventTimeEnd, eventLocation, eventInfo, eventPrice, eventMinimum, eventMaximum);
     }
 
     /**

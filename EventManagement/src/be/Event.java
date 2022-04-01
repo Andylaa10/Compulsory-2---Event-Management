@@ -9,6 +9,8 @@ public class Event {
     private String eventLocation;
     private String eventInfo;
     private String eventPrice;
+    private int eventMinimum;
+    private int eventMaximum;
 
     /**
      * Constructor
@@ -46,7 +48,8 @@ public class Event {
      * @param eventPrice
      * Constructor with id, eventName, eventDate, eventTime, eventLocation, eventInfo and eventPrice
      */
-    public Event(int id, String eventName, String eventDate, String eventTime, String eventTimeEnd, String eventLocation, String eventInfo, String eventPrice) {
+    public Event(int id, String eventName, String eventDate, String eventTime, String eventTimeEnd, String eventLocation,
+                 String eventInfo, String eventPrice, int eventMinimum, int eventMaximum) {
         this.id = id;
         this.eventName = eventName;
         this.eventDate = eventDate;
@@ -55,6 +58,8 @@ public class Event {
         this.eventLocation = eventLocation;
         this.eventInfo = eventInfo;
         this.eventPrice = eventPrice;
+        this.eventMinimum = eventMinimum;
+        this.eventMaximum = eventMaximum;
     }
 
 
@@ -172,5 +177,21 @@ public class Event {
 
     public void setEventTimeEnd(String eventTimeEnd) {
         this.eventTimeEnd = eventTimeEnd;
+    }
+
+    public String getEventMinimum() {
+        return String.valueOf(eventMinimum);
+    }
+
+    public void setEventMinimum(int eventMinimum) {
+        this.eventMinimum = eventMinimum;
+    }
+
+    public String getEventMaximum() {
+        return String.valueOf(eventMaximum);
+    }
+
+    public void setEventMaximum(int eventMaximum) {
+        this.eventMaximum = eventMaximum;
     }
 }

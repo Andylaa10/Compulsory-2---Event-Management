@@ -51,6 +51,12 @@ public class EventCoordinatorController implements Initializable, IController {
     @FXML
     public TableColumn tcEventTimeEnd;
     @FXML
+    public TableColumn tcEventParticipants;
+    @FXML
+    public TableColumn tcEventMinimum;
+    @FXML
+    public TableColumn tcEventMaximum;
+    @FXML
     private Button btnEditEvent;
     @FXML
     private TableColumn tcEventInfo;
@@ -96,6 +102,8 @@ public class EventCoordinatorController implements Initializable, IController {
         tcEventTimeEnd.setCellValueFactory(new PropertyValueFactory<>("EventTimeEnd"));
         tcEventInfo.setCellValueFactory(new PropertyValueFactory<>("EventInfo"));
         tcEventPrice.setCellValueFactory(new PropertyValueFactory<>("EventPrice"));
+        tcEventMinimum.setCellValueFactory(new PropertyValueFactory<>("EventMinimum"));
+        tcEventMaximum.setCellValueFactory(new PropertyValueFactory<>("EventMaximum"));
         try {
             allEvents = FXCollections.observableArrayList(eventModel.getEvents());
             tableViewLoadEvents(allEvents);
