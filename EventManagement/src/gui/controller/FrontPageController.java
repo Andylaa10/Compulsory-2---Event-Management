@@ -65,7 +65,7 @@ public class FrontPageController implements Initializable {
      * Sends you to the Admin login screen, if the login credentials are in the database
      * @throws IOException If there are any exceptions
      */
-    public void AdminLogIn() throws IOException, SQLServerException {
+    public void AdminLogin() throws IOException, SQLServerException {
         String username = txtFieldUsername.getText();
         String password = txtPasswordField.getText();
         Admin admin = adminModel.login(username, password);
@@ -88,7 +88,7 @@ public class FrontPageController implements Initializable {
      * @throws IOException
      * @throws SQLServerException
      */
-    public void EventCoLogIn() throws IOException, SQLServerException {
+    public void EventCoordinatorLogin() throws IOException, SQLServerException {
         String username = txtFieldUsername.getText();
         String password = txtPasswordField.getText();
         EventCoordinator eventCoordinator = eventCoordinatorModel.login(username, password);

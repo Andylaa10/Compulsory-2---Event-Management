@@ -24,7 +24,7 @@ public class EventModel {
     }
 
     /**
-     * Gets the list of event using the getEvents method in eventManagerDAO.
+     * Gets the list of event using the getEvents method in eventManager.
      * @return a list of event
      */
     public List<Event> getEvents() {
@@ -33,7 +33,16 @@ public class EventModel {
     }
 
     /**
-     * Creates an event using the createEvent method in eventManagerDAO
+     * Gets the list of event assigned to a coordinator using the getEvents method in eventManager.
+     * @return a list of event
+     */
+    public List<Event> getEventsCoordinator(int loginID) {
+        List<Event> allEventsCoordinator = eventManager.getEventsCoordinator(loginID);
+        return allEventsCoordinator;
+    }
+
+    /**
+     * Creates an event using the createEvent method in eventManager
      * @param eventName
      * @param eventDate
      * @param eventTime
@@ -47,7 +56,7 @@ public class EventModel {
     }
 
     /**
-     * Deletes a event using the deleteEvent methods in eventManagerDAO
+     * Deletes a event using the deleteEvent methods in eventManager
      * @param id
      */
     public void deleteEvent(int id) {
@@ -55,7 +64,7 @@ public class EventModel {
     }
 
     /**
-     * Edits an event using the editEvent from eventManagerDAO
+     * Edits an event using the editEvent from eventManager
      * @param event
      */
     public void editEvent(Event event) {

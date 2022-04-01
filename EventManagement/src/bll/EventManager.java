@@ -31,6 +31,15 @@ public class EventManager {
     }
 
     /**
+     * Gets the list of event assigned to a coordinator using the getEvents method in eventDAO.
+     * @return a list of event
+     */
+    public List<Event> getEventsCoordinator(int loginID) {
+        List<Event> allEventsCoordinator = eventDAO.getEventsCoordinator(loginID);
+        return allEventsCoordinator;
+    }
+
+    /**
      * Creates an event using the createEvent method in eventDAO
      * @param eventName
      * @param eventDate

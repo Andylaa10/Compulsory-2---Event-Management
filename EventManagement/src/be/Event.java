@@ -11,6 +11,8 @@ public class Event {
     private String eventPrice;
     private int eventMinimum;
     private int eventMaximum;
+    private EventCoordinator coordinator;
+    private int loginID;
 
     /**
      * Constructor
@@ -60,6 +62,20 @@ public class Event {
         this.eventPrice = eventPrice;
         this.eventMinimum = eventMinimum;
         this.eventMaximum = eventMaximum;
+    }
+
+    public Event(int eventID, String eventName, String eventDate, String eventTime, String eventTimeEnd, String eventLocation, String eventInfo, String eventPrice, int eventMinimum, int eventMaximum, int loginID) {
+        this.id = eventID;
+        this.eventName = eventName;
+        this.eventDate = eventDate;
+        this.eventTime = eventTime;
+        this.eventTimeEnd = eventTimeEnd;
+        this.eventLocation = eventLocation;
+        this.eventInfo = eventInfo;
+        this.eventPrice = eventPrice;
+        this.eventMinimum = eventMinimum;
+        this.eventMaximum = eventMaximum;
+        this.loginID = loginID;
     }
 
 
@@ -193,5 +209,9 @@ public class Event {
 
     public void setEventMaximum(int eventMaximum) {
         this.eventMaximum = eventMaximum;
+    }
+
+    public int getLoginID() {
+        return loginID;
     }
 }

@@ -34,7 +34,7 @@
             <Glow />
          </effect>
       </Label>
-      <Button fx:id="btnAdminLogin" layoutX="262.0" layoutY="412.0" mnemonicParsing="false" onAction="#AdminLogIn" prefHeight="40.0" prefWidth="277.0" text="Admin Login">
+      <Button fx:id="btnAdminLogin" layoutX="262.0" layoutY="412.0" mnemonicParsing="false" onAction="#AdminLogin" prefHeight="40.0" prefWidth="277.0" text="Admin Login">
          <effect>
             <DropShadow />
          </effect>
@@ -42,7 +42,7 @@
             <Font size="19.0" />
          </font>
       </Button>
-      <Button fx:id="btnEventCoLogin" layoutX="262.0" layoutY="467.0" mnemonicParsing="false" onAction="#EventCoLogIn" prefHeight="40.0" prefWidth="277.0" text="Event Coordinator Login">
+      <Button fx:id="btnEventCoLogin" layoutX="262.0" layoutY="467.0" mnemonicParsing="false" onAction="#EventCoordinatorLogin" prefHeight="40.0" prefWidth="277.0" text="Event Coordinator Login">
          <effect>
             <DropShadow />
          </effect>

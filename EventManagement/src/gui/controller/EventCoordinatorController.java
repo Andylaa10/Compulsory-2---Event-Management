@@ -57,6 +57,8 @@ public class EventCoordinatorController implements Initializable, IController {
     @FXML
     public TableColumn tcEventMaximum;
     @FXML
+    public TableColumn tcLoginID;
+    @FXML
     private Button btnEditEvent;
     @FXML
     private TableColumn tcEventInfo;
@@ -73,7 +75,7 @@ public class EventCoordinatorController implements Initializable, IController {
     private Event selectedEvent;
     private EditEventController editEventController;
     private ViewEventController viewEventController;
-    private EventCoordinator eventCoordinator;
+    private EventCoordinator coordinator;
 
 
     public EventCoordinatorController() throws IOException {
@@ -84,7 +86,13 @@ public class EventCoordinatorController implements Initializable, IController {
 
     @Override
     public void setEventCoordinator(EventCoordinator eventCoordinator) {
-        this.eventCoordinator = eventCoordinator;
+        coordinator = eventCoordinator;
+        try {
+            allEvents = FXCollections.observableArrayList(eventModel.getEventsCoordinator(coordinator.getId()));
+            tableViewLoadEvents(allEvents);
+        } catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -104,12 +112,6 @@ public class EventCoordinatorController implements Initializable, IController {
         tcEventPrice.setCellValueFactory(new PropertyValueFactory<>("EventPrice"));
         tcEventMinimum.setCellValueFactory(new PropertyValueFactory<>("EventMinimum"));
         tcEventMaximum.setCellValueFactory(new PropertyValueFactory<>("EventMaximum"));
-        try {
-            allEvents = FXCollections.observableArrayList(eventModel.getEvents());
-            tableViewLoadEvents(allEvents);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
     @FXML
@@ -144,7 +146,7 @@ public class EventCoordinatorController implements Initializable, IController {
         stage.setOnHiding(event ->
         {
             try {
-                allEvents = FXCollections.observableList(eventModel.getEvents());
+                allEvents = FXCollections.observableList(eventModel.getEventsCoordinator(coordinator.getId()));
                 tableViewLoadEvents(allEvents);
             } catch (Exception e) {
                 e.printStackTrace();
@@ -174,7 +176,7 @@ public class EventCoordinatorController implements Initializable, IController {
             editEventStage.setOnHiding(event ->
             {
                 try {
-                    allEvents = FXCollections.observableList(eventModel.getEvents());
+                    allEvents = FXCollections.observableList(eventModel.getEventsCoordinator(coordinator.getId()));
                     tableViewLoadEvents(allEvents);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -206,7 +208,7 @@ public class EventCoordinatorController implements Initializable, IController {
           return;
       }
       try {
-          allEvents = FXCollections.observableList(eventModel.getEvents());
+          allEvents = FXCollections.observableList(eventModel.getEventsCoordinator(coordinator.getId()));
           tableViewLoadEvents(allEvents);
       } catch (Exception e) {
           e.printStackTrace();

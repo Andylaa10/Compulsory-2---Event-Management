@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@CSS/Main.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.EventCoordinatorController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@CSS/Main.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.EventCoordinatorController">
    <children>
       <ImageView fitHeight="600.0" fitWidth="800.0" opacity="0.41" pickOnBounds="true">
          <image>
@@ -35,6 +35,7 @@
             <TableColumn fx:id="tcEventTimeEnd" prefWidth="50.0" style="-fx-background-color: transparent;" text="End" />
             <TableColumn fx:id="tcEventLocation" prefWidth="125.0" style="-fx-background-color: transparent;" text="Location" />
             <TableColumn fx:id="tcEventInfo" maxWidth="184.00006103515625" prefWidth="185.0" style="-fx-background-color: transparent;" text="Info" />
+            <TableColumn fx:id="tcLoginID" maxWidth="184.00006103515625" prefWidth="185.0" style="-fx-background-color: transparent;" text="id" />
         </columns>
          <effect>
             <DropShadow />

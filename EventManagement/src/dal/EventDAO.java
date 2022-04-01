@@ -58,6 +58,43 @@ public class EventDAO {
     }
 
     /**
+     * Making an event list where a specific coordinator is assigned, connecting to the database and adding the results to our ArrayList.
+     * @return a list of events or an empty list of events
+     */
+    public List<Event> getEventsCoordinator(int loginID) {
+
+        ArrayList<Event> allEventsCoordinator = new ArrayList<>();
+
+        try (Connection connection = connector.getConnection()) {
+
+            String sql = "SELECT * FROM Event INNER JOIN CoordinatorOnEvent ON Event.EventID = CoordinatorOnEvent.eventId WHERE CoordinatorOnEvent.LoginId =?; ";
+
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, loginID);
+            ResultSet resultset = preparedStatement.executeQuery();
+            while (resultset.next()) {
+                int eventID = resultset.getInt("EventID");
+                String eventName = resultset.getString("EventName");
+                String eventDate = resultset.getString("EventDate");
+                String eventTime = resultset.getString("EventTime");
+                String eventTimeEnd = resultset.getString("EventTimeEnd");
+                String eventLocation = resultset.getString("EventLocation");
+                String eventInfo = resultset.getString("EventInfo");
+                String eventPrice = resultset.getString("EventPrice");
+                int eventMinimum = resultset.getInt("EventMinimum");
+                int eventMaximum = resultset.getInt("EventMaximum");
+                int loginId = resultset.getInt("LoginId");
+
+                Event event = new Event(eventID, eventName, eventDate, eventTime, eventTimeEnd, eventLocation, eventInfo, eventPrice, eventMinimum, eventMaximum, loginId);
+                allEventsCoordinator.add(event);
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return allEventsCoordinator;
+    }
+
+    /**
      * Create a ticket, by inserting a giving eventName, eventDate, eventTime, eventLocation, eventInfo and eventPrice
      * @param eventName
      * @param eventDate
@@ -152,11 +189,9 @@ public class EventDAO {
 
     public static void main(String[] args) throws IOException, SQLException {
         EventDAO eventDAO = new EventDAO();
-        eventDAO.createEvent("Test event", "22-03-2022", "13:30", "15.30", "EASV Sønderborg", "Dette er en test af eventDAO", "", 1, 30);
-        eventDAO.createEvent("event", "10-03-2022", "12:30","15.30", "EASV Danmark", "Dette er en test af eventDAO", "", 5, 20);
-        eventDAO.createEvent("Test", "02-12-2022", "13:30", "15.30", "EASV Esbjerg", "Dette er en test af eventDAO", "", 50, 500);
         List<Event> events = eventDAO.getEvents();
+        List<Event> events1 = eventDAO.getEventsCoordinator(3);
 
-        System.out.println(events);
+        System.out.println(events1);
     }
 }
