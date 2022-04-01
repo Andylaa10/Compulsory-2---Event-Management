@@ -49,13 +49,13 @@ public class EventCoordinatorController implements Initializable, IController {
     @FXML
     private TableColumn tcEventTime;
     @FXML
-    public TableColumn tcEventTimeEnd;
+    private TableColumn tcEventTimeEnd;
     @FXML
-    public TableColumn tcEventParticipants;
+    private TableColumn tcEventParticipants;
     @FXML
-    public TableColumn tcEventMinimum;
+    private TableColumn tcEventMinimum;
     @FXML
-    public TableColumn tcEventMaximum;
+    private TableColumn tcEventMaximum;
     @FXML
     private Button btnEditEvent;
     @FXML

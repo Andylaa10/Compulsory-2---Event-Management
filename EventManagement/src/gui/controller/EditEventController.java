@@ -32,9 +32,9 @@ public class EditEventController {
     @FXML
     private TextField txtFieldEventPrice;
     @FXML
-    public TextField txtFieldEventMinimum;
+    private TextField txtFieldEventMinimum;
     @FXML
-    public TextField txtFieldEventMaximum;
+    private TextField txtFieldEventMaximum;
 
     EventModel eventModel;
 
