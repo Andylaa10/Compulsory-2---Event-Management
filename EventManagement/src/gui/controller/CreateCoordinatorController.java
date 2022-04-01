@@ -52,7 +52,6 @@ public class CreateCoordinatorController implements Initializable {
 
     private ObservableList<EventCoordinator> allCoordinators = FXCollections.observableArrayList();
 
-
     private EventCoordinator selectedCoordinator;
     private AdminModel adminModel;
     private ErrorHandling errorHandling;

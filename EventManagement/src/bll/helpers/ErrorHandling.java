@@ -12,17 +12,16 @@ public class ErrorHandling {
 
     public void addCoordinatorError(){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("ERROR MESSAGE");
-        alert.setHeaderText("Username and password can not be empty");
-        alert.setContentText("To add coordinator, please enter information");
+        alert.setHeaderText("Username and password can't be empty");
+        alert.setContentText("To add a coordinator, please enter his login credentials");
         alert.showAndWait();
     }
 
     public void addCustomerError(){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("ERROR MESSAGE");
-        alert.setHeaderText("First name, last name, phone number and email can not be empty");
-        alert.setContentText("To add customer, please enter information");
+        alert.setHeaderText("First name, last name, phone number and e-mail can't be empty");
+        alert.setContentText("To add a customer, please enter his credentials");
         alert.showAndWait();
     }
+    
 }

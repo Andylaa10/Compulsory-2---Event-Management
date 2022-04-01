@@ -2,6 +2,7 @@ package gui.controller;
 
 import be.Event;
 import be.EventCoordinator;
+import bll.helpers.ErrorHandling;
 import gui.model.AdminModel;
 import gui.model.EventModel;
 import javafx.collections.FXCollections;
@@ -63,11 +64,14 @@ public class AddCoordinatorToEventController implements Initializable {
     private AdminModel adminModel = new AdminModel();
     private EventModel eventModel = new EventModel();
 
-    private EventCoordinator selectedCoordinator = new EventCoordinator();
-    private EventCoordinator selectedCoordinatorOnEvent = new EventCoordinator();
-    private Event selectedEvent = new Event();
+    private EventCoordinator selectedCoordinator;
+    private EventCoordinator selectedCoordinatorOnEvent;
+    private Event selectedEvent;
 
     public AddCoordinatorToEventController() throws SQLException, IOException {
+        this.selectedCoordinator = new EventCoordinator();
+        this.selectedCoordinatorOnEvent = new EventCoordinator();
+        this.selectedEvent = new Event();
     }
 
     public void handleBtnBack() throws IOException {
