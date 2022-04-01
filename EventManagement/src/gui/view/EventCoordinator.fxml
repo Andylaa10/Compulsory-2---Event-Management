@@ -73,15 +73,7 @@
             <DropShadow height="62.03" radius="17.9375" width="11.72" />
          </effect>
       </TextField>
-      <Button fx:id="btnHelp" layoutX="716.0" layoutY="555.0" mnemonicParsing="false" onAction="#onActionHelp" prefHeight="38.0" prefWidth="84.0" style="-fx-background-color: transparent;" text="HELP" underline="true">
-         <effect>
-            <DropShadow />
-         </effect>
-         <font>
-            <Font size="17.0" />
-         </font>
-      </Button>
-      <Button fx:id="btnLogOut" layoutX="632.0" layoutY="555.0" mnemonicParsing="false" onAction="#LogOutFromEventCoordinator" prefHeight="38.0" prefWidth="84.0" style="-fx-background-color: transparent;" text="Log Out" underline="true">
+      <Button fx:id="btnLogOut" layoutX="702.0" layoutY="542.0" mnemonicParsing="false" onAction="#LogOutFromEventCoordinator" prefHeight="38.0" prefWidth="84.0" style="-fx-background-color: transparent;" text="Log Out" underline="true">
          <effect>
             <DropShadow />
          </effect>
