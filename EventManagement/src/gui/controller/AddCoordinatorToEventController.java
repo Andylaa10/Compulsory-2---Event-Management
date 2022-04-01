@@ -134,10 +134,12 @@ public class AddCoordinatorToEventController implements Initializable {
 
     @FXML
     private void handleBtnDeleteSelectedFromEvent() {
-        if (selectedCoordinatorOnEvent != null) {
+        if (selectedEvent != null && selectedCoordinatorOnEvent != null) {
             try {
+                int index = tvCoordinatorOnEvent.getSelectionModel().getFocusedIndex();
                 adminModel.deleteFromEvent(selectedCoordinatorOnEvent.getId(), selectedEvent.getId());
                 reloadCoordinatorOnEvent();
+                tvCoordinatorOnEvent.getSelectionModel().select(index > 0 ? index - 1 : index);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -202,8 +204,9 @@ public class AddCoordinatorToEventController implements Initializable {
 
     private void selectedCoordinatorOnEvent(){
         this.tvCoordinatorOnEvent.getSelectionModel().selectedItemProperty().addListener(((observableValue, oldValue, newValue) -> {
+            this.selectedCoordinatorOnEvent = (EventCoordinator) newValue;
             if (selectedCoordinatorOnEvent != null) {
-                this.selectedCoordinatorOnEvent = (EventCoordinator) newValue;
+                this.tvEvents.getSelectionModel().clearSelection();
             }
         }));
     }
@@ -213,6 +216,7 @@ public class AddCoordinatorToEventController implements Initializable {
             if ((Event) newValue != null) {
                 this.selectedEvent = (Event) newValue;
                 seeCoordinatorsOnEvent();
+                reloadCoordinatorOnEvent();
             }
         }));
     }
