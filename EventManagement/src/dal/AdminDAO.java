@@ -178,12 +178,12 @@ public class AdminDAO {
      * @param eventId
      * Adds a selected coordinator to an event
      */
-    public void addCoordinatorToEvent(int loginId, int eventId){
-        String sql = "INSERT INTO CoordinatorOnEvent (LoginId, EventId) VALUES (?,?);";
+    public void addCoordinatorToEvent(int eventId, int loginId){
+        String sql = "INSERT INTO CoordinatorOnEvent (EventId, LoginId) VALUES (?,?);";
         try (Connection con = connector.getConnection();
              PreparedStatement st = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
-            st.setInt(1, loginId);
-            st.setInt(2, eventId);
+            st.setInt(1, eventId);
+            st.setInt(2, loginId);
             st.executeUpdate();
         } catch (SQLException exception) {
             exception.printStackTrace();
@@ -220,15 +220,14 @@ public class AdminDAO {
             String sql = "SELECT * FROM Login INNER JOIN CoordinatorOnEvent ON CoordinatorOnEvent.LoginId = Login.LoginID WHERE CoordinatorOnEvent.eventId = ?;";
             PreparedStatement st = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             st.setInt(1, eventId);
-            ResultSet rs = st.executeQuery();
-            if (rs.next()){
+            st.execute();
+            ResultSet rs = st.getResultSet();
+            while (rs.next()){
                 int id = rs.getInt("LoginID");
                 String username = rs.getString("username");
                 String password = rs.getString("password");
                 boolean isAdmin = rs.getBoolean("IsAdmin");
-                if (!isAdmin){
-                    allCoordinatorOnEvent.add(new EventCoordinator(id, username, password, isAdmin));
-                }
+                allCoordinatorOnEvent.add(new EventCoordinator(id, username, password, isAdmin));
             }
         } catch (SQLException sqlException) {
             sqlException.printStackTrace();

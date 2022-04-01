@@ -113,7 +113,7 @@ public class AddCoordinatorToEventController implements Initializable {
     public void seeCoordinatorsOnEvent() {
         tcCoordinatorOnEvent.setCellValueFactory(new PropertyValueFactory<>("username"));
         try {
-            allCoordinatorOnEvent = FXCollections.observableList(adminModel.getCoordinatorsOnEvent(selectedCoordinatorOnEvent.getId()));
+            allCoordinatorOnEvent = FXCollections.observableList(adminModel.getCoordinatorsOnEvent(selectedEvent.getId()));
             tableViewLoadCoordinatorOnEvent(allCoordinatorOnEvent);
         } catch (Exception e) {
             e.printStackTrace();
@@ -124,7 +124,7 @@ public class AddCoordinatorToEventController implements Initializable {
     private void handleBtnAddSelectedToEvent() {
         if (selectedCoordinator != null) {
             try {
-                adminModel.addCoordinatorToEvent(selectedCoordinator.getId(), selectedEvent.getId());
+                adminModel.addCoordinatorToEvent(selectedEvent.getId(), selectedCoordinator.getId());
                 reloadCoordinatorOnEvent();
             } catch (Exception e) {
                 e.printStackTrace();
@@ -194,7 +194,7 @@ public class AddCoordinatorToEventController implements Initializable {
         return allCoordinatorOnEvent;
     }
 
-    private void selectedCoordinator(){
+    private void selectedCoordinator() {
         this.tvCoordinators.getSelectionModel().selectedItemProperty().addListener(((observableValue, oldValue, newValue) -> {
             if ((EventCoordinator) newValue != null) {
                 this.selectedCoordinator = (EventCoordinator) newValue;
@@ -206,7 +206,7 @@ public class AddCoordinatorToEventController implements Initializable {
         this.tvCoordinatorOnEvent.getSelectionModel().selectedItemProperty().addListener(((observableValue, oldValue, newValue) -> {
             this.selectedCoordinatorOnEvent = (EventCoordinator) newValue;
             if (selectedCoordinatorOnEvent != null) {
-                this.tvEvents.getSelectionModel().clearSelection();
+                this.tvCoordinators.getSelectionModel().clearSelection();
             }
         }));
     }
@@ -216,7 +216,6 @@ public class AddCoordinatorToEventController implements Initializable {
             if ((Event) newValue != null) {
                 this.selectedEvent = (Event) newValue;
                 seeCoordinatorsOnEvent();
-                reloadCoordinatorOnEvent();
             }
         }));
     }
@@ -232,5 +231,19 @@ public class AddCoordinatorToEventController implements Initializable {
         } catch (Exception exception) {
             exception.printStackTrace();
         }
+    }
+
+    /**
+     * Reloads the event table to reflect changes
+     */
+    public void reloadEventTable() {
+        try {
+            int index = tvEvents.getSelectionModel().getFocusedIndex();
+            this.tvEvents.setItems(FXCollections.observableList(eventModel.getEvents()));
+            tvEvents.getSelectionModel().select(index);
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
+
     }
 }

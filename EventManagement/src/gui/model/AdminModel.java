@@ -93,8 +93,8 @@ public class AdminModel {
      * @param loginId
      * @param eventId
      */
-    public void addCoordinatorToEvent(int loginId, int eventId){
-        adminManager.addCoordinatorToEvent(loginId, eventId);
+    public void addCoordinatorToEvent(int eventId, int loginId){
+        adminManager.addCoordinatorToEvent(eventId, loginId);
     }
 
     /**

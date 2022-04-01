@@ -89,8 +89,8 @@ public class AdminManager {
      * @param loginId
      * @param eventId
      */
-    public void addCoordinatorToEvent(int loginId, int eventId){
-        adminDAO.addCoordinatorToEvent(loginId, eventId);
+    public void addCoordinatorToEvent(int eventId, int loginId){
+        adminDAO.addCoordinatorToEvent(eventId, loginId);
     }
 
     /**
