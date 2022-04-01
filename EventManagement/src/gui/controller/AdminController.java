@@ -37,18 +37,6 @@ public class AdminController{
         switcher.setScene(scene);
     }
 
-    /**
-     * This helps you, if you cannot remember or have problems with login
-     */
-    @FXML
-    private void help() {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Please contact the administration");
-        alert.setHeaderText("Please contact the administration");
-        alert.setContentText("Contact the administration for help");
-        alert.showAndWait();
-    }
-
     @FXML
     private void handleBtnCreateCustomer() throws IOException {
         Stage switcher = (Stage) btnCreateCustomer.getScene().getWindow();

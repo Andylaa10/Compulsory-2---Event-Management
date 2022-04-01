@@ -10,7 +10,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="500.0" prefWidth="1150.0" stylesheets="@CSS/Main.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.ViewEventController">
+<AnchorPane prefHeight="500.0" prefWidth="1150.0" stylesheets="@CSS/Main.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.ViewEventController">
    <children>
       <ImageView fitHeight="500.0" fitWidth="575.0" opacity="0.41" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0">
          <image>
@@ -68,5 +68,10 @@
          </effect>
       </Button>
       <TextField fx:id="txtFieldEventID" layoutX="20.0" layoutY="449.0" prefHeight="25.0" prefWidth="143.0" visible="false" />
+      <Button fx:id="btnSeeTicket" layoutX="26.0" layoutY="448.0" mnemonicParsing="false" onAction="#onActionSeeTicket" prefHeight="27.0" prefWidth="192.0" text="See Ticket">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Button>
    </children>
 </AnchorPane>

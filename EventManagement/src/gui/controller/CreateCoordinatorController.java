@@ -1,6 +1,6 @@
 package gui.controller;
 
-import be.ErrorHandling;
+import bll.helpers.ErrorHandling;
 import be.EventCoordinator;
 import gui.model.AdminModel;
 import javafx.collections.FXCollections;
@@ -51,7 +51,6 @@ public class CreateCoordinatorController implements Initializable {
     private TextField textFieldIsAdmin;
 
     private ObservableList<EventCoordinator> allCoordinators = FXCollections.observableArrayList();
-
 
     private EventCoordinator selectedCoordinator;
     private AdminModel adminModel;

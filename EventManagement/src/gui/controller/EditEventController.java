@@ -32,9 +32,9 @@ public class EditEventController {
     @FXML
     private TextField txtFieldEventPrice;
     @FXML
-    public TextField txtFieldEventMinimum;
+    private TextField txtFieldEventMinimum;
     @FXML
-    public TextField txtFieldEventMaximum;
+    private TextField txtFieldEventMaximum;
 
     EventModel eventModel;
 
@@ -73,6 +73,8 @@ public class EditEventController {
         txtFieldEventLocation.setText(event.getEventLocation());
         txtFieldEventInfo.setText(event.getEventInfo());
         txtFieldEventPrice.setText(event.getEventPrice());
+        txtFieldEventMinimum.setText(event.getEventMinimum());
+        txtFieldEventMaximum.setText(event.getEventMaximum());
     }
 
     @FXML
