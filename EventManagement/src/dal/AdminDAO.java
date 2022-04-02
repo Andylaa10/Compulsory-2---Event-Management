@@ -10,10 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AdminDAO {
-    private final DatabaseConnector connector;
+    private final DatabaseConnector connector = DatabaseConnector.getInstance();
 
     public AdminDAO() throws IOException {
-        connector = new DatabaseConnector();
     }
 
     /**
@@ -28,19 +27,16 @@ public class AdminDAO {
 
             String sql = "SELECT * FROM Login WHERE IsAdmin = 1;";
 
-            Statement statement = connection.createStatement();
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            ResultSet resultset = preparedStatement.executeQuery();
+            while (resultset.next()) {
+                int loginID = resultset.getInt("LoginID");
+                String username = resultset.getString("username");
+                String password = resultset.getString("password");
+                boolean isAdmin = resultset.getBoolean("isAdmin");
 
-            if (statement.execute(sql)) {
-                ResultSet resultset = statement.getResultSet();
-                while (resultset.next()) {
-                    int loginID = resultset.getInt("LoginID");
-                    String username = resultset.getString("username");
-                    String password = resultset.getString("password");
-                    boolean isAdmin = resultset.getBoolean("isAdmin");
-
-                    Admin admin = new Admin(loginID, username, password, isAdmin);
-                    allAdmins.add(admin);
-                }
+                Admin admin = new Admin(loginID, username, password, isAdmin);
+                allAdmins.add(admin);
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -81,20 +77,16 @@ public class AdminDAO {
 
             String sql = "SELECT * FROM Login WHERE IsAdmin =0;";
 
-            Statement statement = connection.createStatement();
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            ResultSet resultset = preparedStatement.executeQuery();
+            while (resultset.next()) {
+                int loginID = resultset.getInt("LoginID");
+                String username = resultset.getString("username");
+                String password = resultset.getString("password");
+                boolean isAdmin = resultset.getBoolean("isAdmin");
 
-            if (statement.execute(sql)) {
-                ResultSet resultset = statement.getResultSet();
-                while (resultset.next()) {
-                    int loginID = resultset.getInt("LoginID");
-                    String username = resultset.getString("username");
-                    String password = resultset.getString("password");
-                    boolean isAdmin = resultset.getBoolean("isAdmin");
-
-
-                    EventCoordinator coordinator = new EventCoordinator(loginID, username, password, isAdmin);
-                    allCoordinators.add(coordinator);
-                }
+                EventCoordinator coordinator = new EventCoordinator(loginID, username, password, isAdmin);
+                allCoordinators.add(coordinator);
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();

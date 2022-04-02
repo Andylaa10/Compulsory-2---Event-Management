@@ -10,12 +10,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EventDAO {
-    private final DatabaseConnector connector;
+    private final DatabaseConnector connector = DatabaseConnector.getInstance();
 
     private ErrorHandling errorHandling;
 
     public EventDAO() throws IOException {
-        connector = new DatabaseConnector();
         errorHandling = new ErrorHandling();
     }
     /**
@@ -30,26 +29,23 @@ public class EventDAO {
 
             String sql = "SELECT * FROM Event;";
 
-            Statement statement = connection.createStatement();
-
-            if (statement.execute(sql)) {
-                ResultSet resultset = statement.getResultSet();
-                while (resultset.next()) {
-                    int eventID = resultset.getInt("EventID");
-                    String eventName = resultset.getString("EventName");
-                    String eventDate = resultset.getString("EventDate");
-                    String eventTime = resultset.getString("EventTime");
-                    String eventTimeEnd = resultset.getString("EventTimeEnd");
-                    String eventLocation = resultset.getString("EventLocation");
-                    String eventInfo = resultset.getString("EventInfo");
-                    String eventPrice = resultset.getString("EventPrice");
-                    int eventMinimum = resultset.getInt("EventMinimum");
-                    int eventMaximum = resultset.getInt("EventMaximum");
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            ResultSet resultset = preparedStatement.executeQuery();
+            while (resultset.next()) {
+                int eventID = resultset.getInt("EventID");
+                String eventName = resultset.getString("EventName");
+                String eventDate = resultset.getString("EventDate");
+                String eventTime = resultset.getString("EventTime");
+                String eventTimeEnd = resultset.getString("EventTimeEnd");
+                String eventLocation = resultset.getString("EventLocation");
+                String eventInfo = resultset.getString("EventInfo");
+                String eventPrice = resultset.getString("EventPrice");
+                int eventMinimum = resultset.getInt("EventMinimum");
+                int eventMaximum = resultset.getInt("EventMaximum");
 
 
-                    Event event = new Event(eventID, eventName, eventDate, eventTime, eventTimeEnd, eventLocation, eventInfo, eventPrice, eventMinimum, eventMaximum);
-                    allEvents.add(event);
-                }
+                Event event = new Event(eventID, eventName, eventDate, eventTime, eventTimeEnd, eventLocation, eventInfo, eventPrice, eventMinimum, eventMaximum);
+                allEvents.add(event);
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();

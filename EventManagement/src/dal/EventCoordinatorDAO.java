@@ -11,10 +11,9 @@ import java.util.List;
 
 public class EventCoordinatorDAO {
 
-    private final DatabaseConnector connector;
+    private final DatabaseConnector connector = DatabaseConnector.getInstance();
 
     public EventCoordinatorDAO() throws IOException {
-        connector = new DatabaseConnector();
     }
 
 

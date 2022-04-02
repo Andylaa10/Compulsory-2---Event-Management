@@ -11,6 +11,8 @@ import java.util.Properties;
 
 public class DatabaseConnector {
 
+    private static DatabaseConnector instance = null;
+
     private final SQLServerDataSource dataSource;
 
     private static final String PROP_FILE = "EventManagement/config.properties";
@@ -38,12 +40,24 @@ public class DatabaseConnector {
         return dataSource.getConnection();
     }
 
+    /**
+     * Singleton
+     * @return DatabaseConnector called instance
+     */
+    public static DatabaseConnector getInstance() throws IOException {
+        if (instance == null)
+            instance = new DatabaseConnector();
+
+        return instance;
+    }
+
     //Check if there is a connection
     public static void main(String[] args) throws SQLException, IOException {
-        DatabaseConnector databaseConnector = new DatabaseConnector();
+        DatabaseConnector databaseConnector = DatabaseConnector.getInstance();
 
         try (Connection connection = databaseConnector.getConnection()) {
             System.out.println("Is it open? " + !connection.isClosed());
         }
     }
+
 }

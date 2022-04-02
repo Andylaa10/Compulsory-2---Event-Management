@@ -9,10 +9,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CustomerDAO {
-    private final DatabaseConnector connector;
+    private final DatabaseConnector connector = DatabaseConnector.getInstance();
 
     public CustomerDAO() throws IOException {
-        connector = new DatabaseConnector();
+
     }
 
     /**
@@ -28,22 +28,20 @@ public class CustomerDAO {
 
             String sql = "SELECT * FROM Customer;";
 
-            Statement statement = connection.createStatement();
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            ResultSet resultset = preparedStatement.executeQuery();
+            while (resultset.next()) {
+                int customerID = resultset.getInt("CustomerID");
+                String firstName = resultset.getString("Fname");
+                String lastName = resultset.getString("Lname");
+                String phoneNumber = resultset.getString("PhoneNumber");
+                String email = resultset.getString("Email");
+                String study = resultset.getString("Study");
+                String note = resultset.getString("Note");
 
-            if (statement.execute(sql)) {
-                ResultSet resultset = statement.getResultSet();
-                while (resultset.next()) {
-                    int customerID = resultset.getInt("CustomerID");
-                    String firstName = resultset.getString("Fname");
-                    String lastName = resultset.getString("Lname");
-                    String phoneNumber = resultset.getString("PhoneNumber");
-                    String email = resultset.getString("Email");
-                    String study = resultset.getString("Study");
-                    String note = resultset.getString("Note");
+                Customer customer = new Customer(customerID, firstName, lastName, phoneNumber, email, study, note);
+                allCustomers.add(customer);
 
-                    Customer customer = new Customer(customerID, firstName, lastName, phoneNumber, email, study, note);
-                    allCustomers.add(customer);
-                }
             }
         } catch (SQLServerException throwables) {
             throwables.printStackTrace();

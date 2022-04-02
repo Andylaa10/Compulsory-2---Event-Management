@@ -11,7 +11,6 @@ public class Event {
     private String eventPrice;
     private int eventMinimum;
     private int eventMaximum;
-    private EventCoordinator coordinator;
     private int loginID;
 
     /**

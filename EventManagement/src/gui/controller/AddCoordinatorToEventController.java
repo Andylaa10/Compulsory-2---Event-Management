@@ -2,7 +2,6 @@ package gui.controller;
 
 import be.Event;
 import be.EventCoordinator;
-import bll.helpers.ErrorHandling;
 import gui.model.AdminModel;
 import gui.model.EventModel;
 import javafx.collections.FXCollections;

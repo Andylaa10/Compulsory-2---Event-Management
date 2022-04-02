@@ -9,10 +9,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TicketDAO {
-    private final DatabaseConnector connector;
+    private final DatabaseConnector connector = DatabaseConnector.getInstance();
 
     public TicketDAO() throws IOException {
-        connector = new DatabaseConnector();
     }
 
     /**
@@ -27,20 +26,19 @@ public class TicketDAO {
 
             String sql = "SELECT * FROM Ticket;";
 
-            Statement statement = connection.createStatement();
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            ResultSet resultset = preparedStatement.executeQuery();
+            while (resultset.next()) {
+                int ticketID = resultset.getInt("TicketID");
+                String ticketType = resultset.getString("TicketType");
+                String ticketPicture = resultset.getString("TicketPicture");
+                int eventID = resultset.getInt("EventId");
+                int customerID = resultset.getInt("CustomerId");
 
-            if (statement.execute(sql)) {
-                ResultSet resultset = statement.getResultSet();
-                while (resultset.next()) {
-                    int ticketID = resultset.getInt("TicketID");
-                    String ticketType = resultset.getString("TicketType");
-                    String ticketPicture = resultset.getString("TicketPicture");
-                    int eventID = resultset.getInt("EventId");
-                    int customerID = resultset.getInt("CustomerId");
+                Ticket ticket = new Ticket(ticketID, ticketType, ticketPicture, eventID, customerID);
+                allTickets.add(ticket);
 
-                    Ticket ticket = new Ticket(ticketID, ticketType, ticketPicture, eventID, customerID);
-                    allTickets.add(ticket);
-                }
+
             }
         } catch (SQLServerException throwables) {
             throwables.printStackTrace();
