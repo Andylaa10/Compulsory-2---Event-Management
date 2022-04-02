@@ -11,7 +11,7 @@
 <AnchorPane prefHeight="250.0" prefWidth="682.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.TicketController">
 <AnchorPane prefHeight="200.0" prefWidth="682.0" style="-fx-background-color: rgb(25, 50, 65)rgb(25, 50, 65);" stylesheets="@CSS/Login.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Text fill="WHITE" layoutX="14.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Title: FESTIVAL TICKET" underline="true">
+      <Text fx:id="ticketTitle" fill="WHITE" layoutX="14.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Title: FESTIVAL TICKET" underline="true">
          <font>
             <Font size="32.0" />
          </font>
