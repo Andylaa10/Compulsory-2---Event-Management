@@ -217,6 +217,6 @@ public class ViewEventController implements Initializable {
         stage.setScene(scene);
         stage.show();
         TicketController tc = fxmlLoader.getController();
-        tc.setEventData(passedEvent, );
+        tc.setEventData(passedEvent, selectedCustomerOnEvent );
     }
 }

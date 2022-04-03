@@ -21,7 +21,7 @@
             <Font size="25.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="14.0" layoutY="174.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Deltagernavn her_____________" underline="true">
+      <Text fx:id="ticketFullName" fill="WHITE" layoutX="14.0" layoutY="174.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Deltagernavn her_____________" underline="true">
          <font>
             <Font size="25.0" />
          </font>
