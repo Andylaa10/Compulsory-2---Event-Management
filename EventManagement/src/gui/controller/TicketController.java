@@ -1,5 +1,6 @@
 package gui.controller;
 
+import be.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.text.Text;
@@ -13,5 +14,9 @@ public class TicketController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+    }
+
+    public void setEventData(Event ev){
+        ticketTitle.setText("Title: " + ev.getEventName());
     }
 }

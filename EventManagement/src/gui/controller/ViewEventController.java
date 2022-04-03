@@ -71,6 +71,7 @@ public class ViewEventController implements Initializable {
     private Customer selectedCustomer;
     private Customer selectedCustomerOnEvent;
     private ErrorHandling errorHandling;
+    private Event passedEvent;
 
     public ViewEventController() throws IOException, SQLException {
         this.eventCoordinatorModel = new EventCoordinatorModel();
@@ -139,6 +140,7 @@ public class ViewEventController implements Initializable {
     }
 
     public void setSelectedEvent(Event event) {
+        passedEvent = event;
         txtFieldEventID.setText(String.valueOf(event.getId()));
         try {
             allCustomersOnEvent = FXCollections.observableList(eventCoordinatorModel.getCustomersOnEvent(Integer.parseInt(txtFieldEventID.getText())));
@@ -206,10 +208,15 @@ public class ViewEventController implements Initializable {
     }
 
     public void onActionSeeTicket(ActionEvent actionEvent) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/gui/view/TicketView.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource("/gui/view/TicketView.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        //Parent root = FXMLLoader.load(getClass().getResource("/gui/view/TicketView.fxml"));
         Stage stage = new Stage();
         stage.setTitle("Ticket");
-        stage.setScene(new Scene(root));
+        stage.setScene(scene);
         stage.show();
+        TicketController tc = fxmlLoader.getController();
+        tc.setEventData(passedEvent, );
     }
 }
