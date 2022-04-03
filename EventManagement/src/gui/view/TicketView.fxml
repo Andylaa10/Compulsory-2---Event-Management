@@ -16,7 +16,7 @@
             <Font size="32.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="13.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Location: NATIONAL STADIUM" underline="true">
+      <Text fx:id="ticketLocation" fill="WHITE" layoutX="13.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Location: NATIONAL STADIUM" underline="true">
          <font>
             <Font size="25.0" />
          </font>

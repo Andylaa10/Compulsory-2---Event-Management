@@ -15,6 +15,9 @@ public class TicketController implements Initializable {
     @FXML
     private Text ticketFullName;
 
+    @FXML
+    private Text ticketLocation;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -22,6 +25,7 @@ public class TicketController implements Initializable {
 
     public void setEventData(Event ev, Customer selectedCustomerOnEvent){
         ticketTitle.setText("Title: " + ev.getEventName());
-        ticketFullName.setText("Fuld navn: " + selectedCustomerOnEvent.getFirstName());
+        ticketFullName.setText("Navn: " + selectedCustomerOnEvent.getFirstName() + " " + selectedCustomerOnEvent.getLastName());
+        ticketLocation.setText("Location " + ev.getEventLocation());
     }
 }
