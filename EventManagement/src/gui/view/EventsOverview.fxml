@@ -64,12 +64,7 @@
             <DropShadow />
          </effect>
       </Button>
-      <Label layoutX="488.0" layoutY="86.0" text="Search" textFill="WHITE">
-         <font>
-            <Font size="19.0" />
-         </font>
-      </Label>
-      <TextField fx:id="tfFieldSearch" layoutX="550.0" layoutY="86.0" prefHeight="27.0" prefWidth="188.0" style="-fx-background-color: transparent; -fx-border-color: white;">
+      <TextField fx:id="tfFieldSearch" layoutX="550.0" layoutY="86.0" prefHeight="25.0" prefWidth="188.0" style="-fx-background-color: transparent; -fx-border-color: white;">
          <effect>
             <DropShadow height="62.03" radius="17.9375" width="11.72" />
          </effect>
@@ -87,7 +82,12 @@
             <DropShadow />
          </effect>
       </Button>
-      <Button fx:id="btnSearchEvents" layoutX="741.0" layoutY="86.0" mnemonicParsing="false" onAction="#onActionSearchEvents" prefHeight="28.0" prefWidth="34.0" style="-fx-background-color: transparent;" text="🔍">
+      <Button fx:id="btnSearchEvents" layoutX="744.0" layoutY="87.0" mnemonicParsing="false" onAction="#onActionSearchEvents" prefHeight="25.0" prefWidth="30.0" text="🔍">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Button>
+      <Button fx:id="btnCustomers" layoutX="16.0" layoutY="87.0" mnemonicParsing="false" onAction="#onActionOpenCustomers" prefHeight="25.0" prefWidth="137.0" text="Customers">
          <effect>
             <DropShadow />
          </effect>

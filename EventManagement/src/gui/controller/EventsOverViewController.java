@@ -24,6 +24,8 @@ import java.util.ResourceBundle;
 public class EventsOverViewController implements Initializable, IController {
 
     @FXML
+    private Button btnCustomers;
+    @FXML
     private Button btnSearchEvents;
     @FXML
     private Button btnAddEvent;
@@ -102,7 +104,6 @@ public class EventsOverViewController implements Initializable, IController {
     public void initialize(URL location, ResourceBundle resources) {
         selectedEvent();
         initializeTable();
-
     }
 
     public void initializeTable(){
@@ -137,6 +138,15 @@ public class EventsOverViewController implements Initializable, IController {
 
     private ObservableList<Event> getEventData() {
         return allEvents;
+    }
+
+    @FXML
+    private void onActionOpenCustomers() throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/gui/view/CreateCustomer.fxml"));
+        Stage stage = new Stage();
+        stage.setTitle("Manage Customers");
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 
     @FXML
@@ -286,5 +296,4 @@ public class EventsOverViewController implements Initializable, IController {
     private ObservableList<Event> getSearchData() {
         return searchData;
     }
-
 }

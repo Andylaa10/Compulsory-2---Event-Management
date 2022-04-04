@@ -73,7 +73,8 @@ public class AddCoordinatorToEventController implements Initializable {
         this.selectedEvent = new Event();
     }
 
-    public void handleBtnBack() throws IOException {
+    @FXML
+    private void handleBtnBack() throws IOException {
         Stage stage = (Stage) btnBack.getScene().getWindow();
         stage.close();
     }

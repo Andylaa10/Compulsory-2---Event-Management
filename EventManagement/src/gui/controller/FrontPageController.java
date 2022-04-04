@@ -81,7 +81,7 @@ public class FrontPageController implements Initializable {
         String password = txtPasswordField.getText();
         EventCoordinator eventCoordinator = eventCoordinatorModel.login(username, password);
         if (eventCoordinator != null){
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/view/EventsOverview.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/view/EventsOverView.fxml"));
             Scene scene = new Scene(loader.load());
             Stage switcher = (Stage) btnEventCoLogin.getScene().getWindow();
             switcher.setScene(scene);
