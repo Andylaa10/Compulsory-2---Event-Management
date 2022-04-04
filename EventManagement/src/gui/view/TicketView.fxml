@@ -31,19 +31,19 @@
             <Image url="@img/stregkode.jpeg" />
          </image></ImageView>
       <Label layoutX="134.0" layoutY="133.0" />
-      <Text fill="WHITE" layoutX="13.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date and time: 10 JULI 2021 21:45" underline="true" wrappingWidth="377.54144287109375">
+      <Text fx:id="ticketTime" fill="WHITE" layoutX="13.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date and time: 10 JULI 2021 21:45" underline="true" wrappingWidth="377.54144287109375">
          <font>
             <Font size="25.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="502.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TICKET ID: " underline="true">
+      <Text fx:id="ticketID" fill="WHITE" layoutX="502.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TICKET ID: " underline="true">
          <font>
             <Font size="32.0" />
          </font>
       </Text>
    </children>
 </AnchorPane>
-   <Button layoutX="449.0" layoutY="207.0" mnemonicParsing="false" text="Close">
+   <Button fx:id="btnClose" layoutX="449.0" layoutY="207.0" mnemonicParsing="false" onAction="#onActionCloseTicket" text="Close">
       <font>
          <Font size="17.0" />
       </font>
