@@ -131,7 +131,7 @@ public class CreateCustomerController implements Initializable {
 
             customerModel.createCustomer(customerFirstName, customerLastName, customerPhoneNumber, customerEmail, customerStudy, customerNote);
             reloadCustomerTable();
-        }else {
+        } else {
             errorHandling.addCustomerError();
         }
 

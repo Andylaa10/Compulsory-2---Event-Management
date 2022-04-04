@@ -1,5 +1,6 @@
 package gui.controller;
 
+import be.Customer;
 import be.Event;
 import be.EventCoordinator;
 import bll.helpers.ErrorHandling;
@@ -54,9 +55,9 @@ public class EventsOverViewController implements Initializable, IController {
     @FXML
     private TableColumn tcEventTimeEnd;
     @FXML
-    private TableColumn tcEventParticipants;
-    @FXML
     private TableColumn tcEventMinimum;
+    @FXML
+    private TableColumn<Customer, Integer> tcEventCurrentParticipants;
     @FXML
     private TableColumn tcEventMaximum;
     @FXML
@@ -70,6 +71,8 @@ public class EventsOverViewController implements Initializable, IController {
 
     private ObservableList<Event> allEvents = FXCollections.observableArrayList();
     private ObservableList<Event> searchData = FXCollections.observableArrayList();
+
+
 
     private boolean hasSearched = true;
 
@@ -116,7 +119,10 @@ public class EventsOverViewController implements Initializable, IController {
         tcEventPrice.setCellValueFactory(new PropertyValueFactory<>("EventPrice"));
         tcEventMinimum.setCellValueFactory(new PropertyValueFactory<>("EventMinimum"));
         tcEventMaximum.setCellValueFactory(new PropertyValueFactory<>("EventMaximum"));
+        tcEventCurrentParticipants.setCellValueFactory(new PropertyValueFactory<>("CurrentCustomersOnEvent"));
     }
+
+
 
     @FXML
     private void LogOutFromEventCoordinator() throws IOException {

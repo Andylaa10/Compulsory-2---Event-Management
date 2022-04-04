@@ -26,6 +26,7 @@
             <TableColumn fx:id="tcEventParticipants" prefWidth="82.39994812011719" style="-fx-background-color: transparent;" text="Participants">
                <columns>
                   <TableColumn fx:id="tcEventMinimum" prefWidth="32.79998779296875" style="-fx-background-color: transparent;" text="Min" />
+                  <TableColumn fx:id="tcEventCurrentParticipants" prefWidth="75.0" text="Current" />
                   <TableColumn fx:id="tcEventMaximum" prefWidth="40.79997253417969" style="-fx-background-color: transparent;" text="Max" />
                </columns>
             </TableColumn>
@@ -64,7 +65,7 @@
             <DropShadow />
          </effect>
       </Button>
-      <TextField fx:id="tfFieldSearch" layoutX="550.0" layoutY="86.0" prefHeight="25.0" prefWidth="188.0" style="-fx-background-color: transparent; -fx-border-color: white;">
+      <TextField fx:id="tfFieldSearch" layoutX="550.0" layoutY="86.0" prefHeight="25.0" prefWidth="188.0" promptText="Search.." style="-fx-background-color: transparent; -fx-border-color: white;">
          <effect>
             <DropShadow height="62.03" radius="17.9375" width="11.72" />
          </effect>
