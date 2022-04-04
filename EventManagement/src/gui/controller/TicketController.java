@@ -32,6 +32,9 @@ public class TicketController implements Initializable {
     @FXML
     private Button btnClose;
 
+    @FXML
+    private Button PrintTicketOut;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -51,4 +54,7 @@ public class TicketController implements Initializable {
         stage.close();
     }
 
+    public void PrintTicket(ActionEvent actionEvent) {
+        System.out.println("works");
+    }
 }
