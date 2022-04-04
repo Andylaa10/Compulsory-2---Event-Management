@@ -5,6 +5,7 @@ import be.Event;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -45,7 +46,7 @@ public class TicketController implements Initializable {
     }
 
     @FXML
-    private void onActionCloseTicket(ActionEvent actionEvent) {
+    private void onActionCloseWindow() {
         Stage stage = (Stage) btnClose.getScene().getWindow();
         stage.close();
     }
