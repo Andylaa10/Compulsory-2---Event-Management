@@ -86,7 +86,7 @@ public class ViewEventController implements Initializable {
         selectedCustomer();
         selectedCustomerOnEvent();
     }
-
+    
     private void initializeTable() {
         tcCustomerIDOnEvent.setCellValueFactory(new PropertyValueFactory<>("id"));
         tcFirstNameOnEvent.setCellValueFactory(new PropertyValueFactory<>("firstName"));
