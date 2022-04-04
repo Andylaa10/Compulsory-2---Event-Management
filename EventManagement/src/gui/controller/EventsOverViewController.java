@@ -4,6 +4,7 @@ import be.Customer;
 import be.Event;
 import be.EventCoordinator;
 import bll.helpers.ErrorHandling;
+import gui.model.AdminModel;
 import gui.model.EventCoordinatorModel;
 import gui.model.EventModel;
 import javafx.collections.FXCollections;
@@ -19,6 +20,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
+import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -68,9 +71,12 @@ public class EventsOverViewController implements Initializable, IController {
     private TableColumn tcEventInfo;
     @FXML
     private TableColumn tcEventPrice;
+    @FXML
+    private ComboBox<String> eventCombo;
 
     private ObservableList<Event> allEvents = FXCollections.observableArrayList();
     private ObservableList<Event> searchData = FXCollections.observableArrayList();
+    private ObservableList<Event> options = FXCollections.observableArrayList();
 
 
 
@@ -85,11 +91,21 @@ public class EventsOverViewController implements Initializable, IController {
     private ErrorHandling errorHandling;
 
 
-    public EventsOverViewController() throws IOException {
+    public EventsOverViewController() throws IOException, SQLException {
         this.eventCoordinatorModel = new EventCoordinatorModel();
         this.eventModel = new EventModel();
         this.editEventController = new EditEventController();
         this.errorHandling = new ErrorHandling();
+    }
+
+    public void handleEventCombo(){
+        if (eventCombo.getSelectionModel().isSelected(0)){
+            allEvents = FXCollections.observableArrayList(eventModel.getEventsCoordinator(coordinator.getId()));
+            tableViewLoadEvents(allEvents);
+        } else if (eventCombo.getSelectionModel().isSelected(1)){
+            allEvents = FXCollections.observableArrayList(eventModel.getEvents());
+            tableViewLoadEvents(allEvents);
+        }
     }
 
     @Override
@@ -98,6 +114,8 @@ public class EventsOverViewController implements Initializable, IController {
         try {
             allEvents = FXCollections.observableArrayList(eventModel.getEventsCoordinator(coordinator.getId()));
             tableViewLoadEvents(allEvents);
+            eventCombo.getItems().add("Assigned Events");
+            eventCombo.getItems().add("All Events");
         } catch (Exception e){
             e.printStackTrace();
         }
@@ -302,4 +320,5 @@ public class EventsOverViewController implements Initializable, IController {
     private ObservableList<Event> getSearchData() {
         return searchData;
     }
+
 }
