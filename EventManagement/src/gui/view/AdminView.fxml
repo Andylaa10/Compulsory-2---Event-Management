@@ -39,7 +39,7 @@
                   <Font size="19.0" />
                </font>
             </Button>
-            <Button fx:id="btnCreateCustomer" layoutX="55.0" layoutY="168.0" mnemonicParsing="false" onAction="#handleBtnCreateCustomer" prefHeight="42.0" prefWidth="278.0" text="Create Customers">
+            <Button fx:id="btnAddCoordinatorToEvent" layoutX="55.0" layoutY="100.0" mnemonicParsing="false" onAction="#handleBtnAddCoordinatorToEvent" prefHeight="42.0" prefWidth="278.0" text="Assign Event">
                <effect>
                   <DropShadow />
                </effect>
@@ -47,7 +47,7 @@
                   <Font size="19.0" />
                </font>
             </Button>
-            <Button fx:id="btnAddCoordinatorToEvent" layoutX="55.0" layoutY="100.0" mnemonicParsing="false" onAction="#handleBtnAddCoordinatorToEvent" prefHeight="42.0" prefWidth="278.0" text="Assign Event">
+            <Button fx:id="btnCreateCustomer" layoutX="55.0" layoutY="168.0" mnemonicParsing="false" onAction="#handleBtnCreateCustomer" prefHeight="42.0" prefWidth="278.0" text="Create Customers">
                <effect>
                   <DropShadow />
                </effect>
