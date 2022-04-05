@@ -21,7 +21,7 @@ import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-public class EventCoordinatorController implements Initializable, IController {
+public class EventsOverViewController implements Initializable, IController {
 
     @FXML
     private Button btnSearchEvents;
@@ -80,7 +80,7 @@ public class EventCoordinatorController implements Initializable, IController {
     private ErrorHandling errorHandling;
 
 
-    public EventCoordinatorController() throws IOException {
+    public EventsOverViewController() throws IOException {
         this.eventCoordinatorModel = new EventCoordinatorModel();
         this.eventModel = new EventModel();
         this.editEventController = new EditEventController();
