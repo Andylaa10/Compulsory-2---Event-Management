@@ -5,17 +5,18 @@ import be.Event;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.TextField;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class TicketController implements Initializable {
 
     @FXML
-    private Text ticketDate;
+    private Text ticketDateTime;
     @FXML
     private Text ticketTitle;
     @FXML
@@ -25,24 +26,20 @@ public class TicketController implements Initializable {
     @FXML
     private TextField ticketInfo;
     @FXML
-    private Text ticketTime;
-    @FXML
-    private Text ticketID;
-    @FXML
     private Button btnClose;
     @FXML
-    private Button PrintTicketOut;
+    private Button printTicketOut;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
     }
 
-    public void setEventData(Event ev, Customer selectedCustomerOnEvent){
+    public void setEventData(Event ev, Customer selectedCustomerOnEvent) {
         ticketTitle.setText("Event: " + ev.getEventName());
         ticketFullName.setText("Navn: " + selectedCustomerOnEvent.getFirstName() + " " + selectedCustomerOnEvent.getLastName());
         ticketLocation.setText("Lokation: " + ev.getEventLocation());
-        ticketDate.setText("Dato: " + ev.getEventDate() + " Start: " +ev.getEventTime() + " Slut: " + ev.getEventTimeEnd());
+        ticketDateTime.setText("Dato: " + ev.getEventDate() + " Start: " + ev.getEventTime() + " Slut: " + ev.getEventTimeEnd());
         ticketInfo.setText(ev.getEventInfo());
     }
 
