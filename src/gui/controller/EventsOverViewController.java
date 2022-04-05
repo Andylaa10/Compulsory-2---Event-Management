@@ -138,6 +138,15 @@ public class EventsOverViewController implements Initializable, IController {
         tcEventCurrentParticipants.setCellValueFactory(new PropertyValueFactory<>("CurrentCustomersOnEvent"));
     }
 
+    public void reloadEventsTable() {
+        try {
+            int index = tvEvents.getSelectionModel().getFocusedIndex();
+            this.tvEvents.setItems(FXCollections.observableList(eventModel.getEvents()));
+            tvEvents.getSelectionModel().select(index);
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
+    }
 
 
     @FXML
