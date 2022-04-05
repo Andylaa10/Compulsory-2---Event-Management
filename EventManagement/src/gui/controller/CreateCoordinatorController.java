@@ -120,12 +120,9 @@ public class CreateCoordinatorController implements Initializable {
     }
 
     @FXML
-    private void handleBtnBack() throws IOException {
-        Stage switcher = (Stage) btnBack.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("/gui/view/AdminView.fxml"));
-        switcher.setTitle("Admin Management");
-        Scene scene = new Scene(root);
-        switcher.setScene(scene);
+    private void handleBtnBack() {
+        Stage stage = (Stage) btnBack.getScene().getWindow();
+        stage.close();
     }
 
     @FXML

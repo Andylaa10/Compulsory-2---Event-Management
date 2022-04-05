@@ -12,11 +12,16 @@ public class Event {
     private int eventMinimum;
     private int eventMaximum;
     private int loginID;
+    private int currentCustomersOnEvent;
 
     /**
      * Constructor
      */
     public Event() {
+    }
+
+    public Event(int currentCustomersOnEvent) {
+        this.currentCustomersOnEvent = currentCustomersOnEvent;
     }
 
     /**
@@ -208,6 +213,14 @@ public class Event {
 
     public void setEventMaximum(int eventMaximum) {
         this.eventMaximum = eventMaximum;
+    }
+
+    public int getCurrentCustomersOnEvent() {
+        return currentCustomersOnEvent;
+    }
+
+    public void setCurrentCustomersOnEvent(int currentCustomersOnEvent) {
+        this.currentCustomersOnEvent = currentCustomersOnEvent;
     }
 
     public int getLoginID() {

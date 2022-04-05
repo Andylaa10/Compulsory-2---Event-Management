@@ -1,8 +1,10 @@
 package gui.controller;
 
+import be.Customer;
 import be.Event;
 import be.EventCoordinator;
 import bll.helpers.ErrorHandling;
+import gui.model.AdminModel;
 import gui.model.EventCoordinatorModel;
 import gui.model.EventModel;
 import javafx.collections.FXCollections;
@@ -18,11 +20,15 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
+import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class EventsOverViewController implements Initializable, IController {
 
+    @FXML
+    private Button btnCustomers;
     @FXML
     private Button btnSearchEvents;
     @FXML
@@ -52,9 +58,9 @@ public class EventsOverViewController implements Initializable, IController {
     @FXML
     private TableColumn tcEventTimeEnd;
     @FXML
-    private TableColumn tcEventParticipants;
-    @FXML
     private TableColumn tcEventMinimum;
+    @FXML
+    private TableColumn<Customer, Integer> tcEventCurrentParticipants;
     @FXML
     private TableColumn tcEventMaximum;
     @FXML
@@ -65,9 +71,14 @@ public class EventsOverViewController implements Initializable, IController {
     private TableColumn tcEventInfo;
     @FXML
     private TableColumn tcEventPrice;
+    @FXML
+    private ComboBox<String> eventCombo;
 
     private ObservableList<Event> allEvents = FXCollections.observableArrayList();
     private ObservableList<Event> searchData = FXCollections.observableArrayList();
+    private ObservableList<Event> options = FXCollections.observableArrayList();
+
+
 
     private boolean hasSearched = true;
 
@@ -80,11 +91,21 @@ public class EventsOverViewController implements Initializable, IController {
     private ErrorHandling errorHandling;
 
 
-    public EventsOverViewController() throws IOException {
+    public EventsOverViewController() throws IOException, SQLException {
         this.eventCoordinatorModel = new EventCoordinatorModel();
         this.eventModel = new EventModel();
         this.editEventController = new EditEventController();
         this.errorHandling = new ErrorHandling();
+    }
+
+    public void handleEventCombo(){
+        if (eventCombo.getSelectionModel().isSelected(0)){
+            allEvents = FXCollections.observableArrayList(eventModel.getEventsCoordinator(coordinator.getId()));
+            tableViewLoadEvents(allEvents);
+        } else if (eventCombo.getSelectionModel().isSelected(1)){
+            allEvents = FXCollections.observableArrayList(eventModel.getEvents());
+            tableViewLoadEvents(allEvents);
+        }
     }
 
     @Override
@@ -93,6 +114,8 @@ public class EventsOverViewController implements Initializable, IController {
         try {
             allEvents = FXCollections.observableArrayList(eventModel.getEventsCoordinator(coordinator.getId()));
             tableViewLoadEvents(allEvents);
+            eventCombo.getItems().add("Assigned Events");
+            eventCombo.getItems().add("All Events");
         } catch (Exception e){
             e.printStackTrace();
         }
@@ -102,7 +125,6 @@ public class EventsOverViewController implements Initializable, IController {
     public void initialize(URL location, ResourceBundle resources) {
         selectedEvent();
         initializeTable();
-
     }
 
     public void initializeTable(){
@@ -115,7 +137,10 @@ public class EventsOverViewController implements Initializable, IController {
         tcEventPrice.setCellValueFactory(new PropertyValueFactory<>("EventPrice"));
         tcEventMinimum.setCellValueFactory(new PropertyValueFactory<>("EventMinimum"));
         tcEventMaximum.setCellValueFactory(new PropertyValueFactory<>("EventMaximum"));
+        tcEventCurrentParticipants.setCellValueFactory(new PropertyValueFactory<>("CurrentCustomersOnEvent"));
     }
+
+
 
     @FXML
     private void LogOutFromEventCoordinator() throws IOException {
@@ -137,6 +162,15 @@ public class EventsOverViewController implements Initializable, IController {
 
     private ObservableList<Event> getEventData() {
         return allEvents;
+    }
+
+    @FXML
+    private void onActionOpenCustomers() throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/gui/view/CreateCustomer.fxml"));
+        Stage stage = new Stage();
+        stage.setTitle("Manage Customers");
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 
     @FXML

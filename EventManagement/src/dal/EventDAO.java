@@ -1,5 +1,6 @@
 package dal;
 
+import be.Customer;
 import be.Event;
 import bll.helpers.ErrorHandling;
 import com.microsoft.sqlserver.jdbc.SQLServerException;
@@ -13,9 +14,11 @@ public class EventDAO {
     private final DatabaseConnector connector = DatabaseConnector.getInstance();
 
     private ErrorHandling errorHandling;
+    private EventCoordinatorDAO eventCoordinatorDAO;
 
     public EventDAO() throws IOException {
         errorHandling = new ErrorHandling();
+        eventCoordinatorDAO = new EventCoordinatorDAO();
     }
     /**
      * Making an event list, connecting to the database and adding the results to our ArrayList.
@@ -47,6 +50,14 @@ public class EventDAO {
                 Event event = new Event(eventID, eventName, eventDate, eventTime, eventTimeEnd, eventLocation, eventInfo, eventPrice, eventMinimum, eventMaximum);
                 allEvents.add(event);
             }
+            for (int i = 0; i < allEvents.size(); i++) {
+                Event event = allEvents.get(i);
+                if (event != null) {
+                    List<Customer> totalCustomers = eventCoordinatorDAO.getCustomersOnEvent(event.getId());
+                    event.setCurrentCustomersOnEvent(totalCustomers.size());
+                }
+            }
+            return allEvents;
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
@@ -83,6 +94,13 @@ public class EventDAO {
 
                 Event event = new Event(eventID, eventName, eventDate, eventTime, eventTimeEnd, eventLocation, eventInfo, eventPrice, eventMinimum, eventMaximum, loginId);
                 allEventsCoordinator.add(event);
+            }
+            for (int i = 0; i < allEventsCoordinator.size(); i++) {
+                Event event = allEventsCoordinator.get(i);
+                if (event != null) {
+                    List<Customer> totalCustomers = eventCoordinatorDAO.getCustomersOnEvent(event.getId());
+                    event.setCurrentCustomersOnEvent(totalCustomers.size());
+                }
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
