@@ -2,6 +2,7 @@ package gui.controller;
 
 import be.Customer;
 import be.Event;
+import gui.model.TicketModel;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -42,9 +43,15 @@ public class TicketController implements Initializable {
     @FXML
     private AnchorPane ticketPane;
 
+    private TicketModel ticketModel;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+    }
+
+    public void setTicketModel(TicketModel ticketModel){
+        this.ticketModel = ticketModel;
     }
 
     public void setEventData(Event ev, Customer selectedCustomerOnEvent) {
@@ -65,7 +72,7 @@ public class TicketController implements Initializable {
 
     public void generateTicket(){
         WritableImage image = ticketPane.snapshot(new SnapshotParameters(), null);
-        File file = new File("src/gui/image/tempTicket.png");
+        File file = new File("src/gui/image/placeholder-image.png");
         try{
             ImageIO.write(SwingFXUtils.fromFXImage(image, null), "PNG", file);
         } catch (IOException ioe) {
