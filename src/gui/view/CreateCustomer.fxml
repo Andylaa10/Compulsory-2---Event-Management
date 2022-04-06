@@ -54,22 +54,22 @@
             <Font size="11.0" />
          </font>
       </TextField>
-      <TextField fx:id="txtFieldLastName" layoutX="32.0" layoutY="514.0" prefHeight="27.0" prefWidth="238.0" promptText="Last Name" style="-fx-background-color: transparent; -fx-border-color: white;" AnchorPane.leftAnchor="30.0">
-         <effect>
-            <DropShadow height="62.03" radius="17.9375" width="11.72" />
-         </effect>
-      </TextField>
       <TextField fx:id="txtFieldFirstName" layoutX="32.0" layoutY="472.0" prefHeight="27.0" prefWidth="238.0" promptText="First Name" style="-fx-background-color: transparent; -fx-border-color: white;" AnchorPane.leftAnchor="30.0">
          <effect>
             <DropShadow height="62.03" radius="17.9375" width="11.72" />
          </effect>
       </TextField>
-      <Button fx:id="btnBack" layoutX="609.0" layoutY="558.0" mnemonicParsing="false" onAction="#handleBtnBack" prefHeight="27.0" prefWidth="182.0" text="Back">
-         <effect>
-            <DropShadow />
-         </effect>
-      </Button>
       <TextField fx:id="txtFieldPhoneNumber" layoutX="285.0" layoutY="472.0" prefHeight="27.0" prefWidth="253.0" promptText="Phone Number" style="-fx-background-color: transparent; -fx-border-color: white;" AnchorPane.leftAnchor="285.0">
+         <effect>
+            <DropShadow height="62.03" radius="17.9375" width="11.72" />
+         </effect>
+      </TextField>
+      <TextField fx:id="txtFieldStudy" layoutX="553.0" layoutY="472.0" prefHeight="27.0" prefWidth="238.0" promptText="Current Study/Class" style="-fx-background-color: transparent; -fx-border-color: white;" AnchorPane.leftAnchor="553.0" AnchorPane.rightAnchor="20.0">
+         <effect>
+            <DropShadow height="62.03" radius="17.9375" width="11.72" />
+         </effect>
+      </TextField>
+      <TextField fx:id="txtFieldLastName" layoutX="32.0" layoutY="514.0" prefHeight="27.0" prefWidth="238.0" promptText="Last Name" style="-fx-background-color: transparent; -fx-border-color: white;" AnchorPane.leftAnchor="30.0">
          <effect>
             <DropShadow height="62.03" radius="17.9375" width="11.72" />
          </effect>
@@ -79,12 +79,17 @@
             <DropShadow height="62.03" radius="17.9375" width="11.72" />
          </effect>
       </TextField>
-      <Button fx:id="btnAddCustomer" layoutX="32.0" layoutY="558.0" mnemonicParsing="false" onAction="#handleBtnAddCustomer" prefHeight="27.0" prefWidth="159.0" text="Create Customer" AnchorPane.leftAnchor="30.0">
+      <TextField fx:id="txtFieldNote" layoutX="553.0" layoutY="514.0" prefHeight="27.0" prefWidth="238.0" promptText="Note" style="-fx-background-color: transparent; -fx-border-color: white;" AnchorPane.leftAnchor="553.0" AnchorPane.rightAnchor="20.0">
+         <effect>
+            <DropShadow height="62.03" radius="17.9375" width="11.72" />
+         </effect>
+      </TextField>
+      <Button fx:id="btnBack" layoutX="609.0" layoutY="558.0" mnemonicParsing="false" onAction="#handleBtnBack" prefHeight="27.0" prefWidth="182.0" text="Back">
          <effect>
             <DropShadow />
          </effect>
       </Button>
-      <Button fx:id="btnDeleteCustomer" layoutX="376.0" layoutY="558.0" mnemonicParsing="false" onAction="#handleBtnDeleteCustomer" prefHeight="27.0" prefWidth="159.0" text="Delete Customer">
+      <Button fx:id="btnAddCustomer" layoutX="32.0" layoutY="558.0" mnemonicParsing="false" onAction="#handleBtnAddCustomer" prefHeight="27.0" prefWidth="159.0" text="Create Customer" AnchorPane.leftAnchor="30.0">
          <effect>
             <DropShadow />
          </effect>
@@ -94,16 +99,11 @@
             <DropShadow />
          </effect>
       </Button>
-      <TextField fx:id="txtFieldStudy" layoutX="553.0" layoutY="472.0" prefHeight="27.0" prefWidth="238.0" promptText="Current Study/Class" style="-fx-background-color: transparent; -fx-border-color: white;" AnchorPane.leftAnchor="553.0" AnchorPane.rightAnchor="20.0">
+      <Button fx:id="btnDeleteCustomer" layoutX="376.0" layoutY="558.0" mnemonicParsing="false" onAction="#handleBtnDeleteCustomer" prefHeight="27.0" prefWidth="159.0" text="Delete Customer">
          <effect>
-            <DropShadow height="62.03" radius="17.9375" width="11.72" />
+            <DropShadow />
          </effect>
-      </TextField>
-      <TextField fx:id="txtFieldNote" layoutX="553.0" layoutY="514.0" prefHeight="27.0" prefWidth="238.0" promptText="Note" style="-fx-background-color: transparent; -fx-border-color: white;" AnchorPane.leftAnchor="553.0" AnchorPane.rightAnchor="20.0">
-         <effect>
-            <DropShadow height="62.03" radius="17.9375" width="11.72" />
-         </effect>
-      </TextField>
+      </Button>
       <Button fx:id="btnSearchCustomers" layoutX="763.0" layoutY="86.0" mnemonicParsing="false" onAction="#onActionSearchCustomers" prefHeight="25.0" prefWidth="28.0" style="-fx-background-color: transparent;" text="🔍" AnchorPane.rightAnchor="20.0">
          <effect>
             <DropShadow />

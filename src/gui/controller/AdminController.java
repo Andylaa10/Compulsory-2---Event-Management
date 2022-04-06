@@ -11,19 +11,7 @@ import java.io.IOException;
 public class AdminController{
 
     @FXML
-    private Button btnCreateCoordinator;
-    @FXML
-    private Button btnViewEmployee;
-    @FXML
-    private Button btnCreateCustomer;
-    @FXML
-    private Button btnCreateEvent;
-    @FXML
-    private Button btnHelp;
-    @FXML
     private Button btnLogOut;
-    @FXML
-    private Button btnAddCoordinatorToEvent;
 
     public AdminController() {
     }

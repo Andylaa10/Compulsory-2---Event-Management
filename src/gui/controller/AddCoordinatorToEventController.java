@@ -22,12 +22,6 @@ public class AddCoordinatorToEventController implements Initializable {
 
     @FXML
     private Button btnBack;
-    @FXML
-    private Button btnAddSelectedToEvent;
-    @FXML
-    private Button btnDeleteSelectedFromEvent;
-    @FXML
-    private Button btnCreateCoordinator;
 
     @FXML
     private TableView<EventCoordinator> tvCoordinatorOnEvent;
@@ -60,8 +54,8 @@ public class AddCoordinatorToEventController implements Initializable {
     private ObservableList<EventCoordinator> allCoordinatorOnEvent = FXCollections.observableArrayList();
     private ObservableList<Event> allEvents = FXCollections.observableArrayList();
 
-    private AdminModel adminModel = new AdminModel();
-    private EventModel eventModel = new EventModel();
+    private AdminModel adminModel;
+    private EventModel eventModel;
 
     private EventCoordinator selectedCoordinator;
     private EventCoordinator selectedCoordinatorOnEvent;
@@ -71,10 +65,12 @@ public class AddCoordinatorToEventController implements Initializable {
         this.selectedCoordinator = new EventCoordinator();
         this.selectedCoordinatorOnEvent = new EventCoordinator();
         this.selectedEvent = new Event();
+        this.adminModel = new AdminModel();
+        this.eventModel = new EventModel();
     }
 
     @FXML
-    private void handleBtnBack() throws IOException {
+    private void handleBtnBack() {
         Stage stage = (Stage) btnBack.getScene().getWindow();
         stage.close();
     }
