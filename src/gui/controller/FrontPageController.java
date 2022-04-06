@@ -23,8 +23,6 @@ import java.util.ResourceBundle;
 public class FrontPageController implements Initializable {
 
     @FXML
-    private Button btnQuit;
-    @FXML
     private Button btnAdminLogin;
     @FXML
     private Button btnEventCoLogin;

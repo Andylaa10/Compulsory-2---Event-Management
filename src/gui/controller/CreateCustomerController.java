@@ -37,8 +37,6 @@ public class CreateCustomerController implements Initializable {
     @FXML
     private TableColumn<Customer, String> tcNote;
     @FXML
-    private Button btnAddCustomer;
-    @FXML
     private TextField txtFieldSearch;
     @FXML
     private TextField txtFieldLastName;
@@ -46,10 +44,6 @@ public class CreateCustomerController implements Initializable {
     private TextField txtFieldFirstName;
     @FXML
     private TextField txtFieldStudy;
-    @FXML
-    private Button btnEditCustomer;
-    @FXML
-    private Button btnDeleteCustomer;
     @FXML
     private TextField txtFieldPhoneNumber;
     @FXML
@@ -70,6 +64,7 @@ public class CreateCustomerController implements Initializable {
     private CustomerModel customerModel;
     private ErrorHandling errorHandling;
     private Customer selectedCustomer;
+    private EditCustomerController editCustomerController;
 
 
     public CreateCustomerController() throws IOException, SQLException {
@@ -137,24 +132,22 @@ public class CreateCustomerController implements Initializable {
     }
 
     @FXML
-    private void handleBtnEditCustomer() {
+    private void handleBtnEditCustomer() throws IOException {
         if (selectedCustomer != null) {
-            Customer selectedCustomer = tvCustomers.getSelectionModel().getSelectedItem();
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("/gui/view/EditCustomer.fxml"));
 
-            FXMLLoader parent = new FXMLLoader(getClass().getResource("/gui/view/EditCustomer.fxml"));
-            Scene mainWindowScene = null;
-            try {
-                mainWindowScene = new Scene(parent.load());
-            } catch (IOException exception) {
-                exception.printStackTrace();
-            }
-            Stage editCustomerStage;
-            editCustomerStage = new Stage();
-            editCustomerStage.setScene(mainWindowScene);
-            EditCustomerController editCustomerController = parent.getController();
+            Scene scene = new Scene(fxmlLoader.load());
+
+            Stage stage = new Stage();
+            stage.setScene(scene);
+
+            editCustomerController = fxmlLoader.getController();
             editCustomerController.setSelectedCustomer(selectedCustomer);
-            editCustomerStage.show();
-            editCustomerStage.setOnHiding(event ->
+
+            stage.show();
+
+            stage.setOnHiding(event ->
             {
                 try {
                     allCustomers = FXCollections.observableList(customerModel.getCustomers());
@@ -206,7 +199,7 @@ public class CreateCustomerController implements Initializable {
         }
     }
 
-    private void selectedCustomer(){
+    private void selectedCustomer() {
         this.tvCustomers.getSelectionModel().selectedItemProperty().addListener(((observableValue, oldValue, newValue) -> {
             if (newValue != null) {
                 this.selectedCustomer = newValue;
@@ -215,7 +208,7 @@ public class CreateCustomerController implements Initializable {
     }
 
     @FXML
-    private void handleBtnBack() throws IOException {
+    private void handleBtnBack() {
         Stage stage = (Stage) btnBack.getScene().getWindow();
         stage.close();
     }

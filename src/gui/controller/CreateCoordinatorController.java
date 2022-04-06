@@ -19,8 +19,6 @@ import java.util.ResourceBundle;
 public class CreateCoordinatorController implements Initializable {
 
     @FXML
-    private Button btnSearchCoordinators;
-    @FXML
     private TableView<EventCoordinator> tvCoordinator;
     @FXML
     private TableColumn<EventCoordinator, Integer> tcID;
@@ -28,24 +26,14 @@ public class CreateCoordinatorController implements Initializable {
     private TableColumn<EventCoordinator, String> tcUsername;
     @FXML
     private TableColumn<EventCoordinator, String> tcPassword;
-    @FXML
-    private Button btnRefresh;
+
     @FXML
     private Button btnBack;
-    @FXML
-    private Button btnEditCoordinator;
-    @FXML
-    private Button btnDeleteCoordinator;
-    @FXML
-    private Button btnAddCoordinator;
-    @FXML
-    private TextField textFieldSearch;
+
     @FXML
     private TextField textFieldUsername;
     @FXML
     private TextField textFieldPassword;
-    @FXML
-    private TextField textFieldIsAdmin;
 
     private ObservableList<EventCoordinator> allCoordinators = FXCollections.observableArrayList();
 
