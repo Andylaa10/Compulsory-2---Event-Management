@@ -167,8 +167,15 @@ public class EventsOverViewController implements Initializable, IController {
         stage.setOnHiding(event ->
         {
             try {
-                allEvents = FXCollections.observableList(eventModel.getEventsCoordinator(coordinator.getId()));
-                tableViewLoadEvents(allEvents);
+                String comboBox = eventCombo.getSelectionModel().getSelectedItem();
+                switch (comboBox) {
+                    case "Assigned Events":
+                        allEvents = FXCollections.observableList(eventModel.getEventsCoordinator(coordinator.getId()));
+                        tableViewLoadEvents(allEvents);
+                    case "All Events":
+                        allEvents = FXCollections.observableList(eventModel.getEvents());
+                        tableViewLoadEvents(allEvents);
+                }
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -250,6 +257,25 @@ public class EventsOverViewController implements Initializable, IController {
             viewEventController.setSelectedEvent(selectedEvent);
 
             stage.show();
+            stage.setOnHiding(event ->
+            {
+                try {
+                    String comboBox = eventCombo.getSelectionModel().getSelectedItem();
+                    switch (comboBox) {
+                        case "Assigned Events" -> {
+                            allEvents = FXCollections.observableList(eventModel.getEventsCoordinator(coordinator.getId()));
+                            tableViewLoadEvents(allEvents);
+                        }
+                        case "All Events" -> {
+                            allEvents = FXCollections.observableList(eventModel.getEvents());
+                            tableViewLoadEvents(allEvents);
+                        }
+                        default -> System.out.println("No match");
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            });
         } else {
             errorHandling.noEventSelectedWarning();
         }
