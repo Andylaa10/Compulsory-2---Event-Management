@@ -8,6 +8,7 @@ import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.print.PrinterJob;
 import javafx.scene.SnapshotParameters;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -17,6 +18,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import javax.imageio.ImageIO;
+import javax.print.PrintService;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -24,7 +26,8 @@ import java.util.Random;
 import java.util.ResourceBundle;
 
 public class TicketController implements Initializable {
-
+    @FXML/*w  w  w   .   de  m   o   2s    .c    o  m*/
+            Button Printstart;
     @FXML
     private Text ticketDateTime;
     @FXML
@@ -46,6 +49,8 @@ public class TicketController implements Initializable {
 
     private TicketModel ticketModel;
 
+    private PrintService[] printServices;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -58,6 +63,10 @@ public class TicketController implements Initializable {
         ticketDateTime.setText("Dato: " + ev.getEventDate() + " Start: " + ev.getEventTime() + " Slut: " + ev.getEventTimeEnd());
         ticketInfo.setText(ev.getEventInfo());
         ticketID.setText(String.valueOf(ticketModel.getGeneratedTicketID()));
+    }
+
+    public void setTicketModel(TicketModel ticketModel){
+        this.ticketModel = ticketModel;
     }
 
     @FXML
@@ -80,8 +89,5 @@ public class TicketController implements Initializable {
 
     public void PrintTicket(ActionEvent actionEvent) {
         generateTicket();
-
     }
-
-
 }
