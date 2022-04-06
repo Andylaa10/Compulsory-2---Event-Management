@@ -80,7 +80,7 @@ public class TicketController implements Initializable {
 
     public void generateTicket(){
         WritableImage image = ticketPane.snapshot(new SnapshotParameters(), null);
-        File file = new File("src/gui/utility/temp/tempTicket.png");
+        File file = new File("src/gui/image/tempTicket.png");
         try{
             ImageIO.write(SwingFXUtils.fromFXImage(image, null), "PNG", file);
         } catch (IOException ioe) {
