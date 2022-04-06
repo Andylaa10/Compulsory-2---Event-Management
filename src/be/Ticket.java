@@ -3,22 +3,19 @@ package be;
 public class Ticket {
     private int id;
     private String ticketType;
-    private String ticketPicture;
     private int eventId;
     private int customerId;
 
     /**
      * @param id
      * @param ticketType
-     * @param ticketPicture
      * @param eventId
      * @param customerId
-     * Constructor with id, ticketType, ticketPicture, eventId and customerId
+     * Constructor with id, ticketType, eventId and customerId
      */
-    public Ticket(int id, String ticketType, String ticketPicture, int eventId, int customerId) {
+    public Ticket(int id, String ticketType, int eventId, int customerId) {
         this.id = id;
         this.ticketType = ticketType;
-        this.ticketPicture = ticketPicture;
         this.eventId = eventId;
         this.customerId = customerId;
     }
@@ -55,21 +52,6 @@ public class Ticket {
         this.ticketType = ticketType;
     }
 
-    /**
-     * Gets the ticketPicture
-     * @return
-     */
-    public String getTicketPicture() {
-        return ticketPicture;
-    }
-
-    /**
-     * @param ticketPicture
-     * Sets the ticketPicture
-     */
-    public void setTicketPicture(String ticketPicture) {
-        this.ticketPicture = ticketPicture;
-    }
 
     /**
      * Gets the eventId

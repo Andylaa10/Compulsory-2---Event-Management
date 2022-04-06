@@ -57,7 +57,7 @@
                <Bloom />
             </effect>
       </Text>
-      <Text fx:id="ticketID" fill="WHITE" layoutX="474.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TICKET ID">
+      <Text fill="WHITE" layoutX="467.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TICKET ID">
          <font>
             <Font size="32.0" />
          </font>
@@ -65,9 +65,6 @@
                <Bloom />
             </effect>
       </Text>
-         <ImageView fitHeight="130.0" fitWidth="160.0" layoutX="477.0" layoutY="58.0" pickOnBounds="true" preserveRatio="true">
-               <Image url="@img/qr%20code%20rick%20roll.png" />
-         </ImageView>
          <Text fill="WHITE" layoutX="12.0" layoutY="163.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Info:">
             <font>
                <Font size="22.0" />
@@ -76,11 +73,19 @@
                <Bloom />
             </effect>
          </Text>
-         <TextField fx:id="ticketInfo" alignment="TOP_LEFT" editable="false" focusTraversable="false" layoutX="56.0" layoutY="141.0" prefHeight="62.0" prefWidth="414.0" style="-fx-background-color: transparent;">
+         <TextField fx:id="ticketInfo" alignment="TOP_LEFT" editable="false" focusTraversable="false" layoutX="56.0" layoutY="141.0" prefHeight="62.0" prefWidth="590.0" style="-fx-background-color: transparent;">
             <font>
                <Font size="13.0" />
             </font>
          </TextField>
+         <Text fx:id="ticketID" fill="WHITE" layoutX="430.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID HERE" textAlignment="CENTER" wrappingWidth="210.5765380859375">
+            <font>
+               <Font size="16.0" />
+            </font>
+            <effect>
+               <Bloom />
+            </effect>
+         </Text>
    </children>
 </AnchorPane>
    <Button fx:id="btnClose" layoutX="556.0" layoutY="220.0" mnemonicParsing="false" onAction="#onActionCloseWindow" prefHeight="30.0" prefWidth="86.0" text="Close" />
