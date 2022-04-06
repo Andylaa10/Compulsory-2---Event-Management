@@ -4,11 +4,9 @@ import be.Customer;
 import be.Event;
 import be.EventCoordinator;
 import bll.helpers.ErrorHandling;
-import gui.model.EventCoordinatorModel;
 import gui.model.EventModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -19,7 +17,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
-import java.sql.SQLException;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -61,39 +58,17 @@ public class EventsOverViewController implements Initializable, IController {
 
     private boolean hasSearched = true;
 
-    private EventModel eventModel;
+    private final EventModel eventModel;
     private Event selectedEvent;
     private ViewEventController viewEventController;
     private EventCoordinator coordinator;
-    private ErrorHandling errorHandling;
+    private final ErrorHandling errorHandling;
+    private EditEventController editEventController;
 
 
     public EventsOverViewController() throws IOException {
         this.eventModel = new EventModel();
         this.errorHandling = new ErrorHandling();
-    }
-
-    public void handleEventCombo(){
-        if (eventCombo.getSelectionModel().isSelected(0)){
-            allEvents = FXCollections.observableArrayList(eventModel.getEventsCoordinator(coordinator.getId()));
-            tableViewLoadEvents(allEvents);
-        } else if (eventCombo.getSelectionModel().isSelected(1)){
-            allEvents = FXCollections.observableArrayList(eventModel.getEvents());
-            tableViewLoadEvents(allEvents);
-        }
-    }
-
-    @Override
-    public void setEventCoordinator(EventCoordinator eventCoordinator) {
-        coordinator = eventCoordinator;
-        try {
-            allEvents = FXCollections.observableArrayList(eventModel.getEventsCoordinator(coordinator.getId()));
-            tableViewLoadEvents(allEvents);
-            eventCombo.getItems().add("Assigned Events");
-            eventCombo.getItems().add("All Events");
-        } catch (Exception e){
-            e.printStackTrace();
-        }
     }
 
     @Override
@@ -115,25 +90,47 @@ public class EventsOverViewController implements Initializable, IController {
         tcEventCurrentParticipants.setCellValueFactory(new PropertyValueFactory<>("CurrentCustomersOnEvent"));
     }
 
-    public void reloadEventsTable() {
+    @Override
+    public void setEventCoordinator(EventCoordinator eventCoordinator) {
+        coordinator = eventCoordinator;
         try {
-            int index = tvEvents.getSelectionModel().getFocusedIndex();
-            this.tvEvents.setItems(FXCollections.observableList(eventModel.getEvents()));
-            tvEvents.getSelectionModel().select(index);
-        } catch (Exception exception) {
-            exception.printStackTrace();
+            allEvents = FXCollections.observableArrayList(eventModel.getEventsCoordinator(coordinator.getId()));
+            tableViewLoadEvents(allEvents);
+            eventCombo.getItems().add("Assigned Events");
+            eventCombo.getItems().add("All Events");
+            eventCombo.getSelectionModel().selectFirst();
+        } catch (Exception e){
+            e.printStackTrace();
         }
     }
 
-
-    @FXML
-    private void LogOutFromEventCoordinator() throws IOException {
-        Stage switcher = (Stage) btnLogOut.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("/gui/view/FrontPage.fxml"));
-        switcher.setTitle("Event Management");
-        Scene scene = new Scene(root);
-        switcher.setScene(scene);
+    public void handleEventCombo(){
+        if (eventCombo.getSelectionModel().isSelected(0)){
+            allEvents = FXCollections.observableArrayList(eventModel.getEventsCoordinator(coordinator.getId()));
+            tableViewLoadEvents(allEvents);
+        } else if (eventCombo.getSelectionModel().isSelected(1)){
+            allEvents = FXCollections.observableArrayList(eventModel.getEvents());
+            tableViewLoadEvents(allEvents);
+        }
     }
+
+    private void selectedComboItem(){
+        String comboBox = eventCombo.getSelectionModel().getSelectedItem();
+        switch (comboBox) {
+            case "Assigned Events" -> {
+                allEvents = FXCollections.observableList(eventModel.getEventsCoordinator(coordinator.getId()));
+                tableViewLoadEvents(allEvents);
+                eventCombo.getSelectionModel().isSelected(0);
+            }
+            case "All Events" -> {
+                allEvents = FXCollections.observableList(eventModel.getEvents());
+                tableViewLoadEvents(allEvents);
+                eventCombo.getSelectionModel().isSelected(1);
+            }
+            default -> System.out.println("No match");
+        }
+    }
+
 
     /**
      * Loading table view events
@@ -146,6 +143,26 @@ public class EventsOverViewController implements Initializable, IController {
 
     private ObservableList<Event> getEventData() {
         return allEvents;
+    }
+
+    /**
+     * Makes you able to select an event from the table
+     */
+    private void selectedEvent() {
+        this.tvEvents.getSelectionModel().selectedItemProperty().addListener(((observableValue, oldValue, newValue) -> {
+            if ((Event) newValue != null) {
+                this.selectedEvent = (Event) newValue;
+            }
+        }));
+    }
+
+    @FXML
+    private void LogOutFromEventCoordinator() throws IOException {
+        Stage switcher = (Stage) btnLogOut.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("/gui/view/FrontPage.fxml"));
+        switcher.setTitle("Event Management");
+        Scene scene = new Scene(root);
+        switcher.setScene(scene);
     }
 
     @FXML
@@ -167,15 +184,7 @@ public class EventsOverViewController implements Initializable, IController {
         stage.setOnHiding(event ->
         {
             try {
-                String comboBox = eventCombo.getSelectionModel().getSelectedItem();
-                switch (comboBox) {
-                    case "Assigned Events":
-                        allEvents = FXCollections.observableList(eventModel.getEventsCoordinator(coordinator.getId()));
-                        tableViewLoadEvents(allEvents);
-                    case "All Events":
-                        allEvents = FXCollections.observableList(eventModel.getEvents());
-                        tableViewLoadEvents(allEvents);
-                }
+                selectedComboItem();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -183,28 +192,24 @@ public class EventsOverViewController implements Initializable, IController {
     }
 
     @FXML
-    private void onActionEditEvent() {
+    private void onActionEditEvent() throws IOException {
         if (selectedEvent != null) {
-            Event selectedEvent = (Event) tvEvents.getSelectionModel().getSelectedItem();
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("/gui/view/EditEvent.fxml"));
 
-            FXMLLoader parent = new FXMLLoader(getClass().getResource("/gui/view/EditEvent.fxml"));
-            Scene mainWindowScene = null;
-            try {
-                mainWindowScene = new Scene(parent.load());
-            } catch (IOException exception) {
-                exception.printStackTrace();
-            }
-            Stage editEventStage;
-            editEventStage = new Stage();
-            editEventStage.setScene(mainWindowScene);
-            EditEventController editEventController = parent.getController();
+            Scene scene = new Scene(fxmlLoader.load());
+
+            Stage stage = new Stage();
+            stage.setScene(scene);
+
+            editEventController = fxmlLoader.getController();
             editEventController.setSelectedEvent(selectedEvent);
-            editEventStage.show();
-            editEventStage.setOnHiding(event ->
+
+            stage.show();
+            stage.setOnHiding(event ->
             {
                 try {
-                    allEvents = FXCollections.observableList(eventModel.getEventsCoordinator(coordinator.getId()));
-                    tableViewLoadEvents(allEvents);
+                    selectedComboItem();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -219,7 +224,7 @@ public class EventsOverViewController implements Initializable, IController {
      * Deletes an event from the table
      */
     @FXML
-     private void handleBtnDeleteEvent(ActionEvent actionEvent) {
+     private void handleBtnDeleteEvent() {
       Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
       alert.setTitle("WARNING MESSAGE");
       alert.setHeaderText("Warning before you delete event");
@@ -235,8 +240,7 @@ public class EventsOverViewController implements Initializable, IController {
           return;
       }
       try {
-          allEvents = FXCollections.observableList(eventModel.getEventsCoordinator(coordinator.getId()));
-          tableViewLoadEvents(allEvents);
+          selectedComboItem();
       } catch (Exception e) {
           e.printStackTrace();
       }
@@ -260,18 +264,7 @@ public class EventsOverViewController implements Initializable, IController {
             stage.setOnHiding(event ->
             {
                 try {
-                    String comboBox = eventCombo.getSelectionModel().getSelectedItem();
-                    switch (comboBox) {
-                        case "Assigned Events" -> {
-                            allEvents = FXCollections.observableList(eventModel.getEventsCoordinator(coordinator.getId()));
-                            tableViewLoadEvents(allEvents);
-                        }
-                        case "All Events" -> {
-                            allEvents = FXCollections.observableList(eventModel.getEvents());
-                            tableViewLoadEvents(allEvents);
-                        }
-                        default -> System.out.println("No match");
-                    }
+                    selectedComboItem();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -280,19 +273,6 @@ public class EventsOverViewController implements Initializable, IController {
             errorHandling.noEventSelectedWarning();
         }
     }
-
-
-
-    /**
-     * Makes you able to select an event from the table
-     */
-     private void selectedEvent() {
-      this.tvEvents.getSelectionModel().selectedItemProperty().addListener(((observableValue, oldValue, newValue) -> {
-          if ((Event) newValue != null) {
-              this.selectedEvent = (Event) newValue;
-          }
-      }));
-     }
 
     /**
      * Method that filters the events, with the text input you write in the textfield.
@@ -330,5 +310,4 @@ public class EventsOverViewController implements Initializable, IController {
     private ObservableList<Event> getSearchData() {
         return searchData;
     }
-
 }
