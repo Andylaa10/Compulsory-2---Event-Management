@@ -2,6 +2,7 @@ package gui.controller;
 
 import be.Customer;
 import be.Event;
+import be.Ticket;
 import com.microsoft.sqlserver.jdbc.SQLServerException;
 import gui.model.TicketModel;
 import javafx.embed.swing.SwingFXUtils;
@@ -48,9 +49,12 @@ public class TicketController implements Initializable {
 
     private PrintService[] printServices;
 
+    private Ticket ticket;
+
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        ticket = new Ticket();
     }
 
     public void setEventData(Event ev, Customer selectedCustomerOnEvent) throws SQLServerException {
@@ -59,7 +63,9 @@ public class TicketController implements Initializable {
         ticketLocation.setText("Lokation: " + ev.getEventLocation());
         ticketDateTime.setText("Dato: " + ev.getEventDate() + " Start: " + ev.getEventTime() + " Slut: " + ev.getEventTimeEnd());
         ticketInfo.setText(ev.getEventInfo());
-        ticketID.setText(String.valueOf(ticketModel.getGeneratedTicketID()));
+        ticketID.setText(ticket.getGeneratedTicketId());
+
+        System.out.println(ticket.getGeneratedTicketId());
     }
 
     public void setTicketModel(TicketModel ticketModel){

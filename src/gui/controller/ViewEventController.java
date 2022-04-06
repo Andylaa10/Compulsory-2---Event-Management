@@ -78,6 +78,7 @@ public class ViewEventController implements Initializable {
     private TicketModel ticketModel;
     private Customer selectedCustomer;
     private Customer selectedCustomerOnEvent;
+    private Ticket selectedTicketOnEvent;
     private ErrorHandling errorHandling;
     private Event passedEvent;
 
@@ -150,6 +151,7 @@ public class ViewEventController implements Initializable {
             }
         }));
     }
+
 
     public void setSelectedEvent(Event event) {
         passedEvent = event;
