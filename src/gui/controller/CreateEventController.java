@@ -46,7 +46,9 @@ public class CreateEventController {
     @FXML
     private void onActionSaveEvent() throws SQLException {
         if (!txtFieldEventName.getText().isEmpty() && !txtFieldEventDate.getText().isEmpty() && !txtFieldEventTime.getText().isEmpty()
-                && !txtFieldEventTimeEnd.getText().isEmpty() && !txtFieldEventLocation.getText().isEmpty()) {
+                && !txtFieldEventTimeEnd.getText().isEmpty() && !txtFieldEventLocation.getText().isEmpty()
+                && !txtFieldEventMinimum.getText().isEmpty() && !txtFieldEventMaximum.getText().isEmpty())
+        {
             String eventName = txtFieldEventName.getText();
             String eventDate = txtFieldEventDate.getText();
             String eventTime = txtFieldEventTime.getText();
@@ -58,6 +60,7 @@ public class CreateEventController {
             int eventMaximum = Integer.parseInt(txtFieldEventMaximum.getText());
 
             eventModel.createEvent(eventName, eventDate, eventTime, eventTimeEnd, eventLocation, eventInfo, eventPrice, eventMinimum, eventMaximum);
+
             Stage stage = (Stage) btnCreateEvent.getScene().getWindow();
             stage.close();
         } else {

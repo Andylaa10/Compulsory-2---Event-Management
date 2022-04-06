@@ -48,7 +48,9 @@ public class EditEventController {
     @FXML
     private void onActionSaveEvent() {
         if (!txtFieldEventName.getText().isEmpty() && !txtFieldEventDate.getText().isEmpty() && !txtFieldEventTime.getText().isEmpty()
-                && !txtFieldEventTimeEnd.getText().isEmpty() && !txtFieldEventLocation.getText().isEmpty()) {
+                && !txtFieldEventTimeEnd.getText().isEmpty() && !txtFieldEventLocation.getText().isEmpty()
+                && !txtFieldEventMinimum.getText().isEmpty() && !txtFieldEventMaximum.getText().isEmpty())
+        {
             int eventID = Integer.parseInt(txtFieldEventID.getText());
             String eventName = txtFieldEventName.getText();
             String eventDate = txtFieldEventDate.getText();
@@ -59,8 +61,6 @@ public class EditEventController {
             String eventPrice = txtFieldEventPrice.getText();
             int eventMinimum = Integer.parseInt(txtFieldEventMinimum.getText());
             int eventMaximum = Integer.parseInt(txtFieldEventMaximum.getText());
-
-
 
             Event event = new Event(eventID, eventName, eventDate, eventTime, eventTimeEnd, eventLocation, eventInfo, eventPrice, eventMinimum, eventMaximum);
             eventModel.editEvent(event);
