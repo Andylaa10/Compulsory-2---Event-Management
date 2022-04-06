@@ -147,7 +147,6 @@ public class EventDAO {
                 Event event = new Event(id, eventName, eventDate, eventTime, eventTimeEnd, eventLocation, eventInfo,
                         eventPrice, eventMinimum, eventMaximum);
                 return event;
-
             }
 
         } catch (SQLServerException throwables) {

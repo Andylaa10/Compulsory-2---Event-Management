@@ -7,7 +7,6 @@ import bll.helpers.ErrorHandling;
 import com.microsoft.sqlserver.jdbc.SQLServerException;
 import gui.model.CustomerModel;
 import gui.model.EventCoordinatorModel;
-import gui.model.EventModel;
 import gui.model.TicketModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -29,11 +28,9 @@ import java.util.ResourceBundle;
 public class ViewEventController implements Initializable {
 
     @FXML
-    public Button btnTest;
+    private Button btnTest;
     @FXML
-    public Button btnSeeTicket;
-    @FXML
-    public TableColumn tcTicketIDOnEvent;
+    private Button btnSeeTicket;
     @FXML
     private TextField txtFieldEventID;
     @FXML
@@ -53,35 +50,32 @@ public class ViewEventController implements Initializable {
     @FXML
     private TableView<Customer> tvCustomersOnEvent;
     @FXML
-    private TableColumn tcCustomerIDOnEvent;
+    private TableColumn<Customer, Integer> tcCustomerIDOnEvent;
     @FXML
-    private TableColumn tcFirstNameOnEvent;
+    private TableColumn<Customer, String> tcFirstNameOnEvent;
     @FXML
-    private TableColumn tcLastNameOnEvent;
+    private TableColumn<Customer, String> tcLastNameOnEvent;
     @FXML
-    private TableColumn tcPhoneNumberOnEvent;
+    private TableColumn<Customer, String> tcPhoneNumberOnEvent;
     @FXML
-    private TableColumn tcEmailOnEvent;
+    private TableColumn<Customer, String> tcEmailOnEvent;
     @FXML
-    private TableColumn tcCustomerID;
+    private TableColumn<Customer, Integer> tcCustomerID;
     @FXML
-    private TableColumn tcFirstName;
+    private TableColumn<Customer, String> tcFirstName;
     @FXML
-    private TableColumn tcLastName;
+    private TableColumn<Customer, String> tcLastName;
     @FXML
-    private TableColumn tcPhoneNumber;
+    private TableColumn<Customer, String> tcPhoneNumber;
     @FXML
-    private TableColumn tcEmail;
+    private TableColumn<Customer, String> tcEmail;
 
     private ObservableList<Customer> allCustomers = FXCollections.observableArrayList();
     private ObservableList<Customer> allCustomersOnEvent = FXCollections.observableArrayList();
-    private ObservableList<Ticket> allTicketID = FXCollections.observableArrayList();
 
     private EventCoordinatorModel eventCoordinatorModel;
     private CustomerModel customerModel;
     private TicketModel ticketModel;
-    private EventsOverViewController eventsOverViewController;
-    private Event selectedEvent;
     private Customer selectedCustomer;
     private Customer selectedCustomerOnEvent;
     private ErrorHandling errorHandling;
@@ -108,7 +102,6 @@ public class ViewEventController implements Initializable {
         tcLastNameOnEvent.setCellValueFactory(new PropertyValueFactory<>("lastName"));
         tcPhoneNumberOnEvent.setCellValueFactory(new PropertyValueFactory<>("phoneNumber"));
         tcEmailOnEvent.setCellValueFactory(new PropertyValueFactory<>("email"));
-
 
 
         tcCustomerID.setCellValueFactory(new PropertyValueFactory<>("id"));

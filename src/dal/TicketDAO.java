@@ -3,8 +3,6 @@ package dal;
 import be.Ticket;
 import com.microsoft.sqlserver.jdbc.SQLServerException;
 import dal.db.DatabaseConnector;
-
-import javax.print.DocFlavor;
 import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
