@@ -28,8 +28,10 @@ public class EventsOverViewController implements Initializable, IController {
     private TextField tfFieldSearch;
     @FXML
     private Button btnLogOut;
+
     @FXML
     private TableView<Event> tvEvents;
+
     @FXML
     private TableColumn<Event, String> tcEventName;
     @FXML
@@ -50,6 +52,7 @@ public class EventsOverViewController implements Initializable, IController {
     private TableColumn<Event, String> tcEventInfo;
     @FXML
     private TableColumn<Event, String> tcEventPrice;
+
     @FXML
     private ComboBox<String> eventCombo;
 
@@ -59,10 +62,10 @@ public class EventsOverViewController implements Initializable, IController {
     private boolean hasSearched = true;
 
     private final EventModel eventModel;
-    private Event selectedEvent;
-    private ViewEventController viewEventController;
-    private EventCoordinator coordinator;
     private final ErrorHandling errorHandling;
+    private Event selectedEvent;
+    private EventCoordinator coordinator;
+    private ViewEventController viewEventController;
     private EditEventController editEventController;
 
 
@@ -131,6 +134,17 @@ public class EventsOverViewController implements Initializable, IController {
         }
     }
 
+    /**
+     * Makes you able to select an event from the table
+     */
+    private void selectedEvent() {
+        this.tvEvents.getSelectionModel().selectedItemProperty().addListener(((observableValue, oldValue, newValue) -> {
+            if ((Event) newValue != null) {
+                this.selectedEvent = (Event) newValue;
+            }
+        }));
+    }
+
 
     /**
      * Loading table view events
@@ -146,14 +160,18 @@ public class EventsOverViewController implements Initializable, IController {
     }
 
     /**
-     * Makes you able to select an event from the table
+     * Loads the tableview for the event, when search is pressed.
+     * @param searchData
      */
-    private void selectedEvent() {
-        this.tvEvents.getSelectionModel().selectedItemProperty().addListener(((observableValue, oldValue, newValue) -> {
-            if ((Event) newValue != null) {
-                this.selectedEvent = (Event) newValue;
-            }
-        }));
+    private void searchTableViewLoad(ObservableList<Event> searchData) {
+        tvEvents.setItems(getSearchData());
+    }
+
+    /**
+     * @return searchData;
+     */
+    private ObservableList<Event> getSearchData() {
+        return searchData;
     }
 
     @FXML
@@ -294,20 +312,5 @@ public class EventsOverViewController implements Initializable, IController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-    /**
-     * Loads the tableview for the event, when search is pressed.
-     * @param searchData
-     */
-    private void searchTableViewLoad(ObservableList<Event> searchData) {
-        tvEvents.setItems(getSearchData());
-    }
-
-    /**
-     * @return searchData;
-     */
-    private ObservableList<Event> getSearchData() {
-        return searchData;
     }
 }
