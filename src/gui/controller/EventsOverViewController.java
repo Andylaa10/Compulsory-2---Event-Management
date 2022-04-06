@@ -26,73 +26,50 @@ import java.util.ResourceBundle;
 public class EventsOverViewController implements Initializable, IController {
 
     @FXML
-    private Button btnCustomers;
-    @FXML
     private Button btnSearchEvents;
-    @FXML
-    private Button btnAddEvent;
-    @FXML
-    private Button btnDeleteEvent;
-    @FXML
-    private Button btnViewEvent;
-    @FXML
-    private Button btnQuit;
     @FXML
     private TextField tfFieldSearch;
     @FXML
-    private Button btnHelp;
-    @FXML
     private Button btnLogOut;
     @FXML
-    private TableView tvEvents;
+    private TableView<Event> tvEvents;
     @FXML
-    private TableColumn tcEventName;
+    private TableColumn<Event, String> tcEventName;
     @FXML
-    private TableColumn tcEventDate;
+    private TableColumn<Event, String> tcEventDate;
     @FXML
-    private TableColumn tcEventLocation;
+    private TableColumn<Event, String> tcEventLocation;
     @FXML
-    private TableColumn tcEventTime;
+    private TableColumn<Event, String> tcEventTime;
     @FXML
-    private TableColumn tcEventTimeEnd;
+    private TableColumn<Event, String> tcEventTimeEnd;
     @FXML
-    private TableColumn tcEventMinimum;
+    private TableColumn<Event, String> tcEventMinimum;
     @FXML
     private TableColumn<Customer, Integer> tcEventCurrentParticipants;
     @FXML
-    private TableColumn tcEventMaximum;
+    private TableColumn<Event, String> tcEventMaximum;
     @FXML
-    public TableColumn tcLoginID;
+    private TableColumn<Event, String> tcEventInfo;
     @FXML
-    private Button btnEditEvent;
-    @FXML
-    private TableColumn tcEventInfo;
-    @FXML
-    private TableColumn tcEventPrice;
+    private TableColumn<Event, String> tcEventPrice;
     @FXML
     private ComboBox<String> eventCombo;
 
     private ObservableList<Event> allEvents = FXCollections.observableArrayList();
     private ObservableList<Event> searchData = FXCollections.observableArrayList();
-    private ObservableList<Event> options = FXCollections.observableArrayList();
-
-
 
     private boolean hasSearched = true;
 
-    private EventCoordinatorModel eventCoordinatorModel;
     private EventModel eventModel;
     private Event selectedEvent;
-    private EditEventController editEventController;
     private ViewEventController viewEventController;
     private EventCoordinator coordinator;
     private ErrorHandling errorHandling;
 
 
-    public EventsOverViewController() throws IOException, SQLException {
-        this.eventCoordinatorModel = new EventCoordinatorModel();
+    public EventsOverViewController() throws IOException {
         this.eventModel = new EventModel();
-        this.editEventController = new EditEventController();
         this.errorHandling = new ErrorHandling();
     }
 
