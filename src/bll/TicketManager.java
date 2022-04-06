@@ -29,13 +29,13 @@ public class TicketManager {
 
     /**
      * Creates a ticket using the createTicket method in ticketDAO
-     * @param ticketType
+     * @param generatedTicketID
      * * @param eventId
      * @param customerId
      * @throws SQLException
      */
-    public void createTicket (String ticketType, int eventId, int customerId) throws SQLException {
-        ticketDAO.createTicket(ticketType, eventId, customerId);
+    public void createTicket (int eventId, int customerId, String generatedTicketID) throws SQLException {
+        ticketDAO.createTicket(eventId, customerId, generatedTicketID);
     }
 
     /**

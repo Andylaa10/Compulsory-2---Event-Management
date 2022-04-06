@@ -30,11 +30,11 @@ public class TicketDAO {
             ResultSet resultset = preparedStatement.executeQuery();
             while (resultset.next()) {
                 int ticketID = resultset.getInt("TicketID");
-                String ticketType = resultset.getString("TicketType");
                 int eventID = resultset.getInt("EventId");
                 int customerID = resultset.getInt("CustomerId");
+                String generatedTicketID = resultset.getString("GeneratedTicketID");
 
-                Ticket ticket = new Ticket(ticketID, ticketType, eventID, customerID);
+                Ticket ticket = new Ticket(ticketID, eventID, customerID, generatedTicketID);
                 allTickets.add(ticket);
 
 
@@ -49,21 +49,20 @@ public class TicketDAO {
 
     /**
      * Creates a ticket, by inserting a giving ticketType, ticketPicture, eventId and customerId
-     * @param ticketType
-     * @param ticketPicture
      * @param eventId
      * @param customerId
+     * @param generatedTicketID
      * @return
      * @throws SQLException
      */
-    public Ticket createTicket (String ticketType, int eventId, int customerId) throws SQLException {
+    public Ticket createTicket (int eventId, int customerId, String generatedTicketID) throws SQLException {
         try (Connection connection = connector.getConnection()) {
-            String sql = "INSERT INTO Ticket (TicketType, EventId, CustomerId) values (?,?,?)";
+            String sql = "INSERT INTO Ticket (EventId, CustomerId, GeneratedTicketID) values (?,?,?)";
 
             try (PreparedStatement preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
-                preparedStatement.setString(1, ticketType);
-                preparedStatement.setInt(2, eventId);
-                preparedStatement.setInt(3, customerId);
+                preparedStatement.setInt(1, eventId);
+                preparedStatement.setInt(2, customerId);
+                preparedStatement.setString(3, generatedTicketID);
                 preparedStatement.execute();
 
                 ResultSet resultSet = preparedStatement.getGeneratedKeys();
@@ -72,7 +71,7 @@ public class TicketDAO {
                     id = resultSet.getInt(1);
                 }
 
-                Ticket ticket = new Ticket(id, ticketType, eventId, customerId);
+                Ticket ticket = new Ticket(id, eventId, customerId, generatedTicketID);
                 return ticket;
 
             }
@@ -108,12 +107,12 @@ public class TicketDAO {
      */
     public void editTicket(Ticket ticket) {
         try (Connection connection = connector.getConnection()) {
-            String sql = "UPDATE Ticket SET TicketType=?, EventId=?, CustomerId=? WHERE TicketID=?;";
+            String sql = "UPDATE Ticket SET EventId=?, CustomerId=?, GeneratedTicketID=? WHERE TicketID=?;";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setString(1, ticket.getTicketType());
-            preparedStatement.setInt(2, ticket.getEventId());
-            preparedStatement.setInt(3, ticket.getCustomerId());
-            preparedStatement.setInt(4, ticket.getId());
+            preparedStatement.setInt(1, ticket.getEventId());
+            preparedStatement.setInt(2, ticket.getCustomerId());
+            preparedStatement.setInt(3, ticket.getId());
+            preparedStatement.setString(4, ticket.getGeneratedTicketId());
             if (preparedStatement.executeUpdate() != 1) {
                 throw new Exception("Could not edit ticket");
             }

@@ -2,9 +2,12 @@ package gui.controller;
 
 import be.Customer;
 import be.Event;
+import be.Ticket;
 import bll.helpers.ErrorHandling;
 import gui.model.CustomerModel;
 import gui.model.EventCoordinatorModel;
+import gui.model.EventModel;
+import gui.model.TicketModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -19,6 +22,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.Random;
 import java.util.ResourceBundle;
 
 public class ViewEventController implements Initializable {
@@ -68,6 +72,9 @@ public class ViewEventController implements Initializable {
 
     private EventCoordinatorModel eventCoordinatorModel;
     private CustomerModel customerModel;
+    private TicketModel ticketModel;
+    private EventsOverViewController eventsOverViewController;
+    private Event selectedEvent;
     private Customer selectedCustomer;
     private Customer selectedCustomerOnEvent;
     private ErrorHandling errorHandling;
@@ -77,6 +84,7 @@ public class ViewEventController implements Initializable {
         this.eventCoordinatorModel = new EventCoordinatorModel();
         this.customerModel = new CustomerModel();
         this.errorHandling = new ErrorHandling();
+        this.ticketModel = new TicketModel();
     }
 
 
@@ -131,6 +139,7 @@ public class ViewEventController implements Initializable {
         }));
     }
 
+
     private void selectedCustomerOnEvent(){
         this.tvCustomersOnEvent.getSelectionModel().selectedItemProperty().addListener(((observableValue, oldValue, newValue) -> {
             if ((Customer) newValue != null) {
@@ -152,10 +161,12 @@ public class ViewEventController implements Initializable {
 
     @FXML
     private void onActionAddSelectedToEvent() {
+
         if (selectedCustomer != null) {
             try {
                 eventCoordinatorModel.addCustomerToEvent(selectedCustomer.getId(), Integer.parseInt(txtFieldEventID.getText()));
                 reloadCustomersOnEvent();
+                createAndSaveTicket();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -219,4 +230,37 @@ public class ViewEventController implements Initializable {
         TicketController tc = fxmlLoader.getController();
         tc.setEventData(passedEvent, selectedCustomerOnEvent );
     }
+
+
+
+    public void createAndSaveTicket() throws SQLException {
+        int eventID = Integer.parseInt(txtFieldEventID.getText());
+        int customerID = selectedCustomer.getId();
+        String generatedTicketID = GenerateID();
+
+        System.out.println(eventID);
+        System.out.println(customerID);
+        System.out.println(generatedTicketID);
+
+        ticketModel.createTicket(eventID, customerID, generatedTicketID);
+
+    }
+
+    private String GenerateID(){
+        Random random = new Random();
+        int idSize = 10;
+        char[] arrayOfCharacter = {'1','2','3','4','5','6','7','8','9','0','Q','W','E','R','T','Y','U','I','O','P'
+                ,'A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M'};
+        StringBuilder newValueID = new StringBuilder();
+
+        for (int i = 0; i < idSize; i++) {
+            int value = random.nextInt(arrayOfCharacter.length);
+            char nextChar = arrayOfCharacter[value];
+            newValueID.append(nextChar);
+        }
+
+        return newValueID.toString();
+    }
+
+
 }
