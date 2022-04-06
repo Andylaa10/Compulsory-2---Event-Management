@@ -2,6 +2,8 @@ package gui.model;
 
 import be.Ticket;
 import bll.TicketManager;
+import com.microsoft.sqlserver.jdbc.SQLServerException;
+
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
@@ -16,6 +18,11 @@ public class TicketModel {
      */
     public TicketModel() throws IOException {
         ticketManager = new TicketManager();
+    }
+
+    public List<Ticket> getGeneratedTicketID() throws SQLServerException {
+        List<Ticket> generatedTicketIDList = ticketManager.getGeneratedTicketID();
+        return generatedTicketIDList;
     }
 
     /**

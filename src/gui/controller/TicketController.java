@@ -2,6 +2,7 @@ package gui.controller;
 
 import be.Customer;
 import be.Event;
+import com.microsoft.sqlserver.jdbc.SQLServerException;
 import gui.model.TicketModel;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
@@ -50,16 +51,13 @@ public class TicketController implements Initializable {
 
     }
 
-    public void setTicketModel(TicketModel ticketModel){
-        this.ticketModel = ticketModel;
-    }
-
-    public void setEventData(Event ev, Customer selectedCustomerOnEvent) {
+    public void setEventData(Event ev, Customer selectedCustomerOnEvent) throws SQLServerException {
         ticketTitle.setText("Event: " + ev.getEventName());
         ticketFullName.setText("Navn: " + selectedCustomerOnEvent.getFirstName() + " " + selectedCustomerOnEvent.getLastName());
         ticketLocation.setText("Lokation: " + ev.getEventLocation());
         ticketDateTime.setText("Dato: " + ev.getEventDate() + " Start: " + ev.getEventTime() + " Slut: " + ev.getEventTimeEnd());
         ticketInfo.setText(ev.getEventInfo());
+        ticketID.setText(String.valueOf(ticketModel.getGeneratedTicketID()));
     }
 
     @FXML

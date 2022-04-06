@@ -3,6 +3,8 @@ package dal;
 import be.Ticket;
 import com.microsoft.sqlserver.jdbc.SQLServerException;
 import dal.db.DatabaseConnector;
+
+import javax.print.DocFlavor;
 import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
@@ -14,6 +16,29 @@ public class TicketDAO {
     public TicketDAO() throws IOException {
     }
 
+
+    public List<Ticket> getGeneratedTicketId() throws SQLServerException {
+
+        ArrayList<Ticket> generatedTicketIDlist = new ArrayList<>();
+
+        try (Connection connection = connector.getConnection()){
+            String sql = "SELECT GeneratedTicketID FROM Ticket;";
+
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            ResultSet resultset = preparedStatement.executeQuery();
+
+            while(resultset.next()){
+
+                String generatedTicketID = resultset.getString("GeneratedTicketID");
+
+                Ticket ticketID = new Ticket(generatedTicketID);
+                generatedTicketIDlist.add(ticketID);
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return generatedTicketIDlist;
+    }
     /**
      * Making a ticket list, connecting to the database and adding the results to our ArrayList.
      * @return a list of tickets or an empty list of tickets

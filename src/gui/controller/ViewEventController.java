@@ -4,6 +4,7 @@ import be.Customer;
 import be.Event;
 import be.Ticket;
 import bll.helpers.ErrorHandling;
+import com.microsoft.sqlserver.jdbc.SQLServerException;
 import gui.model.CustomerModel;
 import gui.model.EventCoordinatorModel;
 import gui.model.EventModel;
@@ -27,7 +28,12 @@ import java.util.ResourceBundle;
 
 public class ViewEventController implements Initializable {
 
+    @FXML
     public Button btnTest;
+    @FXML
+    public Button btnSeeTicket;
+    @FXML
+    public TableColumn tcTicketIDOnEvent;
     @FXML
     private TextField txtFieldEventID;
     @FXML
@@ -69,6 +75,7 @@ public class ViewEventController implements Initializable {
 
     private ObservableList<Customer> allCustomers = FXCollections.observableArrayList();
     private ObservableList<Customer> allCustomersOnEvent = FXCollections.observableArrayList();
+    private ObservableList<Ticket> allTicketID = FXCollections.observableArrayList();
 
     private EventCoordinatorModel eventCoordinatorModel;
     private CustomerModel customerModel;
@@ -101,6 +108,8 @@ public class ViewEventController implements Initializable {
         tcLastNameOnEvent.setCellValueFactory(new PropertyValueFactory<>("lastName"));
         tcPhoneNumberOnEvent.setCellValueFactory(new PropertyValueFactory<>("phoneNumber"));
         tcEmailOnEvent.setCellValueFactory(new PropertyValueFactory<>("email"));
+
+
 
         tcCustomerID.setCellValueFactory(new PropertyValueFactory<>("id"));
         tcFirstName.setCellValueFactory(new PropertyValueFactory<>("firstName"));
@@ -138,6 +147,7 @@ public class ViewEventController implements Initializable {
             }
         }));
     }
+
 
 
     private void selectedCustomerOnEvent(){
@@ -218,7 +228,7 @@ public class ViewEventController implements Initializable {
         stage.close();
     }
 
-    public void onActionSeeTicket(ActionEvent actionEvent) throws IOException {
+    public void onActionSeeTicket(ActionEvent actionEvent) throws IOException, SQLServerException {
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setLocation(getClass().getResource("/gui/view/TicketView.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
@@ -228,7 +238,7 @@ public class ViewEventController implements Initializable {
         stage.setScene(scene);
         stage.show();
         TicketController tc = fxmlLoader.getController();
-        tc.setEventData(passedEvent, selectedCustomerOnEvent );
+        tc.setEventData(passedEvent, selectedCustomerOnEvent);
     }
 
 

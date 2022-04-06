@@ -1,6 +1,7 @@
 package bll;
 
 import be.Ticket;
+import com.microsoft.sqlserver.jdbc.SQLServerException;
 import dal.TicketDAO;
 import java.io.IOException;
 import java.sql.SQLException;
@@ -16,6 +17,12 @@ public class TicketManager {
      */
     public TicketManager() throws IOException {
         ticketDAO = new TicketDAO();
+    }
+
+    public List<Ticket> getGeneratedTicketID() throws SQLServerException {
+        List<Ticket> generatedTicketIDList = ticketDAO.getGeneratedTicketId();
+        return generatedTicketIDList;
+
     }
 
     /**

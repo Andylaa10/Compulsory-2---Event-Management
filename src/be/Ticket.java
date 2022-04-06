@@ -4,18 +4,24 @@ public class Ticket {
     private int id;
     private int eventId;
     private int customerId;
-    private String generatedTicketId;
+    private String generatedTicketID;
 
-    public Ticket(int id, int eventId, int customerId, String generatedTicketId) {
+    public Ticket(int id, int eventId, int customerId, String generatedTicketID) {
         this.id = id;
         this.eventId = eventId;
         this.customerId = customerId;
-        this.generatedTicketId = generatedTicketId;
+        this.generatedTicketID = generatedTicketID;
     }
 
     public Ticket() {
 
     }
+
+    public Ticket(String generatedTicketID) {
+        this.generatedTicketID = generatedTicketID;
+    }
+
+
 
     public int getId() {
         return id;
@@ -42,10 +48,10 @@ public class Ticket {
     }
 
     public String getGeneratedTicketId() {
-        return generatedTicketId;
+        return generatedTicketID;
     }
 
     public void setGeneratedTicketId(String generatedTicketId) {
-        this.generatedTicketId = generatedTicketId;
+        this.generatedTicketID = generatedTicketID;
     }
 }
