@@ -81,8 +81,9 @@ public class TicketController implements Initializable {
 
 
     public void generateTicket(){
+        String userHomeFolder = System.getProperty("user.home") + "/Desktop";
         WritableImage image = ticketPane.snapshot(new SnapshotParameters(), null);
-        File file = new File("src/gui/image/placeholder-image.png");
+        File file = new File(userHomeFolder, "placeholder-image.png");
         try{
             ImageIO.write(SwingFXUtils.fromFXImage(image, null), "PNG", file);
         } catch (IOException ioe) {
