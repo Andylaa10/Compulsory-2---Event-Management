@@ -30,7 +30,7 @@
             <TableColumn fx:id="tcLastNameOnEvent" prefWidth="79.199951171875" text="Last Name" />
             <TableColumn fx:id="tcPhoneNumberOnEvent" minWidth="5.5999755859375" prefWidth="107.99995422363281" text="Phone Number" />
             <TableColumn fx:id="tcEmailOnEvent" prefWidth="140.0" text="Email" />
-            <TableColumn fx:id="tcTicketIDOnEvent" prefWidth="124.0" text="ticketID" />
+            <TableColumn fx:id="tcTicketID" prefWidth="124.0" text="ticketID" />
          </columns>
          <effect>
             <DropShadow />

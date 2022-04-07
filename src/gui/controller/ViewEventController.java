@@ -27,6 +27,7 @@ import java.util.ResourceBundle;
 
 public class ViewEventController implements Initializable {
 
+
     @FXML
     private Button btnTest;
     @FXML
@@ -59,6 +60,8 @@ public class ViewEventController implements Initializable {
     private TableColumn<Customer, String> tcPhoneNumberOnEvent;
     @FXML
     private TableColumn<Customer, String> tcEmailOnEvent;
+    @FXML
+    public TableColumn<Ticket, String> tcTicketID;
     @FXML
     private TableColumn<Customer, Integer> tcCustomerID;
     @FXML
@@ -103,6 +106,7 @@ public class ViewEventController implements Initializable {
         tcLastNameOnEvent.setCellValueFactory(new PropertyValueFactory<>("lastName"));
         tcPhoneNumberOnEvent.setCellValueFactory(new PropertyValueFactory<>("phoneNumber"));
         tcEmailOnEvent.setCellValueFactory(new PropertyValueFactory<>("email"));
+        tcTicketID.setCellValueFactory(new PropertyValueFactory<>("generatedTicketID")); //TODO GET HELP FROM SØREN
 
 
         tcCustomerID.setCellValueFactory(new PropertyValueFactory<>("id"));
