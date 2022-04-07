@@ -1,8 +1,13 @@
 package gui.controller;
 
+import be.Event;
+import be.EventCoordinator;
 import bll.helpers.ErrorHandling;
 import gui.model.EventModel;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -10,7 +15,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.sql.SQLException;
 
-public class CreateEventController {
+public class CreateEventController implements IController {
 
     @FXML
     private Button btnCreateEvent;
@@ -37,6 +42,7 @@ public class CreateEventController {
 
     private EventModel eventModel;
     private ErrorHandling errorHandling;
+    private EventCoordinator coordinator;
 
     public CreateEventController() throws IOException {
         this.eventModel = new EventModel();
@@ -44,7 +50,7 @@ public class CreateEventController {
     }
 
     @FXML
-    private void onActionSaveEvent() throws SQLException {
+    private void onActionSaveEvent() throws SQLException, IOException {
         if (!txtFieldEventName.getText().isEmpty() && !txtFieldEventDate.getText().isEmpty() && !txtFieldEventTime.getText().isEmpty()
                 && !txtFieldEventTimeEnd.getText().isEmpty() && !txtFieldEventLocation.getText().isEmpty()
                 && !txtFieldEventMinimum.getText().isEmpty() && !txtFieldEventMaximum.getText().isEmpty())
@@ -59,10 +65,18 @@ public class CreateEventController {
             int eventMinimum = Integer.parseInt(txtFieldEventMinimum.getText());
             int eventMaximum = Integer.parseInt(txtFieldEventMaximum.getText());
 
-            eventModel.createEvent(eventName, eventDate, eventTime, eventTimeEnd, eventLocation, eventInfo, eventPrice, eventMinimum, eventMaximum);
-
-            Stage stage = (Stage) btnCreateEvent.getScene().getWindow();
-            stage.close();
+            if (coordinator != null){
+                eventModel.createAndAssignCoordinator(eventName, eventDate, eventTime, eventTimeEnd, eventLocation, eventInfo, eventPrice, eventMinimum, eventMaximum, coordinator.getId());
+            }else{
+                eventModel.createEvent(eventName, eventDate, eventTime, eventTimeEnd, eventLocation, eventInfo, eventPrice, eventMinimum, eventMaximum);
+            }
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/view/EventsOverview.fxml"));
+            Scene scene = new Scene(loader.load());
+            Stage switcher = (Stage) btnCreateEvent.getScene().getWindow();
+            switcher.setScene(scene);
+            IController controller = loader.getController();
+            controller.setEventCoordinator(coordinator);
+            switcher.show();
         } else {
             errorHandling.invalidInputWarning();
         }
@@ -72,6 +86,11 @@ public class CreateEventController {
     private void handleBtnBack() {
         Stage stage = (Stage) btnBack.getScene().getWindow();
         stage.close();
+    }
+
+    @Override
+    public void setEventCoordinator(EventCoordinator eventCoordinator) throws SQLException, IOException {
+        coordinator = eventCoordinator;
     }
 }
 

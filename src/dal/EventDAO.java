@@ -200,10 +200,55 @@ public class EventDAO {
     }
 
 
+    public Event createAndAssignCoordinator (String eventName, String eventDate, String eventTime, String eventTimeEnd,
+                              String eventLocation, String eventInfo, String eventPrice, int eventMinimum,
+                              int eventMaximum, int LoginID) throws SQLException {
+        try (Connection connection = connector.getConnection()) {
+            String sql = "INSERT INTO Event (EventName, EventDate, eventTime, eventTimeEnd, eventLocation, eventInfo, eventPrice, eventMinimum, eventMaximum) values (?,?,?,?,?,?,?,?,?)";
+
+            try (PreparedStatement preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+                preparedStatement.setString(1, eventName);
+                preparedStatement.setString(2, eventDate);
+                preparedStatement.setString(3, eventTime);
+                preparedStatement.setString(4, eventTimeEnd);
+                preparedStatement.setString(5, eventLocation);
+                preparedStatement.setString(6, eventInfo);
+                preparedStatement.setString(7, eventPrice);
+                preparedStatement.setInt(8, eventMinimum);
+                preparedStatement.setInt(9, eventMaximum);
+                preparedStatement.execute();
+
+                ResultSet resultSet = preparedStatement.getGeneratedKeys();
+                int id = 0;
+                if (resultSet.next()) {
+                    id = resultSet.getInt(1);
+                }
+
+                String sqlInsertCoordinator = "INSERT INTO CoordinatorOnEvent (EventId, LoginId) VALUES (?,?);";
+                PreparedStatement statement = connection.prepareStatement(sqlInsertCoordinator);
+                statement.setInt(1, id);
+                statement.setInt(2, LoginID);
+                statement.execute();
+
+
+                Event event = new Event(id, eventName, eventDate, eventTime, eventTimeEnd, eventLocation, eventInfo,
+                        eventPrice, eventMinimum, eventMaximum);
+                return event;
+
+
+            }
+
+        } catch (SQLServerException throwables) {
+            throwables.printStackTrace();
+            return null;
+        }
+    }
+
     public static void main(String[] args) throws IOException, SQLException {
         EventDAO eventDAO = new EventDAO();
         List<Event> events = eventDAO.getEvents();
         List<Event> events1 = eventDAO.getEventsCoordinator(3);
+        eventDAO.createAndAssignCoordinator("GG", "23:12:00", "13:00", "13:10", "EASV", "Donkey", "2", 1, 20, 3);
 
         System.out.println(events1);
     }

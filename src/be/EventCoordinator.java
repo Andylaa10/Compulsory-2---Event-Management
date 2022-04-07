@@ -38,6 +38,10 @@ public class EventCoordinator implements ILogin {
         this.passwordEvent = password;
     }
 
+    public EventCoordinator(int loginID) {
+        this.id = loginID;
+    }
+
     /**
      * Gets the id
      * @return id

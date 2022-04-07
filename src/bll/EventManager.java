@@ -82,4 +82,10 @@ public class EventManager {
         return searchResult;
     }
 
+    public void createAndAssignCoordinator(String eventName, String eventDate, String eventTime, String eventTimeEnd,
+                                            String eventLocation, String eventInfo, String eventPrice,
+                                            int eventMinimum, int eventMaximum, int LoginID) throws SQLException {
+        eventDAO.createAndAssignCoordinator(eventName, eventDate, eventTime, eventTimeEnd, eventLocation, eventInfo, eventPrice, eventMinimum, eventMaximum, LoginID);
+    }
+
 }
