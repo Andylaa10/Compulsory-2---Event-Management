@@ -214,6 +214,7 @@ public class ViewEventController implements Initializable {
         Stage stage = new Stage();
         stage.setTitle("Manage Customers");
         stage.setScene(new Scene(root));
+        stage.setResizable(false);
         stage.show();
     }
 
@@ -231,6 +232,7 @@ public class ViewEventController implements Initializable {
         Stage stage = new Stage();
         stage.setTitle("Ticket");
         stage.setScene(scene);
+        stage.setResizable(false);
         stage.show();
         TicketController tc = fxmlLoader.getController();
         tc.setEventData(passedEvent, selectedCustomerOnEvent);

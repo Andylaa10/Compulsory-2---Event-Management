@@ -189,6 +189,7 @@ public class EventsOverViewController implements Initializable, IController {
         Stage stage = new Stage();
         stage.setTitle("Manage Customers");
         stage.setScene(new Scene(root));
+        stage.setResizable(false);
         stage.show();
     }
 
@@ -198,6 +199,7 @@ public class EventsOverViewController implements Initializable, IController {
         Stage stage = new Stage();
         stage.setTitle("Create Event");
         stage.setScene(new Scene(root));
+        stage.setResizable(false);
         stage.show();
         stage.setOnHiding(event ->
         {
@@ -223,6 +225,7 @@ public class EventsOverViewController implements Initializable, IController {
             editEventController = fxmlLoader.getController();
             editEventController.setSelectedEvent(selectedEvent);
 
+            stage.setResizable(false);
             stage.show();
             stage.setOnHiding(event ->
             {
@@ -278,6 +281,7 @@ public class EventsOverViewController implements Initializable, IController {
             viewEventController = fxmlLoader.getController();
             viewEventController.setSelectedEvent(selectedEvent);
 
+            stage.setResizable(false);
             stage.show();
             stage.setOnHiding(event ->
             {

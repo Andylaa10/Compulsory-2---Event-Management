@@ -18,11 +18,11 @@ public class AdminController{
 
     @FXML
     private void LogOutFromAdmin() throws IOException {
-        Stage switcher = (Stage) btnLogOut.getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("/gui/view/FrontPage.fxml"));
-        switcher.setTitle("Event Management");
+        Stage stage = (Stage) btnLogOut.getScene().getWindow();
+        stage.setTitle("Event Management");
         Scene scene = new Scene(root);
-        switcher.setScene(scene);
+        stage.setScene(scene);
     }
 
     @FXML
@@ -31,6 +31,7 @@ public class AdminController{
         Stage stage = new Stage();
         stage.setTitle("Manage Customers");
         stage.setScene(new Scene(root));
+        stage.setResizable(false);
         stage.show();
     }
 
@@ -40,6 +41,7 @@ public class AdminController{
         Stage stage = new Stage();
         stage.setTitle("Create Event");
         stage.setScene(new Scene(root));
+        stage.setResizable(false);
         stage.show();
     }
 
@@ -49,6 +51,7 @@ public class AdminController{
         Stage stage = new Stage();
         stage.setTitle("Manage Coordinators");
         stage.setScene(new Scene(root));
+        stage.setResizable(false);
         stage.show();
     }
 
@@ -58,6 +61,7 @@ public class AdminController{
         Stage stage = new Stage();
         stage.setTitle("Manage Coordinators");
         stage.setScene(new Scene(root));
+        stage.setResizable(false);
         stage.show();
 
     }
