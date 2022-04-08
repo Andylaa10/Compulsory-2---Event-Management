@@ -37,21 +37,21 @@
             <Glow />
          </effect>
       </Label>
-      <Button fx:id="btnAddCoordinator" layoutX="370.0" layoutY="558.0" mnemonicParsing="false" onAction="#handleBtnAddCoordinator" prefHeight="28.0" prefWidth="128.0" text="Create Coordinator">
-         <effect>
-            <DropShadow />
-         </effect>
-      </Button>
-      <TextField fx:id="textFieldPassword" layoutX="207.0" layoutY="558.0" prefHeight="27.0" prefWidth="154.0" promptText="Password" style="-fx-background-color: transparent; -fx-border-color: white;">
-         <effect>
-            <DropShadow height="62.03" radius="17.9375" width="11.72" />
-         </effect>
-      </TextField>
       <TextField fx:id="textFieldUsername" layoutX="44.0" layoutY="558.0" prefHeight="27.0" prefWidth="154.0" promptText="Username" style="-fx-background-color: transparent; -fx-border-color: white;">
          <effect>
             <DropShadow height="62.03" radius="17.9375" width="11.72" />
          </effect>
       </TextField>
+      <TextField fx:id="textFieldPassword" layoutX="207.0" layoutY="558.0" prefHeight="27.0" prefWidth="154.0" promptText="Password" style="-fx-background-color: transparent; -fx-border-color: white;">
+         <effect>
+            <DropShadow height="62.03" radius="17.9375" width="11.72" />
+         </effect>
+      </TextField>
+      <Button fx:id="btnAddCoordinator" layoutX="370.0" layoutY="558.0" mnemonicParsing="false" onAction="#handleBtnAddCoordinator" prefHeight="28.0" prefWidth="128.0" text="Create Coordinator">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Button>
       <Button fx:id="btnDeleteCoordinator" layoutX="506.0" layoutY="558.0" mnemonicParsing="false" onAction="#handleBtnDeleteCoordinator" prefHeight="28.0" prefWidth="128.0" text="Delete Coordinator">
          <effect>
             <DropShadow />
