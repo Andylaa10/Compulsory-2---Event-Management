@@ -82,6 +82,12 @@ public class EventManager {
         return searchResult;
     }
 
+    public List<Event> searchAssignedEvent(String query, int loginID) {
+        List<Event> allEvents = getEventsCoordinator(loginID);
+        List<Event> searchResult = eventSearcher.search(allEvents, query);
+        return searchResult;
+    }
+
     public void createAndAssignCoordinator(String eventName, String eventDate, String eventTime, String eventTimeEnd,
                                             String eventLocation, String eventInfo, String eventPrice,
                                             int eventMinimum, int eventMaximum, int LoginID) throws SQLException {
