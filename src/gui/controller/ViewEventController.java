@@ -228,18 +228,22 @@ public class ViewEventController implements Initializable {
         stage.close();
     }
 
-    public void onActionSeeTicket(ActionEvent actionEvent) throws IOException, SQLServerException {
-        FXMLLoader fxmlLoader = new FXMLLoader();
-        fxmlLoader.setLocation(getClass().getResource("/gui/view/TicketView.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        //Parent root = FXMLLoader.load(getClass().getResource("/gui/view/TicketView.fxml"));
-        Stage stage = new Stage();
-        stage.setTitle("Ticket");
-        stage.setScene(scene);
-        stage.setResizable(false);
-        stage.show();
-        TicketController tc = fxmlLoader.getController();
-        tc.setEventData(passedEvent, selectedCustomerOnEvent);
+    public void onActionSeeTicket() throws IOException, SQLServerException {
+        if (selectedCustomerOnEvent != null) {
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("/gui/view/TicketView.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
+            Stage stage = new Stage();
+            stage.setTitle("Ticket");
+            stage.setScene(scene);
+            stage.setResizable(false);
+            stage.show();
+            TicketController tc = fxmlLoader.getController();
+            tc.setEventData(passedEvent, selectedCustomerOnEvent);
+        } else {
+            errorHandling.noCustomerSelectedWarning();
+        }
+
     }
 
 
