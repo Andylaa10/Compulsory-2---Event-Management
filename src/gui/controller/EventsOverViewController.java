@@ -7,6 +7,7 @@ import bll.helpers.ErrorHandling;
 import gui.model.EventModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -315,5 +316,10 @@ public class EventsOverViewController implements Initializable, IController {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    public void onEnter(ActionEvent actionEvent) {
+        onActionSearchEvents();
     }
 }
