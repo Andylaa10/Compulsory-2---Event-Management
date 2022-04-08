@@ -247,7 +247,7 @@ public class CreateCustomerController implements Initializable {
     }
 
     @FXML
-    public void onEnter(ActionEvent actionEvent) {
+    private void onEnter() {
         onActionSearchCustomers();
     }
 }
