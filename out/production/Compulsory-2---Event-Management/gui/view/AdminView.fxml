@@ -31,7 +31,7 @@
                   <Image url="@img/2489664.jpg" />
                </image>
             </ImageView>
-            <Button fx:id="btnCreateCoordinator" layoutX="55.0" layoutY="36.0" mnemonicParsing="false" onAction="#handleBtnCreateCoordinator" prefHeight="42.0" prefWidth="278.0" text="Create Coordinator">
+            <Button fx:id="btnCreateCoordinator" layoutX="55.0" layoutY="67.0" mnemonicParsing="false" onAction="#handleBtnCreateCoordinator" prefHeight="42.0" prefWidth="278.0" text="Create Coordinator">
                <effect>
                   <DropShadow />
                </effect>
@@ -39,7 +39,7 @@
                   <Font size="19.0" />
                </font>
             </Button>
-            <Button fx:id="btnAddCoordinatorToEvent" layoutX="55.0" layoutY="100.0" mnemonicParsing="false" onAction="#handleBtnAddCoordinatorToEvent" prefHeight="42.0" prefWidth="278.0" text="Assign Event">
+            <Button fx:id="btnAddCoordinatorToEvent" layoutX="55.0" layoutY="143.0" mnemonicParsing="false" onAction="#handleBtnAddCoordinatorToEvent" prefHeight="42.0" prefWidth="278.0" text="Assign Event">
                <effect>
                   <DropShadow />
                </effect>
@@ -47,7 +47,7 @@
                   <Font size="19.0" />
                </font>
             </Button>
-            <Button fx:id="btnCreateCustomer" layoutX="55.0" layoutY="168.0" mnemonicParsing="false" onAction="#handleBtnCreateCustomer" prefHeight="42.0" prefWidth="278.0" text="Manage Customers">
+            <Button fx:id="btnCreateCustomer" layoutX="55.0" layoutY="224.0" mnemonicParsing="false" onAction="#handleBtnCreateCustomer" prefHeight="42.0" prefWidth="278.0" text="Manage Customers">
                <effect>
                   <DropShadow />
                </effect>
@@ -55,7 +55,7 @@
                   <Font size="19.0" />
                </font>
             </Button>
-            <Button fx:id="btnCreateEvent" layoutX="55.0" layoutY="232.0" mnemonicParsing="false" onAction="#handleBtnCreateEvent" prefHeight="42.0" prefWidth="278.0" text="Create Event">
+            <Button fx:id="btnCreateEvent" disable="true" layoutX="55.0" layoutY="232.0" mnemonicParsing="false" onAction="#handleBtnCreateEvent" prefHeight="42.0" prefWidth="278.0" text="Create Event" visible="false">
                <effect>
                   <DropShadow />
                </effect>

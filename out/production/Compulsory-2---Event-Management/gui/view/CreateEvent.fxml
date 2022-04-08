@@ -95,12 +95,12 @@
             <DropShadow />
          </effect>
       </TextArea>
-      <Button fx:id="btnBack" layoutX="578.0" layoutY="565.0" mnemonicParsing="false" onAction="#handleBtnBack" prefHeight="28.0" prefWidth="158.0" text="Back">
+      <Button fx:id="btnCreateEvent" layoutX="365.0" layoutY="565.0" mnemonicParsing="false" onAction="#onActionSaveEvent" prefHeight="28.0" prefWidth="204.0" text="Create Event">
          <effect>
             <DropShadow />
          </effect>
       </Button>
-      <Button fx:id="btnCreateEvent" layoutX="365.0" layoutY="565.0" mnemonicParsing="false" onAction="#onActionSaveEvent" prefHeight="28.0" prefWidth="204.0" text="Create Event">
+      <Button fx:id="btnBack" layoutX="578.0" layoutY="565.0" mnemonicParsing="false" onAction="#handleBtnBack" prefHeight="28.0" prefWidth="158.0" text="Back">
          <effect>
             <DropShadow />
          </effect>
