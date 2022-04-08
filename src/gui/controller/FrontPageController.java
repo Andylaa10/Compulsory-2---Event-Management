@@ -74,7 +74,8 @@ public class FrontPageController implements Initializable {
      * @throws IOException
      * @throws SQLServerException
      */
-    public void EventCoordinatorLogin() throws IOException, SQLException {
+    @FXML
+    private void EventCoordinatorLogin() throws IOException, SQLException {
         String username = txtFieldUsername.getText();
         String password = txtPasswordField.getText();
         EventCoordinator eventCoordinator = eventCoordinatorModel.login(username, password);

@@ -55,7 +55,6 @@ public class CreateCustomerController implements Initializable {
     @FXML
     private Button btnSearchCustomers;
 
-
     private ObservableList<Customer> allCustomers = FXCollections.observableArrayList();
     private ObservableList<Customer> searchData = FXCollections.observableArrayList();
 

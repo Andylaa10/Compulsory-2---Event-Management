@@ -1,12 +1,10 @@
 package gui.controller;
 
-import be.Event;
 import be.EventCoordinator;
 import bll.helpers.ErrorHandling;
 import gui.model.EventModel;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
@@ -36,9 +34,9 @@ public class CreateEventController implements IController {
     @FXML
     private TextField txtFieldEventPrice;
     @FXML
-    public TextField txtFieldEventMinimum;
+    private TextField txtFieldEventMinimum;
     @FXML
-    public TextField txtFieldEventMaximum;
+    private TextField txtFieldEventMaximum;
 
     private EventModel eventModel;
     private ErrorHandling errorHandling;

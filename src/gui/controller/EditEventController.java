@@ -73,6 +73,12 @@ public class EditEventController {
 
     }
 
+    @FXML
+    private void handleBtnBack() {
+        Stage stage = (Stage) btnBack.getScene().getWindow();
+        stage.close();
+    }
+
     public void setSelectedEvent(Event event) {
         txtFieldEventID.setText(String.valueOf(event.getId()));
         txtFieldEventName.setText(event.getEventName());
@@ -84,11 +90,5 @@ public class EditEventController {
         txtFieldEventPrice.setText(event.getEventPrice());
         txtFieldEventMinimum.setText(event.getEventMinimum());
         txtFieldEventMaximum.setText(event.getEventMaximum());
-    }
-
-    @FXML
-    private void handleBtnBack() {
-        Stage stage = (Stage) btnBack.getScene().getWindow();
-        stage.close();
     }
 }

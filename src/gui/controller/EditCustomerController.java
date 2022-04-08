@@ -64,6 +64,12 @@ public class EditCustomerController {
 
     }
 
+    @FXML
+    private void handleBtnBack() {
+        Stage stage = (Stage) btnBack.getScene().getWindow();
+        stage.close();
+    }
+
     public void setSelectedCustomer(Customer customer) {
         txtFieldCustomerID.setText(String.valueOf(customer.getId()));
         txtFieldCustomerFirstName.setText(customer.getFirstName());
@@ -73,11 +79,5 @@ public class EditCustomerController {
         txtFieldCustomerStudy.setText(customer.getStudy());
         txtFieldCustomerNote.setText(customer.getNote());
 
-    }
-
-    @FXML
-    private void handleBtnBack() {
-        Stage stage = (Stage) btnBack.getScene().getWindow();
-        stage.close();
     }
 }

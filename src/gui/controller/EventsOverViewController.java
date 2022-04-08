@@ -17,7 +17,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
-import java.sql.SQLException;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -29,8 +28,6 @@ public class EventsOverViewController implements Initializable, IController {
     private TextField tfFieldSearch;
     @FXML
     private Button btnLogOut;
-    @FXML
-    private Button btnAddEvent;
     @FXML
     private TableView<Event> tvEvents;
     @FXML
@@ -108,7 +105,8 @@ public class EventsOverViewController implements Initializable, IController {
         }
     }
 
-    public void handleEventCombo(){
+    @FXML
+    private void handleEventCombo(){
         if (eventCombo.getSelectionModel().isSelected(0)){
             allEvents = FXCollections.observableArrayList(eventModel.getEventsCoordinator(coordinator.getId()));
             tableViewLoadEvents(allEvents);
@@ -210,23 +208,6 @@ public class EventsOverViewController implements Initializable, IController {
                 e.printStackTrace();
             }
         });
-
-        /**
-        Parent root = FXMLLoader.load(getClass().getResource("/gui/view/CreateEvent.fxml"));
-        Stage stage = new Stage();
-        stage.setTitle("Create Event");
-        stage.setScene(new Scene(root));
-        stage.setResizable(false);
-        stage.show();
-        stage.setOnHiding(event ->
-        {
-            try {
-                selectedComboItem();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        });
-         */
     }
 
     @FXML

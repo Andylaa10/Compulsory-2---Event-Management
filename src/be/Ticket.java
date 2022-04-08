@@ -1,6 +1,7 @@
 package be;
 
 public class Ticket {
+
     private int id;
     private int eventId;
     private int customerId;
@@ -14,7 +15,6 @@ public class Ticket {
     }
 
     public Ticket() {
-
     }
 
     public Ticket(String generatedTicketID) {

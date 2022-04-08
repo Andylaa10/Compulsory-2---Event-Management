@@ -19,7 +19,7 @@ public class AdminModel {
      * Constructor
      * @throws IOException
      */
-    public AdminModel() throws IOException, SQLException {
+    public AdminModel() throws IOException {
         adminManager = new AdminManager();
     }
 
