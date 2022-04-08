@@ -83,24 +83,26 @@ public class CreateCoordinatorController implements Initializable {
 
     @FXML
     private void handleBtnDeleteCoordinator() {
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setHeaderText("Warning before you delete a coordinator");
-        alert.setContentText("To delete a coordinator, remove it from all events first! \n Are you sure you want " +
-                "to delete this coordinator?");
         if (selectedCoordinator != null) {
-            Optional<ButtonType> result = alert.showAndWait();
-            if (result.get() == ButtonType.OK) {
-                selectedCoordinator();
-                adminModel.deleteCoordinator(selectedCoordinator.getId());
-            } else {
-                return;
-            }
-            try {
-                allCoordinators = FXCollections.observableList(adminModel.getCoordinator());
-                tableViewLoadCoordinator(allCoordinators);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setHeaderText("Warning before you delete a coordinator");
+            alert.setContentText("To delete a coordinator, remove it from all events first! \n Are you sure you want " +
+                    "to delete this coordinator?");
+                Optional<ButtonType> result = alert.showAndWait();
+                if (result.get() == ButtonType.OK) {
+                    selectedCoordinator();
+                    adminModel.deleteCoordinator(selectedCoordinator.getId());
+                } else {
+                    return;
+                }
+                try {
+                    allCoordinators = FXCollections.observableList(adminModel.getCoordinator());
+                    tableViewLoadCoordinator(allCoordinators);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+        } else {
+            errorHandling.noCoordinatorSelectedWarning();
         }
     }
 

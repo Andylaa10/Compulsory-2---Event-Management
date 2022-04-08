@@ -195,15 +195,14 @@ public class EventsOverViewController implements Initializable, IController {
     }
 
     @FXML
-    private void onActionAddEvent() throws IOException, SQLException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/view/CreateEvent.fxml"));
-        Scene scene = new Scene(loader.load());
-        Stage switcher = (Stage) btnAddEvent.getScene().getWindow();
-        switcher.setScene(scene);
-        IController controller = loader.getController();
-        controller.setEventCoordinator(coordinator);
-        switcher.show();
-        switcher.setOnHiding(event ->
+    private void onActionAddEvent() throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/gui/view/CreateEvent.fxml"));
+        Stage stage = new Stage();
+        stage.setTitle("Create Event");
+        stage.setScene(new Scene(root));
+        stage.setResizable(false);
+        stage.show();
+        stage.setOnHiding(event ->
         {
             try {
                 selectedComboItem();

@@ -36,6 +36,12 @@ public class ErrorHandling {
         alert.showAndWait();
     }
 
+    public void noCoordinatorSelectedWarning() {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setHeaderText("No coordinator was selected");
+        alert.showAndWait();
+    }
+
     public void invalidInputWarning() {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setHeaderText("Cant create event");
