@@ -57,10 +57,14 @@ public class EventManager {
 
     /**
      * Deletes a event using the deleteEvent methods in eventDAO
-     * @param id
+     * @param eventId
      */
-    public void deleteEvent(int id) {
-        eventDAO.deleteEvent(id);
+    public void deleteEvent(int eventId) {
+        eventDAO.deleteEvent(eventId);
+    }
+
+    public void deleteCoordinatorFromEvent(int eventId, int loginId){
+        eventDAO.deleteCoordinatorFromEvent(eventId, loginId);
     }
 
     /**

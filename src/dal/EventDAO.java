@@ -156,20 +156,36 @@ public class EventDAO {
     }
 
     /**
-     * @param id
+     * @param eventId
+     * @param loginId
      * Deletes an event by taken the id
      */
-    public void deleteEvent(int id) {
+    public void deleteEvent(int eventId) {
         try (Connection connection = connector.getConnection()) {
             String sql = "DELETE FROM Event WHERE EventID =?;";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setInt(1, id);
+            preparedStatement.setInt(1, eventId);
             preparedStatement.execute();
         } catch (SQLException throwables) {
             errorHandling.deleteEventDAOError();
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public void deleteCoordinatorFromEvent(int eventId, int loginId){
+        try(Connection connection = connector.getConnection()){
+            String sqlDelete = "DELETE FROM CoordinatorOnEvent WHERE EventId = ? AND LoginId = ?;";
+            PreparedStatement st = connection.prepareStatement(sqlDelete, Statement.RETURN_GENERATED_KEYS);
+            st.setInt(1, eventId);
+            st.setInt(2, loginId);
+            st.execute();
+        } catch (SQLServerException throwables) {
+            throwables.printStackTrace();
+        } catch (SQLException sqlException) {
+            sqlException.printStackTrace();
+        }
+
     }
 
     /**
