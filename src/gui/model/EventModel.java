@@ -57,10 +57,14 @@ public class EventModel {
 
     /**
      * Deletes a event using the deleteEvent methods in eventManager
-     * @param id
+     * @param eventId
      */
-    public void deleteEvent(int id) {
-        eventManager.deleteEvent(id);
+    public void deleteEvent(int eventId) {
+        eventManager.deleteEvent(eventId);
+    }
+
+    public void deleteCoordinatorFromEvent(int eventId, int loginId){
+        eventManager.deleteCoordinatorFromEvent(eventId, loginId);
     }
 
     /**

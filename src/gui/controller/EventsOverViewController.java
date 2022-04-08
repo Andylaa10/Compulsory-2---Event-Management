@@ -4,6 +4,7 @@ import be.Customer;
 import be.Event;
 import be.EventCoordinator;
 import bll.helpers.ErrorHandling;
+import dal.EventDAO;
 import gui.model.EventModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -249,7 +250,7 @@ public class EventsOverViewController implements Initializable, IController {
      * Deletes an event from the table
      */
     @FXML
-     private void handleBtnDeleteEvent() {
+     private void handleBtnDeleteEvent(){
       Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
       alert.setTitle("WARNING MESSAGE");
       alert.setHeaderText("Warning before you delete event");
@@ -258,7 +259,8 @@ public class EventsOverViewController implements Initializable, IController {
       if (selectedEvent != null) {
           Optional<ButtonType> result = alert.showAndWait();
           if (result.get() == ButtonType.OK) {
-             selectedEvent();
+              selectedEvent();
+              eventModel.deleteCoordinatorFromEvent(selectedEvent.getId(), coordinator.getId());
               eventModel.deleteEvent(selectedEvent.getId());
           }
       } else {
