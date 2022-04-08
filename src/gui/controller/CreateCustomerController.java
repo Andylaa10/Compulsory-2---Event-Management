@@ -214,7 +214,7 @@ public class CreateCustomerController implements Initializable {
 
     @FXML
     private void onActionSearchCustomers() {
-        if (hasSearched == true && !txtFieldSearch.getText().equals("")) {
+        if (hasSearched && !txtFieldSearch.getText().equals("")) {
             btnSearchCustomers.setText("X");
             hasSearched = false;
         } else {

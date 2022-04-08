@@ -306,7 +306,7 @@ public class EventsOverViewController implements Initializable, IController {
      */
     @FXML
     private void onActionSearchEvents() {
-        if (hasSearched == true && !tfFieldSearch.getText().equals("")) {
+        if (hasSearched && !tfFieldSearch.getText().equals("")) {
             btnSearchEvents.setText("X");
             hasSearched = false;
         } else {
@@ -315,15 +315,20 @@ public class EventsOverViewController implements Initializable, IController {
             tfFieldSearch.clear();
         }
         try {
-            searchData = FXCollections.observableList(eventModel.searchEvent(tfFieldSearch.getText()));
+            if (eventCombo.getSelectionModel().isSelected(1)) {
+                searchData = FXCollections.observableList(eventModel.searchEvent(tfFieldSearch.getText()));
+            } else {
+                searchData = FXCollections.observableList(eventModel.searchAssignedEvent(tfFieldSearch.getText(), coordinator.getId()));
+            }
             searchTableViewLoad(searchData);
+
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     @FXML
-    public void onEnter(ActionEvent actionEvent) {
+    private void onActionSearchWithEnter() {
         onActionSearchEvents();
     }
 }

@@ -87,6 +87,16 @@ public class EventModel {
         return searchResults;
     }
 
+    public List<Event> searchAssignedEvent(String query, int loginID) {
+        List<Event> searchResults = null;
+
+        searchResults = eventManager.searchAssignedEvent(query, loginID);
+        eventsToBeViewed.clear();
+        eventsToBeViewed.addAll(searchResults);
+
+        return searchResults;
+    }
+
     public void createAndAssignCoordinator (String eventName, String eventDate, String eventTime, String eventTimeEnd, String eventLocation, String eventInfo, String eventPrice, int eventMinimum, int eventMaximum, int LoginID) throws SQLException {
         eventManager.createAndAssignCoordinator(eventName, eventDate, eventTime, eventTimeEnd, eventLocation, eventInfo, eventPrice, eventMinimum, eventMaximum, LoginID);
     }
