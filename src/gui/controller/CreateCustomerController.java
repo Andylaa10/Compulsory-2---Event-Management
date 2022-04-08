@@ -5,6 +5,7 @@ import bll.helpers.ErrorHandling;
 import gui.model.CustomerModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -245,4 +246,8 @@ public class CreateCustomerController implements Initializable {
         return searchData;
     }
 
+    @FXML
+    public void onEnter(ActionEvent actionEvent) {
+        onActionSearchCustomers();
+    }
 }
