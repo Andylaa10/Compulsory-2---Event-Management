@@ -18,6 +18,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -25,6 +26,8 @@ public class EventsOverViewController implements Initializable, IController {
 
     @FXML
     private Button btnSearchEvents;
+    @FXML
+    private Button btnAddEvent;
     @FXML
     private TextField tfFieldSearch;
     @FXML
@@ -194,14 +197,15 @@ public class EventsOverViewController implements Initializable, IController {
     }
 
     @FXML
-    private void onActionAddEvent() throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/gui/view/CreateEvent.fxml"));
-        Stage stage = new Stage();
-        stage.setTitle("Create Event");
-        stage.setScene(new Scene(root));
-        stage.setResizable(false);
-        stage.show();
-        stage.setOnHiding(event ->
+    private void onActionAddEvent() throws IOException, SQLException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/view/CreateEvent.fxml"));
+        Scene scene = new Scene(loader.load());
+        Stage switcher = (Stage) btnAddEvent.getScene().getWindow();
+        switcher.setScene(scene);
+        IController controller = loader.getController();
+        controller.setEventCoordinator(coordinator);
+        switcher.show();
+        switcher.setOnHiding(event ->
         {
             try {
                 selectedComboItem();

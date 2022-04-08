@@ -81,13 +81,24 @@ public class CreateEventController implements IController {
     }
 
     @FXML
-    private void handleBtnBack() {
-        Stage stage = (Stage) btnBack.getScene().getWindow();
-        stage.close();
+    private void handleBtnBack() throws IOException, SQLException {
+        if (coordinator != null) {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/view/EventsOverview.fxml"));
+            Scene scene = new Scene(loader.load());
+            Stage switcher = (Stage) btnCreateEvent.getScene().getWindow();
+            switcher.setScene(scene);
+            IController controller = loader.getController();
+            controller.setEventCoordinator(coordinator);
+            switcher.show();
+        } else {
+            Stage stage = (Stage) btnBack.getScene().getWindow();
+            stage.close();
+        }
+
     }
 
     @Override
-    public void setEventCoordinator(EventCoordinator eventCoordinator) throws SQLException, IOException {
+    public void setEventCoordinator(EventCoordinator eventCoordinator) {
         coordinator = eventCoordinator;
     }
 }
