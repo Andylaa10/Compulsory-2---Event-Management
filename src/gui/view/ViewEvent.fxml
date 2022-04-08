@@ -26,11 +26,10 @@
       <TableView fx:id="tvCustomersOnEvent" cache="true" layoutX="14.0" layoutY="27.0" prefHeight="403.0" prefWidth="550.0" style="-fx-background-color: transparent;" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="30.0">
          <columns>
             <TableColumn fx:id="tcCustomerIDOnEvent" prefWidth="38.400054931640625" text="ID" visible="false" />
-            <TableColumn fx:id="tcFirstNameOnEvent" prefWidth="97.60000228881836" text="First Name" />
-            <TableColumn fx:id="tcLastNameOnEvent" prefWidth="79.199951171875" text="Last Name" />
-            <TableColumn fx:id="tcPhoneNumberOnEvent" minWidth="5.5999755859375" prefWidth="107.99995422363281" text="Phone Number" />
-            <TableColumn fx:id="tcEmailOnEvent" prefWidth="140.0" text="Email" />
-            <TableColumn fx:id="tcTicketID" prefWidth="124.0" text="ticketID" />
+            <TableColumn fx:id="tcFirstNameOnEvent" prefWidth="129.60000228881836" text="First Name" />
+            <TableColumn fx:id="tcLastNameOnEvent" prefWidth="138.3999786376953" text="Last Name" />
+            <TableColumn fx:id="tcPhoneNumberOnEvent" minWidth="5.5999755859375" prefWidth="99.20001220703125" text="Phone Number" />
+            <TableColumn fx:id="tcEmailOnEvent" prefWidth="186.4000244140625" text="Email" />
          </columns>
          <effect>
             <DropShadow />

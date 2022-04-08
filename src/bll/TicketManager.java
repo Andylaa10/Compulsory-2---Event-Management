@@ -19,9 +19,8 @@ public class TicketManager {
         ticketDAO = new TicketDAO();
     }
 
-    public List<Ticket> getGeneratedTicketID() throws SQLServerException {
-        List<Ticket> generatedTicketIDList = ticketDAO.getGeneratedTicketId();
-        return generatedTicketIDList;
+    public List<Ticket> getGeneratedTicketID(int customerID) throws SQLServerException {
+        return ticketDAO.getGeneratedTicketId(customerID);
 
     }
 

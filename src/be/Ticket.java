@@ -13,12 +13,10 @@ public class Ticket {
         this.generatedTicketID = generatedTicketID;
     }
 
-    public Ticket() {
 
-    }
-
-    public Ticket(String generatedTicketID) {
+    public Ticket(String generatedTicketID, int customerId) {
         this.generatedTicketID = generatedTicketID;
+        this.customerId = customerId;
     }
 
 
@@ -53,5 +51,10 @@ public class Ticket {
 
     public void setGeneratedTicketId(String generatedTicketId) {
         this.generatedTicketID = generatedTicketID;
+    }
+
+    @Override
+    public String toString() {
+        return generatedTicketID;
     }
 }

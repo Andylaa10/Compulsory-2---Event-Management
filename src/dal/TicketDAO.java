@@ -15,27 +15,30 @@ public class TicketDAO {
     }
 
 
-    public List<Ticket> getGeneratedTicketId() throws SQLServerException {
+    public List<Ticket> getGeneratedTicketId(int customerId) throws SQLServerException {
 
-        ArrayList<Ticket> generatedTicketIDlist = new ArrayList<>();
+        ArrayList<Ticket> generatedTicketIDList = new ArrayList<>();
 
         try (Connection connection = connector.getConnection()){
-            String sql = "SELECT GeneratedTicketID FROM Ticket;";
+            String sql = "SELECT * FROM Ticket WHERE CustomerId=?;";
 
-            PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            ResultSet resultset = preparedStatement.executeQuery();
+            PreparedStatement preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            preparedStatement.setInt(1, customerId);
+            preparedStatement.execute();
+            ResultSet resultSet = preparedStatement.getResultSet();
 
-            while(resultset.next()){
+            while(resultSet.next()){
 
-                String generatedTicketID = resultset.getString("GeneratedTicketID");
-
-                Ticket ticketID = new Ticket(generatedTicketID);
-                generatedTicketIDlist.add(ticketID);
+                int ticketID = resultSet.getInt("TicketID");
+                int eventID = resultSet.getInt("EventId");
+                int customerID = resultSet.getInt("CustomerId");
+                String generatedTicketID = resultSet.getString("GeneratedTicketID");
+                generatedTicketIDList.add(new Ticket(ticketID, eventID, customerID, generatedTicketID));
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-        return generatedTicketIDlist;
+        return generatedTicketIDList;
     }
     /**
      * Making a ticket list, connecting to the database and adding the results to our ArrayList.
@@ -111,7 +114,7 @@ public class TicketDAO {
      */
     public void deleteTicket(int id) {
         try (Connection connection = connector.getConnection()) {
-            String sql = "DELETE FROM Ticket WHERE TicketID =?;";
+            String sql = "DELETE FROM Ticket WHERE CustomerId =?;";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1, id);
             if (preparedStatement.executeUpdate() != 1) {
@@ -146,9 +149,7 @@ public class TicketDAO {
 
     public static void main(String[] args) throws IOException, SQLException {
         TicketDAO ticketDAO = new TicketDAO();
-        //ticketDAO.createTicket("VIP", "src/gui/image/placeholder-image.png", 4, 1);
-        ticketDAO.deleteTicket(3);
-        List<Ticket> tickets = ticketDAO.getTickets();
-        System.out.println(tickets);
+        List<Ticket> generatedTicketID = ticketDAO.getGeneratedTicketId(26);
+        System.out.println(generatedTicketID.get(0).getGeneratedTicketId());
     }
 }

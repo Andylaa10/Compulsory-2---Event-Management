@@ -49,12 +49,15 @@ public class TicketController implements Initializable {
 
     private PrintService[] printServices;
 
-    private Ticket ticket;
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        ticket = new Ticket();
+        try {
+            ticketModel = new TicketModel();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void setEventData(Event ev, Customer selectedCustomerOnEvent) throws SQLServerException {
@@ -63,9 +66,8 @@ public class TicketController implements Initializable {
         ticketLocation.setText("Lokation: " + ev.getEventLocation());
         ticketDateTime.setText("Dato: " + ev.getEventDate() + " Start: " + ev.getEventTime() + " Slut: " + ev.getEventTimeEnd());
         ticketInfo.setText(ev.getEventInfo());
-        ticketID.setText(ticket.getGeneratedTicketId());
+        ticketID.setText(String.valueOf(ticketModel.getGeneratedTicketID(selectedCustomerOnEvent.getId())));
 
-        System.out.println(ticket.getGeneratedTicketId());
     }
 
     public void setTicketModel(TicketModel ticketModel){

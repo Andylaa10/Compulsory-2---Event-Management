@@ -106,7 +106,6 @@ public class ViewEventController implements Initializable {
         tcLastNameOnEvent.setCellValueFactory(new PropertyValueFactory<>("lastName"));
         tcPhoneNumberOnEvent.setCellValueFactory(new PropertyValueFactory<>("phoneNumber"));
         tcEmailOnEvent.setCellValueFactory(new PropertyValueFactory<>("email"));
-        tcTicketID.setCellValueFactory(new PropertyValueFactory<>("generatedTicketID")); //TODO GET HELP FROM SØREN
 
 
         tcCustomerID.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -189,6 +188,7 @@ public class ViewEventController implements Initializable {
         if (selectedCustomerOnEvent != null) {
             try {
                 eventCoordinatorModel.deleteFromEvent(selectedCustomerOnEvent.getId(), Integer.parseInt(txtFieldEventID.getText()));
+                ticketModel.deleteTicket(selectedCustomerOnEvent.getId());
                 reloadCustomersOnEvent();
             } catch (Exception e) {
                 e.printStackTrace();
