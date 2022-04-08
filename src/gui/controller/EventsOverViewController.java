@@ -7,6 +7,7 @@ import bll.helpers.ErrorHandling;
 import gui.model.EventModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -26,11 +27,11 @@ public class EventsOverViewController implements Initializable, IController {
     @FXML
     private Button btnSearchEvents;
     @FXML
+    private Button btnAddEvent;
+    @FXML
     private TextField tfFieldSearch;
     @FXML
     private Button btnLogOut;
-    @FXML
-    private Button btnAddEvent;
     @FXML
     private TableView<Event> tvEvents;
     @FXML
@@ -108,7 +109,8 @@ public class EventsOverViewController implements Initializable, IController {
         }
     }
 
-    public void handleEventCombo(){
+    @FXML
+    private void handleEventCombo(){
         if (eventCombo.getSelectionModel().isSelected(0)){
             allEvents = FXCollections.observableArrayList(eventModel.getEventsCoordinator(coordinator.getId()));
             tableViewLoadEvents(allEvents);
@@ -211,23 +213,6 @@ public class EventsOverViewController implements Initializable, IController {
                 e.printStackTrace();
             }
         });
-
-        /**
-        Parent root = FXMLLoader.load(getClass().getResource("/gui/view/CreateEvent.fxml"));
-        Stage stage = new Stage();
-        stage.setTitle("Create Event");
-        stage.setScene(new Scene(root));
-        stage.setResizable(false);
-        stage.show();
-        stage.setOnHiding(event ->
-        {
-            try {
-                selectedComboItem();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        });
-         */
     }
 
     @FXML
@@ -335,5 +320,10 @@ public class EventsOverViewController implements Initializable, IController {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    public void onEnter(ActionEvent actionEvent) {
+        onActionSearchEvents();
     }
 }

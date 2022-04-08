@@ -1,12 +1,10 @@
 package gui.controller;
 
-import be.Event;
 import be.EventCoordinator;
 import bll.helpers.ErrorHandling;
 import gui.model.EventModel;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
@@ -36,9 +34,9 @@ public class CreateEventController implements IController {
     @FXML
     private TextField txtFieldEventPrice;
     @FXML
-    public TextField txtFieldEventMinimum;
+    private TextField txtFieldEventMinimum;
     @FXML
-    public TextField txtFieldEventMaximum;
+    private TextField txtFieldEventMaximum;
 
     private EventModel eventModel;
     private ErrorHandling errorHandling;
@@ -83,13 +81,24 @@ public class CreateEventController implements IController {
     }
 
     @FXML
-    private void handleBtnBack() {
-        Stage stage = (Stage) btnBack.getScene().getWindow();
-        stage.close();
+    private void handleBtnBack() throws IOException, SQLException {
+        if (coordinator != null) {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/view/EventsOverview.fxml"));
+            Scene scene = new Scene(loader.load());
+            Stage switcher = (Stage) btnCreateEvent.getScene().getWindow();
+            switcher.setScene(scene);
+            IController controller = loader.getController();
+            controller.setEventCoordinator(coordinator);
+            switcher.show();
+        } else {
+            Stage stage = (Stage) btnBack.getScene().getWindow();
+            stage.close();
+        }
+
     }
 
     @Override
-    public void setEventCoordinator(EventCoordinator eventCoordinator) throws SQLException, IOException {
+    public void setEventCoordinator(EventCoordinator eventCoordinator) {
         coordinator = eventCoordinator;
     }
 }

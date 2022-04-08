@@ -1,6 +1,7 @@
 package be;
 
 public class Ticket {
+
     private int id;
     private int eventId;
     private int customerId;
@@ -15,8 +16,15 @@ public class Ticket {
 
 
     public Ticket(String generatedTicketID, int customerId) {
-        this.generatedTicketID = generatedTicketID;
         this.customerId = customerId;
+        this.generatedTicketID = generatedTicketID;
+    }
+
+    public Ticket() {
+    }
+
+    public Ticket(String generatedTicketID) {
+        this.generatedTicketID = generatedTicketID;
     }
 
 
