@@ -63,7 +63,7 @@ public class CustomerManager {
     }
 
     /**
-     * Searching through a list of events.
+     * Searching through a list of customer.
      * @param query
      * @return
      */

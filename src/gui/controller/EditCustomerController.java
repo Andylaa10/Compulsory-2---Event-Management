@@ -35,11 +35,19 @@ public class EditCustomerController {
     private CustomerModel customerModel;
     private ErrorHandling errorHandling;
 
+    /**
+     * Constructor
+     * @throws IOException
+     * @throws SQLException
+     */
     public EditCustomerController() throws IOException, SQLException {
         this.customerModel = new CustomerModel();
         this.errorHandling = new ErrorHandling();
     }
 
+    /**
+     * Save the customer based on the input given
+     */
     @FXML
     private void onActionSaveCustomer() {
         if (!txtFieldCustomerFirstName.getText().isEmpty() && !txtFieldCustomerLastName.getText().isEmpty() && !txtFieldCustomerPhone.getText().isEmpty()
@@ -64,12 +72,19 @@ public class EditCustomerController {
 
     }
 
+    /**
+     * Goes back to the previous view
+     */
     @FXML
     private void handleBtnBack() {
         Stage stage = (Stage) btnBack.getScene().getWindow();
         stage.close();
     }
 
+    /**
+     * Sets the selected customer
+     * @param customer
+     */
     public void setSelectedCustomer(Customer customer) {
         txtFieldCustomerID.setText(String.valueOf(customer.getId()));
         txtFieldCustomerFirstName.setText(customer.getFirstName());

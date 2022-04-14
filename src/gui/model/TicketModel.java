@@ -20,6 +20,12 @@ public class TicketModel {
         ticketManager = new TicketManager();
     }
 
+    /**
+     * Gets the list of generatedTicketId using the getGeneratedTicketID from ticketManager
+     * @param customerId
+     * @return
+     * @throws SQLServerException
+     */
     public List<Ticket> getGeneratedTicketID(int customerId) throws SQLServerException {
         return ticketManager.getGeneratedTicketID(customerId);
     }

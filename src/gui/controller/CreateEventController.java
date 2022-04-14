@@ -42,11 +42,20 @@ public class CreateEventController implements IController {
     private ErrorHandling errorHandling;
     private EventCoordinator coordinator;
 
+    /**
+     * Constructor
+     * @throws IOException
+     */
     public CreateEventController() throws IOException {
         this.eventModel = new EventModel();
         this.errorHandling = new ErrorHandling();
     }
 
+    /**
+     * Save the event based on the input given
+     * @throws SQLException
+     * @throws IOException
+     */
     @FXML
     private void onActionSaveEvent() throws SQLException, IOException {
         if (!txtFieldEventName.getText().isEmpty() && !txtFieldEventDate.getText().isEmpty() && !txtFieldEventTime.getText().isEmpty()
@@ -80,6 +89,11 @@ public class CreateEventController implements IController {
         }
     }
 
+    /**
+     * Goes back to the previous view
+     * @throws IOException
+     * @throws SQLException
+     */
     @FXML
     private void handleBtnBack() throws IOException, SQLException {
         if (coordinator != null) {
@@ -97,6 +111,10 @@ public class CreateEventController implements IController {
 
     }
 
+    /**
+     * Sets the coordinator
+     * @param eventCoordinator
+     */
     @Override
     public void setEventCoordinator(EventCoordinator eventCoordinator) {
         coordinator = eventCoordinator;

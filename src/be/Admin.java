@@ -29,6 +29,11 @@ public class Admin implements ILogin {
         this.isAdmin = isAdmin;
     }
 
+    /**
+     * Constructor with username and password
+     * @param username
+     * @param password
+     */
     public Admin(String username, String password) {
         this.usernameAdmin = username;
         this.passwordAdmin = password;

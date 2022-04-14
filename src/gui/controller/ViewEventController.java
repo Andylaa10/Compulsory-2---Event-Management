@@ -26,26 +26,11 @@ import java.util.Random;
 import java.util.ResourceBundle;
 
 public class ViewEventController implements Initializable {
-
-
-    @FXML
-    private Button btnTest;
-    @FXML
-    private Button btnSeeTicket;
+    
     @FXML
     private TextField txtFieldEventID;
     @FXML
-    private Button btnCreateCustomer;
-    @FXML
-    private Button btnDeleteSelectedFromEvent;
-    @FXML
-    private Button btnAddSelectedToEvent;
-    @FXML
     private Button btnClose;
-    @FXML
-    private Label lblCustomerOnEvent;
-    @FXML
-    private Label lblCustomerList;
     @FXML
     private TableView<Customer> tvCustomers;
     @FXML
@@ -60,8 +45,6 @@ public class ViewEventController implements Initializable {
     private TableColumn<Customer, String> tcPhoneNumberOnEvent;
     @FXML
     private TableColumn<Customer, String> tcEmailOnEvent;
-    @FXML
-    public TableColumn<Ticket, String> tcTicketID;
     @FXML
     private TableColumn<Customer, Integer> tcCustomerID;
     @FXML
@@ -81,7 +64,6 @@ public class ViewEventController implements Initializable {
     private TicketModel ticketModel;
     private Customer selectedCustomer;
     private Customer selectedCustomerOnEvent;
-    private Ticket selectedTicketOnEvent;
     private ErrorHandling errorHandling;
     private Event passedEvent;
 
@@ -92,7 +74,11 @@ public class ViewEventController implements Initializable {
         this.ticketModel = new TicketModel();
     }
 
-
+    /**
+     * Runs the methods inside when this view appears
+     * @param location
+     * @param resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         initializeTable();

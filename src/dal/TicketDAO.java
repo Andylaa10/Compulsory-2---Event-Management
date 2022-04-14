@@ -11,10 +11,20 @@ import java.util.List;
 public class TicketDAO {
     private final DatabaseConnector connector = DatabaseConnector.getInstance();
 
+    /**
+     * Constructor
+     * @throws IOException
+     */
     public TicketDAO() throws IOException {
     }
 
 
+    /**
+     * Gets a list of generatedTicketIds
+     * @param customerId
+     * @return
+     * @throws SQLServerException
+     */
     public List<Ticket> getGeneratedTicketId(int customerId) throws SQLServerException {
 
         ArrayList<Ticket> generatedTicketIDList = new ArrayList<>();
@@ -147,6 +157,12 @@ public class TicketDAO {
         }
     }
 
+    /**
+     * Method to test TicketDAO
+     * @param args
+     * @throws IOException
+     * @throws SQLException
+     */
     public static void main(String[] args) throws IOException, SQLException {
         TicketDAO ticketDAO = new TicketDAO();
         List<Ticket> generatedTicketID = ticketDAO.getGeneratedTicketId(26);

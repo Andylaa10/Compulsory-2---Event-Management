@@ -2,11 +2,9 @@ package gui.controller;
 
 import be.Customer;
 import be.Event;
-import be.Ticket;
 import com.microsoft.sqlserver.jdbc.SQLServerException;
 import gui.model.TicketModel;
 import javafx.embed.swing.SwingFXUtils;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.SnapshotParameters;
@@ -17,15 +15,12 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javax.imageio.ImageIO;
-import javax.print.PrintService;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class TicketController implements Initializable {
-    @FXML/*w  w  w   .   de  m   o   2s    .c    o  m*/
-            Button Printstart;
     @FXML
     private Text ticketDateTime;
     @FXML
@@ -41,16 +36,17 @@ public class TicketController implements Initializable {
     @FXML
     private Button btnClose;
     @FXML
-    private Button printTicketOut;
-    @FXML
     private AnchorPane ticketPane;
 
     private TicketModel ticketModel;
 
-    private PrintService[] printServices;
 
 
-
+    /**
+     * Runs the methods inside when this view appears
+     * @param location
+     * @param resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
@@ -60,6 +56,12 @@ public class TicketController implements Initializable {
         }
     }
 
+    /**
+     * Sets the eventData
+     * @param ev
+     * @param selectedCustomerOnEvent
+     * @throws SQLServerException
+     */
     public void setEventData(Event ev, Customer selectedCustomerOnEvent) throws SQLServerException {
         ticketTitle.setText("Event: " + ev.getEventName());
         ticketFullName.setText("Navn: " + selectedCustomerOnEvent.getFirstName() + " " + selectedCustomerOnEvent.getLastName());
@@ -70,18 +72,18 @@ public class TicketController implements Initializable {
 
     }
 
-    public void setTicketModel(TicketModel ticketModel){
-        this.ticketModel = ticketModel;
-    }
-
+    /**
+     * Closes the window
+     */
     @FXML
     private void onActionCloseWindow() {
         Stage stage = (Stage) btnClose.getScene().getWindow();
         stage.close();
     }
 
-
-
+    /**
+     * Screenshot of the anchor pane down on your Desktop
+     */
     public void generateTicket(){
         String userHomeFolder = System.getProperty("user.home") + "/Desktop";
         WritableImage image = ticketPane.snapshot(new SnapshotParameters(), null);
@@ -93,7 +95,10 @@ public class TicketController implements Initializable {
         }
     }
 
-    public void PrintTicket(ActionEvent actionEvent) {
+    /**
+     * Takes a screenshot when pressed
+     */
+    public void PrintTicket() {
         generateTicket();
     }
 }

@@ -13,6 +13,10 @@ public class EventCoordinatorDAO {
 
     private final DatabaseConnector connector = DatabaseConnector.getInstance();
 
+    /**
+     * Constructor
+     * @throws IOException
+     */
     public EventCoordinatorDAO() throws IOException {
     }
 

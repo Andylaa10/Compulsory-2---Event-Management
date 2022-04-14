@@ -20,30 +20,16 @@ public class Event {
     public Event() {
     }
 
+    /**
+     * Constructor with how many participants
+     * @param currentCustomersOnEvent
+     */
     public Event(int currentCustomersOnEvent) {
         this.currentCustomersOnEvent = currentCustomersOnEvent;
     }
 
     /**
-     *
-     * @param eventName
-     * @param eventDate
-     * @param eventTime
-     * @param eventLocation
-     * @param eventInfo
-     * @param eventPrice
-     */
-    public Event(String eventName, String eventDate, String eventTime, String eventLocation, String eventInfo, String eventPrice) {
-        this.eventName = eventName;
-        this.eventDate = eventDate;
-        this.eventTime = eventTime;
-        this.eventLocation = eventLocation;
-        this.eventInfo = eventInfo;
-        this.eventPrice = eventPrice;
-    }
-
-
-    /**
+     * Constructor with id, eventName, eventDate, eventTime, eventLocation, eventInfo, eventPrice, eventMinimum and eventMaximum
      * @param id
      * @param eventName
      * @param eventDate
@@ -52,7 +38,8 @@ public class Event {
      * @param eventLocation
      * @param eventInfo
      * @param eventPrice
-     * Constructor with id, eventName, eventDate, eventTime, eventLocation, eventInfo and eventPrice
+     * @param eventMinimum
+     * @param eventMaximum
      */
     public Event(int id, String eventName, String eventDate, String eventTime, String eventTimeEnd, String eventLocation,
                  String eventInfo, String eventPrice, int eventMinimum, int eventMaximum) {
@@ -68,6 +55,20 @@ public class Event {
         this.eventMaximum = eventMaximum;
     }
 
+    /**
+     * Constructor with id, eventName, eventDate, eventTime, eventLocation, eventInfo, eventPrice, eventMinimum, eventMaximum and loginID
+     * @param eventID
+     * @param eventName
+     * @param eventDate
+     * @param eventTime
+     * @param eventTimeEnd
+     * @param eventLocation
+     * @param eventInfo
+     * @param eventPrice
+     * @param eventMinimum
+     * @param eventMaximum
+     * @param loginID
+     */
     public Event(int eventID, String eventName, String eventDate, String eventTime, String eventTimeEnd, String eventLocation, String eventInfo, String eventPrice, int eventMinimum, int eventMaximum, int loginID) {
         this.id = eventID;
         this.eventName = eventName;
@@ -191,39 +192,67 @@ public class Event {
      */
     public void setEventPrice(String eventPrice){this.eventPrice = eventPrice;}
 
+    /**
+     * Gets the end time of event
+     * @return
+     */
     public String getEventTimeEnd() {
         return eventTimeEnd;
     }
 
+    /**
+     * Sets the end time of the event
+     * @param eventTimeEnd
+     */
     public void setEventTimeEnd(String eventTimeEnd) {
         this.eventTimeEnd = eventTimeEnd;
     }
 
+    /**
+     * Gets the minimum amount of participants
+     * @return
+     */
     public String getEventMinimum() {
         return String.valueOf(eventMinimum);
     }
 
+    /**
+     * Sets the maximum amount of participants
+     * @param eventMinimum
+     */
     public void setEventMinimum(int eventMinimum) {
         this.eventMinimum = eventMinimum;
     }
 
+    /**
+     * Gets the maximum amount of participants
+     * @return
+     */
     public String getEventMaximum() {
         return String.valueOf(eventMaximum);
     }
 
+    /**
+     * Sets the maximum amount of participants
+     * @param eventMaximum
+     */
     public void setEventMaximum(int eventMaximum) {
         this.eventMaximum = eventMaximum;
     }
 
+    /**
+     * Gets the current amount of customer on event
+     * @return
+     */
     public int getCurrentCustomersOnEvent() {
         return currentCustomersOnEvent;
     }
 
+    /**
+     * Sets the current amount of customer on event
+     * @param currentCustomersOnEvent
+     */
     public void setCurrentCustomersOnEvent(int currentCustomersOnEvent) {
         this.currentCustomersOnEvent = currentCustomersOnEvent;
-    }
-
-    public int getLoginID() {
-        return loginID;
     }
 }

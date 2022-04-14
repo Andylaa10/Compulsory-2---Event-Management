@@ -4,11 +4,9 @@ import be.Customer;
 import be.Event;
 import be.EventCoordinator;
 import bll.helpers.ErrorHandling;
-import dal.EventDAO;
 import gui.model.EventModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -55,7 +53,6 @@ public class EventsOverViewController implements Initializable, IController {
     private TableColumn<Event, String> tcEventInfo;
     @FXML
     private TableColumn<Event, String> tcEventPrice;
-
     @FXML
     private ComboBox<String> eventCombo;
 
@@ -72,17 +69,29 @@ public class EventsOverViewController implements Initializable, IController {
     private EditEventController editEventController;
 
 
+    /**
+     * Constructor
+     * @throws IOException
+     */
     public EventsOverViewController() throws IOException {
         this.eventModel = new EventModel();
         this.errorHandling = new ErrorHandling();
     }
 
+    /**
+     * Runs the methods inside when this view appears
+     * @param location
+     * @param resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         selectedEvent();
         initializeTable();
     }
 
+    /**
+     * Loading the table view
+     */
     public void initializeTable(){
         tcEventName.setCellValueFactory(new PropertyValueFactory<>("EventName"));
         tcEventDate.setCellValueFactory(new PropertyValueFactory<>("EventDate"));
@@ -96,6 +105,10 @@ public class EventsOverViewController implements Initializable, IController {
         tcEventCurrentParticipants.setCellValueFactory(new PropertyValueFactory<>("CurrentCustomersOnEvent"));
     }
 
+    /**
+     * Sets the coordinator and the assigned events
+     * @param eventCoordinator
+     */
     @Override
     public void setEventCoordinator(EventCoordinator eventCoordinator) {
         coordinator = eventCoordinator;
@@ -110,6 +123,9 @@ public class EventsOverViewController implements Initializable, IController {
         }
     }
 
+    /**
+     * Sets the different tableview based on the selected value
+     */
     @FXML
     private void handleEventCombo(){
         if (eventCombo.getSelectionModel().isSelected(0)){
@@ -121,6 +137,9 @@ public class EventsOverViewController implements Initializable, IController {
         }
     }
 
+    /**
+     * Sets the different tableview based on the selected value
+     */
     private void selectedComboItem(){
         String comboBox = eventCombo.getSelectionModel().getSelectedItem();
         switch (comboBox) {
@@ -159,6 +178,10 @@ public class EventsOverViewController implements Initializable, IController {
         tvEvents.setItems(getEventData());
     }
 
+    /**
+     * Gets the list of events
+     * @return
+     */
     private ObservableList<Event> getEventData() {
         return allEvents;
     }
@@ -178,6 +201,10 @@ public class EventsOverViewController implements Initializable, IController {
         return searchData;
     }
 
+    /**
+     * Logout and brings you back to the login menu
+     * @throws IOException
+     */
     @FXML
     private void LogOutFromEventCoordinator() throws IOException {
         Stage switcher = (Stage) btnLogOut.getScene().getWindow();
@@ -187,6 +214,10 @@ public class EventsOverViewController implements Initializable, IController {
         switcher.setScene(scene);
     }
 
+    /**
+     * Opens the list of customers
+     * @throws IOException
+     */
     @FXML
     private void onActionOpenCustomers() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/gui/view/CreateCustomer.fxml"));
@@ -197,6 +228,11 @@ public class EventsOverViewController implements Initializable, IController {
         stage.show();
     }
 
+    /**
+     * Opens the view where adding an event is possible
+     * @throws IOException
+     * @throws SQLException
+     */
     @FXML
     private void onActionAddEvent() throws IOException, SQLException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/view/CreateEvent.fxml"));
@@ -216,6 +252,10 @@ public class EventsOverViewController implements Initializable, IController {
         });
     }
 
+    /**
+     * Opens the view where editing an event is possible
+     * @throws IOException
+     */
     @FXML
     private void onActionEditEvent() throws IOException {
         if (selectedEvent != null) {
@@ -247,7 +287,7 @@ public class EventsOverViewController implements Initializable, IController {
 
 
     /**
-     * Deletes an event from the table
+     * Deletes a selected event from the table
      */
     @FXML
      private void handleBtnDeleteEvent(){
@@ -273,6 +313,10 @@ public class EventsOverViewController implements Initializable, IController {
       }
     }
 
+    /**
+     * Opens the view where all the events are
+     * @throws IOException
+     */
     @FXML
     private void onActionViewEvent() throws IOException {
         if (selectedEvent != null) {
@@ -329,6 +373,9 @@ public class EventsOverViewController implements Initializable, IController {
         }
     }
 
+    /**
+     * When pressing enter you can search on events based on the input given to the search field
+     */
     @FXML
     private void onActionSearchWithEnter() {
         onActionSearchEvents();

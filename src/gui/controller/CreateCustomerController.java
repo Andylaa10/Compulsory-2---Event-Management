@@ -5,7 +5,6 @@ import bll.helpers.ErrorHandling;
 import gui.model.CustomerModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -67,17 +66,30 @@ public class CreateCustomerController implements Initializable {
     private EditCustomerController editCustomerController;
 
 
+    /**
+     * Constructor
+     * @throws IOException
+     * @throws SQLException
+     */
     public CreateCustomerController() throws IOException, SQLException {
         customerModel = new CustomerModel();
         errorHandling = new ErrorHandling();
     }
 
+    /**
+     * Runs the methods inside when this view appears
+     * @param location
+     * @param resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         initializeTable();
         selectedCustomer();
     }
 
+    /**
+     * Loading the tableview
+     */
     private void initializeTable() {
         tcCustomerID.setCellValueFactory(new PropertyValueFactory<>("id"));
         tcFirstName.setCellValueFactory(new PropertyValueFactory<>("firstName"));
@@ -113,6 +125,10 @@ public class CreateCustomerController implements Initializable {
         return allCustomers;
     }
 
+    /**
+     * Creating a customer by inserting information
+     * @throws SQLException
+     */
     @FXML
     private void handleBtnAddCustomer() throws SQLException {
         if (!txtFieldFirstName.getText().isEmpty() && !txtFieldLastName.getText().isEmpty() && !txtFieldPhoneNumber.getText().isEmpty() && !txtFieldEmail.getText().isEmpty()){
@@ -126,11 +142,15 @@ public class CreateCustomerController implements Initializable {
             customerModel.createCustomer(customerFirstName, customerLastName, customerPhoneNumber, customerEmail, customerStudy, customerNote);
             reloadCustomerTable();
         } else {
-            errorHandling.addCustomerError();
+            errorHandling.creatingCustomerError();
         }
 
     }
 
+    /**
+     * Editing a customer by selecting
+     * @throws IOException
+     */
     @FXML
     private void handleBtnEditCustomer() throws IOException {
         if (selectedCustomer != null) {
@@ -161,6 +181,9 @@ public class CreateCustomerController implements Initializable {
         }
     }
 
+    /**
+     * Deletes a customer by selecting
+     */
     @FXML
     private void handleBtnDeleteCustomer(){
         if (selectedCustomer != null) {
@@ -189,6 +212,9 @@ public class CreateCustomerController implements Initializable {
         }
     }
 
+    /**
+     * Reloads the customer table
+     */
     private void reloadCustomerTable() {
         try {
             int index = tvCustomers.getSelectionModel().getFocusedIndex();
@@ -199,6 +225,9 @@ public class CreateCustomerController implements Initializable {
         }
     }
 
+    /**
+     * Selecting customer
+     */
     private void selectedCustomer() {
         this.tvCustomers.getSelectionModel().selectedItemProperty().addListener(((observableValue, oldValue, newValue) -> {
             if (newValue != null) {
@@ -207,12 +236,18 @@ public class CreateCustomerController implements Initializable {
         }));
     }
 
+    /**
+     * Goes back to the previous view
+     */
     @FXML
     private void handleBtnBack() {
         Stage stage = (Stage) btnBack.getScene().getWindow();
         stage.close();
     }
 
+    /**
+     * Searching on customers
+     */
     @FXML
     private void onActionSearchCustomers() {
         if (hasSearched && !txtFieldSearch.getText().equals("")) {
@@ -246,6 +281,9 @@ public class CreateCustomerController implements Initializable {
         return searchData;
     }
 
+    /**
+     * When press enter you can search on customer if there are any input in the search field
+     */
     @FXML
     private void onEnter() {
         onActionSearchCustomers();

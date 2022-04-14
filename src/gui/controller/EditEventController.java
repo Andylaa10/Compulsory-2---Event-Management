@@ -40,11 +40,18 @@ public class EditEventController {
     private EventModel eventModel;
     private ErrorHandling errorHandling;
 
+    /**
+     * Constructor
+     * @throws IOException
+     */
     public EditEventController() throws IOException {
         this.eventModel = new EventModel();
         this.errorHandling = new ErrorHandling();
     }
 
+    /**
+     * Saves the event based on the input given
+     */
     @FXML
     private void onActionSaveEvent() {
         if (!txtFieldEventName.getText().isEmpty() && !txtFieldEventDate.getText().isEmpty() && !txtFieldEventTime.getText().isEmpty()
@@ -73,12 +80,19 @@ public class EditEventController {
 
     }
 
+    /**
+     * Goes back to the previous view
+     */
     @FXML
     private void handleBtnBack() {
         Stage stage = (Stage) btnBack.getScene().getWindow();
         stage.close();
     }
 
+    /**
+     * Sets the selected event
+     * @param event
+     */
     public void setSelectedEvent(Event event) {
         txtFieldEventID.setText(String.valueOf(event.getId()));
         txtFieldEventName.setText(event.getEventName());

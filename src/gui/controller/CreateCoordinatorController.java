@@ -26,10 +26,8 @@ public class CreateCoordinatorController implements Initializable {
     private TableColumn<EventCoordinator, String> tcUsername;
     @FXML
     private TableColumn<EventCoordinator, String> tcPassword;
-
     @FXML
     private Button btnBack;
-
     @FXML
     private TextField textFieldUsername;
     @FXML
@@ -41,17 +39,29 @@ public class CreateCoordinatorController implements Initializable {
     private AdminModel adminModel;
     private ErrorHandling errorHandling;
 
-    public CreateCoordinatorController() throws IOException, SQLException {
+    /**
+     * Constructor
+     * @throws IOException
+     */
+    public CreateCoordinatorController() throws IOException{
         adminModel = new AdminModel();
         errorHandling = new ErrorHandling();
     }
 
+    /**
+     * Runs the methods inside when this view appears
+     * @param location
+     * @param resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         initializeTable();
         selectedCoordinator();
     }
 
+    /**
+     * Loading the tableviews
+     */
     public void initializeTable(){
         tcID.setCellValueFactory(new PropertyValueFactory<>("id"));
         tcUsername.setCellValueFactory(new PropertyValueFactory<>("username"));
@@ -81,6 +91,9 @@ public class CreateCoordinatorController implements Initializable {
         return allCoordinators;
     }
 
+    /**
+     * Deleting a coordinator by selecting
+     */
     @FXML
     private void handleBtnDeleteCoordinator() {
         if (selectedCoordinator != null) {
@@ -106,12 +119,19 @@ public class CreateCoordinatorController implements Initializable {
         }
     }
 
+    /**
+     * Goes back to the previous view
+     */
     @FXML
     private void handleBtnBack() {
         Stage stage = (Stage) btnBack.getScene().getWindow();
         stage.close();
     }
 
+    /**
+     * Creating a coordinator by inserting information
+     * @throws SQLException
+     */
     @FXML
     private void handleBtnAddCoordinator() throws SQLException {
         if (!textFieldUsername.getText().isEmpty() && !textFieldPassword.getText().isEmpty()){
@@ -124,7 +144,7 @@ public class CreateCoordinatorController implements Initializable {
             textFieldUsername.clear();
             textFieldPassword.clear();
         }else {
-            errorHandling.addCoordinatorError();
+            errorHandling.creatingCoordinatorError();
         }
     }
 

@@ -33,11 +33,20 @@ public class EventCoordinator implements ILogin {
         this.isAdmin = isAdmin;
     }
 
+    /**
+     * Constructor with username and password
+     * @param username
+     * @param password
+     */
     public EventCoordinator(String username, String password) {
         this.usernameEvent = username;
         this.passwordEvent = password;
     }
 
+    /**
+     * Constructor with loginID
+     * @param loginID
+     */
     public EventCoordinator(int loginID) {
         this.id = loginID;
     }
@@ -122,7 +131,7 @@ public class EventCoordinator implements ILogin {
     }
 
     /**
-     * Gets a list of the events
+     * Gets a list of the tickets
      * @return
      */
     public List<Ticket> getTickets() {

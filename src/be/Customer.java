@@ -114,18 +114,34 @@ public class Customer {
         this.email = email;
     }
 
+    /**
+     * Gets the education/study
+     * @return
+     */
     public String getStudy() {
         return study;
     }
 
+    /**
+     * Sets the education/study
+     * @param study
+     */
     public void setStudy(String study) {
         this.study = study;
     }
 
+    /**
+     * Gets the note
+     * @return
+     */
     public String getNote() {
         return note;
     }
 
+    /**
+     * Sets the note
+     * @param note
+     */
     public void setNote(String note) {
         this.note = note;
     }

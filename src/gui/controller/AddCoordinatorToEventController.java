@@ -16,21 +16,18 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
-import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class AddCoordinatorToEventController implements Initializable {
 
     @FXML
     private Button btnBack;
-
     @FXML
     private TableView<EventCoordinator> tvCoordinatorOnEvent;
     @FXML
     private TableView<Event> tvEvents;
     @FXML
     private TableView<EventCoordinator> tvCoordinators;
-
     @FXML
     private TableColumn<EventCoordinator, String> tcCoordinators;
     @FXML
@@ -63,7 +60,11 @@ public class AddCoordinatorToEventController implements Initializable {
     private Event selectedEvent;
     private ErrorHandling errorHandling;
 
-    public AddCoordinatorToEventController() throws SQLException, IOException {
+    /**
+     * Constructor
+     * @throws IOException
+     */
+    public AddCoordinatorToEventController() throws IOException {
         this.selectedCoordinator = new EventCoordinator();
         this.selectedCoordinatorOnEvent = new EventCoordinator();
         this.selectedEvent = new Event();
@@ -72,12 +73,20 @@ public class AddCoordinatorToEventController implements Initializable {
         this.errorHandling = new ErrorHandling();
     }
 
+    /**
+     * Goes back to the previous view
+     */
     @FXML
     private void handleBtnBack() {
         Stage stage = (Stage) btnBack.getScene().getWindow();
         stage.close();
     }
 
+    /**
+     * Runs the methods inside when this view appears
+     * @param location
+     * @param resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         initializeTable();
@@ -86,6 +95,9 @@ public class AddCoordinatorToEventController implements Initializable {
         selectedEvent();
     }
 
+    /**
+     * Loading the tableviews
+     */
     public void initializeTable(){
         tcCoordinators.setCellValueFactory(new PropertyValueFactory<>("username"));
         try {
@@ -123,6 +135,9 @@ public class AddCoordinatorToEventController implements Initializable {
         }
     }
 
+    /**
+     * Adding a selected coordinator to a selected event
+     */
     @FXML
     private void handleBtnAddSelectedToEvent() {
         if (selectedCoordinator != null) {
@@ -137,6 +152,9 @@ public class AddCoordinatorToEventController implements Initializable {
         }
     }
 
+    /**
+     * Deletes coordinator from event
+     */
     @FXML
     private void handleBtnDeleteSelectedFromEvent() {
         if (selectedEvent != null && selectedCoordinatorOnEvent != null) {
@@ -201,6 +219,9 @@ public class AddCoordinatorToEventController implements Initializable {
         return allCoordinatorOnEvent;
     }
 
+    /**
+     * Selecting a coordinator
+     */
     private void selectedCoordinator() {
         this.tvCoordinators.getSelectionModel().selectedItemProperty().addListener(((observableValue, oldValue, newValue) -> {
             if ((EventCoordinator) newValue != null) {
@@ -209,6 +230,9 @@ public class AddCoordinatorToEventController implements Initializable {
         }));
     }
 
+    /**
+     * Selecting a coordinator on event
+     */
     private void selectedCoordinatorOnEvent(){
         this.tvCoordinatorOnEvent.getSelectionModel().selectedItemProperty().addListener(((observableValue, oldValue, newValue) -> {
             this.selectedCoordinatorOnEvent = (EventCoordinator) newValue;
@@ -218,6 +242,9 @@ public class AddCoordinatorToEventController implements Initializable {
         }));
     }
 
+    /**
+     * Selecting an event
+     */
     private void selectedEvent(){
         this.tvEvents.getSelectionModel().selectedItemProperty().addListener(((observableValue, oldValue, newValue) -> {
             if ((Event) newValue != null) {

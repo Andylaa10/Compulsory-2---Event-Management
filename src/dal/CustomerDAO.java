@@ -11,6 +11,10 @@ import java.util.List;
 public class CustomerDAO {
     private final DatabaseConnector connector = DatabaseConnector.getInstance();
 
+    /**
+     * Constructor
+     * @throws IOException
+     */
     public CustomerDAO() throws IOException {
 
     }
@@ -51,13 +55,14 @@ public class CustomerDAO {
 
 
     /**
-     * Creates a customer, by inserting a giving firstName, lastName, phoneNumber and email
+     * Creates a customer, by inserting a giving firstName, lastName, phoneNumber, email, study and note
      * @param firstName
      * @param lastName
      * @param phoneNumber
      * @param email
      * @param study
-     * @return Customer
+     * @param note
+     * @return
      * @throws SQLException
      */
     public Customer createCustomer (String firstName, String lastName, String phoneNumber, String email, String study, String note) throws SQLException {

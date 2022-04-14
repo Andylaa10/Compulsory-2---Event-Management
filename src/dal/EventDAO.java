@@ -16,6 +16,10 @@ public class EventDAO {
     private ErrorHandling errorHandling;
     private EventCoordinatorDAO eventCoordinatorDAO;
 
+    /**
+     * Constructor
+     * @throws IOException
+     */
     public EventDAO() throws IOException {
         errorHandling = new ErrorHandling();
         eventCoordinatorDAO = new EventCoordinatorDAO();
@@ -156,9 +160,8 @@ public class EventDAO {
     }
 
     /**
-     * @param eventId
-     * @param loginId
      * Deletes an event by taken the id
+     * @param eventId
      */
     public void deleteEvent(int eventId) {
         try (Connection connection = connector.getConnection()) {
@@ -173,6 +176,11 @@ public class EventDAO {
         }
     }
 
+    /**
+     * Deletes a coordinator from event using the eventId and loginId
+     * @param eventId
+     * @param loginId
+     */
     public void deleteCoordinatorFromEvent(int eventId, int loginId){
         try(Connection connection = connector.getConnection()){
             String sqlDelete = "DELETE FROM CoordinatorOnEvent WHERE EventId = ? AND LoginId = ?;";
@@ -216,6 +224,21 @@ public class EventDAO {
     }
 
 
+    /**
+     * Creates and assigning coordinator to an event when created
+     * @param eventName
+     * @param eventDate
+     * @param eventTime
+     * @param eventTimeEnd
+     * @param eventLocation
+     * @param eventInfo
+     * @param eventPrice
+     * @param eventMinimum
+     * @param eventMaximum
+     * @param LoginID
+     * @return
+     * @throws SQLException
+     */
     public Event createAndAssignCoordinator (String eventName, String eventDate, String eventTime, String eventTimeEnd,
                               String eventLocation, String eventInfo, String eventPrice, int eventMinimum,
                               int eventMaximum, int LoginID) throws SQLException {
@@ -260,6 +283,12 @@ public class EventDAO {
         }
     }
 
+    /**
+     * Method to test eventDAO
+     * @param args
+     * @throws IOException
+     * @throws SQLException
+     */
     public static void main(String[] args) throws IOException, SQLException {
         EventDAO eventDAO = new EventDAO();
         List<Event> events = eventDAO.getEvents();

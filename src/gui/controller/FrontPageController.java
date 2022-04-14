@@ -8,7 +8,6 @@ import gui.model.AdminModel;
 import gui.model.EventCoordinatorModel;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -16,11 +15,9 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import java.io.IOException;
-import java.net.URL;
 import java.sql.SQLException;
-import java.util.ResourceBundle;
 
-public class FrontPageController implements Initializable {
+public class FrontPageController{
 
     @FXML
     private Button btnAdminLogin;
@@ -45,11 +42,6 @@ public class FrontPageController implements Initializable {
         this.errorHandling = new ErrorHandling();
     }
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-    }
-
-
     /**
      * Sends you to the Admin login screen, if the login credentials are in the database
      * @throws IOException If there are any exceptions
@@ -70,7 +62,8 @@ public class FrontPageController implements Initializable {
     }
 
     /**
-     * Sends you to the EventCoordinator login screen, if the login credentials are in the database
+     * Sends you to the EventCoordinator login screen, if the login credentials are in the database.
+     * The view is based on all values based on the specific coordinator login
      * @throws IOException
      * @throws SQLServerException
      */

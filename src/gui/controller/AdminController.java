@@ -13,9 +13,16 @@ public class AdminController{
     @FXML
     private Button btnLogOut;
 
+    /**
+     * Constructor
+     */
     public AdminController() {
     }
 
+    /**
+     * Press logout to go back to the login menu
+     * @throws IOException
+     */
     @FXML
     private void LogOutFromAdmin() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/gui/view/FrontPage.fxml"));
@@ -25,6 +32,10 @@ public class AdminController{
         stage.setScene(scene);
     }
 
+    /**
+     * Opens a new view to create customers
+     * @throws IOException
+     */
     @FXML
     private void handleBtnCreateCustomer() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/gui/view/CreateCustomer.fxml"));
@@ -35,6 +46,10 @@ public class AdminController{
         stage.show();
     }
 
+    /**
+     * Opens a new view to create events
+     * @throws IOException
+     */
     @FXML
     private void handleBtnCreateEvent() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/gui/view/CreateEvent.fxml"));
@@ -45,6 +60,10 @@ public class AdminController{
         stage.show();
     }
 
+    /**
+     * Opens a new view to create coordinators
+     * @throws IOException
+     */
     @FXML
     private void handleBtnCreateCoordinator( ) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/gui/view/CreateCoordinator.fxml"));
@@ -55,6 +74,10 @@ public class AdminController{
         stage.show();
     }
 
+    /**
+     * Opens a new view to assigning an event to coordinators
+     * @throws IOException
+     */
     @FXML
     private void handleBtnAddCoordinatorToEvent() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/gui/view/AddCoordinatorToEvent.fxml"));

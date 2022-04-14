@@ -63,6 +63,11 @@ public class EventModel {
         eventManager.deleteEvent(eventId);
     }
 
+    /**
+     * Deleting coordinator from event using deleteCoordinatorFromEvent from EventManager
+     * @param eventId
+     * @param loginId
+     */
     public void deleteCoordinatorFromEvent(int eventId, int loginId){
         eventManager.deleteCoordinatorFromEvent(eventId, loginId);
     }
@@ -91,6 +96,12 @@ public class EventModel {
         return searchResults;
     }
 
+    /**
+     * Search method for the model, searches for assigned events by text.
+     * @param query
+     * @param loginID
+     * @return
+     */
     public List<Event> searchAssignedEvent(String query, int loginID) {
         List<Event> searchResults = null;
 
@@ -101,6 +112,20 @@ public class EventModel {
         return searchResults;
     }
 
+    /**
+     * Creates and assigning a coordinator using the createAndAssignCoordinator from EventManager
+     * @param eventName
+     * @param eventDate
+     * @param eventTime
+     * @param eventTimeEnd
+     * @param eventLocation
+     * @param eventInfo
+     * @param eventPrice
+     * @param eventMinimum
+     * @param eventMaximum
+     * @param LoginID
+     * @throws SQLException
+     */
     public void createAndAssignCoordinator (String eventName, String eventDate, String eventTime, String eventTimeEnd, String eventLocation, String eventInfo, String eventPrice, int eventMinimum, int eventMaximum, int LoginID) throws SQLException {
         eventManager.createAndAssignCoordinator(eventName, eventDate, eventTime, eventTimeEnd, eventLocation, eventInfo, eventPrice, eventMinimum, eventMaximum, LoginID);
     }
