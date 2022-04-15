@@ -1,7 +1,6 @@
 package bll.helpers;
 
 import be.Event;
-
 import java.util.ArrayList;
 import java.util.List;
 

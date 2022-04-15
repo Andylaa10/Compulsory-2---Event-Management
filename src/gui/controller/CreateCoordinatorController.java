@@ -20,14 +20,17 @@ public class CreateCoordinatorController implements Initializable {
 
     @FXML
     private TableView<EventCoordinator> tvCoordinator;
+
     @FXML
     private TableColumn<EventCoordinator, Integer> tcID;
     @FXML
     private TableColumn<EventCoordinator, String> tcUsername;
     @FXML
     private TableColumn<EventCoordinator, String> tcPassword;
+
     @FXML
     private Button btnBack;
+
     @FXML
     private TextField textFieldUsername;
     @FXML
@@ -101,6 +104,7 @@ public class CreateCoordinatorController implements Initializable {
             alert.setHeaderText("Warning before you delete a coordinator");
             alert.setContentText("To delete a coordinator, remove it from all events first! \n Are you sure you want " +
                     "to delete this coordinator?");
+
                 Optional<ButtonType> result = alert.showAndWait();
                 if (result.get() == ButtonType.OK) {
                     selectedCoordinator();

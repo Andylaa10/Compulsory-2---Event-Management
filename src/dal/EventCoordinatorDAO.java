@@ -78,6 +78,7 @@ public class EventCoordinatorDAO {
                 String email = rs.getString("Email");
                 String study = rs.getString("Study");
                 String note = rs.getString("Note");
+
                 allCustomerOnEvent.add(new Customer(id, firstName, lastName, phoneNumber, email, study, note));
             }
         } catch (SQLException sqlException) {
@@ -101,15 +102,16 @@ public class EventCoordinatorDAO {
             st.setString(1, user);
             st.setString(2, pass);
             ResultSet rs = st.executeQuery();
+
             if (rs.next()){
                 int id = rs.getInt("LoginID");
                 String username = rs.getString("username");
                 String password = rs.getString("password");
                 boolean isAdmin = rs.getBoolean("IsAdmin");
+
                 if (!isAdmin){
                     return new EventCoordinator(id, username, password, isAdmin);
                 }
-
             }
         } catch (SQLException sqlException) {
             sqlException.printStackTrace();

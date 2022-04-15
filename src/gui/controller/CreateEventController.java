@@ -19,6 +19,7 @@ public class CreateEventController implements IController {
     private Button btnCreateEvent;
     @FXML
     private Button btnBack;
+
     @FXML
     private TextField txtFieldEventName;
     @FXML

@@ -22,12 +22,14 @@ public class AddCoordinatorToEventController implements Initializable {
 
     @FXML
     private Button btnBack;
+
     @FXML
     private TableView<EventCoordinator> tvCoordinatorOnEvent;
     @FXML
     private TableView<Event> tvEvents;
     @FXML
     private TableView<EventCoordinator> tvCoordinators;
+
     @FXML
     private TableColumn<EventCoordinator, String> tcCoordinators;
     @FXML
@@ -172,6 +174,19 @@ public class AddCoordinatorToEventController implements Initializable {
     }
 
     /**
+     * reloads the coordinator on the event in view to reflect changes
+     */
+    public void reloadCoordinatorOnEvent() {
+        try {
+            int index = tvCoordinatorOnEvent.getSelectionModel().getFocusedIndex();
+            this.tvCoordinatorOnEvent.setItems(FXCollections.observableList(adminModel.getCoordinatorsOnEvent(selectedEvent.getId())));
+            tvCoordinatorOnEvent.getSelectionModel().select(index);
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
+    }
+
+    /**
      * Loading table view coordinators
      * @param allCoordinators
      */
@@ -252,19 +267,6 @@ public class AddCoordinatorToEventController implements Initializable {
                 seeCoordinatorsOnEvent();
             }
         }));
-    }
-
-    /**
-     * reloads the coordinator on the event in view to reflect changes
-     */
-    public void reloadCoordinatorOnEvent() {
-        try {
-            int index = tvCoordinatorOnEvent.getSelectionModel().getFocusedIndex();
-            this.tvCoordinatorOnEvent.setItems(FXCollections.observableList(adminModel.getCoordinatorsOnEvent(selectedEvent.getId())));
-            tvCoordinatorOnEvent.getSelectionModel().select(index);
-        } catch (Exception exception) {
-            exception.printStackTrace();
-        }
     }
 }
 

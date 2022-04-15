@@ -1,15 +1,16 @@
 package be;
 
 import be.Interface.ILogin;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class EventCoordinator implements ILogin {
+
     private int id;
     private String usernameEvent;
     private String passwordEvent;
     private boolean isAdmin;
+
     private List<Customer> customers = new ArrayList<>();
     private List<Ticket> tickets = new ArrayList<>();
 
@@ -20,11 +21,11 @@ public class EventCoordinator implements ILogin {
     }
 
     /**
+     * Constructor with id, usernameEvent, passwordEvent and isAdmin
      * @param id
      * @param usernameEvent
      * @param passwordEvent
      * @param isAdmin
-     * Constructor with id, usernameEvent, passwordEvent and isAdmin
      */
     public EventCoordinator(int id, String usernameEvent, String passwordEvent, boolean isAdmin) {
         this.id = id;
@@ -61,8 +62,8 @@ public class EventCoordinator implements ILogin {
     }
 
     /**
-     * @param id
      * Sets the id
+     * @param id
      */
     @Override
     public void setId(int id) {
@@ -79,8 +80,8 @@ public class EventCoordinator implements ILogin {
     }
 
     /**
-     * @param username
      * Sets the usernameEvent
+     * @param username
      */
     @Override
     public void setUsername(String username) {
@@ -97,8 +98,8 @@ public class EventCoordinator implements ILogin {
     }
 
     /**
-     * @param password
      * Sets the passwordEvent
+     * @param password
      */
     @Override
     public void setPassword(String password) {
@@ -123,8 +124,8 @@ public class EventCoordinator implements ILogin {
     }
 
     /**
-     * @param customers
      * Sets the list of customers
+     * @param customers
      */
     public void setCustomers(List<Customer> customers) {
         this.customers = customers;
@@ -139,8 +140,8 @@ public class EventCoordinator implements ILogin {
     }
 
     /**
-     * @param tickets
      * Sets the list of tickets
+     * @param tickets
      */
     public void setTickets(List<Ticket> tickets) {
         this.tickets = tickets;

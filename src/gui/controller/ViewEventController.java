@@ -2,7 +2,6 @@ package gui.controller;
 
 import be.Customer;
 import be.Event;
-import be.Ticket;
 import bll.helpers.ErrorHandling;
 import com.microsoft.sqlserver.jdbc.SQLServerException;
 import gui.model.CustomerModel;
@@ -10,7 +9,6 @@ import gui.model.EventCoordinatorModel;
 import gui.model.TicketModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -29,12 +27,15 @@ public class ViewEventController implements Initializable {
     
     @FXML
     private TextField txtFieldEventID;
+
     @FXML
     private Button btnClose;
+
     @FXML
     private TableView<Customer> tvCustomers;
     @FXML
     private TableView<Customer> tvCustomersOnEvent;
+
     @FXML
     private TableColumn<Customer, Integer> tcCustomerIDOnEvent;
     @FXML
@@ -93,7 +94,6 @@ public class ViewEventController implements Initializable {
         tcPhoneNumberOnEvent.setCellValueFactory(new PropertyValueFactory<>("phoneNumber"));
         tcEmailOnEvent.setCellValueFactory(new PropertyValueFactory<>("email"));
 
-
         tcCustomerID.setCellValueFactory(new PropertyValueFactory<>("id"));
         tcFirstName.setCellValueFactory(new PropertyValueFactory<>("firstName"));
         tcLastName.setCellValueFactory(new PropertyValueFactory<>("lastName"));
@@ -107,55 +107,8 @@ public class ViewEventController implements Initializable {
         }
     }
 
-    private ObservableList<Customer> getCustomerData() {
-        return allCustomers;
-    }
-
-    private void tableViewLoadCustomer(ObservableList<Customer> allCustomers) {
-        tvCustomers.setItems(getCustomerData());
-    }
-
-    private ObservableList<Customer> getCustomerOnEventData() {
-        return allCustomersOnEvent;
-    }
-
-    private void tableViewCustomersOnEvent(ObservableList<Customer> allCustomersOnEvent) {
-        tvCustomersOnEvent.setItems(getCustomerOnEventData());
-    }
-
-    private void selectedCustomer(){
-        this.tvCustomers.getSelectionModel().selectedItemProperty().addListener(((observableValue, oldValue, newValue) -> {
-            if ((Customer) newValue != null) {
-                this.selectedCustomer = (Customer) newValue;
-            }
-        }));
-    }
-
-
-
-    private void selectedCustomerOnEvent(){
-        this.tvCustomersOnEvent.getSelectionModel().selectedItemProperty().addListener(((observableValue, oldValue, newValue) -> {
-            if ((Customer) newValue != null) {
-                this.selectedCustomerOnEvent = (Customer) newValue;
-            }
-        }));
-    }
-
-
-    public void setSelectedEvent(Event event) {
-        passedEvent = event;
-        txtFieldEventID.setText(String.valueOf(event.getId()));
-        try {
-            allCustomersOnEvent = FXCollections.observableList(eventCoordinatorModel.getCustomersOnEvent(Integer.parseInt(txtFieldEventID.getText())));
-            tableViewCustomersOnEvent(allCustomersOnEvent);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
     @FXML
     private void onActionAddSelectedToEvent() {
-
         if (selectedCustomer != null) {
             try {
                 eventCoordinatorModel.addCustomerToEvent(selectedCustomer.getId(), Integer.parseInt(txtFieldEventID.getText()));
@@ -184,20 +137,6 @@ public class ViewEventController implements Initializable {
         }
     }
 
-    /**
-     * reloads the customers on the event in view to reflect changes
-     */
-    public void reloadCustomersOnEvent() {
-        try {
-            int index = tvCustomersOnEvent.getSelectionModel().getFocusedIndex();
-            this.tvCustomersOnEvent.setItems(FXCollections.observableList(eventCoordinatorModel.getCustomersOnEvent(Integer.parseInt(txtFieldEventID.getText()))));
-            tvCustomersOnEvent.getSelectionModel().select(index);
-        } catch (Exception exception) {
-            exception.printStackTrace();
-        }
-    }
-
-
     @FXML
     private void onActionCreateCustomer() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/gui/view/CreateCustomer.fxml"));
@@ -214,7 +153,8 @@ public class ViewEventController implements Initializable {
         stage.close();
     }
 
-    public void onActionSeeTicket() throws IOException, SQLServerException {
+    @FXML
+    private void onActionSeeTicket() throws IOException, SQLServerException {
         if (selectedCustomerOnEvent != null) {
             FXMLLoader fxmlLoader = new FXMLLoader();
             fxmlLoader.setLocation(getClass().getResource("/gui/view/TicketView.fxml"));
@@ -229,12 +169,9 @@ public class ViewEventController implements Initializable {
         } else {
             errorHandling.noCustomerSelectedWarning();
         }
-
     }
 
-
-
-    public void createAndSaveTicket() throws SQLException {
+    private void createAndSaveTicket() throws SQLException {
         int eventID = Integer.parseInt(txtFieldEventID.getText());
         int customerID = selectedCustomer.getId();
         String generatedTicketID = GenerateID();
@@ -244,7 +181,6 @@ public class ViewEventController implements Initializable {
         System.out.println(generatedTicketID);
 
         ticketModel.createTicket(eventID, customerID, generatedTicketID);
-
     }
 
     private String GenerateID(){
@@ -259,9 +195,63 @@ public class ViewEventController implements Initializable {
             char nextChar = arrayOfCharacter[value];
             newValueID.append(nextChar);
         }
-
         return newValueID.toString();
     }
 
+    private ObservableList<Customer> getCustomerData() {
+        return allCustomers;
+    }
+
+    private void tableViewLoadCustomer(ObservableList<Customer> allCustomers) {
+        tvCustomers.setItems(getCustomerData());
+    }
+
+    private ObservableList<Customer> getCustomerOnEventData() {
+        return allCustomersOnEvent;
+    }
+
+    private void tableViewCustomersOnEvent(ObservableList<Customer> allCustomersOnEvent) {
+        tvCustomersOnEvent.setItems(getCustomerOnEventData());
+    }
+
+    private void selectedCustomer(){
+        this.tvCustomers.getSelectionModel().selectedItemProperty().addListener(((observableValue, oldValue, newValue) -> {
+            if ((Customer) newValue != null) {
+                this.selectedCustomer = (Customer) newValue;
+            }
+        }));
+    }
+
+    private void selectedCustomerOnEvent(){
+        this.tvCustomersOnEvent.getSelectionModel().selectedItemProperty().addListener(((observableValue, oldValue, newValue) -> {
+            if ((Customer) newValue != null) {
+                this.selectedCustomerOnEvent = (Customer) newValue;
+            }
+        }));
+    }
+
+    public void setSelectedEvent(Event event) {
+        passedEvent = event;
+        txtFieldEventID.setText(String.valueOf(event.getId()));
+        try {
+            allCustomersOnEvent = FXCollections.observableList(eventCoordinatorModel.getCustomersOnEvent(Integer.parseInt(txtFieldEventID.getText())));
+            tableViewCustomersOnEvent(allCustomersOnEvent);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * reloads the customers on the event in view to reflect changes
+     */
+    private void reloadCustomersOnEvent() {
+        try {
+            int index = tvCustomersOnEvent.getSelectionModel().getFocusedIndex();
+            this.tvCustomersOnEvent.setItems(FXCollections.observableList(eventCoordinatorModel.getCustomersOnEvent(Integer.parseInt(txtFieldEventID.getText()))));
+            tvCustomersOnEvent.getSelectionModel().select(index);
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
+    }
 
 }

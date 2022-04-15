@@ -2,7 +2,6 @@ package dal.db;
 
 import com.microsoft.sqlserver.jdbc.SQLServerDataSource;
 import com.microsoft.sqlserver.jdbc.SQLServerException;
-
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.Connection;
@@ -12,16 +11,13 @@ import java.util.Properties;
 public class DatabaseConnector {
 
     private static DatabaseConnector instance = null;
-
-    private final SQLServerDataSource dataSource;
-
     private static final String PROP_FILE = "config.properties";
+    private final SQLServerDataSource dataSource;
 
     /**
      * Constructor for the database, plugging in the details of our SQL server / login
      */
     public DatabaseConnector() throws IOException {
-
         Properties settings = new Properties();
         settings.load(new FileInputStream(PROP_FILE));
 
@@ -41,7 +37,7 @@ public class DatabaseConnector {
     }
 
     /**
-     * Singleton
+     * Singleton pattern
      * @return DatabaseConnector called instance
      */
     public static DatabaseConnector getInstance() throws IOException {

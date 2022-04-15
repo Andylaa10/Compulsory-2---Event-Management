@@ -21,6 +21,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class TicketController implements Initializable {
+
     @FXML
     private Text ticketDateTime;
     @FXML
@@ -30,17 +31,18 @@ public class TicketController implements Initializable {
     @FXML
     private Text ticketLocation;
     @FXML
-    private TextField ticketInfo;
-    @FXML
     private Text ticketID;
+
+    @FXML
+    private TextField ticketInfo;
+
     @FXML
     private Button btnClose;
+
     @FXML
     private AnchorPane ticketPane;
 
     private TicketModel ticketModel;
-
-
 
     /**
      * Runs the methods inside when this view appears
@@ -69,16 +71,6 @@ public class TicketController implements Initializable {
         ticketDateTime.setText("Dato: " + ev.getEventDate() + " Start: " + ev.getEventTime() + " Slut: " + ev.getEventTimeEnd());
         ticketInfo.setText(ev.getEventInfo());
         ticketID.setText(String.valueOf(ticketModel.getGeneratedTicketID(selectedCustomerOnEvent.getId())));
-
-    }
-
-    /**
-     * Closes the window
-     */
-    @FXML
-    private void onActionCloseWindow() {
-        Stage stage = (Stage) btnClose.getScene().getWindow();
-        stage.close();
     }
 
     /**
@@ -98,7 +90,17 @@ public class TicketController implements Initializable {
     /**
      * Takes a screenshot when pressed
      */
-    public void PrintTicket() {
+    @FXML
+    private void onActionPrintTicket() {
         generateTicket();
+    }
+
+    /**
+     * Closes the window
+     */
+    @FXML
+    private void onActionCloseWindow() {
+        Stage stage = (Stage) btnClose.getScene().getWindow();
+        stage.close();
     }
 }

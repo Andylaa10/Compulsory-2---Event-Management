@@ -22,6 +22,7 @@ public class CreateCustomerController implements Initializable {
 
     @FXML
     private TableView<Customer> tvCustomers;
+
     @FXML
     private TableColumn<Customer, Integer> tcCustomerID;
     @FXML
@@ -36,6 +37,7 @@ public class CreateCustomerController implements Initializable {
     private TableColumn<Customer, String> tcStudy;
     @FXML
     private TableColumn<Customer, String> tcNote;
+
     @FXML
     private TextField txtFieldSearch;
     @FXML
@@ -50,6 +52,7 @@ public class CreateCustomerController implements Initializable {
     private TextField txtFieldEmail;
     @FXML
     private TextField txtFieldNote;
+
     @FXML
     private Button btnBack;
     @FXML

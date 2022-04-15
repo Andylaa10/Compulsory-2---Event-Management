@@ -3,6 +3,7 @@ package bll.helpers;
 import javafx.scene.control.Alert;
 
 public class ErrorHandling {
+
     /**
      * An alert to warn you about deleting an event
      */

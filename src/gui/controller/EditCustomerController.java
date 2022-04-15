@@ -22,11 +22,13 @@ public class EditCustomerController {
     @FXML
     private TextField txtFieldCustomerEmail;
     @FXML
-    private TextArea txtFieldCustomerNote;
-    @FXML
     private TextField txtFieldCustomerID;
     @FXML
     private TextField txtFieldCustomerStudy;
+
+    @FXML
+    private TextArea txtFieldCustomerNote;
+
     @FXML
     private Button btnBack;
     @FXML
@@ -93,6 +95,5 @@ public class EditCustomerController {
         txtFieldCustomerEmail.setText(customer.getEmail());
         txtFieldCustomerStudy.setText(customer.getStudy());
         txtFieldCustomerNote.setText(customer.getNote());
-
     }
 }

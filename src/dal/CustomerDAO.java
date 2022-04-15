@@ -25,11 +25,9 @@ public class CustomerDAO {
      * @return a list of customers or an empty list of customers
      */
     public List<Customer> getCustomers() throws SQLException {
-
         ArrayList<Customer> allCustomers = new ArrayList<>();
 
         try (Connection connection = connector.getConnection()) {
-
             String sql = "SELECT * FROM Customer;";
 
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -45,7 +43,6 @@ public class CustomerDAO {
 
                 Customer customer = new Customer(customerID, firstName, lastName, phoneNumber, email, study, note);
                 allCustomers.add(customer);
-
             }
         } catch (SQLServerException throwables) {
             throwables.printStackTrace();
@@ -86,7 +83,6 @@ public class CustomerDAO {
 
                     Customer customer = new Customer(id, firstName, lastName, phoneNumber, email, study, note);
                     return customer;
-
                 }
 
             } catch (SQLServerException throwables) {
@@ -104,6 +100,7 @@ public class CustomerDAO {
             String sql = "DELETE FROM Customer WHERE CustomerID =?;";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1, id);
+
             if (preparedStatement.executeUpdate() != 1) {
                 throw new Exception("Could not delete customer");
             }
@@ -129,6 +126,7 @@ public class CustomerDAO {
             preparedStatement.setString(5, customer.getStudy());
             preparedStatement.setString(6, customer.getNote());
             preparedStatement.setInt(7, customer.getId());
+
             if (preparedStatement.executeUpdate() != 1) {
                 throw new Exception("Could not edit customer");
             }

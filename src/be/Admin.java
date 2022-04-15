@@ -49,8 +49,8 @@ public class Admin implements ILogin {
     }
 
     /**
-     * @param id
      * Sets the id
+     * @param id
      */
     @Override
     public void setId(int id) {
@@ -67,8 +67,8 @@ public class Admin implements ILogin {
     }
 
     /**
-     * @param username
      * Sets the username
+     * @param username
      */
     @Override
     public void setUsername(String username) {
@@ -85,8 +85,8 @@ public class Admin implements ILogin {
     }
 
     /**
-     * @param password
      * Sets the password
+     * @param password
      */
     @Override
     public void setPassword(String password) {

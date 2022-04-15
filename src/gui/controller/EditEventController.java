@@ -16,8 +16,10 @@ public class EditEventController {
     private Button btnBack;
     @FXML
     private Button btnEditEvent;
+
     @FXML
     private TextArea txtFieldEventInfo;
+
     @FXML
     private TextField txtFieldEventID;
     @FXML

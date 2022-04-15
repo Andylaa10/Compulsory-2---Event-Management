@@ -28,11 +28,14 @@ public class EventsOverViewController implements Initializable, IController {
     @FXML
     private Button btnAddEvent;
     @FXML
-    private TextField tfFieldSearch;
-    @FXML
     private Button btnLogOut;
+
+    @FXML
+    private TextField tfFieldSearch;
+
     @FXML
     private TableView<Event> tvEvents;
+
     @FXML
     private TableColumn<Event, String> tcEventName;
     @FXML
@@ -53,6 +56,7 @@ public class EventsOverViewController implements Initializable, IController {
     private TableColumn<Event, String> tcEventInfo;
     @FXML
     private TableColumn<Event, String> tcEventPrice;
+
     @FXML
     private ComboBox<String> eventCombo;
 
@@ -106,19 +110,28 @@ public class EventsOverViewController implements Initializable, IController {
     }
 
     /**
-     * Sets the coordinator and the assigned events
-     * @param eventCoordinator
+     * Method that filters the events, with the text input you write in the textfield.
+     * Updates the icon with each press and clears the search on every second click
      */
-    @Override
-    public void setEventCoordinator(EventCoordinator eventCoordinator) {
-        coordinator = eventCoordinator;
+    @FXML
+    private void onActionSearchEvents() {
+        if (hasSearched && !tfFieldSearch.getText().equals("")) {
+            btnSearchEvents.setText("X");
+            hasSearched = false;
+        } else {
+            btnSearchEvents.setText("🔍");
+            hasSearched = true;
+            tfFieldSearch.clear();
+        }
         try {
-            allEvents = FXCollections.observableArrayList(eventModel.getEventsCoordinator(coordinator.getId()));
-            tableViewLoadEvents(allEvents);
-            eventCombo.getItems().add("Assigned Events");
-            eventCombo.getItems().add("All Events");
-            eventCombo.getSelectionModel().selectFirst();
-        } catch (Exception e){
+            if (eventCombo.getSelectionModel().isSelected(1)) {
+                searchData = FXCollections.observableList(eventModel.searchEvent(tfFieldSearch.getText()));
+            } else {
+                searchData = FXCollections.observableList(eventModel.searchAssignedEvent(tfFieldSearch.getText(), coordinator.getId()));
+            }
+            searchTableViewLoad(searchData);
+
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -155,50 +168,6 @@ public class EventsOverViewController implements Initializable, IController {
             }
             default -> System.out.println("No match");
         }
-    }
-
-    /**
-     * Makes you able to select an event from the table
-     */
-    private void selectedEvent() {
-        this.tvEvents.getSelectionModel().selectedItemProperty().addListener(((observableValue, oldValue, newValue) -> {
-            if ((Event) newValue != null) {
-                this.selectedEvent = (Event) newValue;
-            }
-        }));
-    }
-
-
-    /**
-     * Loading table view events
-     *
-     * @param allEvents
-     */
-    private void tableViewLoadEvents(ObservableList<Event> allEvents) {
-        tvEvents.setItems(getEventData());
-    }
-
-    /**
-     * Gets the list of events
-     * @return
-     */
-    private ObservableList<Event> getEventData() {
-        return allEvents;
-    }
-
-    /**
-     * Loads the tableview for the event, when search is pressed.
-     * @param searchData
-     */
-    private void searchTableViewLoad(ObservableList<Event> searchData) {
-        tvEvents.setItems(getSearchData());
-    }
-
-    /**
-     * @return searchData;
-     */
-    private ObservableList<Event> getSearchData() {
-        return searchData;
     }
 
     /**
@@ -290,27 +259,27 @@ public class EventsOverViewController implements Initializable, IController {
      * Deletes a selected event from the table
      */
     @FXML
-     private void handleBtnDeleteEvent(){
-      Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-      alert.setTitle("WARNING MESSAGE");
-      alert.setHeaderText("Warning before you delete event");
-      alert.setContentText("Remove all customer and tickets from selected event to delete! \n Are you sure you want " +
-              "to delete this event?");
-      if (selectedEvent != null) {
-          Optional<ButtonType> result = alert.showAndWait();
-          if (result.get() == ButtonType.OK) {
-              selectedEvent();
-              eventModel.deleteCoordinatorFromEvent(selectedEvent.getId(), coordinator.getId());
-              eventModel.deleteEvent(selectedEvent.getId());
-          }
-      } else {
-          return;
-      }
-      try {
-          selectedComboItem();
-      } catch (Exception e) {
-          e.printStackTrace();
-      }
+    private void handleBtnDeleteEvent(){
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("WARNING MESSAGE");
+        alert.setHeaderText("Warning before you delete event");
+        alert.setContentText("Remove all customer and tickets from selected event to delete! \n Are you sure you want " +
+                "to delete this event?");
+        if (selectedEvent != null) {
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == ButtonType.OK) {
+                selectedEvent();
+                eventModel.deleteCoordinatorFromEvent(selectedEvent.getId(), coordinator.getId());
+                eventModel.deleteEvent(selectedEvent.getId());
+            }
+        } else {
+            return;
+        }
+        try {
+            selectedComboItem();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -347,37 +316,72 @@ public class EventsOverViewController implements Initializable, IController {
     }
 
     /**
-     * Method that filters the events, with the text input you write in the textfield.
-     * Updates the icon with each press and clears the search on every second click
-     */
-    @FXML
-    private void onActionSearchEvents() {
-        if (hasSearched && !tfFieldSearch.getText().equals("")) {
-            btnSearchEvents.setText("X");
-            hasSearched = false;
-        } else {
-            btnSearchEvents.setText("🔍");
-            hasSearched = true;
-            tfFieldSearch.clear();
-        }
-        try {
-            if (eventCombo.getSelectionModel().isSelected(1)) {
-                searchData = FXCollections.observableList(eventModel.searchEvent(tfFieldSearch.getText()));
-            } else {
-                searchData = FXCollections.observableList(eventModel.searchAssignedEvent(tfFieldSearch.getText(), coordinator.getId()));
-            }
-            searchTableViewLoad(searchData);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    /**
      * When pressing enter you can search on events based on the input given to the search field
      */
     @FXML
     private void onActionSearchWithEnter() {
         onActionSearchEvents();
+    }
+
+    /**
+     * Sets the coordinator and the assigned events
+     * @param eventCoordinator
+     */
+    @Override
+    public void setEventCoordinator(EventCoordinator eventCoordinator) {
+        coordinator = eventCoordinator;
+        try {
+            allEvents = FXCollections.observableArrayList(eventModel.getEventsCoordinator(coordinator.getId()));
+            tableViewLoadEvents(allEvents);
+            eventCombo.getItems().add("Assigned Events");
+            eventCombo.getItems().add("All Events");
+            eventCombo.getSelectionModel().selectFirst();
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Makes you able to select an event from the table
+     */
+    private void selectedEvent() {
+        this.tvEvents.getSelectionModel().selectedItemProperty().addListener(((observableValue, oldValue, newValue) -> {
+            if ((Event) newValue != null) {
+                this.selectedEvent = (Event) newValue;
+            }
+        }));
+    }
+
+
+    /**
+     * Loading table view events
+     *
+     * @param allEvents
+     */
+    private void tableViewLoadEvents(ObservableList<Event> allEvents) {
+        tvEvents.setItems(getEventData());
+    }
+
+    /**
+     * Gets the list of events
+     * @return
+     */
+    private ObservableList<Event> getEventData() {
+        return allEvents;
+    }
+
+    /**
+     * Loads the tableview for the event, when search is pressed.
+     * @param searchData
+     */
+    private void searchTableViewLoad(ObservableList<Event> searchData) {
+        tvEvents.setItems(getSearchData());
+    }
+
+    /**
+     * @return searchData;
+     */
+    private ObservableList<Event> getSearchData() {
+        return searchData;
     }
 }

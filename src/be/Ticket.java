@@ -110,6 +110,10 @@ public class Ticket {
         this.generatedTicketID = generatedTicketID;
     }
 
+    /**
+     * ToString method to print the generated ticketID. Used on tickets
+     * @return
+     */
     @Override
     public String toString() {
         return generatedTicketID;

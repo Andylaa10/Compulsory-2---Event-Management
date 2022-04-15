@@ -17,12 +17,12 @@ public class Customer {
     }
 
     /**
+     * Constructor with id, firstName, lastName, phoneNumber and email
      * @param id
      * @param firstName
      * @param lastName
      * @param phoneNumber
      * @param email
-     * Constructor with id, firstName, lastName, phoneNumber and email
      */
     public Customer(int id, String firstName, String lastName, String phoneNumber, String email, String study, String note) {
         this.id = id;
@@ -59,8 +59,8 @@ public class Customer {
     }
 
     /**
-     * @param firstName
      * Sets the firstName
+     * @param firstName
      */
     public void setFirstName(String firstName) {
         this.firstName = firstName;
@@ -75,8 +75,8 @@ public class Customer {
     }
 
     /**
-     * @param lastName
      * Sets the lastName
+     * @param lastName
      */
     public void setLastName(String lastName) {
         this.lastName = lastName;
@@ -91,8 +91,8 @@ public class Customer {
     }
 
     /**
-     * @param phoneNumber
      * Sets the phoneNumber
+     * @param phoneNumber
      */
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
@@ -107,8 +107,8 @@ public class Customer {
     }
 
     /**
-     * @param email
      * Sets the email
+     * @param email
      */
     public void setEmail(String email) {
         this.email = email;

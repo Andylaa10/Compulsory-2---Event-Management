@@ -23,6 +23,7 @@ public class FrontPageController{
     private Button btnAdminLogin;
     @FXML
     private Button btnEventCoLogin;
+
     @FXML
     private TextField txtFieldUsername;
     @FXML
@@ -36,7 +37,7 @@ public class FrontPageController{
      * Constructor
      * @throws IOException
      */
-    public FrontPageController() throws IOException, SQLException {
+    public FrontPageController() throws IOException {
         this.adminModel = new AdminModel();
         this.eventCoordinatorModel = new EventCoordinatorModel();
         this.errorHandling = new ErrorHandling();

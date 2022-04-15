@@ -89,5 +89,5 @@
    </children>
 </AnchorPane>
    <Button fx:id="btnClose" layoutX="556.0" layoutY="220.0" mnemonicParsing="false" onAction="#onActionCloseWindow" prefHeight="30.0" prefWidth="86.0" text="Close" />
-   <Button fx:id="printTicketOut" layoutX="409.0" layoutY="220.0" mnemonicParsing="false" onAction="#PrintTicket" prefHeight="30.0" prefWidth="132.0" text="Print Ticket Out" />
+   <Button fx:id="printTicketOut" layoutX="409.0" layoutY="220.0" mnemonicParsing="false" onAction="#onActionPrintTicket" prefHeight="30.0" prefWidth="132.0" text="Print Ticket Out" />
 </AnchorPane>

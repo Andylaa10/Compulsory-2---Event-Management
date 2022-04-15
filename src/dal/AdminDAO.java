@@ -20,11 +20,9 @@ public class AdminDAO {
      * @return a list of admins or an empty list of admins
      */
     public List<Admin> getAdmins() {
-
         ArrayList<Admin> allAdmins = new ArrayList<>();
 
         try (Connection connection = connector.getConnection()) {
-
             String sql = "SELECT * FROM Login WHERE IsAdmin = 1;";
 
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -51,6 +49,7 @@ public class AdminDAO {
     public void editAdmin(Admin admin) {
         try (Connection connection = connector.getConnection()) {
             String sql = "UPDATE Login SET username=?, password=?, isAdmin=? WHERE LoginID=?;";
+
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, admin.getUsername());
             preparedStatement.setString(2, admin.getPassword());
@@ -70,11 +69,9 @@ public class AdminDAO {
      * @return a list of coordinators or an empty list of coordinators
      */
     public List<EventCoordinator> getCoordinator() {
-
         ArrayList<EventCoordinator> allCoordinators = new ArrayList<>();
 
         try (Connection connection = connector.getConnection()) {
-
             String sql = "SELECT * FROM Login WHERE IsAdmin =0;";
 
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
