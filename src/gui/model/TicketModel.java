@@ -26,8 +26,8 @@ public class TicketModel {
      * @return
      * @throws SQLServerException
      */
-    public List<Ticket> getGeneratedTicketID(int customerId) throws SQLServerException {
-        return ticketManager.getGeneratedTicketID(customerId);
+    public List<Ticket> getGeneratedTicketID(int customerId, int eventId) throws SQLServerException {
+        return ticketManager.getGeneratedTicketID(customerId, eventId);
     }
 
     /**

@@ -20,20 +20,22 @@ public class TicketDAO {
 
 
     /**
-     * Gets a list of generatedTicketIds
+     * Gets a list of generatedTicketIds from a combination of IDs from customer and event
      * @param customerId
+     * @param eventId
      * @return
      * @throws SQLServerException
      */
-    public List<Ticket> getGeneratedTicketId(int customerId) throws SQLServerException {
+    public List<Ticket> getGeneratedTicketId(int customerId, int eventId) throws SQLServerException {
 
         ArrayList<Ticket> generatedTicketIDList = new ArrayList<>();
 
         try (Connection connection = connector.getConnection()){
-            String sql = "SELECT * FROM Ticket WHERE CustomerId=?;";
+            String sql = "SELECT * FROM Ticket WHERE CustomerId=? AND EventId=?;";
 
             PreparedStatement preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             preparedStatement.setInt(1, customerId);
+            preparedStatement.setInt(2, eventId);
             preparedStatement.execute();
             ResultSet resultSet = preparedStatement.getResultSet();
 
@@ -165,7 +167,7 @@ public class TicketDAO {
      */
     public static void main(String[] args) throws IOException, SQLException {
         TicketDAO ticketDAO = new TicketDAO();
-        List<Ticket> generatedTicketID = ticketDAO.getGeneratedTicketId(26);
+        List<Ticket> generatedTicketID = ticketDAO.getGeneratedTicketId(26, 65);
         System.out.println(generatedTicketID.get(0).getGeneratedTicketId());
     }
 }

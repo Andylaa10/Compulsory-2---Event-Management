@@ -70,7 +70,7 @@ public class TicketController implements Initializable {
         ticketLocation.setText("Lokation: " + ev.getEventLocation());
         ticketDateTime.setText("Dato: " + ev.getEventDate() + " Start: " + ev.getEventTime() + " Slut: " + ev.getEventTimeEnd());
         ticketInfo.setText(ev.getEventInfo());
-        ticketID.setText(String.valueOf(ticketModel.getGeneratedTicketID(selectedCustomerOnEvent.getId())));
+        ticketID.setText(String.valueOf(ticketModel.getGeneratedTicketID(selectedCustomerOnEvent.getId(), ev.getId())));
     }
 
     /**
