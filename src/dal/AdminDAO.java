@@ -202,7 +202,7 @@ public class AdminDAO {
      * @return List of customers
      * @throws SQLException
      */
-    public List<EventCoordinator> getCoordinatorsOnEvent(int eventId) throws SQLException {
+    public List<EventCoordinator> getCoordinatorsOnEvent(int eventId){
         ArrayList<EventCoordinator> allCoordinatorOnEvent = new ArrayList<>();
 
         try (Connection connection = connector.getConnection()) {
