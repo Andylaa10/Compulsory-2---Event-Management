@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-04-20T20:09:19.919Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36" etag="dtG7b1M21wf6eaelY4fq" version="15.8.8" type="github" pages="2">
+<mxfile host="app.diagrams.net" modified="2022-04-20T20:37:36.330Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36" etag="lfqRcnxHfVLZTFB8uLIZ" version="15.8.8" type="github" pages="2">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
     <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -122,12 +122,12 @@
     </mxGraphModel>
   </diagram>
   <diagram id="cWyKIdcc0OiF6iNw18U0" name="UML - Event Management">
-    <mxGraphModel dx="5320" dy="1831" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="7690" dy="3154" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="KQztfbYuIWHAS5Uq-7fM-13" value="gui" style="shape=folder;fontStyle=1;tabWidth=110;tabHeight=30;tabPosition=left;html=1;boundedLbl=1;labelInHeader=1;container=1;collapsible=0;" parent="1" vertex="1">
-          <mxGeometry x="-1110" y="-1120" width="3330" height="1070" as="geometry" />
+          <mxGeometry x="-1110" y="-1119" width="3330" height="1070" as="geometry" />
         </mxCell>
         <mxCell id="KQztfbYuIWHAS5Uq-7fM-14" value="" style="html=1;strokeColor=none;resizeWidth=1;resizeHeight=1;fillColor=none;part=1;connectable=0;allowArrows=0;deletable=0;" parent="KQztfbYuIWHAS5Uq-7fM-13" vertex="1">
           <mxGeometry width="3330.0000000000023" height="749.0000000000001" relative="1" as="geometry">
@@ -177,28 +177,28 @@
           <mxGeometry y="26" width="160" height="34" as="geometry" />
         </mxCell>
         <mxCell id="KxQNIcw2pVXfr_KNHga3-151" value="EventsOverview" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="KQztfbYuIWHAS5Uq-7fM-13" vertex="1">
-          <mxGeometry x="2170" y="40" width="150" height="60" as="geometry" />
+          <mxGeometry x="2205" y="40" width="150" height="60" as="geometry" />
         </mxCell>
         <mxCell id="KxQNIcw2pVXfr_KNHga3-152" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="KxQNIcw2pVXfr_KNHga3-151" vertex="1">
           <mxGeometry y="26" width="150" height="34" as="geometry" />
         </mxCell>
         <mxCell id="KxQNIcw2pVXfr_KNHga3-149" value="FrontPage" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="KQztfbYuIWHAS5Uq-7fM-13" vertex="1">
-          <mxGeometry x="2867.8730979562592" y="345" width="230.43175895006604" height="60" as="geometry" />
+          <mxGeometry x="2492.3900000000003" y="40" width="135.22" height="60" as="geometry" />
         </mxCell>
         <mxCell id="KxQNIcw2pVXfr_KNHga3-150" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="KxQNIcw2pVXfr_KNHga3-149" vertex="1">
-          <mxGeometry y="26" width="230.43175895006604" height="34" as="geometry" />
+          <mxGeometry y="26" width="135.22" height="34" as="geometry" />
         </mxCell>
         <mxCell id="KxQNIcw2pVXfr_KNHga3-147" value="TicketView" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="KQztfbYuIWHAS5Uq-7fM-13" vertex="1">
-          <mxGeometry x="2767.9678791497495" y="60" width="230.43175895006604" height="60" as="geometry" />
+          <mxGeometry x="2780" y="40" width="162.03" height="60" as="geometry" />
         </mxCell>
         <mxCell id="KxQNIcw2pVXfr_KNHga3-148" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="KxQNIcw2pVXfr_KNHga3-147" vertex="1">
-          <mxGeometry y="26" width="230.43175895006604" height="34" as="geometry" />
+          <mxGeometry y="26" width="162.03" height="34" as="geometry" />
         </mxCell>
         <mxCell id="KxQNIcw2pVXfr_KNHga3-145" value="ViewEvent" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="KQztfbYuIWHAS5Uq-7fM-13" vertex="1">
-          <mxGeometry x="3063.03117028899" y="60" width="230.43175895006604" height="60" as="geometry" />
+          <mxGeometry x="3067.3900000000003" y="40" width="145.22" height="60" as="geometry" />
         </mxCell>
         <mxCell id="KxQNIcw2pVXfr_KNHga3-146" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="KxQNIcw2pVXfr_KNHga3-145" vertex="1">
-          <mxGeometry y="26" width="230.43175895006604" height="34" as="geometry" />
+          <mxGeometry y="26" width="145.22" height="34" as="geometry" />
         </mxCell>
         <mxCell id="KxQNIcw2pVXfr_KNHga3-180" value="AdminModel" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="KQztfbYuIWHAS5Uq-7fM-13" vertex="1">
           <mxGeometry x="7.03" y="790" width="362.97" height="270" as="geometry" />
@@ -360,16 +360,52 @@
           <mxGeometry y="228" width="230" height="72" as="geometry" />
         </mxCell>
         <mxCell id="fkrSO4nQz_mFpn2eZVCd-42" value="EventsOverViewController" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="KQztfbYuIWHAS5Uq-7fM-13">
-          <mxGeometry x="2140" y="130" width="280" height="830" as="geometry" />
+          <mxGeometry x="2140" y="130" width="280" height="740" as="geometry" />
         </mxCell>
         <mxCell id="fkrSO4nQz_mFpn2eZVCd-43" value="- btnSearchEvents : Button&#xa;- btnAddEvent : Button&#xa;- btnLogOut : Button&#xa;- tfFieldSearch : TextField&#xa;- tvEvents : TableView&lt;Event&gt; &#xa;- tcEventName : TableColumn&lt;Event, String&gt;&#xa;- tcEventDate : TableColumn&lt;Event, String&gt;&#xa;- tcEventLocation : TableColumn&lt;Event, String&gt;&#xa;- tcEventTime : TableColumn&lt;Event, String&gt;&#xa;- tcEventTimeEnd : TableColumn&lt;Event, String&gt;&#xa;- tcEventMinimum : TableColumn&lt;Event, String&gt;&#xa;- tcEventCurrentParticipants : TableColumn&#xa;&lt;Customer, Integer&gt;&#xa;- tcEventMaximum : TableColumn&lt;Event, String&gt;&#xa;- tcEventInfo : TableColumn&lt;Event, String&gt;&#xa;- tcEventPrice : TableColumn&lt;Event, String&gt;&#xa;- eventCombo : ComboBox&lt;String&gt;&#xa;- allEvents : ObservableList&lt;Event&gt;&#xa;- searchData : ObservableList&lt;Event&gt;&#xa;- hasSearched : boolean&#xa;- eventModel : EventModel&#xa;- errorhandling : ErrorHandling&#xa;- selectedEvent : Event&#xa;- coordinator : EventCoordinator&#xa;- viewEventController : ViewEventController&#xa;- editEventController : EditEventController" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="fkrSO4nQz_mFpn2eZVCd-42">
-          <mxGeometry y="26" width="280" height="394" as="geometry" />
+          <mxGeometry y="26" width="280" height="374" as="geometry" />
         </mxCell>
         <mxCell id="fkrSO4nQz_mFpn2eZVCd-44" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="fkrSO4nQz_mFpn2eZVCd-42">
-          <mxGeometry y="420" width="280" height="8" as="geometry" />
+          <mxGeometry y="400" width="280" height="8" as="geometry" />
         </mxCell>
-        <mxCell id="fkrSO4nQz_mFpn2eZVCd-45" value="+ method(type): type" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="fkrSO4nQz_mFpn2eZVCd-42">
-          <mxGeometry y="428" width="280" height="402" as="geometry" />
+        <mxCell id="fkrSO4nQz_mFpn2eZVCd-45" value="+ EventsOverviewController()&#xa;+ initialize(URL location, &#xa;Resourcebundle resources): void&#xa;- initializeTable() : void&#xa;- onActionSearchEvents() : void&#xa;- handleEventCombo() : void&#xa;- selectedComboItem() : void&#xa;- LogOutFromEventCoordinator() : void&#xa;- onActionOpenCustomers() : void&#xa;- onActionAddEvent() : void&#xa;- onActionEditEvent() : void&#xa;- handleBtnDeleteEvent() : void&#xa;- onActionViewEvent() : void&#xa;- onActionSearchWithEnter() : void&#xa;- setEventCoordinator(EventCoordinator &#xa;eventCoordinator) : void&#xa;- selectedEvent() : void&#xa;- tableViewLoadEvents(ObservableList&lt;Event&gt; &#xa;allEvents) : void&#xa;- getEventData() : ObservableList&lt;Event&gt;&#xa;- searchTableViewLoad(ObservableList&lt;Event&gt; &#xa;searchData) : void&#xa;- getSearchData() : ObservableList&lt;Event&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="fkrSO4nQz_mFpn2eZVCd-42">
+          <mxGeometry y="408" width="280" height="332" as="geometry" />
+        </mxCell>
+        <mxCell id="fkrSO4nQz_mFpn2eZVCd-46" value="FrontPageController" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="KQztfbYuIWHAS5Uq-7fM-13">
+          <mxGeometry x="2430" y="130" width="280" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="fkrSO4nQz_mFpn2eZVCd-47" value="- btnAdminLogin : Button&#xa;- btnEventCoLogin : Button&#xa;- txtFieldUserName : TextField&#xa;- txtPasswordField : PasswordField&#xa;- adminModel : AdminModel&#xa;- eventCoordinatorModel : EventCoordinatorModel&#xa;- errorHandling : ErrorHandling&#xa;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="fkrSO4nQz_mFpn2eZVCd-46">
+          <mxGeometry y="26" width="280" height="104" as="geometry" />
+        </mxCell>
+        <mxCell id="fkrSO4nQz_mFpn2eZVCd-48" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="fkrSO4nQz_mFpn2eZVCd-46">
+          <mxGeometry y="130" width="280" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="fkrSO4nQz_mFpn2eZVCd-49" value="+ FrontPageController()&#xa;+ AdminLogin() : void&#xa;- EventCoordinatorLogin " style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="fkrSO4nQz_mFpn2eZVCd-46">
+          <mxGeometry y="138" width="280" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="fkrSO4nQz_mFpn2eZVCd-54" value="TicketController" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="KQztfbYuIWHAS5Uq-7fM-13">
+          <mxGeometry x="2730" y="130" width="240" height="280" as="geometry" />
+        </mxCell>
+        <mxCell id="fkrSO4nQz_mFpn2eZVCd-55" value="- ticketDateTime : Text&#xa;- ticketTitle : Text&#xa;- ticketFullName : Text&#xa;- ticketLocation : Text&#xa;- ticketID : Text&#xa;- ticketInfo : TextField&#xa;- btnClose : Button&#xa;- ticketPane : AnchorPane&#xa;- ticketModel : TicketModel" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="fkrSO4nQz_mFpn2eZVCd-54">
+          <mxGeometry y="26" width="240" height="134" as="geometry" />
+        </mxCell>
+        <mxCell id="fkrSO4nQz_mFpn2eZVCd-56" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="fkrSO4nQz_mFpn2eZVCd-54">
+          <mxGeometry y="160" width="240" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="fkrSO4nQz_mFpn2eZVCd-57" value="+ initialize(URL location, ResourceBundle&#xa;resources) : void&#xa;+ setEventData (Event ev, Customer &#xa;selectedCustomerOnEvent) : void&#xa;+ generateTicket() : void&#xa;- onActionPrintTicket () : void&#xa;- onActionCloseWindow (): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="fkrSO4nQz_mFpn2eZVCd-54">
+          <mxGeometry y="168" width="240" height="112" as="geometry" />
+        </mxCell>
+        <mxCell id="fkrSO4nQz_mFpn2eZVCd-50" value="ViewEventController" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="KQztfbYuIWHAS5Uq-7fM-13">
+          <mxGeometry x="2980" y="130" width="340" height="660" as="geometry" />
+        </mxCell>
+        <mxCell id="fkrSO4nQz_mFpn2eZVCd-51" value="- txtFieldEventID : TextField&#xa;- btnClose : Button&#xa;- tvCustomers : TableView&lt;Customer&gt;&#xa;- tvCustomersOnEvent : TableView&lt;Customer&gt;&#xa;- tcCustomerIDOnEvent : TableColumn&lt;Customer, Integer&gt;&#xa;- tcFirstNameOnEvent : TableColumn&lt;Customer, String&gt;&#xa;- tcLastNameOnEvent : TableColumn&lt;Customer, String&gt;&#xa;- tcPhoneNumberOnEvent: TableColumn&lt;Customer, String&gt;&#xa;- tcEmailOnEvent : TableColumn&lt;Customer, String&gt;&#xa;- tcCustomerID : TableColumn&lt;Customer, Integer&gt;&#xa;- tcFirstName : TableColumn&lt;Customer, String&gt;&#xa;- tcLastName : TableColumn&lt;Customer, String&gt;&#xa;- tcPhoneNumber : TableColumn&lt;Customer, String&gt;&#xa;- tcEmail : TableColumn&lt;Customer, String&gt;&#xa;- allCustomers : ObservableList&lt;Customer&gt;&#xa;- allCustomersOnEvent : ObservableList&lt;Customer&gt;&#xa;- eventCoordinatorModel : EventCoordinatorModel&#xa;- customerModel : CustomerModel&#xa;- ticketModel : TicketModel&#xa;- selectedCustomer : Customer&#xa;- selectedCustomerOnEvent : Customer&#xa;- errorHandling : ErrorHandling&#xa;- passedEvent : Event&#xa;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="fkrSO4nQz_mFpn2eZVCd-50">
+          <mxGeometry y="26" width="340" height="334" as="geometry" />
+        </mxCell>
+        <mxCell id="fkrSO4nQz_mFpn2eZVCd-52" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="fkrSO4nQz_mFpn2eZVCd-50">
+          <mxGeometry y="360" width="340" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="fkrSO4nQz_mFpn2eZVCd-53" value="+ ViewEventController()&#xa;+ initalize(URL location, ResourceBundle resources) : void&#xa;- initializeTable() : void&#xa;- onActionAddSelectedToEvent : void&#xa;- onActionDeleteSelectedFromEvent : void&#xa;- onActionCreateCustomer() : void&#xa;- onActionCloseWindow() : void&#xa;- onActionSeeTicket() : void&#xa;- createAndSaveTicket() : void&#xa;- generateID() : String&#xa;- getCustomerData() : ObservableList&lt;Customer&gt;&#xa;- tableViewLoadCustomer(ObservableList&lt;Customer&gt;&#xa; allCustomers) : void&#xa;- getCustomersOnEventData() : ObservableList&lt;Customer&gt;&#xa;- tableViewLoadCustomersOnEvent(ObservableList&#xa;&lt;Customer&gt; allCustomersOnEvent) : void&#xa;- selectedCustomer() : void&#xa;- selectedCustomerOnEvent : void&#xa;- setSelectedEvent(Event event) : void&#xa;- reloadCustomersOnEvent() : void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="fkrSO4nQz_mFpn2eZVCd-50">
+          <mxGeometry y="368" width="340" height="292" as="geometry" />
         </mxCell>
         <mxCell id="KQztfbYuIWHAS5Uq-7fM-15" value="be" style="shape=folder;fontStyle=1;tabWidth=110;tabHeight=30;tabPosition=left;html=1;boundedLbl=1;labelInHeader=1;container=1;collapsible=0;" parent="1" vertex="1">
           <mxGeometry x="-3500" y="40" width="3110" height="1350" as="geometry" />
