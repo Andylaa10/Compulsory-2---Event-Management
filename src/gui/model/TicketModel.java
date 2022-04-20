@@ -29,7 +29,7 @@ public class TicketModel {
     public List<Ticket> getGeneratedTicketID(int customerId, int eventId) throws SQLServerException {
         return ticketManager.getGeneratedTicketID(customerId, eventId);
     }
-    
+
 
     /**
      * Creates a ticket using the createTicket method in ticketManagerDAO

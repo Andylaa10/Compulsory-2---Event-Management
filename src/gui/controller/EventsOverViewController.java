@@ -96,7 +96,7 @@ public class EventsOverViewController implements Initializable, IController {
     /**
      * Loading the table view
      */
-    public void initializeTable(){
+    private void initializeTable(){
         tcEventName.setCellValueFactory(new PropertyValueFactory<>("EventName"));
         tcEventDate.setCellValueFactory(new PropertyValueFactory<>("EventDate"));
         tcEventLocation.setCellValueFactory(new PropertyValueFactory<>("EventLocation"));
