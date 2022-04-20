@@ -29,15 +29,7 @@ public class TicketModel {
     public List<Ticket> getGeneratedTicketID(int customerId, int eventId) throws SQLServerException {
         return ticketManager.getGeneratedTicketID(customerId, eventId);
     }
-
-    /**
-     * Gets the list of ticket using the getTicket method in ticketManagerDAO.
-     * @return a list of ticket
-     */
-    public List<Ticket> getTickets() {
-        List<Ticket> allTickets = ticketManager.getTickets();
-        return allTickets;
-    }
+    
 
     /**
      * Creates a ticket using the createTicket method in ticketManagerDAO
@@ -58,11 +50,4 @@ public class TicketModel {
         ticketManager.deleteTicket(id);
     }
 
-    /**
-     * Edits a ticket using the editTicket from ticketManagerDAO
-     * @param ticket
-     */
-    public void editTicket(Ticket ticket) {
-        ticketManager.editTicket(ticket);
-    }
 }
