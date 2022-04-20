@@ -176,10 +176,6 @@ public class ViewEventController implements Initializable {
         int customerID = selectedCustomer.getId();
         String generatedTicketID = GenerateID();
 
-        System.out.println(eventID);
-        System.out.println(customerID);
-        System.out.println(generatedTicketID);
-
         ticketModel.createTicket(eventID, customerID, generatedTicketID);
     }
 

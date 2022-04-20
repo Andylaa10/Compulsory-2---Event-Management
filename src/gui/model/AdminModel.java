@@ -24,25 +24,6 @@ public class AdminModel {
     }
 
     /**
-     * Gets the list of admin using the getAdmins method in adminManager
-     * @return a list of admin
-     */
-    public List<Admin> getAdmins() {
-        List<Admin> allAdmins = adminManager.getAdmins();
-        return allAdmins;
-    }
-
-    /**
-     * Edits admin using the editAdmin from adminManager
-     * @param admin
-     */
-    public void editAdmin(Admin admin) {
-        adminManager.editAdmin(admin);
-    }
-
-
-
-    /**
      * Gets the list of coordinator using the getCoordinator method in eventCoordinatorManager
      * @return a list of coordinator
      */
@@ -70,13 +51,6 @@ public class AdminModel {
         adminManager.deleteCoordinator(id);
     }
 
-    /**
-     * Edits a coordinator using the editCoordinator from eventCoordinatorManager
-     * @param eventCoordinator
-     */
-    public void editCoordinator(EventCoordinator eventCoordinator) {
-        adminManager.editCoordinator(eventCoordinator);
-    }
 
     /**
      * Gets the coordinator on event using getCoordinatorsOnEvent from adminManager
