@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-04-21T06:33:40.984Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36" etag="ONT1BGl7k1s6FXWvb6cL" version="17.4.6" type="github" pages="2">
+<mxfile host="app.diagrams.net" modified="2022-04-21T06:40:54.364Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36" etag="3-d_H8qn8g1TW5iHgn6K" version="17.4.6" type="github" pages="2">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
     <mxGraphModel dx="827" dy="575" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -122,12 +122,12 @@
     </mxGraphModel>
   </diagram>
   <diagram id="cWyKIdcc0OiF6iNw18U0" name="UML - Event Management">
-    <mxGraphModel dx="5258" dy="1949" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="9375" dy="4809" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="KQztfbYuIWHAS5Uq-7fM-13" value="gui" style="shape=folder;fontStyle=1;tabWidth=110;tabHeight=30;tabPosition=left;html=1;boundedLbl=1;labelInHeader=1;container=1;collapsible=0;" parent="1" vertex="1">
-          <mxGeometry x="-1110" y="-1119" width="3330" height="1070" as="geometry" />
+          <mxGeometry x="870" y="-800" width="3330" height="1070" as="geometry" />
         </mxCell>
         <mxCell id="KQztfbYuIWHAS5Uq-7fM-14" value="" style="html=1;strokeColor=none;resizeWidth=1;resizeHeight=1;fillColor=none;part=1;connectable=0;allowArrows=0;deletable=0;" parent="KQztfbYuIWHAS5Uq-7fM-13" vertex="1">
           <mxGeometry width="3330.0000000000023" height="749.0000000000001" relative="1" as="geometry">
@@ -407,8 +407,14 @@
         <mxCell id="fkrSO4nQz_mFpn2eZVCd-53" value="+ ViewEventController()&#xa;+ initalize(URL location, ResourceBundle resources) : void&#xa;- initializeTable() : void&#xa;- onActionAddSelectedToEvent : void&#xa;- onActionDeleteSelectedFromEvent : void&#xa;- onActionCreateCustomer() : void&#xa;- onActionCloseWindow() : void&#xa;- onActionSeeTicket() : void&#xa;- createAndSaveTicket() : void&#xa;- generateID() : String&#xa;- getCustomerData() : ObservableList&lt;Customer&gt;&#xa;- tableViewLoadCustomer(ObservableList&lt;Customer&gt;&#xa; allCustomers) : void&#xa;- getCustomersOnEventData() : ObservableList&lt;Customer&gt;&#xa;- tableViewLoadCustomersOnEvent(ObservableList&#xa;&lt;Customer&gt; allCustomersOnEvent) : void&#xa;- selectedCustomer() : void&#xa;- selectedCustomerOnEvent : void&#xa;- setSelectedEvent(Event event) : void&#xa;- reloadCustomersOnEvent() : void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="fkrSO4nQz_mFpn2eZVCd-50" vertex="1">
           <mxGeometry y="368" width="340" height="292" as="geometry" />
         </mxCell>
+        <mxCell id="EBMGG7iupC_hOJ3HfBsx-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="KQztfbYuIWHAS5Uq-7fM-15" target="KQztfbYuIWHAS5Uq-7fM-17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="KQztfbYuIWHAS5Uq-7fM-15" value="be" style="shape=folder;fontStyle=1;tabWidth=110;tabHeight=30;tabPosition=left;html=1;boundedLbl=1;labelInHeader=1;container=1;collapsible=0;" parent="1" vertex="1">
           <mxGeometry x="-3500" y="40" width="3110" height="1350" as="geometry" />
+        </mxCell>
+        <mxCell id="EBMGG7iupC_hOJ3HfBsx-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.188;entryY=0.021;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="KQztfbYuIWHAS5Uq-7fM-17" target="KQztfbYuIWHAS5Uq-7fM-19">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="KQztfbYuIWHAS5Uq-7fM-17" value="bll" style="shape=folder;fontStyle=1;tabWidth=110;tabHeight=30;tabPosition=left;html=1;boundedLbl=1;labelInHeader=1;container=1;collapsible=0;" parent="1" vertex="1">
           <mxGeometry x="-120" y="1030" width="2910" height="1250" as="geometry" />
@@ -657,8 +663,11 @@
         <mxCell id="IkmwUz746-3Ja9sXviJ0-12" value="+ editTicket(Ticket ticket) : void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;html=0;" parent="477YEaLA6EIRQnJQrf2G-96" vertex="1">
           <mxGeometry y="164" width="500" height="26" as="geometry" />
         </mxCell>
+        <mxCell id="EBMGG7iupC_hOJ3HfBsx-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.75;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="KQztfbYuIWHAS5Uq-7fM-19" target="KQztfbYuIWHAS5Uq-7fM-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="KQztfbYuIWHAS5Uq-7fM-19" value="dal" style="shape=folder;fontStyle=1;tabWidth=110;tabHeight=30;tabPosition=left;html=1;boundedLbl=1;labelInHeader=1;container=1;collapsible=0;" parent="1" vertex="1">
-          <mxGeometry x="-50" y="2410" width="2640" height="980" as="geometry" />
+          <mxGeometry x="2210" y="2450" width="2640" height="980" as="geometry" />
         </mxCell>
         <mxCell id="KQztfbYuIWHAS5Uq-7fM-20" value="" style="html=1;strokeColor=none;resizeWidth=1;resizeHeight=1;fillColor=none;part=1;connectable=0;allowArrows=0;deletable=0;" parent="KQztfbYuIWHAS5Uq-7fM-19" vertex="1">
           <mxGeometry width="2640" height="908.2926829268293" relative="1" as="geometry">
@@ -1233,6 +1242,9 @@
         </mxCell>
         <mxCell id="IkmwUz746-3Ja9sXviJ0-52" value="+ setTickets(List&lt;Ticket&gt; : tickets) : void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;html=0;" parent="477YEaLA6EIRQnJQrf2G-5" vertex="1">
           <mxGeometry y="542" width="496.55" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="EBMGG7iupC_hOJ3HfBsx-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="KQztfbYuIWHAS5Uq-7fM-17" target="KQztfbYuIWHAS5Uq-7fM-17">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
