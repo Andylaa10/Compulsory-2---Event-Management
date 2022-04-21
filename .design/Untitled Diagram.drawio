@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-04-21T06:51:39.430Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36" etag="w-7Iq8yRo7rtvAPrZjEr" version="17.4.6" type="github" pages="2">
+<mxfile host="app.diagrams.net" modified="2022-04-21T07:10:08.838Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36" etag="6MoJObtdCaFQK1RiIexF" version="17.4.6" type="github" pages="2">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
     <mxGraphModel dx="786" dy="546" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -122,7 +122,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="cWyKIdcc0OiF6iNw18U0" name="UML - Event Management">
-    <mxGraphModel dx="5258" dy="1949" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="5882" dy="2382" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -228,7 +228,7 @@
           <mxGeometry y="26" width="145.22" height="34" as="geometry" />
         </mxCell>
         <mxCell id="KxQNIcw2pVXfr_KNHga3-180" value="AdminModel" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="KQztfbYuIWHAS5Uq-7fM-13" vertex="1">
-          <mxGeometry x="7.03" y="790" width="362.97" height="270" as="geometry" />
+          <mxGeometry x="387.03" y="790" width="362.97" height="270" as="geometry" />
         </mxCell>
         <mxCell id="KxQNIcw2pVXfr_KNHga3-181" value="- adminManager : AdminManager" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="KxQNIcw2pVXfr_KNHga3-180" vertex="1">
           <mxGeometry y="26" width="362.97" height="26" as="geometry" />
@@ -240,7 +240,7 @@
           <mxGeometry y="60" width="362.97" height="210" as="geometry" />
         </mxCell>
         <mxCell id="IkmwUz746-3Ja9sXviJ0-29" value="CustomerModel" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="KQztfbYuIWHAS5Uq-7fM-13" vertex="1">
-          <mxGeometry x="390" y="790" width="430" height="228" as="geometry" />
+          <mxGeometry x="760" y="800" width="430" height="228" as="geometry" />
         </mxCell>
         <mxCell id="IkmwUz746-3Ja9sXviJ0-30" value="- customerModel : CustomerModel" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="IkmwUz746-3Ja9sXviJ0-29" vertex="1">
           <mxGeometry y="26" width="430" height="26" as="geometry" />
@@ -267,7 +267,7 @@
           <mxGeometry y="202" width="430" height="26" as="geometry" />
         </mxCell>
         <mxCell id="IkmwUz746-3Ja9sXviJ0-25" value="EventCoordinatorModel" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="KQztfbYuIWHAS5Uq-7fM-13" vertex="1">
-          <mxGeometry x="1690" y="764" width="350" height="140" as="geometry" />
+          <mxGeometry y="829" width="350" height="140" as="geometry" />
         </mxCell>
         <mxCell id="IkmwUz746-3Ja9sXviJ0-26" value="- eventCoordinatorManager : EventCoordinatorManager" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="IkmwUz746-3Ja9sXviJ0-25" vertex="1">
           <mxGeometry y="26" width="350" height="26" as="geometry" />
@@ -279,7 +279,7 @@
           <mxGeometry y="60" width="350" height="80" as="geometry" />
         </mxCell>
         <mxCell id="IkmwUz746-3Ja9sXviJ0-21" value="EventModel" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="KQztfbYuIWHAS5Uq-7fM-13" vertex="1">
-          <mxGeometry x="839.9999999999999" y="764" width="381.64" height="296" as="geometry" />
+          <mxGeometry x="1530" y="720" width="381.64" height="296" as="geometry" />
         </mxCell>
         <mxCell id="IkmwUz746-3Ja9sXviJ0-22" value="- eventsToBeViewed : ObservableList&lt;Event&gt;&#xa;- eventManager : EventManager" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="IkmwUz746-3Ja9sXviJ0-21" vertex="1">
           <mxGeometry y="26" width="381.64" height="44" as="geometry" />
@@ -291,7 +291,7 @@
           <mxGeometry y="78" width="381.64" height="218" as="geometry" />
         </mxCell>
         <mxCell id="IkmwUz746-3Ja9sXviJ0-17" value="TicketModel" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="KQztfbYuIWHAS5Uq-7fM-13" vertex="1">
-          <mxGeometry x="1240" y="764" width="410" height="130" as="geometry" />
+          <mxGeometry x="2460" y="740" width="410" height="130" as="geometry" />
         </mxCell>
         <mxCell id="IkmwUz746-3Ja9sXviJ0-18" value="- ticketManager : TicketManager" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="IkmwUz746-3Ja9sXviJ0-17" vertex="1">
           <mxGeometry y="26" width="410" height="26" as="geometry" />
@@ -301,6 +301,9 @@
         </mxCell>
         <mxCell id="IkmwUz746-3Ja9sXviJ0-20" value="+ TicketModel()&#xa;+ getGeneratedTicketID(int customerId, int eventId) : List&lt;Ticket&gt;&#xa;+ createTicket (int eventId, int customerId, String generatedTicketID) : void&#xa;+ deleteTicket(int id) : void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="IkmwUz746-3Ja9sXviJ0-17" vertex="1">
           <mxGeometry y="60" width="410" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="REXnXmYPsdVmdEOPgSTB-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="KQztfbYuIWHAS5Uq-7fM-13" source="fkrSO4nQz_mFpn2eZVCd-5" target="IkmwUz746-3Ja9sXviJ0-25">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="fkrSO4nQz_mFpn2eZVCd-5" value="AddCoordinatorToEventController" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="KQztfbYuIWHAS5Uq-7fM-13" vertex="1">
           <mxGeometry x="7.03" y="130" width="402.97" height="620" as="geometry" />
@@ -314,6 +317,9 @@
         <mxCell id="fkrSO4nQz_mFpn2eZVCd-8" value="+ AddCoordinatorToEventController()&#xa;- handleBtnBack() : void&#xa;+ initialize (URL location, ResourceBundle resources) : void&#xa;+ initializeTable() : void&#xa;+ seeCoordinatorsOnEvent() : void&#xa;- handleBtnAddSelectedToEvent() : void&#xa;- handleBtnDeleteSelectedFromEvent() void&#xa;+ reloadCoordinatorOnEvent () : void&#xa;- tableViewLoadCoordinator (ObservableList&lt;EventCoordinator&gt;&#xa;allCoordinators) : void&#xa;-  getCoordinatorData() : ObservableList&lt;EventCoordinator&gt;&#xa;- tableViewLoadEvents(ObservableList&lt;Event&gt; allEvents) : void&#xa;- getEventData : ObservableList&lt;Event&gt; &#xa;- tableViewLoadCoordinatorOnEvent (ObservableList&lt;EventCoordinator&gt;&#xa;allCoordinatorOnEvent) : void&#xa;- getCoordinatorOnEventData() : ObservableList&lt;EventCoordinator&gt;&#xa;- selectedCoordinator() : void&#xa;- selectedCoordinatorOnEvent() : void&#xa;- selectedEvent() : void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="fkrSO4nQz_mFpn2eZVCd-5" vertex="1">
           <mxGeometry y="348" width="402.97" height="272" as="geometry" />
         </mxCell>
+        <mxCell id="REXnXmYPsdVmdEOPgSTB-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="KQztfbYuIWHAS5Uq-7fM-13" source="fkrSO4nQz_mFpn2eZVCd-13" target="KxQNIcw2pVXfr_KNHga3-180">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="fkrSO4nQz_mFpn2eZVCd-13" value="AdminController" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="KQztfbYuIWHAS5Uq-7fM-13" vertex="1">
           <mxGeometry x="420" y="130" width="240" height="160" as="geometry" />
         </mxCell>
@@ -325,6 +331,9 @@
         </mxCell>
         <mxCell id="fkrSO4nQz_mFpn2eZVCd-16" value="+ AdminController()&#xa;- LogOutFromAdmin() : void&#xa;- handleBtnCreateCustomer() : void&#xa;- handleBtnCreateEvent() : void&#xa;- handleBtnCreateCoordinator() : void&#xa;- handleBtnAddCoordinatorToEvent() : void&#xa;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="fkrSO4nQz_mFpn2eZVCd-13" vertex="1">
           <mxGeometry y="60" width="240" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="REXnXmYPsdVmdEOPgSTB-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="KQztfbYuIWHAS5Uq-7fM-13" source="fkrSO4nQz_mFpn2eZVCd-17" target="IkmwUz746-3Ja9sXviJ0-25">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="fkrSO4nQz_mFpn2eZVCd-17" value="CreateCoordinatorController" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="KQztfbYuIWHAS5Uq-7fM-13" vertex="1">
           <mxGeometry x="680" y="130" width="330" height="360" as="geometry" />
@@ -373,6 +382,9 @@
         </mxCell>
         <mxCell id="fkrSO4nQz_mFpn2eZVCd-36" value="+ EditCustomerController ()&#xa;- onActionSaveCustomer() : void&#xa;- handleBtnBack () : void&#xa;- setSelectedCustomer(Customer customer) : void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="fkrSO4nQz_mFpn2eZVCd-33" vertex="1">
           <mxGeometry y="198" width="290" height="72" as="geometry" />
+        </mxCell>
+        <mxCell id="REXnXmYPsdVmdEOPgSTB-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1.014;entryY=0.071;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="KQztfbYuIWHAS5Uq-7fM-13" source="fkrSO4nQz_mFpn2eZVCd-38" target="IkmwUz746-3Ja9sXviJ0-22">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="fkrSO4nQz_mFpn2eZVCd-38" value="EditEventController" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="KQztfbYuIWHAS5Uq-7fM-13" vertex="1">
           <mxGeometry x="1900" y="130" width="230" height="300" as="geometry" />
@@ -438,6 +450,15 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="REXnXmYPsdVmdEOPgSTB-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="KQztfbYuIWHAS5Uq-7fM-13" source="KxQNIcw2pVXfr_KNHga3-146" target="fkrSO4nQz_mFpn2eZVCd-50">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="REXnXmYPsdVmdEOPgSTB-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="KQztfbYuIWHAS5Uq-7fM-13" source="fkrSO4nQz_mFpn2eZVCd-24" target="IkmwUz746-3Ja9sXviJ0-29">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="REXnXmYPsdVmdEOPgSTB-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="KQztfbYuIWHAS5Uq-7fM-13" source="fkrSO4nQz_mFpn2eZVCd-32" target="IkmwUz746-3Ja9sXviJ0-21">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="REXnXmYPsdVmdEOPgSTB-20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="KQztfbYuIWHAS5Uq-7fM-13" source="fkrSO4nQz_mFpn2eZVCd-57" target="IkmwUz746-3Ja9sXviJ0-17">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="EBMGG7iupC_hOJ3HfBsx-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="KQztfbYuIWHAS5Uq-7fM-15" target="KQztfbYuIWHAS5Uq-7fM-17" edge="1">
