@@ -95,7 +95,7 @@ public class EventCoordinatorDAO {
      * @return an eventCoordinator
      * @throws SQLServerException
      */
-    public EventCoordinator Login(String user, String pass) throws SQLServerException {
+    public EventCoordinator Login(String user, String pass) {
         String sql = "SELECT * FROM Login WHERE username =? AND password =?;";
         try(Connection connection = connector.getConnection()){
             PreparedStatement st = connection.prepareStatement(sql);

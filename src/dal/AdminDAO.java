@@ -231,7 +231,7 @@ public class AdminDAO {
      * @return Admin from database
      * @throws SQLServerException
      */
-    public Admin Login(String user, String pass) throws SQLServerException {
+    public Admin Login(String user, String pass) {
         String sql = "SELECT * FROM Login WHERE username =? AND password =?;";
         try(Connection connection = connector.getConnection()){
             PreparedStatement st = connection.prepareStatement(sql);
