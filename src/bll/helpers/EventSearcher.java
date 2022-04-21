@@ -19,8 +19,6 @@ public class EventSearcher {
         for (Event event : searchBase) {
             if (compareToEventTitle(query, event) | compareToEventDate(query, event) | compareToEventInfo(query, event) | compareToEventTime(query, event) | compareToEventLocation(query, event)) {
                 searchResult.add(event);
-            } else{
-                throw new IllegalArgumentException("Nothing is found");
             }
         }
         return searchResult;
