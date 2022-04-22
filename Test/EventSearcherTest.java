@@ -1,6 +1,5 @@
-package bll.helpers;
-
 import be.Event;
+import bll.helpers.EventSearcher;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
